@@ -1,0 +1,2273 @@
+{
+	"ver": "201808291549 过滤单",
+	"data": [{
+		"CODE": "ABJ",
+		"CITY": "阿比让",
+		"keyword": "阿比让 Abidjan abirang ABR ABJ ABJ"
+	}, {
+		"CODE": "ABV",
+		"CITY": "阿布贾",
+		"keyword": "阿布贾 Abuja abujia ABJ ABV ABV"
+	}, {
+		"CODE": "ADL",
+		"CITY": "阿德莱德",
+		"keyword": "阿德莱德 Adelaide adelaide ADLD ADL ADL"
+	}, {
+		"CODE": "ALG",
+		"CITY": "阿尔及尔",
+		"keyword": "阿尔及尔 Algiers aerjier AEJE ALG ALG"
+	}, {
+		"CODE": "YIE",
+		"CITY": "阿尔山",
+		"keyword": "阿尔山 Aershan aershan AES YIE YIE"
+	}, {
+		"CODE": "ACC",
+		"CITY": "阿克拉",
+		"keyword": "阿克拉 Accra akela AKL ACC ACC"
+	}, {
+		"CODE": "AKU",
+		"CITY": "阿克苏",
+		"keyword": "阿克苏 Aksu akesu AKS AKU AKU"
+	}, {
+		"CODE": "ALA",
+		"CITY": "阿拉木图",
+		"keyword": "阿拉木图 Alma-Ata alamutu ALMT ALA ALA"
+	}, {
+		"CODE": "AXF",
+		"CITY": "阿拉善盟",
+		"keyword": "阿拉善盟 Alashanzuoqi alashanzuoqi ALSZQ RHT AXF"
+	}, {
+		"CODE": "AAT",
+		"CITY": "阿勒泰",
+		"keyword": "阿勒泰 Aletai aletai ALT AAT AAT"
+	}, {
+		"CODE": "NGQ",
+		"CITY": "阿里",
+		"keyword": "阿里 Ali ali AL NGQ NGQ"
+	}, {
+		"CODE": "ATQ",
+		"CITY": "阿姆利则",
+		"keyword": "阿姆利则 Amritsar amulize AMLZ ATQ ATQ"
+	}, {
+		"CODE": "AMS",
+		"CITY": "阿姆斯特丹",
+		"keyword": "阿姆斯特丹 Amsterdam amusitedan AMSTD AMS AMS"
+	}, {
+		"CODE": "APW",
+		"CITY": "阿皮亚",
+		"keyword": "阿皮亚 Apia apiya APY APW APW"
+	}, {
+		"CODE": "ASB",
+		"CITY": "阿什哈巴德",
+		"keyword": "阿什哈巴德 Ashkhabad ashihabade ASHBD ASB ASB"
+	}, {
+		"CODE": "TSE",
+		"CITY": "阿斯塔纳",
+		"keyword": "阿斯塔纳 Astana asitana ASTN TSE TSE"
+	}, {
+		"CODE": "CAN",
+		"CITY": "广州",
+		"keyword": "广州 Guangzhou guangzhou GZ CAN CAN"
+	}, {
+		"CODE": "YEA",
+		"CITY": "埃德蒙顿",
+		"keyword": "埃德蒙顿 Edmonton aidemengdun ADMD YEG YEA"
+	}, {
+		"CODE": "EDI",
+		"CITY": "爱丁堡",
+		"keyword": "爱丁堡 Edinburgh aidingbao ADB EDI EDI"
+	}, {
+		"CODE": "AMD",
+		"CITY": "艾哈迈达巴德",
+		"keyword": "艾哈迈达巴德 Ahmedabad aihamaidabade AHMDBD AMD AMD"
+	}, {
+		"CODE": "EMD",
+		"CITY": "埃默拉尔德",
+		"keyword": "埃默拉尔德 Emerald aimolaerde AMLED EMD EMD"
+	}, {
+		"CODE": "AKA",
+		"CITY": "安康",
+		"keyword": "安康 Ankang ankang AK AKA AKA"
+	}, {
+		"CODE": "ANC",
+		"CITY": "安克雷奇",
+		"keyword": "安克雷奇 Anchorage ankeleiqi AKLQ ANC ANC"
+	}, {
+		"CODE": "AMM",
+		"CITY": "安曼",
+		"keyword": "安曼 Amman anman AM AMM AMM"
+	}, {
+		"CODE": "AQG",
+		"CITY": "安庆",
+		"keyword": "安庆 Anqing anqing AQ AQG AQG"
+	}, {
+		"CODE": "AOG",
+		"CITY": "鞍山",
+		"keyword": "鞍山 Anshan anshan AS AOG AOG"
+	}, {
+		"CODE": "AVA",
+		"CITY": "安顺",
+		"keyword": "安顺 Anshun anshun AS AVA AVA"
+	}, {
+		"CODE": "AKL",
+		"CITY": "奥克兰",
+		"keyword": "奥克兰 Auckland aokelan AKL AKL AKL"
+	}, {
+		"CODE": "ORL",
+		"CITY": "奥兰多",
+		"keyword": "奥兰多 Orlando aolanduo ALD MCO ORL"
+	}, {
+		"CODE": "OSS",
+		"CITY": "奥什",
+		"keyword": "奥什 Osh aoshi AS OSS OSS"
+	}, {
+		"CODE": "OSL",
+		"CITY": "奥斯陆",
+		"keyword": "奥斯陆 Oslo aosilu OSL OSL OSL"
+	}, {
+		"CODE": "AUS",
+		"CITY": "奥斯汀",
+		"keyword": "奥斯汀 Austin aosiding ASD AUS AUS"
+	}, {
+		"CODE": "IXB",
+		"CITY": "巴格多格拉",
+		"keyword": "巴格多格拉 Bagdogra bageduogela BGDGL IXB IXB"
+	}, {
+		"CODE": "BAK",
+		"CITY": "巴库",
+		"keyword": "巴库 Baku baku BK GYD BAK"
+	}, {
+		"CODE": "PAR",
+		"CITY": "巴黎",
+		"keyword": "巴黎 Paris bali BL CDG PAR"
+	}, {
+		"CODE": "BPN",
+		"CITY": "巴厘巴板",
+		"keyword": "巴厘巴板 Balikpapan balibaban BLBB BPN BPN"
+	}, {
+		"CODE": "DPS",
+		"CITY": "巴厘岛",
+		"keyword": "巴厘岛 DenpasarBali balidao BLD DPS DPS"
+	}, {
+		"CODE": "BAH",
+		"CITY": "巴林",
+		"keyword": "巴林 Bahrain balin BL BAH BAH"
+	}, {
+		"CODE": "PLM",
+		"CITY": "巴邻旁",
+		"keyword": "巴邻旁 Palembang balinpang BLP PLM PLM"
+	}, {
+		"CODE": "VLC",
+		"CITY": "巴伦西亚",
+		"keyword": "巴伦西亚 Valencia balunxiya BLXY VLC VLC"
+	}, {
+		"CODE": "BDQ",
+		"CITY": "巴罗达",
+		"keyword": "巴罗达 Vadodara baluoda BLD BDQ BDQ"
+	}, {
+		"CODE": "BKO",
+		"CITY": "巴马科",
+		"keyword": "巴马科 Bamako bamake BAMAKE BKO BKO"
+	}, {
+		"CODE": "PTY",
+		"CITY": "巴拿马城",
+		"keyword": "巴拿马城 Panamacity banamacheng BNMC PTY PTY"
+	}, {
+		"CODE": "BCN",
+		"CITY": "巴塞罗那",
+		"keyword": "巴塞罗那 Barcelona basailuona BSLN BCN BCN"
+	}, {
+		"CODE": "PAT",
+		"CITY": "巴特那",
+		"keyword": "巴特那 Patna batena BTN PAT PAT"
+	}, {
+		"CODE": "UTP",
+		"CITY": "芭提雅",
+		"keyword": "芭提雅 Pattaya batiya BTY UTP UTP"
+	}, {
+		"CODE": "PVR",
+		"CITY": "巴亚尔塔港",
+		"keyword": "巴亚尔塔港 Puertoescondido bayaertagang BYETG PVR PVR"
+	}, {
+		"CODE": "AEB",
+		"CITY": "百色",
+		"keyword": "百色 Baise baise BS AEB AEB"
+	}, {
+		"CODE": "BDB",
+		"CITY": "班达伯格",
+		"keyword": "班达伯格 Bundaberg bandaboge BDBG BDB BDB"
+	}, {
+		"CODE": "BLR",
+		"CITY": "班加罗尔",
+		"keyword": "班加罗尔 Bengaluru banjialuoer BJLE BLR BLR"
+	}, {
+		"CODE": "BSD",
+		"CITY": "保山",
+		"keyword": "保山 Baoshan baoshan BS BSD BSD"
+	}, {
+		"CODE": "BAV",
+		"CITY": "包头",
+		"keyword": "包头 Baotou baotou BT BAV BAV"
+	}, {
+		"CODE": "BFS",
+		"CITY": "贝尔法斯特",
+		"keyword": "贝尔法斯特 Belfast beierfasite BEFST BHD BFS"
+	}, {
+		"CODE": "BEG",
+		"CITY": "贝尔格莱德",
+		"keyword": "贝尔格莱德 Belgrade beiergelaide BEGLD BEG BEG"
+	}, {
+		"CODE": "BHY",
+		"CITY": "北海",
+		"keyword": "北海 Beihai beihai BH BHY BHY"
+	}, {
+		"CODE": "PEK",
+		"CITY": "北京",
+		"keyword": "北京 Beijing beijing BJ PEK PEK"
+	}, {
+		"CODE": "KKJ",
+		"CITY": "北九州",
+		"keyword": "北九州 Kitakyushu beijiuzhou BJZ KKJ KKJ"
+	}, {
+		"CODE": "BEY",
+		"CITY": "贝鲁特",
+		"keyword": "贝鲁特 Beirut beilute BLT BEY BEY"
+	}, {
+		"CODE": "BFJ",
+		"CITY": "毕节",
+		"keyword": "毕节 Bijie bijie BJ BFJ BFJ"
+	}, {
+		"CODE": "PSA",
+		"CITY": "比萨",
+		"keyword": "比萨 Pisa bisa BS PSA PSA"
+	}, {
+		"CODE": "FRU",
+		"CITY": "比什凯克",
+		"keyword": "比什凯克 Bishkek bishikaike BSKK FRU FRU"
+	}, {
+		"CODE": "PEN",
+		"CITY": "槟城",
+		"keyword": "槟城 Penang bincheng BC PEN PEN"
+	}, {
+		"CODE": "BOD",
+		"CITY": "波尔多",
+		"keyword": "波尔多 Bordeaux boerduo BER BOD BOD"
+	}, {
+		"CODE": "OPO",
+		"CITY": "波尔图",
+		"keyword": "波尔图 Porto boertu BET OPO OPO"
+	}, {
+		"CODE": "BOG",
+		"CITY": "波哥大",
+		"keyword": "波哥大 Bogota bogeda BGD BOG BOG"
+	}, {
+		"CODE": "BPL",
+		"CITY": "博乐",
+		"keyword": "博乐 Bole bole BL BPL BPL"
+	}, {
+		"CODE": "BER",
+		"CITY": "柏林",
+		"keyword": "柏林 Berlin bailin BL TXL BER"
+	}, {
+		"CODE": "BLQ",
+		"CITY": "博洛尼亚",
+		"keyword": "博洛尼亚 Bologna boluoniya BLNY BLQ BLQ"
+	}, {
+		"CODE": "BHX",
+		"CITY": "伯明翰",
+		"keyword": "伯明翰 Birmingham bominghan BMH BHX BHX"
+	}, {
+		"CODE": "BHO",
+		"CITY": "博帕尔",
+		"keyword": "博帕尔 Bhopal bopaer BPE BHO BHO"
+	}, {
+		"CODE": "BOS",
+		"CITY": "波士顿",
+		"keyword": "波士顿 Boston boshidun BSD BOS BOS"
+	}, {
+		"CODE": "PDX",
+		"CITY": "波特兰",
+		"keyword": "波特兰 Portland botelan BTL PDX PDX"
+	}, {
+		"CODE": "BZN",
+		"CITY": "博兹曼",
+		"keyword": "博兹曼 Bozeman boziman BZM BZN BZN"
+	}, {
+		"CODE": "BUF",
+		"CITY": "布法罗",
+		"keyword": "布法罗 Buffalo bufaluo BUF BUF BUF"
+	}, {
+		"CODE": "BUH",
+		"CITY": "布加勒斯特",
+		"keyword": "布加勒斯特 Bucharest bujialesite BJLST OTP BUH"
+	}, {
+		"CODE": "PRG",
+		"CITY": "布拉格",
+		"keyword": "布拉格 Prague bulage BLG PRG PRG"
+	}, {
+		"CODE": "BNE",
+		"CITY": "布里斯班",
+		"keyword": "布里斯班 Brisbane bulisiban BLSB BNE BNE"
+	}, {
+		"CODE": "BRU",
+		"CITY": "布鲁塞尔",
+		"keyword": "布鲁塞尔 Brussels bulusaier BLSE BRU BRU"
+	}, {
+		"CODE": "BUE",
+		"CITY": "布宜诺斯艾利斯",
+		"keyword": "布宜诺斯艾利斯 Buenosaires buyinuosiailisi BYNSALS AEP BUE"
+	}, {
+		"CODE": "CWJ",
+		"CITY": "沧源",
+		"keyword": "沧源 Cangyuan cangyuan CY CWJ CWJ"
+	}, {
+		"CODE": "NBS",
+		"CITY": "长白山",
+		"keyword": "长白山 Changbaishan changbaishan CBS NBS NBS"
+	}, {
+		"CODE": "CGQ",
+		"CITY": "长春",
+		"keyword": "长春 Changchun changchun CC CGQ CGQ"
+	}, {
+		"CODE": "CGD",
+		"CITY": "常德",
+		"keyword": "常德 Changde changde CD CGD CGD"
+	}, {
+		"CODE": "IXC",
+		"CITY": "昌迪加尔",
+		"keyword": "昌迪加尔 Chandigarh changdijiaer CDJE IXC IXC"
+	}, {
+		"CODE": "BPX",
+		"CITY": "昌都",
+		"keyword": "昌都 Qamdo changdu CD BPX BPX"
+	}, {
+		"CODE": "NGS",
+		"CITY": "长崎",
+		"keyword": "长崎 Nagasaki changqi CQ NGS NGS"
+	}, {
+		"CODE": "CSX",
+		"CITY": "长沙",
+		"keyword": "长沙 Changsha changsha CS CSX CSX"
+	}, {
+		"CODE": "CIH",
+		"CITY": "长治",
+		"keyword": "长治 Changzhi changzhi CZ CIH CIH"
+	}, {
+		"CODE": "CZX",
+		"CITY": "常州",
+		"keyword": "常州 Changzhou changzhou CZ CZX CZX"
+	}, {
+		"CODE": "CHG",
+		"CITY": "朝阳",
+		"keyword": "朝阳 Chaoyang chaoyang CY CHG CHG"
+	}, {
+		"CODE": "CTU",
+		"CITY": "成都",
+		"keyword": "成都 Chengdu chengdu CD CTU CTU"
+	}, {
+		"CODE": "CIF",
+		"CITY": "赤峰",
+		"keyword": "赤峰 Chifeng chifeng CF CIF CIF"
+	}, {
+		"CODE": "JUH",
+		"CITY": "池州",
+		"keyword": "池州 Chizhou chizhou CZ JUH JUH"
+	}, {
+		"CODE": "CKG",
+		"CITY": "重庆",
+		"keyword": "重庆 Chongqing chongqing CQ CKG CKG"
+	}, {
+		"CODE": "OKA",
+		"CITY": "冲绳",
+		"keyword": "冲绳 Okinawa chongsheng CS OKA OKA"
+	}, {
+		"CODE": "IBR",
+		"CITY": "茨城",
+		"keyword": "茨城 Ibaraki cicheng CC IBR IBR"
+	}, {
+		"CODE": "DAA",
+		"CITY": "大安",
+		"keyword": "大安 Daan daan DA LIA DAA"
+	}, {
+		"CODE": "OSA",
+		"CITY": "大阪",
+		"keyword": "大阪 Osaka daban DB KIX OSA"
+	}, {
+		"CODE": "DRW",
+		"CITY": "达尔文",
+		"keyword": "达尔文 Darwin daerwen DEW DRW DRW"
+	}, {
+		"CODE": "DAC",
+		"CITY": "达卡",
+		"keyword": "达卡 Dhaka daka DK DAC DAC"
+	}, {
+		"CODE": "DKR",
+		"CITY": "达喀尔",
+		"keyword": "达喀尔 Dakar dakaer DKE DKR DKR"
+	}, {
+		"CODE": "DFW",
+		"CITY": "达拉斯-沃斯堡",
+		"keyword": "达拉斯-沃斯堡 Dallas/FortWorth dalasiwosibao DLSASB DFW DFW"
+	}, {
+		"CODE": "DAR",
+		"CITY": "达累斯萨拉姆",
+		"keyword": "达累斯萨拉姆 DarEsSalaam daleisisalamu DLSSLM DAR DAR"
+	}, {
+		"CODE": "DLU",
+		"CITY": "大理",
+		"keyword": "大理 Dali dali DL DLU DLU"
+	}, {
+		"CODE": "DLC",
+		"CITY": "大连",
+		"keyword": "大连 Dalian dalian DL DLC DLC"
+	}, {
+		"CODE": "DMM",
+		"CITY": "达曼",
+		"keyword": "达曼 Dammam daman DM DMM DMM"
+	}, {
+		"CODE": "DUD",
+		"CITY": "达尼丁",
+		"keyword": "达尼丁 Dunedin daniding DND DUD DUD"
+	}, {
+		"CODE": "DQA",
+		"CITY": "大庆",
+		"keyword": "大庆 Daqing daqing DQ DQA DQA"
+	}, {
+		"CODE": "TAE",
+		"CITY": "大邱",
+		"keyword": "大邱 Taegu daqiu DQ TAE TAE"
+	}, {
+		"CODE": "DAT",
+		"CITY": "大同",
+		"keyword": "大同 Datong datong DT DAT DAT"
+	}, {
+		"CODE": "DAX",
+		"CITY": "达州",
+		"keyword": "达州 Dazhou dazhou DZ DAX DAX"
+	}, {
+		"CODE": "DDG",
+		"CITY": "丹东",
+		"keyword": "丹东 Dandong dandong DD DDG DDG"
+	}, {
+		"CODE": "DEN",
+		"CITY": "丹佛",
+		"keyword": "丹佛 Denver danfu DF DEN DEN"
+	}, {
+		"CODE": "DCY",
+		"CITY": "稻城",
+		"keyword": "稻城 Daocheng daocheng DC DCY DCY"
+	}, {
+		"CODE": "DUR",
+		"CITY": "德班",
+		"keyword": "德班 Durban deban DB DUR DUR"
+	}, {
+		"CODE": "THR",
+		"CITY": "德黑兰",
+		"keyword": "德黑兰 Teheran deheilan DHL IKA THR"
+	}, {
+		"CODE": "DEL",
+		"CITY": "德里",
+		"keyword": "德里 Delhi deli DL DEL DEL"
+	}, {
+		"CODE": "HXD",
+		"CITY": "德令哈",
+		"keyword": "德令哈 Delingha delingha DLH HXD HXD"
+	}, {
+		"CODE": "DXB",
+		"CITY": "迪拜",
+		"keyword": "迪拜 Dubai dibai DB DXB DXB"
+	}, {
+		"CODE": "TBS",
+		"CITY": "第比利斯",
+		"keyword": "第比利斯 Tbilisi dibilisi DBLS TBS TBS"
+	}, {
+		"CODE": "DIG",
+		"CITY": "迪庆",
+		"keyword": "迪庆 Diqing diqing DQ DIG DIG"
+	}, {
+		"CODE": "DTT",
+		"CITY": "底特律",
+		"keyword": "底特律 Detroit ditelu DTL DTT DTT"
+	}, {
+		"CODE": "TYO",
+		"CITY": "东京",
+		"keyword": "东京 Tokyo dongjing DJ NRT TYO"
+	}, 
+	{
+		"CODE": "NRT",
+		"CITY": "东京成田",
+		"keyword": "东京 成田 Tokyo dongjing DJ NRT TYO"
+	},{
+		"CODE": "DOY",
+		"CITY": "东营",
+		"keyword": "东营 Dongying dongying DY DOY DOY"
+	}, {
+		"CODE": "DUB",
+		"CITY": "都柏林",
+		"keyword": "都柏林 Dublin dubailin DBL DUB DUB"
+	}, {
+		"CODE": "DLA",
+		"CITY": "杜阿拉",
+		"keyword": "杜阿拉 Douala duala DAL DLA DLA"
+	}, {
+		"CODE": "DUS",
+		"CITY": "杜塞尔多夫",
+		"keyword": "杜塞尔多夫 Dusseldorf dusaierduofu DSEDF DUS DUS"
+	}, {
+		"CODE": "DYU",
+		"CITY": "杜尚别",
+		"keyword": "杜尚别 Dushanbe dushangbie DSB DYU DYU"
+	}, {
+		"CODE": "DNH",
+		"CITY": "敦煌",
+		"keyword": "敦煌 Dunhuang dunhuang DH DNH DNH"
+	}, {
+		"CODE": "DOH",
+		"CITY": "多哈",
+		"keyword": "多哈 Doha duoha DH DOH DOH"
+	}, {
+		"CODE": "YTO",
+		"CITY": "多伦多",
+		"keyword": "多伦多 Toronto duolunduo DLD YYZ YTO"
+	}, {
+		"CODE": "DSN",
+		"CITY": "鄂尔多斯",
+		"keyword": "鄂尔多斯 Ordos eerduosi EEDS DSN DSN"
+	}, {
+		"CODE": "EJN",
+		"CITY": "额济纳旗",
+		"keyword": "额济纳旗 Ejinaqi ejinaqi EJNQ EJN EJN"
+	}, {
+		"CODE": "EBB",
+		"CITY": "恩德培",
+		"keyword": "恩德培 Entebbe/Kampala endepei EDP EBB EBB"
+	}, {
+		"CODE": "ENH",
+		"CITY": "恩施",
+		"keyword": "恩施 Enshi enshi ES ENH ENH"
+	}, {
+		"CODE": "ERL",
+		"CITY": "二连浩特",
+		"keyword": "二连浩特 Erenhot erlianhaote ELHT ERL ERL"
+	}, {
+		"CODE": "FRA",
+		"CITY": "法兰克福",
+		"keyword": "法兰克福 Frankfurt falankefu FLKF FRA FRA"
+	}, {
+		"CODE": "PHL",
+		"CITY": "费城",
+		"keyword": "费城 Philadelphia feicheng FC PHL PHL"
+	}, {
+		"CODE": "PHX",
+		"CITY": "凤凰城",
+		"keyword": "凤凰城 Phoenix fenghuangcheng FHC PHX PHX"
+	}, {
+		"CODE": "FKS",
+		"CITY": "福岛",
+		"keyword": "福岛 Fukushima fudao FD FKS FKS"
+	}, {
+		"CODE": "FUK",
+		"CITY": "福冈",
+		"keyword": "福冈 Fukuoka fugang FG FUK FUK"
+	}, {
+		"CODE": "PQC",
+		"CITY": "富国岛",
+		"keyword": "富国岛 Phu Quoc fuguodao FGD PQC PQC"
+	}, {
+		"CODE": "VVO",
+		"CITY": "符拉迪沃斯托克",
+		"keyword": "符拉迪沃斯托克 Vladivostok fuladiwosituoke FLDWSTK VVO VVO"
+	}, {
+		"CODE": "FAT",
+		"CITY": "弗雷斯诺",
+		"keyword": "弗雷斯诺 Fresno fuleisinuo FLSN FAT FAT"
+	}, {
+		"CODE": "TOY",
+		"CITY": "富山",
+		"keyword": "富山 Toyama fushan FS TOY TOY"
+	}, {
+		"CODE": "PUS",
+		"CITY": "釜山",
+		"keyword": "釜山 Pusan fushan FS PUS PUS"
+	}, {
+		"CODE": "FUG",
+		"CITY": "阜阳",
+		"keyword": "阜阳 Fuyang fuyang FY FUG FUG"
+	}, {
+		"CODE": "FYJ",
+		"CITY": "抚远",
+		"keyword": "抚远 Fuyuan fuyuan FY FYJ FYJ"
+	}, {
+		"CODE": "FYN",
+		"CITY": "富蕴",
+		"keyword": "富蕴 Fuyun fuyun FY FYN FYN"
+	}, {
+		"CODE": "FOC",
+		"CITY": "福州",
+		"keyword": "福州 Fuzhou fuzhou FZ FOC FOC"
+	}, {
+		"CODE": "KOW",
+		"CITY": "赣州",
+		"keyword": "赣州 Ganzhou ganzhou GZ KOW KOW"
+	}, {
+		"CODE": "OKJ",
+		"CITY": "冈山",
+		"keyword": "冈山 Okayama gangshan GS OKJ OKJ"
+	}, {
+		"CODE": "CPH",
+		"CITY": "哥本哈根",
+		"keyword": "哥本哈根 Copenhagen gebenhagen GBHG CPH CPH"
+	}, {
+		"CODE": "KBR",
+		"CITY": "哥打巴鲁",
+		"keyword": "哥打巴鲁 KotaBharu gedabalu GDBL KBR KBR"
+	}, {
+		"CODE": "BKI",
+		"CITY": "哥打基纳巴卢",
+		"keyword": "哥打基纳巴卢 Kotakinabalu gedajinabalu GDJNBL BKI BKI"
+	}, {
+		"CODE": "GOT",
+		"CITY": "哥德堡",
+		"keyword": "哥德堡 Gothenburg gedebao GDB GOT GOT"
+	}, {
+		"CODE": "GOQ",
+		"CITY": "格尔木",
+		"keyword": "格尔木 Golmud geermu GEM GOQ GOQ"
+	}, {
+		"CODE": "GLA",
+		"CITY": "格拉斯哥",
+		"keyword": "格拉斯哥 Glasgow gelasige GLSG GLA GLA"
+	}, {
+		"CODE": "GLT",
+		"CITY": "格莱斯顿",
+		"keyword": "格莱斯顿 Gladstone GeLaiSiDun GLSD GLT GLT"
+	}, {
+		"CODE": "MPH",
+		"CITY": "哥伦布",
+		"keyword": "哥伦布 Columbus gelunbu GLB CMH MPH"
+	}, {
+		"CODE": "KCH",
+		"CITY": "古晋",
+		"keyword": "古晋 Kuching gujin GJ KCH KCH"
+	}, {
+		"CODE": "GAU",
+		"CITY": "古瓦哈蒂",
+		"keyword": "古瓦哈蒂 Guwahati guwahadi GWHD GAU GAU"
+	}, {
+		"CODE": "GYU",
+		"CITY": "固原",
+		"keyword": "固原 Guyuan guyuan GY GYU GYU"
+	}, {
+		"CODE": "GDL",
+		"CITY": "瓜达拉哈拉",
+		"keyword": "瓜达拉哈拉 Guadalajara guadalahala GDLHL GDL GDL"
+	}, {
+		"CODE": "IGG",
+		"CITY": "瓜拉丁加奴",
+		"keyword": "瓜拉丁加奴 KualaTerengganu gualadingjianu GLDJN TGG IGG"
+	}, {
+		"CODE": "GYE",
+		"CITY": "瓜亚基尔",
+		"keyword": "瓜亚基尔 Guayaquil guayajier GYJE GYE GYE"
+	}, {
+		"CODE": "KUA",
+		"CITY": "关丹",
+		"keyword": "关丹 Kuantan guandan GD KUA KUA"
+	}, {
+		"CODE": "GUM",
+		"CITY": "关岛",
+		"keyword": "关岛 Guam guandao GD GUM GUM"
+	}, {
+		"CODE": "HIJ",
+		"CITY": "广岛",
+		"keyword": "广岛 Hiroshima guangdao GD HIJ HIJ"
+	}, {
+		"CODE": "GHN",
+		"CITY": "广汉",
+		"keyword": "广汉 Guanghan guanghan GH GHN GHN"
+	}, {
+		"CODE": "GYS",
+		"CITY": "广元",
+		"keyword": "广元 Guangyuan guangyuan GY GYS GYS"
+	}, {
+		"CODE": "KWJ",
+		"CITY": "光州",
+		"keyword": "光州 Kwangju guangzhou GZ MWX KWJ"
+	}, {
+		"CODE": "KWL",
+		"CITY": "桂林",
+		"keyword": "桂林 Guilin guilin GL KWL KWL"
+	}, {
+		"CODE": "KWE",
+		"CITY": "贵阳",
+		"keyword": "贵阳 Guiyang guiyang GY KWE KWE"
+	}, {
+		"CODE": "GMQ",
+		"CITY": "果洛",
+		"keyword": "果洛 Golog guoluo GL GMQ GMQ"
+	}, {
+		"CODE": "KHV",
+		"CITY": "哈巴罗夫斯克",
+		"keyword": "哈巴罗夫斯克 Khabarovsk habaluofusike HBLFSKS KHV KHV"
+	}, {
+		"CODE": "HRB",
+		"CITY": "哈尔滨",
+		"keyword": "哈尔滨 Harbin haerbin HEB HRB HRB"
+	}, {
+		"CODE": "PHC",
+		"CITY": "哈科特港",
+		"keyword": "哈科特港 PortHarcourt haketegang HKTG PHC PHC"
+	}, {
+		"CODE": "HRE",
+		"CITY": "哈拉雷",
+		"keyword": "哈拉雷 Harare halalei HLL HRE HRE"
+	}, {
+		"CODE": "HMI",
+		"CITY": "哈密",
+		"keyword": "哈密 Hami hami HM HMI HMI"
+	}, {
+		"CODE": "HLZ",
+		"CITY": "哈密尔顿",
+		"keyword": "哈密尔顿 Hamilton hamierdun HMED HLZ HLZ"
+	}, {
+		"CODE": "HFD",
+		"CITY": "哈特福德",
+		"keyword": "哈特福德 Hartford hatefude HTFD BDL HFD"
+	}, {
+		"CODE": "VVO",
+		"CITY": "海参崴",
+		"keyword": "海参崴 Vladivostok haishenwai HSW VVO VVO"
+	}, {
+		"CODE": "HYD",
+		"CITY": "海得拉巴",
+		"keyword": "海得拉巴 Hyderabad haidelaba HDLB HYD HYD"
+	}, {
+		"CODE": "HAK",
+		"CITY": "海口",
+		"keyword": "海口 Haikou haikou HK HAK HAK"
+	}, {
+		"CODE": "HLD",
+		"CITY": "海拉尔",
+		"keyword": "海拉尔 Hailar hailaer HLE HLD HLD"
+	}, {
+		"CODE": "HIS",
+		"CITY": "海曼岛",
+		"keyword": "海曼岛 Haymanisland haimandao HMD HIS HIS"
+	}, {
+		"CODE": "HAM",
+		"CITY": "汉堡",
+		"keyword": "汉堡 Hamburg hanbao HB HAM HAM"
+	}, {
+		"CODE": "HDG",
+		"CITY": "邯郸",
+		"keyword": "邯郸 Handan handan HD HDG HDG"
+	}, {
+		"CODE": "HTI",
+		"CITY": "汉密尔顿岛",
+		"keyword": "汉密尔顿岛 HamiltonIsland hanmierdundao HMEDD HTI HTI"
+	}, {
+		"CODE": "HAJ",
+		"CITY": "汉诺威",
+		"keyword": "汉诺威 Hanover hannuowei HNW HAJ HAJ"
+	}, {
+		"CODE": "HZG",
+		"CITY": "汉中",
+		"keyword": "汉中 Hanzhong hanzhong HZ HZG HZG"
+	}, {
+		"CODE": "HGH",
+		"CITY": "杭州",
+		"keyword": "杭州 Hangzhou hangzhou HZ HGH HGH"
+	}, {
+		"CODE": "HCJ",
+		"CITY": "河池",
+		"keyword": "河池 Hechi hechi HC HCJ HCJ"
+	}, {
+		"CODE": "HEL",
+		"CITY": "赫尔辛基",
+		"keyword": "赫尔辛基 Helsinki heerxinji HEXJ HEL HEL"
+	}, {
+		"CODE": "HFE",
+		"CITY": "合肥",
+		"keyword": "合肥 Hefei hefei HF HFE HFE"
+	}, {
+		"CODE": "HAN",
+		"CITY": "河内",
+		"keyword": "河内 Hanoi henei HN HAN HAN"
+	}, {
+		"CODE": "HTN",
+		"CITY": "和田",
+		"keyword": "和田 Hotan hetian HT HTN HTN"
+	}, {
+		"CODE": "HEK",
+		"CITY": "黑河",
+		"keyword": "黑河 Heihe heihe HH HEK HEK"
+	}, {
+		"CODE": "HNY",
+		"CITY": "衡阳",
+		"keyword": "衡阳 Hengyang hengyang HY HNY HNY"
+	}, {
+		"CODE": "AHJ",
+		"CITY": "红原",
+		"keyword": "红原 Hongyuan hongyuan HY AHJ AHJ"
+	}, {
+		"CODE": "HET",
+		"CITY": "呼和浩特",
+		"keyword": "呼和浩特 Hohhot huhehaote HHHT HET HET"
+	}, {
+		"CODE": "LBD",
+		"CITY": "胡占德",
+		"keyword": "胡占德 Khujand huzhande HZD LBD LBD"
+	}, {
+		"CODE": "SGN",
+		"CITY": "胡志明市",
+		"keyword": "胡志明市 HoChiMinh huzhimingshi HZMS SGN SGN"
+	}, {
+		"CODE": "WAW",
+		"CITY": "华沙",
+		"keyword": "华沙 Warsaw huasha HS WAW WAW"
+	}, {
+		"CODE": "WAS",
+		"CITY": "华盛顿",
+		"keyword": "华盛顿 Washington huashengdun HSD IAD WAS"
+	}, {
+		"CODE": "HIA",
+		"CITY": "淮安",
+		"keyword": "淮安 Huai'an huaian HA HIA HIA"
+	}, {
+		"CODE": "HJJ",
+		"CITY": "怀化",
+		"keyword": "怀化 Huaihua huaihua HH HJJ HJJ"
+	}, {
+		"CODE": "OOL",
+		"CITY": "黄金海岸",
+		"keyword": "黄金海岸 GoldCoast huangjinhaian HJHA OOL OOL"
+	}, {
+		"CODE": "TXN",
+		"CITY": "黄山",
+		"keyword": "黄山 Huangshan huangshan HS TXN TXN"
+	}, {
+		"CODE": "WLG",
+		"CITY": "惠灵顿",
+		"keyword": "惠灵顿 Wellington huilingdun HLD WLG WLG"
+	}, {
+		"CODE": "HUZ",
+		"CITY": "惠州",
+		"keyword": "惠州 Huizhou huizhou HZ HUZ HUZ"
+	}, {
+		"CODE": "HBA",
+		"CITY": "霍巴特",
+		"keyword": "霍巴特 Hobart huobate HBT HBA HBA"
+	}, {
+		"CODE": "HNL",
+		"CITY": "火奴鲁鲁",
+		"keyword": "火奴鲁鲁 Honolulu huonululu HNLL HNL HNL"
+	}, {
+		"CODE": "JIB",
+		"CITY": "吉布提",
+		"keyword": "吉布提 Djibouti jibuti JBT JIB JIB"
+	}, {
+		"CODE": "JED",
+		"CITY": "吉达",
+		"keyword": "吉达 Jeddah jida JD JED JED"
+	}, {
+		"CODE": "CHC",
+		"CITY": "基督城",
+		"keyword": "基督城 Christchurch jiducheng JDC CHC CHC"
+	}, {
+		"CODE": "UIO",
+		"CITY": "基多",
+		"keyword": "基多 Quito jiduo JD UIO UIO"
+	}, {
+		"CODE": "IEV",
+		"CITY": "基辅",
+		"keyword": "基辅 Kiev jifu JF IEV IEV"
+	}, {
+		"CODE": "KGL",
+		"CITY": "基加利",
+		"keyword": "基加利 Kigali jijiali JJL KGL KGL"
+	}, {
+		"CODE": "YLW",
+		"CITY": "基隆拿",
+		"keyword": "基隆拿 Kelowna jilongna JLN YLW YLW"
+	}, {
+		"CODE": "KUL",
+		"CITY": "吉隆坡",
+		"keyword": "吉隆坡 KualaLumpur jilongpo JLP KUL KUL"
+	}, {
+		"CODE": "TNA",
+		"CITY": "济南",
+		"keyword": "济南 Jinan jinan JN TNA TNA"
+	}, {
+		"CODE": "JNG",
+		"CITY": "济宁",
+		"keyword": "济宁 Jining jining JN JNG JNG"
+	}, {
+		"CODE": "JXA",
+		"CITY": "鸡西",
+		"keyword": "鸡西 Jixi jixi JX JXA JXA"
+	}, {
+		"CODE": "CJU",
+		"CITY": "济州",
+		"keyword": "济州 Cheju jizhou JZ CJU CJU"
+	}, {
+		"CODE": "JLR",
+		"CITY": "贾巴尔普尔",
+		"keyword": "贾巴尔普尔 Jabalpur jiabaerpuer JBEPE JLR JLR"
+	}, {
+		"CODE": "KTM",
+		"CITY": "加德满都",
+		"keyword": "加德满都 Kathmandu jiademandu JDMD KTM KTM"
+	}, {
+		"CODE": "CCU",
+		"CITY": "加尔各答",
+		"keyword": "加尔各答 Calcutta jiaergeda JEGD CCU CCU"
+	}, {
+		"CODE": "JGD",
+		"CITY": "加格达奇",
+		"keyword": "加格达奇 Jiagedaqi jiagedaqi JGDQ JGD JGD"
+	}, {
+		"CODE": "CCS",
+		"CITY": "加拉加斯",
+		"keyword": "加拉加斯 Caracas jialajiasi JLJS CCS CCS"
+	}, {
+		"CODE": "KBV",
+		"CITY": "甲米",
+		"keyword": "甲米 Krabi jiami JM KBV KBV"
+	}, {
+		"CODE": "JMU",
+		"CITY": "佳木斯",
+		"keyword": "佳木斯 Jiamusi jiamusi JMS JMU JMU"
+	}, {
+		"CODE": "JGN",
+		"CITY": "嘉峪关",
+		"keyword": "嘉峪关 Jiayuguan jiayuguan JYG JGN JGN"
+	}, {
+		"CODE": "JSJ",
+		"CITY": "建三江",
+		"keyword": "建三江 JIANSANJIANG JIANSANJIANG JSJ JSJ JSJ"
+	}, {
+		"CODE": "JDH",
+		"CITY": "焦特布尔",
+		"keyword": "焦特布尔 Jodhpur jiaotebuer JTBE JDH JDH"
+	}, {
+		"CODE": "JAX",
+		"CITY": "捷克逊维尔",
+		"keyword": "捷克逊维尔 Jacksonville jiekexunweier JKXWE JAX JAX"
+	}, {
+		"CODE": "SWA",
+		"CITY": "揭阳",
+		"keyword": "揭阳 Jieyang jieyang JY SWA SWA"
+	}, {
+		"CODE": "PNH",
+		"CITY": "金边",
+		"keyword": "金边 PhnomPenh jinbian JB PNH PNH"
+	}, {
+		"CODE": "JCH",
+		"CITY": "金昌",
+		"keyword": "金昌 Jinchang jinchang JC JIC JCH"
+	}, {
+		"CODE": "JJN",
+		"CITY": "晋江",
+		"keyword": "晋江 Jinjiang jinjiang JJ JJN JJN"
+	}, {
+		"CODE": "MAA",
+		"CITY": "金奈",
+		"keyword": "金奈 Madras jinnai JN MAA MAA"
+	}, {
+		"CODE": "FIH",
+		"CITY": "金沙萨",
+		"keyword": "金沙萨 Kinshasa jinshasa JSS FIH FIH"
+	}, {
+		"CODE": "JNZ",
+		"CITY": "锦州",
+		"keyword": "锦州 Jinzhou jinzhou JZ JNZ JNZ"
+	}, {
+		"CODE": "JDZ",
+		"CITY": "景德镇",
+		"keyword": "景德镇 Jingdezhen jingdezhen JDZ JDZ JDZ"
+	}, {
+		"CODE": "FSZ",
+		"CITY": "静冈",
+		"keyword": "静冈 Shizuoka jinggang JG FSZ FSZ"
+	}, {
+		"CODE": "JGS",
+		"CITY": "井冈山",
+		"keyword": "井冈山 Jinggangshan jinggangshan JGS JGS JGS"
+	}, {
+		"CODE": "SHS",
+		"CITY": "荆州",
+		"keyword": "荆州 Jingzhou jingzhou JZ SHS SHS"
+	}, {
+		"CODE": "JIU",
+		"CITY": "九江",
+		"keyword": "九江 Jiujiang jiujiang JJ JIU JIU"
+	}, {
+		"CODE": "SFO",
+		"CITY": "旧金山",
+		"keyword": "旧金山 SanFrancisco jiujinshan JJS SFO SFO"
+	}, {
+		"CODE": "JZH",
+		"CITY": "九寨沟",
+		"keyword": "九寨沟 Jiuzhaigou jiuzhaigou JZG JZH JZH"
+	}, {
+		"CODE": "KBL",
+		"CITY": "喀布尔",
+		"keyword": "喀布尔 Kabul kabuer KBE KBL KBL"
+	}, {
+		"CODE": "YYC",
+		"CITY": "卡尔加里",
+		"keyword": "卡尔加里 Calgary kaerjiali KEJL YYC YYC"
+	}, {
+		"CODE": "OGG",
+		"CITY": "卡胡卢伊",
+		"keyword": "卡胡卢伊 Kahului kahuluyi KHLY OGG OGG"
+	}, {
+		"CODE": "CCJ",
+		"CITY": "卡利刻特",
+		"keyword": "卡利刻特 Kozhikode kalikete KLKT CCJ CCJ"
+	}, {
+		"CODE": "KJI",
+		"CITY": "喀纳斯",
+		"keyword": "喀纳斯 Kanas kanasi KNS KJI KJI"
+	}, {
+		"CODE": "KAN",
+		"CITY": "卡诺",
+		"keyword": "卡诺 Kano kanuo KN KAN KAN"
+	}, {
+		"CODE": "CAS",
+		"CITY": "卡萨布兰卡",
+		"keyword": "卡萨布兰卡 Casablanca kasabulanka KSBLK CAS CAS"
+	}, {
+		"CODE": "KHG",
+		"CITY": "喀什",
+		"keyword": "喀什 Kashgar kashi KS KHG KHG"
+	}, {
+		"CODE": "KRT",
+		"CITY": "喀土穆",
+		"keyword": "喀土穆 Khartoum katumu KTM KRT KRT"
+	}, {
+		"CODE": "CNS",
+		"CITY": "凯恩斯",
+		"keyword": "凯恩斯 Cairns kaiensi KNS CNS CNS"
+	}, {
+		"CODE": "KJH",
+		"CITY": "凯里",
+		"keyword": "凯里 Kaili kaili KL KJH KJH"
+	}, {
+		"CODE": "CAI",
+		"CITY": "开罗",
+		"keyword": "开罗 Cairo kailuo KL CAI CAI"
+	}, {
+		"CODE": "CPT",
+		"CITY": "开普敦",
+		"keyword": "开普敦 CapeTown kaipudun KPD CPT CPT"
+	}, {
+		"CODE": "CUN",
+		"CITY": "坎昆",
+		"keyword": "坎昆 Cancun kankun KK CUN CUN"
+	}, {
+		"CODE": "CBR",
+		"CITY": "堪培拉",
+		"keyword": "堪培拉 Canberra kanpeila KPL CBR CBR"
+	}, {
+		"CODE": "KGT",
+		"CITY": "康定",
+		"keyword": "康定 Kangding kangding KD KGT KGT"
+	}, {
+		"CODE": "CFS",
+		"CITY": "科夫斯港",
+		"keyword": "科夫斯港 Coffsharbour kefusigang KFSG CFS CFS"
+	}, {
+		"CODE": "HJR",
+		"CITY": "克久拉霍",
+		"keyword": "克久拉霍 Khajuraho kejiulahuo KJLH HJR HJR"
+	}, {
+		"CODE": "CRK",
+		"CITY": "克拉克",
+		"keyword": "克拉克 Clark kelake KLK CRK CRK"
+	}, {
+		"CODE": "KRK",
+		"CITY": "克拉科夫",
+		"keyword": "克拉科夫 Krakow kelakefu KLKF KRK KRK"
+	}, {
+		"CODE": "KRY",
+		"CITY": "克拉玛依",
+		"keyword": "克拉玛依 Karamay kelamayi KLMY KRY KRY"
+	}, {
+		"CODE": "CLE",
+		"CITY": "克利夫兰",
+		"keyword": "克利夫兰 Cleveland kelifulan KLFL CLE CLE"
+	}, {
+		"CODE": "CGN",
+		"CITY": "科隆",
+		"keyword": "科隆 Cologne-Bonn kelong KL CGN CGN"
+	}, {
+		"CODE": "CMB",
+		"CITY": "科伦坡",
+		"keyword": "科伦坡 Colombo kelunpo KLP CMB CMB"
+	}, {
+		"CODE": "COK",
+		"CITY": "科钦",
+		"keyword": "科钦 Cochin keqin KQ COK COK"
+	}, {
+		"CODE": "COO",
+		"CITY": "科托努",
+		"keyword": "科托努 Cotonou ketuonu KTN COO COO"
+	}, {
+		"CODE": "KWI",
+		"CITY": "科威特",
+		"keyword": "科威特 Kuwait keweite KWT KWI KWI"
+	}, {
+		"CODE": "KCA",
+		"CITY": "库车",
+		"keyword": "库车 Kuqa kuche KC KCA KCA"
+	}, {
+		"CODE": "KRL",
+		"CITY": "库尔勒",
+		"keyword": "库尔勒 Korla kuerle KEL KRL KRL"
+	}, {
+		"CODE": "KMG",
+		"CITY": "昆明",
+		"keyword": "昆明 Kunming kunming KM KMG KMG"
+	}, {
+		"CODE": "LOS",
+		"CITY": "拉各斯",
+		"keyword": "拉各斯 Lagos lagesi LGS LOS LOS"
+	}, {
+		"CODE": "LHE",
+		"CITY": "拉合尔",
+		"keyword": "拉合尔 Lahore Laheer LHE LHE LHE"
+	}, {
+		"CODE": "RAR",
+		"CITY": "拉罗汤加",
+		"keyword": "拉罗汤加 Rarotonga CookIs laluotangjia LSTJ RAR RAR"
+	}, {
+		"CODE": "LCA",
+		"CITY": "拉纳卡",
+		"keyword": "拉纳卡 Larnaca lanaka LNK LCA LCA"
+	}, {
+		"CODE": "LXA",
+		"CITY": "拉萨",
+		"keyword": "拉萨 Lhasa lasa LS LXA LXA"
+	}, {
+		"CODE": "LAS",
+		"CITY": "拉斯维加斯",
+		"keyword": "拉斯维加斯 LasVegas lasiweijiasi LSWJS LAS LAS"
+	}, {
+		"CODE": "RPR",
+		"CITY": "赖布尔",
+		"keyword": "赖布尔 Raipur laibuer LBE RPR RPR"
+	}, {
+		"CODE": "LGK",
+		"CITY": "兰卡威",
+		"keyword": "兰卡威 Langkawi lankawei LKW LGK LGK"
+	}, {
+		"CODE": "LXR",
+		"CITY": "兰契",
+		"keyword": "兰契 Ranchi lanqi LQ IXR LXR"
+	}, {
+		"CODE": "LHW",
+		"CITY": "兰州",
+		"keyword": "兰州 Lanzhou lanzhou LZ LHW LHW"
+	}, {
+		"CODE": "LKO",
+		"CITY": "勒克瑙",
+		"keyword": "勒克瑙 Lucknow lekenao LKN LKO LKO"
+	}, {
+		"CODE": "REK",
+		"CITY": "雷克雅未克",
+		"keyword": "雷克雅未克 Reykjavik leikeyaweike REK KEF REK"
+	}, {
+		"CODE": "LYS",
+		"CITY": "里昂",
+		"keyword": "里昂 Lyon liang LA LYS LYS"
+	}, {
+		"CODE": "LLB",
+		"CITY": "荔波",
+		"keyword": "荔波 Libo libo LB LLB LLB"
+	}, {
+		"CODE": "LBV",
+		"CITY": "利伯维尔",
+		"keyword": "利伯维尔 Libreville liboweier LBWE LBV LBV"
+	}, {
+		"CODE": "RIX",
+		"CITY": "里加",
+		"keyword": "里加 Riga lijia LI RIX RIX"
+	}, {
+		"CODE": "YQR",
+		"CITY": "里贾纳",
+		"keyword": "里贾纳 Regina lijiana LJN YQR YQR"
+	}, {
+		"CODE": "LJG",
+		"CITY": "丽江",
+		"keyword": "丽江 Lijiang lijiang LJ LJG LJG"
+	}, {
+		"CODE": "LIM",
+		"CITY": "利马",
+		"keyword": "利马 Lima lima LM LIM LIM"
+	}, {
+		"CODE": "HZH",
+		"CITY": "黎平",
+		"keyword": "黎平 Liping liping LP HZH HZH"
+	}, {
+		"CODE": "LIS",
+		"CITY": "里斯本",
+		"keyword": "里斯本 Lisbon lisiben LSB LIS LIS"
+	}, {
+		"CODE": "RUH",
+		"CITY": "利雅得",
+		"keyword": "利雅得 Riyadh liyade LYD RUH RUH"
+	}, {
+		"CODE": "RIY",
+		"CITY": "里雅恩姆卡拉",
+		"keyword": "里雅恩姆卡拉 Riyan Yemen liyaenmukala LYEMKL RIY RIY"
+	}, {
+		"CODE": "RIO",
+		"CITY": "里约热内卢",
+		"keyword": "里约热内卢 Riodejaneiro liyuereneilu LYRNL GIG RIO"
+	}, {
+		"CODE": "LYG",
+		"CITY": "连云港",
+		"keyword": "连云港 Lianyungang lianyungang LYG LYG LYG"
+	}, {
+		"CODE": "IXL",
+		"CITY": "列城",
+		"keyword": "列城 Leh liecheng LC IXL IXL"
+	}, {
+		"CODE": "LNJ",
+		"CITY": "临沧",
+		"keyword": "临沧 Lincang lincang LC LNJ LNJ"
+	}, {
+		"CODE": "LFQ",
+		"CITY": "临汾",
+		"keyword": "临汾 Linfen linfen LF LFQ LFQ"
+	}, {
+		"CODE": "LYI",
+		"CITY": "临沂",
+		"keyword": "临沂 Linyi linyi LY LYI LYI"
+	}, {
+		"CODE": "LZY",
+		"CITY": "林芝",
+		"keyword": "林芝 Nyingtri linzhi LZ LZY LZY"
+	}, {
+		"CODE": "LPF",
+		"CITY": "六盘水",
+		"keyword": "六盘水 Liupanshui liupanshui LPS LPF LPF"
+	}, {
+		"CODE": "LZH",
+		"CITY": "柳州",
+		"keyword": "柳州 Liuzhou liuzhou LZ LZH LZH"
+	}, {
+		"CODE": "LCX",
+		"CITY": "龙岩",
+		"keyword": "龙岩 Longyan longyan LY LCX LCX"
+	}, {
+		"CODE": "LJU",
+		"CITY": "卢布尔亚那",
+		"keyword": "卢布尔亚那 Ljubljana lubueryana LBEYN LJU LJU"
+	}, {
+		"CODE": "KOJ",
+		"CITY": "鹿儿岛",
+		"keyword": "鹿儿岛 Kagoshima luerdao LED KOJ KOJ"
+	}, {
+		"CODE": "LUN",
+		"CITY": "卢萨卡",
+		"keyword": "卢萨卡 Lusaka lusaka LSK LUN LUN"
+	}, {
+		"CODE": "LUX",
+		"CITY": "卢森堡",
+		"keyword": "卢森堡 Luxembourg lusenbao LSB LUX LUX"
+	}, {
+		"CODE": "LZO",
+		"CITY": "泸州",
+		"keyword": "泸州 Luzhou luzhou LZ LZO LZO"
+	}, {
+		"CODE": "LON",
+		"CITY": "伦敦",
+		"keyword": "伦敦 London lundun LD LCY LON"
+	}, {
+		"CODE": "LAD",
+		"CITY": "罗安达",
+		"keyword": "罗安达 Luanda luoanda LAD LAD LAD"
+	}, {
+		"CODE": "FLL",
+		"CITY": "罗德岱堡",
+		"keyword": "罗德岱堡 Lauderdale luodedaibao LDDB FLL FLL"
+	}, {
+		"CODE": "ROK",
+		"CITY": "罗克汉普顿",
+		"keyword": "罗克汉普顿 Rockhampton luokehanpudun LKHPD ROK ROK"
+	}, {
+		"CODE": "RDU",
+		"CITY": "罗利",
+		"keyword": "罗利 Raleigh/Durham luoli LL RDU RDU"
+	}, {
+		"CODE": "ROM",
+		"CITY": "罗马",
+		"keyword": "罗马 Rome luoma LM FCO ROM"
+	}, {
+		"CODE": "LAX",
+		"CITY": "洛杉矶",
+		"keyword": "洛杉矶 LosAngeles luoshanji LSJ LAX LAX"
+	}, {
+		"CODE": "LYA",
+		"CITY": "洛阳",
+		"keyword": "洛阳 Luoyang luoyang LY LYA LYA"
+	}, {
+		"CODE": "LLV",
+		"CITY": "吕梁",
+		"keyword": "吕梁 Lvliang lvliang LL LLV LLV"
+	}, {
+		"CODE": "MAD",
+		"CITY": "马德里",
+		"keyword": "马德里 Madrid madeli MDL MAD MAD"
+	}, {
+		"CODE": "AGP",
+		"CITY": "马拉加",
+		"keyword": "马拉加 Malaga malajia MLJ AGP AGP"
+	}, {
+		"CODE": "MLE",
+		"CITY": "马累",
+		"keyword": "马累 Male malei ML MLE MLE"
+	}, {
+		"CODE": "MKZ",
+		"CITY": "马六甲",
+		"keyword": "马六甲 Malacca maliujia MLJ MKZ MKZ"
+	}, {
+		"CODE": "MNL",
+		"CITY": "马尼拉",
+		"keyword": "马尼拉 Manila manila MNL MNL MNL"
+	}, {
+		"CODE": "MRS",
+		"CITY": "马赛",
+		"keyword": "马赛 Marseille masai MS MRS MRS"
+	}, {
+		"CODE": "MCT",
+		"CITY": "马斯喀特",
+		"keyword": "马斯喀特 Muscat masikate MSKT MCT MCT"
+	}, {
+		"CODE": "MIA",
+		"CITY": "迈阿密",
+		"keyword": "迈阿密 Miami maiami MAM MIA MIA"
+	}, {
+		"CODE": "MED",
+		"CITY": "麦地那",
+		"keyword": "麦地那 medina maidina MDN MED MED"
+	}, {
+		"CODE": "MKY",
+		"CITY": "麦凯",
+		"keyword": "麦凯 Mackay maikai MK MKY MKY"
+	}, {
+		"CODE": "PQQ",
+		"CITY": "麦夸里港",
+		"keyword": "麦夸里港 Portmacquarie maikualigang MKLG PQQ PQQ"
+	}, {
+		"CODE": "MAN",
+		"CITY": "曼彻斯特",
+		"keyword": "曼彻斯特 Manchester manchesite MCST MAN MAN"
+	}, {
+		"CODE": "BKK",
+		"CITY": "曼谷",
+		"keyword": "曼谷 Bangkok mangu MG BKK BKK"
+	}, {
+		"CODE": "NZH",
+		"CITY": "满洲里",
+		"keyword": "满洲里 Manzhouli manzhouli MZL NZH NZH"
+	}, {
+		"CODE": "LUM",
+		"CITY": "芒市",
+		"keyword": "芒市 Mangshi mangshi MS LUM LUM"
+	}, {
+		"CODE": "ISA",
+		"CITY": "芒特艾萨",
+		"keyword": "芒特艾萨 MountIsa mangteaisa MTAS ISA ISA"
+	}, {
+		"CODE": "MRU",
+		"CITY": "毛里求斯",
+		"keyword": "毛里求斯 Mauritius maoliqiusi LYG MRU MRU"
+	}, {
+		"CODE": "MFR",
+		"CITY": "梅德福",
+		"keyword": "梅德福 Medford meidefu MDF MFR MFR"
+	}, {
+		"CODE": "MXZ",
+		"CITY": "梅州",
+		"keyword": "梅州 Meizhou meizhou MZ MXZ MXZ"
+	}, {
+		"CODE": "MEM",
+		"CITY": "孟菲斯",
+		"keyword": "孟菲斯 Memphis mengfeisi MFS MEM MEM"
+	}, {
+		"CODE": "BOM",
+		"CITY": "孟买",
+		"keyword": "孟买 Mumbai/Bombay mengmai MM BOM BOM"
+	}, {
+		"CODE": "MRY",
+		"CITY": "蒙特雷",
+		"keyword": "蒙特雷 Monterey mengtelei MTL MRY MRY"
+	}, {
+		"CODE": "MTY",
+		"CITY": "蒙特雷(墨西哥)",
+		"keyword": "蒙特雷(墨西哥) Monterrey(Mexico) mengtelei(moxige) MTL MTY MTY"
+	}, {
+		"CODE": "YMQ",
+		"CITY": "蒙特利尔",
+		"keyword": "蒙特利尔 Montreal mengtelier MTLE YUL YMQ"
+	}, {
+		"CODE": "MRL",
+		"CITY": "米尔迪拉",
+		"keyword": "米尔迪拉 Mildura mierdila MEDL MQL MRL"
+	}, {
+		"CODE": "MKE",
+		"CITY": "密尔沃基",
+		"keyword": "密尔沃基 Milwaukee mierwoji MEWJ MKE MKE"
+	}, {
+		"CODE": "MIL",
+		"CITY": "米兰",
+		"keyword": "米兰 Milan milan ML MXP MIL"
+	}, {
+		"CODE": "MES",
+		"CITY": "棉兰",
+		"keyword": "棉兰 Medan mianlan ML MES MES"
+	}, {
+		"CODE": "MIG",
+		"CITY": "绵阳",
+		"keyword": "绵阳 Mianyang mianyang MY MIG MIG"
+	}, {
+		"CODE": "NGO",
+		"CITY": "名古屋",
+		"keyword": "名古屋 Nagoya mingguwu MGW NGO NGO"
+	}, {
+		"CODE": "MSP",
+		"CITY": "明尼阿波利斯",
+		"keyword": "明尼阿波利斯 Minneapolis mingniabolisi MNABLS MSP MSP"
+	}, {
+		"CODE": "MSQ",
+		"CITY": "明斯克",
+		"keyword": "明斯克 Minsk mingsike MSK MSQ MSQ"
+	}, {
+		"CODE": "MEL",
+		"CITY": "墨尔本",
+		"keyword": "墨尔本 Melbourne moerben MEB MEL MEL"
+	}, {
+		"CODE": "POM",
+		"CITY": "莫尔斯比港",
+		"keyword": "莫尔斯比港 PortMoresby moersibigang MESBG POM POM"
+	}, {
+		"CODE": "OHE",
+		"CITY": "漠河",
+		"keyword": "漠河 Mohe mohe MH OHE OHE"
+	}, {
+		"CODE": "MOW",
+		"CITY": "莫斯科",
+		"keyword": "莫斯科 Moscow mosike MSK VKO MOW"
+	}, {
+		"CODE": "MEX",
+		"CITY": "墨西哥城",
+		"keyword": "墨西哥城 Mexicocity moxigecheng MXGC MEX MEX"
+	}, {
+		"CODE": "MDG",
+		"CITY": "牡丹江",
+		"keyword": "牡丹江 Mudanjiang mudanjiang MDJ MDG MDG"
+	}, {
+		"CODE": "MUC",
+		"CITY": "慕尼黑",
+		"keyword": "慕尼黑 Munich munihei MNH MUC MUC"
+	}, {
+		"CODE": "NAN",
+		"CITY": "纳迪",
+		"keyword": "纳迪 Nadi nadi ND NAN NAN"
+	}, {
+		"CODE": "NGA",
+		"CITY": "那格浦尔",
+		"keyword": "那格浦尔 Nagpur nagepuer NGPE NAG NGA"
+	}, {
+		"CODE": "NLT",
+		"CITY": "那拉提",
+		"keyword": "那拉提 Nalati nalati NLT NLT NLT"
+	}, {
+		"CODE": "BNA",
+		"CITY": "纳什维尔",
+		"keyword": "纳什维尔 Nashville nashiweier NSWE BNA BNA"
+	}, {
+		"CODE": "KHN",
+		"CITY": "南昌",
+		"keyword": "南昌 Nanchang nanchang NC KHN KHN"
+	}, {
+		"CODE": "NAO",
+		"CITY": "南充",
+		"keyword": "南充 Nanchong nanchong NC NAO NAO"
+	}, {
+		"CODE": "NKG",
+		"CITY": "南京",
+		"keyword": "南京 Nanjing nanjing NJ NKG NKG"
+	}, {
+		"CODE": "NNG",
+		"CITY": "南宁",
+		"keyword": "南宁 Nanning nanning NN NNG NNG"
+	}, {
+		"CODE": "NTG",
+		"CITY": "南通",
+		"keyword": "南通 Nantong nantong NT NTG NTG"
+	}, {
+		"CODE": "NNY",
+		"CITY": "南阳",
+		"keyword": "南阳 Nanyang nanyang NY NNY NNY"
+	}, {
+		"CODE": "NYT",
+		"CITY": "内比都",
+		"keyword": "内比都 Naypyitaw neibidu NBD NYT NYT"
+	}, {
+		"CODE": "NBO",
+		"CITY": "内罗毕",
+		"keyword": "内罗毕 Nairobi neiluobi NLB NBO NBO"
+	}, {
+		"CODE": "NCE",
+		"CITY": "尼斯",
+		"keyword": "尼斯 Nice nisi NS NCE NCE"
+	}, {
+		"CODE": "NGB",
+		"CITY": "宁波",
+		"keyword": "宁波 Ningbo ningbo NB NGB NGB"
+	}, {
+		"CODE": "NLH",
+		"CITY": "宁蒗",
+		"keyword": "宁蒗 Ninglang ninglang NL NLH NLH"
+	}, {
+		"CODE": "NTL",
+		"CITY": "纽卡斯尔(澳大利亚)",
+		"keyword": "纽卡斯尔(澳大利亚) Newcastle(Australia) niukasier(aodaliya) NKSE NTL NTL"
+	}, {
+		"CODE": "NCL",
+		"CITY": "纽卡斯尔(英国)",
+		"keyword": "纽卡斯尔(英国) Newcastle(UK) niukasier(yingguo) NKSE NCL NCL"
+	}, {
+		"CODE": "NUE",
+		"CITY": "纽伦堡",
+		"keyword": "纽伦堡 Nuremberg niulunbao NLB NUE NUE"
+	}, {
+		"CODE": "NYC",
+		"CITY": "纽约",
+		"keyword": "纽约 NewYork niuyue NY EWR NYC"
+	}, {
+		"CODE": "TBU",
+		"CITY": "努库阿洛法",
+		"keyword": "努库阿洛法 Nuku'alofa nukualuofa NKALF TBU TBU"
+	}, {
+		"CODE": "PBM",
+		"CITY": "帕拉马里博",
+		"keyword": "帕拉马里博 Paramaribo palamalibo PLMLB PBM PBM"
+	}, {
+		"CODE": "PZI",
+		"CITY": "攀枝花",
+		"keyword": "攀枝花 Panzhihua panzhihua PZH PZI PZI"
+	}, {
+		"CODE": "PIT",
+		"CITY": "匹兹堡",
+		"keyword": "匹兹堡 Pittsburgh PiZiBao PZB PIT PIT"
+	}, {
+		"CODE": "PER",
+		"CITY": "珀斯",
+		"keyword": "珀斯 Perth posi PS PER PER"
+	}, {
+		"CODE": "SYM",
+		"CITY": "普洱",
+		"keyword": "普洱 Puer Puer PE SYM SYM"
+	}, {
+		"CODE": "HKT",
+		"CITY": "普吉",
+		"keyword": "普吉 Phuket puji PJ HKT HKT"
+	}, {
+		"CODE": "PPP",
+		"CITY": "普罗瑟派恩",
+		"keyword": "普罗瑟派恩 Proserpine puluosepaien PLSPE PPP PPP"
+	}, {
+		"CODE": "PNQ",
+		"CITY": "浦那",
+		"keyword": "浦那 Poona puna PN PNQ PNQ"
+	}, {
+		"CODE": "KPO",
+		"CITY": "浦项",
+		"keyword": "浦项 Pohang puxiang PX KPO KPO"
+	}, {
+		"CODE": "JRO",
+		"CITY": "乞力马扎罗",
+		"keyword": "乞力马扎罗 Kilimanjaro qilimazhaluo QLMZL JRO JRO"
+	}, {
+		"CODE": "NDG",
+		"CITY": "齐齐哈尔",
+		"keyword": "齐齐哈尔 Qiqihar qiqihaer QQHE NDG NDG"
+	}, {
+		"CODE": "JIQ",
+		"CITY": "黔江",
+		"keyword": "黔江 Qianjiang qianjiang QJ JIQ JIQ"
+	}, {
+		"CODE": "YXS",
+		"CITY": "乔治王子城",
+		"keyword": "乔治王子城 PrinceGeorge qiaozhiwangzicheng QZWZC YXS YXS"
+	}, {
+		"CODE": "IQM",
+		"CITY": "且末",
+		"keyword": "且末 Qiemo qiemo QM IQM IQM"
+	}, {
+		"CODE": "BPE",
+		"CITY": "秦皇岛",
+		"keyword": "秦皇岛 Qinhuangdao qinhuangdao QHD BPE BPE"
+	}, {
+		"CODE": "TAO",
+		"CITY": "青岛",
+		"keyword": "青岛 Qingdao qingdao QD TAO TAO"
+	}, {
+		"CODE": "CEI",
+		"CITY": "清莱",
+		"keyword": "清莱 Chiang Rai QingLai QL CEI CEI"
+	}, {
+		"CODE": "CNX",
+		"CITY": "清迈",
+		"keyword": "清迈 ChiangMai qingmai QM CNX CNX"
+	}, {
+		"CODE": "IQN",
+		"CITY": "庆阳",
+		"keyword": "庆阳 Qingyang qingyang QY IQN IQN"
+	}, {
+		"CODE": "CJJ",
+		"CITY": "清州",
+		"keyword": "清州 Chongju qingzhou QZ CJJ CJJ"
+	}, {
+		"CODE": "BAR",
+		"CITY": "琼海博鳌",
+		"keyword": "琼海博鳌 QionghaiBoao qionghaiboao QHBA BAR BAR"
+	}, {
+		"CODE": "RKZ",
+		"CITY": "日喀则",
+		"keyword": "日喀则 Rikaze rikaze RKZ RKZ RKZ"
+	}, {
+		"CODE": "GVA",
+		"CITY": "日内瓦",
+		"keyword": "日内瓦 Geneva rineiwa RNW GVA GVA"
+	}, {
+		"CODE": "RIZ",
+		"CITY": "日照",
+		"keyword": "日照 Rizhao rizhao RZ RIZ RIZ"
+	}, {
+		"CODE": "VII",
+		"CITY": "荣市",
+		"keyword": "荣市 Vinh City RongShi RS VII VII"
+	}, {
+		"CODE": "RQA",
+		"CITY": "若羌",
+		"keyword": "若羌 Ruoqiang ruoqiang RQ RQA RQA"
+	}, {
+		"CODE": "ZAG",
+		"CITY": "萨格勒布",
+		"keyword": "萨格勒布 Zagreb sagelebu SGLB ZAG ZAG"
+	}, {
+		"CODE": "SAC",
+		"CITY": "萨克拉门托",
+		"keyword": "萨克拉门托 Sacramento sakelamentuo SKLMT SMF SAC"
+	}, {
+		"CODE": "SAH",
+		"CITY": "萨那",
+		"keyword": "萨那 Sana'a sana SN SAH SAH"
+	}, {
+		"CODE": "SPN",
+		"CITY": "塞班",
+		"keyword": "塞班 Saipan saiban SB SPN SPN"
+	}, {
+		"CODE": "SQJ",
+		"CITY": "三明",
+		"keyword": "三明 Sanming sanming SM SQJ SQJ"
+	}, {
+		"CODE": "SYX",
+		"CITY": "三亚",
+		"keyword": "三亚 Sanya sanya SY SYX SYX"
+	}, {
+		"CODE": "BKI",
+		"CITY": "沙巴",
+		"keyword": "沙巴 Sabah shaba SB BKI BKI"
+	}, {
+		"CODE": "SHJ",
+		"CITY": "沙迦",
+		"keyword": "沙迦 Sharjah shajia SJ SHJ SHJ"
+	}, {
+		"CODE": "SWA",
+		"CITY": "汕头",
+		"keyword": "汕头 Shantou shantou ST SWA SWA"
+	}, {
+		"CODE": "SHA",
+		"CITY": "上海虹桥",
+		"keyword": "上海虹桥 ShanghaiHongqiao ShanghaiHongqiao SHHQ SHA SHA"
+	}, {
+		"CODE": "PVG",
+		"CITY": "上海浦东",
+		"keyword": "上海浦东 ShanghaiPudong ShanghaiPudong SHPD PVG PVG"
+	}, {
+		"CODE": "SHR",
+		"CITY": "上饶",
+		"keyword": "上饶 Shangrao shangrao SR SQD SHR"
+	}, {
+		"CODE": "WGN",
+		"CITY": "邵阳",
+		"keyword": "邵阳 Shaoyang shaoyang SY WGN WGN"
+	}, {
+		"CODE": "HPG",
+		"CITY": "神农架",
+		"keyword": "神农架 Shennongjia shennongjia SNJ HPG HPG"
+	}, {
+		"CODE": "SHE",
+		"CITY": "沈阳",
+		"keyword": "沈阳 Shenyang shenyang SY SHE SHE"
+	}, {
+		"CODE": "SZX",
+		"CITY": "深圳",
+		"keyword": "深圳 Shenzhen shenzhen SZ SZX SZX"
+	}, {
+		"CODE": "SBA",
+		"CITY": "圣芭芭拉",
+		"keyword": "圣芭芭拉 Santabarbara shengbabala SBBL SBA SBA"
+	}, {
+		"CODE": "SAO",
+		"CITY": "圣保罗",
+		"keyword": "圣保罗 Saopaulo shengbaoluo SBL GRU SAO"
+	}, {
+		"CODE": "LED",
+		"CITY": "圣彼得堡",
+		"keyword": "圣彼得堡 St.Petersburg shengbidebao LNGL LED LED"
+	}, {
+		"CODE": "SAN",
+		"CITY": "圣地亚哥(美国)",
+		"keyword": "圣地亚哥(美国) SanDiego shengdiyage(meiguo) SDYG SAN SAN"
+	}, {
+		"CODE": "SCL",
+		"CITY": "圣地亚哥(智利)",
+		"keyword": "圣地亚哥(智利) Santiago shengdiyage(zhili) SDYG SCL SCL"
+	}, {
+		"CODE": "SJO",
+		"CITY": "圣何塞",
+		"keyword": "圣何塞 SanJose shenghesai SHS SJC SJO"
+	}, {
+		"CODE": "SHF",
+		"CITY": "石河子",
+		"keyword": "石河子 Shihezi shihezi SHZ SHF SHF"
+	}, {
+		"CODE": "SJW",
+		"CITY": "石家庄",
+		"keyword": "石家庄 Shijiazhuang shijiazhuang SJZ SJW SJW"
+	}, {
+		"CODE": "WDS",
+		"CITY": "十堰",
+		"keyword": "十堰 Shiyan shiyan SY WDS WDS"
+	}, {
+		"CODE": "SEL",
+		"CITY": "首尔",
+		"keyword": "首尔 Seoul shouer SE GMP SEL"
+	}, {
+		"CODE": "GEG",
+		"CITY": "斯波坎",
+		"keyword": "斯波坎 Spokane sibokan SBK GEG GEG"
+	}, {
+		"CODE": "STO",
+		"CITY": "斯德哥尔摩",
+		"keyword": "斯德哥尔摩 Stockholm sidegeermo SDGEM ARN STO"
+	}, {
+		"CODE": "SXR",
+		"CITY": "斯利那加",
+		"keyword": "斯利那加 Srinagar silinajia SLNJ SXR SXR"
+	}, {
+		"CODE": "SUB",
+		"CITY": "泗水",
+		"keyword": "泗水 Surabaya sishui SS SUB SUB"
+	}, {
+		"CODE": "SXB",
+		"CITY": "斯特拉斯堡",
+		"keyword": "斯特拉斯堡 Strasbourg sitelasibao STLSB SXB SXB"
+	}, {
+		"CODE": "STR",
+		"CITY": "斯图加特",
+		"keyword": "斯图加特 Stuttgart situjiate STJT STR STR"
+	}, {
+		"CODE": "MYJ",
+		"CITY": "松山",
+		"keyword": "松山 Matsuyama songshan SS MYJ MYJ"
+	}, {
+		"CODE": "YSQ",
+		"CITY": "松原",
+		"keyword": "松原 Songyuan songyuan SY YSQ YSQ"
+	}, {
+		"CODE": "ZRH",
+		"CITY": "苏黎世",
+		"keyword": "苏黎世 Zurich sulishi SLS ZRH ZRH"
+	}, {
+		"CODE": "USM",
+		"CITY": "苏梅岛",
+		"keyword": "苏梅岛 KohSamui sumeidao SMD USM USM"
+	}, {
+		"CODE": "QSZ",
+		"CITY": "莎车",
+		"keyword": "莎车 Shache shache SC QSZ QSZ"
+	}, {
+		"CODE": "SOF",
+		"CITY": "索非亚",
+		"keyword": "索非亚 Sofia suofeiya SFY SOF SOF"
+	}, {
+		"CODE": "TCG",
+		"CITY": "塔城",
+		"keyword": "塔城 Tacheng tacheng TC TCG TCG"
+	}, {
+		"CODE": "TLL",
+		"CITY": "塔林",
+		"keyword": "塔林 Tallinn talin TL TLL TLL"
+	}, {
+		"CODE": "TNR",
+		"CITY": "塔那那利佛",
+		"keyword": "塔那那利佛 Antananarivo tananalifu TNNLF TNR TNR"
+	}, {
+		"CODE": "TAS",
+		"CITY": "塔什干",
+		"keyword": "塔什干 Tashkent tashigan TSG TAS TAS"
+	}, {
+		"CODE": "TYN",
+		"CITY": "太原",
+		"keyword": "太原 Taiyuan taiyuan TY TYN TYN"
+	}, {
+		"CODE": "YTY",
+		"CITY": "泰州",
+		"keyword": "泰州 Taizhou taizhou TZ YTY YTY"
+	}, {
+		"CODE": "HYN",
+		"CITY": "台州",
+		"keyword": "台州 Taizhou taizhou TZ HYN HYN"
+	}, {
+		"CODE": "TPA",
+		"CITY": "坦帕",
+		"keyword": "坦帕 Tampa tanpa TP TPA TPA"
+	}, {
+		"CODE": "TVS",
+		"CITY": "唐山",
+		"keyword": "唐山 Tangshan tangshan TS TVS TVS"
+	}, {
+		"CODE": "TSV",
+		"CITY": "汤斯维尔",
+		"keyword": "汤斯维尔 Townsville tangsiweier TSWE TSV TSV"
+	}, {
+		"CODE": "TRV",
+		"CITY": "特里凡得琅",
+		"keyword": "特里凡得琅 Thiruvananthapura telifandelang TLFDL TRV TRV"
+	}, {
+		"CODE": "TCZ",
+		"CITY": "腾冲",
+		"keyword": "腾冲 Tengchong tengchong TC TCZ TCZ"
+	}, {
+		"CODE": "TSN",
+		"CITY": "天津",
+		"keyword": "天津 Tianjin tianjin TJ TSN TSN"
+	}, {
+		"CODE": "THQ",
+		"CITY": "天水",
+		"keyword": "天水 Tianshui tianshui TS THQ THQ"
+	}, {
+		"CODE": "TNH",
+		"CITY": "通化",
+		"keyword": "通化 Tonghua tonghua TH TNH TNH"
+	}, {
+		"CODE": "TGO",
+		"CITY": "通辽",
+		"keyword": "通辽 Tongliao tongliao TL TGO TGO"
+	}, {
+		"CODE": "TEN",
+		"CITY": "铜仁",
+		"keyword": "铜仁 Tongren tongren TR TEN TEN"
+	}, {
+		"CODE": "TLQ",
+		"CITY": "吐鲁番",
+		"keyword": "吐鲁番 Tulufan tulufan TLF TLQ TLQ"
+	}, {
+		"CODE": "TUN",
+		"CITY": "突尼斯",
+		"keyword": "突尼斯 Tunis tunisi TNSC TUN TUN"
+	}, {
+		"CODE": "VNS",
+		"CITY": "瓦拉纳西",
+		"keyword": "瓦拉纳西 Varanasi walanaxi WLNX VNS VNS"
+	}, {
+		"CODE": "VTE",
+		"CITY": "万象",
+		"keyword": "万象 Vientiane wanxiang WX VTE VTE"
+	}, {
+		"CODE": "MDC",
+		"CITY": "万鸦老",
+		"keyword": "万鸦老 Manado wanyalao WYL MDC MDC"
+	}, {
+		"CODE": "WXN",
+		"CITY": "万州",
+		"keyword": "万州 Wanzhou wanzhou WZ WXN WXN"
+	}, {
+		"CODE": "WEF",
+		"CITY": "潍坊",
+		"keyword": "潍坊 Weifang weifang WF WEF WEF"
+	}, {
+		"CODE": "WEH",
+		"CITY": "威海",
+		"keyword": "威海 Weihai weihai WH WEH WEH"
+	}, {
+		"CODE": "VCE",
+		"CITY": "威尼斯",
+		"keyword": "威尼斯 Venice weinisi WNS VCE VCE"
+	}, {
+		"CODE": "VIE",
+		"CITY": "维也纳",
+		"keyword": "维也纳 Vienna weiyena WYN VIE VIE"
+	}, {
+		"CODE": "YVR",
+		"CITY": "温哥华",
+		"keyword": "温哥华 Vancouver wengehua WGH YVR YVR"
+	}, {
+		"CODE": "YWG",
+		"CITY": "温尼伯",
+		"keyword": "温尼伯 Winnipeg wennibo WNB YWG YWG"
+	}, {
+		"CODE": "WNH",
+		"CITY": "文山",
+		"keyword": "文山 Wenshan wenshan WS WNH WNH"
+	}, {
+		"CODE": "WNZ",
+		"CITY": "温州",
+		"keyword": "温州 Wenzhou wenzhou WZ WNZ WNZ"
+	}, {
+		"CODE": "YOW",
+		"CITY": "渥太华",
+		"keyword": "渥太华 Ottawa wotaihua WTH YOW YOW"
+	}, {
+		"CODE": "UDR",
+		"CITY": "乌代布尔",
+		"keyword": "乌代布尔 Udaipur wudaibuer UDBE UDR UDR"
+	}, {
+		"CODE": "WUA",
+		"CITY": "乌海",
+		"keyword": "乌海 Wuhai wuhai WH WUA WUA"
+	}, {
+		"CODE": "WUH",
+		"CITY": "武汉",
+		"keyword": "武汉 Wuhan wuhan WH WUH WUH"
+	}, {
+		"CODE": "UCB",
+		"CITY": "乌兰察布",
+		"keyword": "乌兰察布 Ulanqab wulanchabu WLCB UCB UCB"
+	}, {
+		"CODE": "HLH",
+		"CITY": "乌兰浩特",
+		"keyword": "乌兰浩特 Ulan hot wulanhaote WLHT HLH HLH"
+	}, {
+		"CODE": "URC",
+		"CITY": "乌鲁木齐",
+		"keyword": "乌鲁木齐 Urumqi wulumuqi WLMQ URC URC"
+	}, {
+		"CODE": "WUX",
+		"CITY": "无锡",
+		"keyword": "无锡 Wuxi wuxi WX WUX WUX"
+	}, {
+		"CODE": "WUS",
+		"CITY": "武夷山",
+		"keyword": "武夷山 Wuyishan wuyishan WYS WUS WUS"
+	}, {
+		"CODE": "WUZ",
+		"CITY": "梧州",
+		"keyword": "梧州 Wuzhou wuzhou WZ WUZ WUZ"
+	}, {
+		"CODE": "SIA",
+		"CITY": "西安",
+		"keyword": "西安 Xi'an xian XA XIY SIA"
+	}, {
+		"CODE": "XIC",
+		"CITY": "西昌",
+		"keyword": "西昌 Xichang xichang XC XIC XIC"
+	}, {
+		"CODE": "XIL",
+		"CITY": "锡林浩特",
+		"keyword": "锡林浩特 Xilinhot xilinhaote XLHT XIL XIL"
+	}, {
+		"CODE": "SYD",
+		"CITY": "悉尼",
+		"keyword": "悉尼 Sydney xini XN SYD SYD"
+	}, {
+		"CODE": "XNN",
+		"CITY": "西宁",
+		"keyword": "西宁 Xining xining XN XNN XNN"
+	}, {
+		"CODE": "JHG",
+		"CITY": "西双版纳",
+		"keyword": "西双版纳 Xishuangbanna xishuangbanna XSBN JHG JHG"
+	}, {
+		"CODE": "SEA",
+		"CITY": "西雅图",
+		"keyword": "西雅图 Seattle xiyatu XYT SEA SEA"
+	}, {
+		"CODE": "GXH",
+		"CITY": "夏河",
+		"keyword": "夏河 Xiahe xiahe XH GXH GXH"
+	}, {
+		"CODE": "CLT",
+		"CITY": "夏洛特",
+		"keyword": "夏洛特 Charlotte xialuote XLT CLT CLT"
+	}, {
+		"CODE": "XMN",
+		"CITY": "厦门",
+		"keyword": "厦门 Xiamen xiamen XM XMN XMN"
+	}, {
+		"CODE": "DAD",
+		"CITY": "岘港",
+		"keyword": "岘港 Danang xiangang XG DAD DAD"
+	}, {
+		"CODE": "REP",
+		"CITY": "暹粒",
+		"keyword": "暹粒 SiemReap xianli XL REP REP"
+	}, {
+		"CODE": "SDJ",
+		"CITY": "仙台",
+		"keyword": "仙台 Sendai xiantai XT SDJ SDJ"
+	}, {
+		"CODE": "XIY",
+		"CITY": "咸阳",
+		"keyword": "咸阳 Xianyang xianyang XY XIY XIY"
+	}, {
+		"CODE": "XFN",
+		"CITY": "襄阳",
+		"keyword": "襄阳 Xiangyang xiangyang XYZG XFN XFN"
+	}, {
+		"CODE": "KMQ",
+		"CITY": "小松",
+		"keyword": "小松 Komatsu xiaosong XS KMQ KMQ"
+	}, {
+		"CODE": "MSY",
+		"CITY": "新奥尔良",
+		"keyword": "新奥尔良 NewOrleans xinaoerliang XAEL MSY MSY"
+	}, {
+		"CODE": "SIN",
+		"CITY": "新加坡",
+		"keyword": "新加坡 Singapore xinjiapo XJP SIN SIN"
+	}, {
+		"CODE": "OVB",
+		"CITY": "新西伯利亚",
+		"keyword": "新西伯利亚 Novosibirsk xinxiboliya XXBLY OVB OVB"
+	}, {
+		"CODE": "KIJ",
+		"CITY": "新泻",
+		"keyword": "新泻 Niigata xinxie XX KIJ KIJ"
+	}, {
+		"CODE": "CVG",
+		"CITY": "辛辛那提",
+		"keyword": "辛辛那提 Cincinnati xinxinnati XXNT CVG CVG"
+	}, {
+		"CODE": "WUT",
+		"CITY": "忻州",
+		"keyword": "忻州 Xinzhou xinzhou XZ WUT WUT"
+	}, {
+		"CODE": "ACX",
+		"CITY": "兴义",
+		"keyword": "兴义 Xingyi xingyi XY ACX ACX"
+	}, {
+		"CODE": "HOU",
+		"CITY": "休斯顿",
+		"keyword": "休斯顿 Houston xiusidun XSD HOU HOU"
+	}, {
+		"CODE": "XUZ",
+		"CITY": "徐州",
+		"keyword": "徐州 Xuzhou xuzhou XZ XUZ XUZ"
+	}, {
+		"CODE": "ADD",
+		"CITY": "亚的斯亚贝巴",
+		"keyword": "亚的斯亚贝巴 AddisAbaba yadesiyabeiba YDSYBB ADD ADD"
+	}, {
+		"CODE": "ATH",
+		"CITY": "雅典",
+		"keyword": "雅典 Athena yadian YD ATH ATH"
+	}, {
+		"CODE": "JKT",
+		"CITY": "雅加达",
+		"keyword": "雅加达 Jakarta yajiada YJD CGK JKT"
+	}, {
+		"CODE": "ATL",
+		"CITY": "亚特兰大",
+		"keyword": "亚特兰大 Atlanta yatelanda YTLD ATL ATL"
+	}, {
+		"CODE": "NHA",
+		"CITY": "芽庄",
+		"keyword": "芽庄 Nhatrang yazhuang YZ CXR NHA"
+	}, {
+		"CODE": "ENY",
+		"CITY": "延安",
+		"keyword": "延安 Yan'an yanan YA ENY ENY"
+	}, {
+		"CODE": "YNZ",
+		"CITY": "盐城",
+		"keyword": "盐城 Yancheng yancheng YC YNZ YNZ"
+	}, {
+		"CODE": "SLC",
+		"CITY": "盐湖城",
+		"keyword": "盐湖城 SaltLakeCity yanhucheng YHC SLC SLC"
+	}, {
+		"CODE": "YNJ",
+		"CITY": "延吉",
+		"keyword": "延吉 Yanji yanji YJ YNJ YNJ"
+	}, {
+		"CODE": "YNT",
+		"CITY": "烟台",
+		"keyword": "烟台 Yantai yantai YT YNT YNT"
+	}, {
+		"CODE": "RGN",
+		"CITY": "仰光",
+		"keyword": "仰光 Rangoon yangguang YG RGN RGN"
+	}, {
+		"CODE": "YTY",
+		"CITY": "扬州",
+		"keyword": "扬州 Yangzhou yangzhou YZ YTY YTY"
+	}, {
+		"CODE": "YBP",
+		"CITY": "宜宾",
+		"keyword": "宜宾 Yibin yibin YB YBP YBP"
+	}, {
+		"CODE": "YIH",
+		"CITY": "宜昌",
+		"keyword": "宜昌 Yichang yichang YC YIH YIH"
+	}, {
+		"CODE": "YIC",
+		"CITY": "宜春",
+		"keyword": "宜春 Yichun yichun YC YIC YIC"
+	}, {
+		"CODE": "LDS",
+		"CITY": "伊春",
+		"keyword": "伊春 Yichun yichun YC LDS LDS"
+	}, {
+		"CODE": "IKT",
+		"CITY": "伊尔库茨克",
+		"keyword": "伊尔库茨克 Irkutsk yierkucike YEKCK IKT IKT"
+	}, {
+		"CODE": "YIN",
+		"CITY": "伊宁",
+		"keyword": "伊宁 Yining yining YN YIN YIN"
+	}, {
+		"CODE": "ISB",
+		"CITY": "伊斯兰堡",
+		"keyword": "伊斯兰堡 Islamabad yisilanbao YSLB ISB ISB"
+	}, {
+		"CODE": "IST",
+		"CITY": "伊斯坦布尔",
+		"keyword": "伊斯坦布尔 Istanbul yisitanbuer YSTBE IST IST"
+	}, {
+		"CODE": "YIW",
+		"CITY": "义乌",
+		"keyword": "义乌 Yiwu yiwu YW YIW YIW"
+	}, {
+		"CODE": "INC",
+		"CITY": "银川",
+		"keyword": "银川 Yinchuan yinchuan YC INC INC"
+	}, {
+		"CODE": "IND",
+		"CITY": "印第安纳波利斯",
+		"keyword": "印第安纳波利斯 Indianapolis yindiannabolisi YDANBLS IND IND"
+	}, {
+		"CODE": "YKH",
+		"CITY": "营口",
+		"keyword": "营口 Yingkou yingkou YK YKH YKH"
+	}, {
+		"CODE": "LLF",
+		"CITY": "永州",
+		"keyword": "永州 Yongzhou yongzhou YZ LLF LLF"
+	}, {
+		"CODE": "UYN",
+		"CITY": "榆林",
+		"keyword": "榆林 Yulin yulin YL UYN UYN"
+	}, {
+		"CODE": "YUS",
+		"CITY": "玉树",
+		"keyword": "玉树 Yushu yushu YS YUS YUS"
+	}, {
+		"CODE": "JNB",
+		"CITY": "约翰内斯堡",
+		"keyword": "约翰内斯堡 Johannesburg yuehanneisibao YHNSB JNB JNB"
+	}, {
+		"CODE": "YCU",
+		"CITY": "运城",
+		"keyword": "运城 Yuncheng yuncheng YC YCU YCU"
+	}, {
+		"CODE": "NZL",
+		"CITY": "扎兰屯",
+		"keyword": "扎兰屯 Zhalantun zhalantun ZLT NZL NZL"
+	}, {
+		"CODE": "SPK",
+		"CITY": "札幌",
+		"keyword": "札幌 Sapporo zhahuang ZH CTS SPK"
+	}, {
+		"CODE": "JAI",
+		"CITY": "斋浦尔",
+		"keyword": "斋浦尔 Jaipur zhaipuer ZPE JAI JAI"
+	}, {
+		"CODE": "ZHA",
+		"CITY": "湛江",
+		"keyword": "湛江 Zhanjiang zhanjiang ZJ ZHA ZHA"
+	}, {
+		"CODE": "DYG",
+		"CITY": "张家界",
+		"keyword": "张家界 Zhangjiajie zhangjiajie ZJJ DYG DYG"
+	}, {
+		"CODE": "ZQZ",
+		"CITY": "张家口",
+		"keyword": "张家口 Zhangjiakou zhangjiakou ZJK ZQZ ZQZ"
+	}, {
+		"CODE": "YZY",
+		"CITY": "张掖",
+		"keyword": "张掖 Zhangye zhangye ZY YZY YZY"
+	}, {
+		"CODE": "ZAT",
+		"CITY": "昭通",
+		"keyword": "昭通 Zhaotong zhaotong ZT ZAT ZAT"
+	}, {
+		"CODE": "CGO",
+		"CITY": "郑州",
+		"keyword": "郑州 Zhengzhou zhengzhou ZZ CGO CGO"
+	}, {
+		"CODE": "CHI",
+		"CITY": "芝加哥",
+		"keyword": "芝加哥 Chicago zhijiage ZJG MDW CHI"
+	}, {
+		"CODE": "MFM",
+		"CITY": "中国澳门",
+		"keyword": "中国澳门 Macau,China zhongguoaomen ZGAM MFM MFM"
+	}, {
+		"CODE": "KHH",
+		"CITY": "中国高雄",
+		"keyword": "中国高雄 Kaohsiung,China zhongguogaoxiong ZGGX KHH KHH"
+	}, {
+		"CODE": "KNH",
+		"CITY": "中国金门",
+		"keyword": "中国金门 Kinmen,China zhongguojinmen ZGJM KNH KNH"
+	}, {
+		"CODE": "TPE",
+		"CITY": "中国台北",
+		"keyword": "中国台北 Taipei,China zhongguotaibei ZGTB TPE TPE"
+	}, {
+		"CODE": "RMQ",
+		"CITY": "中国台中",
+		"keyword": "中国台中 Taichung,China zhongguotaizhong ZGTZ RMQ RMQ"
+	}, {
+		"CODE": "HKG",
+		"CITY": "中国香港",
+		"keyword": "中国香港 HongKong,China zhongguoxianggang ZGXG HKG HKG"
+	}, {
+		"CODE": "ZHY",
+		"CITY": "中卫",
+		"keyword": "中卫 Zhongwei zhongwei ZW ZHY ZHY"
+	}, {
+		"CODE": "HSN",
+		"CITY": "舟山",
+		"keyword": "舟山 Zhoushan zhoushan ZS HSN HSN"
+	}, {
+		"CODE": "ZUH",
+		"CITY": "珠海",
+		"keyword": "珠海 Zhuhai zhuhai ZH ZUH ZUH"
+	}, {
+		"CODE": "ZYI",
+		"CITY": "遵义",
+		"keyword": "遵义 Zunyi zunyi ZY ZYI ZYI"
+	}]
+}

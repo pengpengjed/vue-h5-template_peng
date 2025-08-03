@@ -1,0 +1,319 @@
+[
+    {
+        "publishTypeId": 78,
+        "publishTypeCode": "ZTL",
+        "publishTypeName": "暂停类",
+        "publishTypeItemList": [
+            {
+                "publishId": 235,
+                "publishCode": "ZTL-ZTJXZG",
+                "publishName": "暂停机型资格",
+                "aptitudeNodeId": null
+            },
+            {
+                "publishId": 238,
+                "publishCode": "ZTL-ZT-CS",
+                "publishName": "暂停-测试",
+                "aptitudeNodeId": 122
+            },
+            {
+                "publishId": 243,
+                "publishCode": "ZTL-YYTXZG-CELSWDOZQYZG",
+                "publishName": "英语通信资格-除俄罗斯外的欧洲区域资格",
+                "aptitudeNodeId": 127
+            },
+            {
+                "publishId": 254,
+                "publishCode": "ZTL-CSZTJCGZ",
+                "publishName": "测试暂停检查规则",
+                "aptitudeNodeId": 138
+            },
+            {
+                "publishId": 258,
+                "publishCode": "ZTL-223",
+                "publishName": "22",
+                "aptitudeNodeId": 141
+            },
+            {
+                "publishId": 268,
+                "publishCode": "ZTL-CS711BUG",
+                "publishName": "测试711bug",
+                "aptitudeNodeId": 148
+            },
+            {
+                "publishId": 269,
+                "publishCode": "ZTL-CS711BUG02",
+                "publishName": "测试711bug02",
+                "aptitudeNodeId": 149
+            },
+            {
+                "publishId": 270,
+                "publishCode": "ZTL-CS711BUG03",
+                "publishName": "测试711bug03",
+                "aptitudeNodeId": 150
+            },
+            {
+                "publishId": 271,
+                "publishCode": "ZTL-CS711BUG04",
+                "publishName": "测试711bug04",
+                "aptitudeNodeId": 151
+            },
+            {
+                "publishId": 1000097,
+                "publishCode": "ZTL-CSPBZT-SXJXGNXZ",
+                "publishName": "测试p表暂停-生效仅限国内限制",
+                "aptitudeNodeId": 1000026
+            },
+            {
+                "publishId": 1000098,
+                "publishCode": "ZTL-CSLZZRCS",
+                "publishName": "暂停类准准入测试",
+                "aptitudeNodeId": 1000028
+            },
+            {
+                "publishId": 1000107,
+                "publishCode": "ZTL-JSJXGN",
+                "publishName": "结束仅限国内",
+                "aptitudeNodeId": 1000036
+            }
+        ]
+    },
+    {
+        "publishTypeId": 77,
+        "publishTypeCode": "SXL",
+        "publishTypeName": "生效类",
+        "publishTypeItemList": [
+            {
+                "publishId": 236,
+                "publishCode": "SXL-FOA1FJSZG（JXGN）",
+                "publishName": "FOA1副驾驶资格（仅限国内）",
+                "aptitudeNodeId": 120
+            },
+            {
+                "publishId": 237,
+                "publishCode": "SXL-CSY-SXCAPZ",
+                "publishName": "测试用-CAPZ",
+                "aptitudeNodeId": 121
+            },
+            {
+                "publishId": 241,
+                "publishCode": "SXL-YYTXZG-CELSWDOZQY",
+                "publishName": "英语通信资格-除俄罗斯外的欧洲区域",
+                "aptitudeNodeId": 125
+            },
+            {
+                "publishId": 242,
+                "publishCode": "SXL-CSFOA1FJSZG",
+                "publishName": "初始FOA1副驾驶资格",
+                "aptitudeNodeId": 126
+            },
+            {
+                "publishId": 244,
+                "publishCode": "SXL-TSQY、HLHJCXL-MJDQDDZG",
+                "publishName": "特殊区域、航路和机场训练-西亚和撒哈拉以北的非洲区域单飞资格",
+                "aptitudeNodeId": 129
+            },
+            {
+                "publishId": 245,
+                "publishCode": "SXL-FOA1FJSZG（CSH）",
+                "publishName": "FOA1副驾驶资格（初始化）",
+                "aptitudeNodeId": 130
+            },
+            {
+                "publishId": 247,
+                "publishCode": "SXL-CS-FZ",
+                "publishName": "测试-复制",
+                "aptitudeNodeId": null
+            },
+            {
+                "publishId": 248,
+                "publishCode": "SXL-BMQYYYTXZG",
+                "publishName": "北美区域英语通信资格",
+                "aptitudeNodeId": 132
+            },
+            {
+                "publishId": 250,
+                "publishCode": "SXL-SX-BUGCS",
+                "publishName": "生效-bug测试",
+                "aptitudeNodeId": 133
+            },
+            {
+                "publishId": 251,
+                "publishCode": "SXL-SXCAPS",
+                "publishName": "生效CAPS",
+                "aptitudeNodeId": 134
+            },
+            {
+                "publishId": 253,
+                "publishCode": "SXL-CSJCGZ",
+                "publishName": "测试检查规则",
+                "aptitudeNodeId": 137
+            },
+            {
+                "publishId": 256,
+                "publishCode": "SXL-CSDBX",
+                "publishName": "测试都不选",
+                "aptitudeNodeId": 139
+            },
+            {
+                "publishId": 259,
+                "publishCode": "SXL-YZYH",
+                "publishName": "验证优化",
+                "aptitudeNodeId": 142
+            },
+            {
+                "publishId": 263,
+                "publishCode": "SXL-YZWXP",
+                "publishName": "验证危险品",
+                "aptitudeNodeId": 143
+            },
+            {
+                "publishId": 266,
+                "publishCode": "SXL-CSSX",
+                "publishName": "测试顺序",
+                "aptitudeNodeId": 147
+            },
+            {
+                "publishId": 272,
+                "publishCode": "SXL-SXRCZGYZ",
+                "publishName": "生效RC资格验证",
+                "aptitudeNodeId": null
+            },
+            {
+                "publishId": 1000096,
+                "publishCode": "SXL-CSRC",
+                "publishName": "测试RC",
+                "aptitudeNodeId": null
+            },
+            {
+                "publishId": 1000099,
+                "publishCode": "SXL-CS7YSXL",
+                "publishName": "测试7月生效类",
+                "aptitudeNodeId": null
+            },
+            {
+                "publishId": 1000103,
+                "publishCode": "SXL-CELSWDOZQYYYTXZG(EEUO)",
+                "publishName": "除俄罗斯外的欧洲区域英语通信资格(EEUO)",
+                "aptitudeNodeId": 1000033
+            },
+            {
+                "publishId": 1000104,
+                "publishCode": "SXL-JXGN+JX",
+                "publishName": "仅限国内+机型",
+                "aptitudeNodeId": 1000034
+            },
+            {
+                "publishId": 1000106,
+                "publishCode": "SXL-SXGJ",
+                "publishName": "生效国际",
+                "aptitudeNodeId": null
+            },
+            {
+                "publishId": 1000108,
+                "publishCode": "SXL-CSJZF/OBJZS/S",
+                "publishName": "测试截止f/o不截止S/S",
+                "aptitudeNodeId": 1000040
+            },
+            {
+                "publishId": 1000109,
+                "publishCode": "SXL-ZRTJYHYZ",
+                "publishName": "准入条件优化验证",
+                "aptitudeNodeId": 1000042
+            }
+        ]
+    },
+    {
+        "publishTypeId": 76,
+        "publishTypeCode": "HFL",
+        "publishTypeName": "恢复类",
+        "publishTypeItemList": [
+            {
+                "publishId": 239,
+                "publishCode": "HFL-HFST",
+                "publishName": "恢复st",
+                "aptitudeNodeId": 123
+            },
+            {
+                "publishId": 255,
+                "publishCode": "HFL-HFJCGZCS",
+                "publishName": "恢复检查规则测试",
+                "aptitudeNodeId": 1000041
+            },
+            {
+                "publishId": 257,
+                "publishCode": "HFL-CSDBX-HF",
+                "publishName": "测试都不选-恢复",
+                "aptitudeNodeId": 140
+            },
+            {
+                "publishId": 1000100,
+                "publishCode": "HFL-CS7YHFL",
+                "publishName": "测试7月恢复类",
+                "aptitudeNodeId": 1000031
+            }
+        ]
+    },
+    {
+        "publishTypeId": 79,
+        "publishTypeCode": "JJL",
+        "publishTypeName": "降级类",
+        "publishTypeItemList": [
+            {
+                "publishId": 240,
+                "publishCode": "JJL-JJ0CS",
+                "publishName": "降级0测试",
+                "aptitudeNodeId": 124
+            },
+            {
+                "publishId": 252,
+                "publishCode": "JJL-JJDCAPT-A",
+                "publishName": "降级到st",
+                "aptitudeNodeId": null
+            },
+            {
+                "publishId": 264,
+                "publishCode": "JJL-JJAAAA",
+                "publishName": "降级aaaa",
+                "aptitudeNodeId": 145
+            },
+            {
+                "publishId": 265,
+                "publishCode": "JJL-JZWCZHXLJJZLJZ",
+                "publishName": "机长完成重获训练降级Z类机长",
+                "aptitudeNodeId": 146
+            },
+            {
+                "publishId": 1000101,
+                "publishCode": "JJL-CS7YJJL",
+                "publishName": "测试7月降级类",
+                "aptitudeNodeId": null
+            },
+            {
+                "publishId": 1000102,
+                "publishCode": "JJL-JJL7Y",
+                "publishName": "降级类7月",
+                "aptitudeNodeId": 1000030
+            },
+            {
+                "publishId": 1000105,
+                "publishCode": "JJL-JZZXCSRK-JJL",
+                "publishName": "机组中心测试入库-jjl",
+                "aptitudeNodeId": null
+            }
+        ]
+    },
+    {
+        "publishTypeId": 89,
+        "publishTypeCode": "gyx",
+        "publishTypeName": "gyx测试类型",
+        "publishTypeItemList": [
+            {
+                "publishId": 262,
+                "publishCode": "GYXCSLX-WXPKMYZ",
+                "publishName": "危险品科目验证",
+                "aptitudeNodeId": null
+            }
+        ]
+    }
+]

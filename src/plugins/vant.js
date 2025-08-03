@@ -1,7 +1,39 @@
 // 按需全局引入 vant组件
 import Vue from 'vue'
-import { Button, List, Cell, Tabbar, TabbarItem } from 'vant'
+import {
+  Button,
+  List,
+  Cell,
+  CellGroup,
+  Tabbar,
+  TabbarItem,
+  Tag,
+  Empty,
+  Popup,
+  Icon,
+  Checkbox,
+  Field,
+  RadioGroup,
+  Radio,
+  Toast,
+  Tabs,
+  Tab,
+  Dialog
+} from 'vant'
+
 Vue.use(Button)
 Vue.use(Cell)
+Vue.use(CellGroup)
 Vue.use(List)
 Vue.use(Tabbar).use(TabbarItem)
+Vue.use(Tag)
+Vue.use(Empty)
+Vue.use(Popup)
+Vue.use(Icon)
+Vue.use(Checkbox)
+Vue.use(Field)
+Vue.use(RadioGroup)
+Vue.use(Radio)
+Vue.use(Toast)
+Vue.use(Tabs).use(Tab)
+Vue.use(Dialog)
