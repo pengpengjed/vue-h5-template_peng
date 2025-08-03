@@ -22,7 +22,7 @@
 
 <script>
 export default {
-  name: "CardComponent",
+  name: 'CardComponent',
   props: {
     titleName: {
       type: String,
@@ -34,11 +34,11 @@ export default {
     },
     cardMarginBottm: {
       type: String || Number,
-      default: "10px"
+      default: '10px'
     },
     cardRadius: {
       type: String || Number,
-      default: "20px"
+      default: '20px'
     },
     clickable: {
       type: Boolean,
@@ -46,27 +46,27 @@ export default {
     }
   },
   data() {
-    return {};
+    return {}
   },
   methods: {
     getNumOrStringStyle(param) {
-      if (typeof param === "number") {
-        return `${param}px`;
+      if (typeof param === 'number') {
+        return `${param}px`
       } else {
-        return param;
+        return param
       }
     },
     clickHandle(event) {
       if (!this.clickable) {
-        return;
+        return
       }
       if (event && event.stopPropagation) {
-        event.stopPropagation();
+        event.stopPropagation()
       }
-      this.$emit("click", this.titleName, event);
+      this.$emit('click', this.titleName, event)
     }
   }
-};
+}
 </script>
 
 <style lang="less" scoped>
@@ -77,7 +77,6 @@ export default {
     box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
     transform: scale(0.98);
   }
-
 }
 .card-item-wrapper:last-child {
   margin-bottom: 0;

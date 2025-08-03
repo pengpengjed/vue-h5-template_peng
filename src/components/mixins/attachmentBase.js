@@ -1,16 +1,16 @@
 // import { fileInformation } from "../../utils/cordovaApi";
 // import Utility from "../../utils/utility";
-import attachmentUtil from "../../utils/attachmentUtil";
+import attachmentUtil from '../../utils/attachmentUtil'
 
 export default {
-  name: "AttachmentBase",
+  name: 'AttachmentBase',
   methods: {
     viewAttachment(file) {
       // this.$toast.loading({
       //   message: "请稍候",
       //   duration: 0
       // });
-      this.showLoading("正在加载", false);
+      this.showLoading('正在加载', false)
 
       this.getFileUrl(file)
         .then(res => {
@@ -18,14 +18,14 @@ export default {
           //   this.alertMessage("找不到文件路径");
           //   return;
           // }
-          file.fileUrl = res.url;
-          file.size = res.size;
-          attachmentUtil.viewAttachment(file);
+          file.fileUrl = res.url
+          file.size = res.size
+          attachmentUtil.viewAttachment(file)
         })
         .catch(res => {
-          this.$toast.clear();
-          this.alertMessage(res.resultDesc);
-        });
+          this.$toast.clear()
+          this.alertMessage(res.resultDesc)
+        })
 
       // if (!file.fileId) {
       //   file.fileId = new Date().getTime();
@@ -119,8 +119,8 @@ export default {
     // },
     getFileUrl(file) {
       return new Promise(resolve => {
-        resolve(file);
-      });
+        resolve(file)
+      })
     },
     // deleteTempFile(file) {
     //   this.$http
@@ -151,11 +151,11 @@ export default {
       //       reject(res);
       //     });
       // });
-      return attachmentUtil.listAppSharedFile();
+      return attachmentUtil.listAppSharedFile()
     },
     previewFile(filePath) {
       // this.$native.FileInformation.previewFile({ filePath });
-      attachmentUtil.previewFile(filePath);
+      attachmentUtil.previewFile(filePath)
     }
   }
-};
+}

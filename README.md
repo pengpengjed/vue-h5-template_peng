@@ -1,6 +1,6 @@
 # vue-h5-template
 
-基于 vue-cli4.0 + webpack 4 + vant ui + sass+ rem 适配方案+axios 封装，构建手机端模板脚手架
+基于 vue-cli4.0 + webpack 4 + vant ui + less+ rem 适配方案+axios 封装，构建手机端模板脚手架
 
 掘金: [vue-cli4 vant rem 移动端框架方案](https://juejin.im/post/5cfefc73f265da1bba58f9f7)
 
@@ -37,7 +37,7 @@ npm run serve
 - [√ rem 适配方案](#rem)
 - [√ vm 适配方案](#vm)
 - [√ VantUI 组件按需加载](#vant)
-- [√ Sass 全局样式](#sass)
+- [√ Less 全局样式](#less)
 - [√ Vuex 状态管理](#vuex)
 - [√ Vue-router](#router)
 - [√ Axios 封装及接口管理](#axios)
@@ -320,18 +320,18 @@ Vue.use(Tabbar).use(TabbarItem)
 
 [▲ 回顶部](#top)
 
-### <span id="sass">✅ Sass 全局样式</span>
+### <span id="less">✅ Less 全局样式</span>
 
-首先 你可能会遇到 `node-sass` 安装不成功，别放弃多试几次！！！
+项目已从 Sass 重构为 Less，使用 Less 预处理器进行样式开发。
 
 每个页面自己对应的样式都写在自己的 .vue 文件之中 `scoped` 它顾名思义给 css 加了一个域的概念。
 
 ```html
-<style lang="scss">
+<style lang="less">
   /* global styles */
 </style>
 
-<style lang="scss" scoped>
+<style lang="less" scoped>
   /* local styles */
 </style>
 ```
@@ -375,8 +375,8 @@ vue-h5-template 所有全局样式都在 `@/src/assets/css` 目录下设置
 
 #### 全局变量
 
-`vue.config.js` 配置使用 `css.loaderOptions` 选项,注入 `sass` 的 `mixin` `variables` 到全局，不需要手动引入 ,配
-置`$cdn`通过变量形式引入 cdn 地址,这样向所有 Sass/Less 样式传入共享的全局变量：
+`vue.config.js` 配置使用 `css.loaderOptions` 选项,注入 `less` 的 `mixin` `variables` 到全局，不需要手动引入 ,配
+置`@cdn`通过变量形式引入 cdn 地址,这样向所有 Less 样式传入共享的全局变量：
 
 ```javascript
 const IS_PROD = ['production', 'prod'].includes(process.env.NODE_ENV)
@@ -386,14 +386,14 @@ module.exports = {
     extract: IS_PROD,
     sourceMap: false,
     loaderOptions: {
-      // 给 scss-loader 传递选项
-      scss: {
-        // 注入 `sass` 的 `mixin` `variables` 到全局, $cdn可以配置图片cdn
+      // 给 less-loader 传递选项
+      less: {
+        // 注入 `less` 的 `mixin` `variables` 到全局, @cdn可以配置图片cdn
         // 详情: https://cli.vuejs.org/guide/css.html#passing-options-to-pre-processor-loaders
-        prependData: `
-                @import "assets/css/mixin.scss";
-                @import "assets/css/variables.scss";
-                $cdn: "${defaultSettings.$cdn}";
+        additionalData: `
+                @import "assets/css/mixin.less";
+                @import "assets/css/variables.less";
+                @cdn: "${defaultSettings.$cdn}";
                  `
       }
     }
@@ -405,7 +405,7 @@ module.exports = {
 
 ```javascript
 // 引入全局样式
-import '@/assets/css/index.scss'
+import '@/assets/css/index.less'
 
 // 设置 js中可以访问 $cdn
 // 引入cdn

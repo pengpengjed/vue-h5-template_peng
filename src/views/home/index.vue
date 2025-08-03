@@ -34,7 +34,7 @@ let list = ref([
 ])
 </script>
 
-<style lang="scss" scoped>
+<style lang="less" scoped>
 .index-container {
   .warpper {
     padding: 24px;

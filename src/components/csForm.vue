@@ -40,7 +40,7 @@
 
 <script>
 export default {
-  name: "CsForm",
+  name: 'CsForm',
   props: {
     colConfig: {
       type: Array,
@@ -54,7 +54,7 @@ export default {
     },
     wrapperClass: {
       type: String,
-      default: ""
+      default: ''
     },
     wrapperStyle: {
       type: Object,
@@ -62,28 +62,28 @@ export default {
     },
     emptyText: {
       type: String,
-      default: "-"
+      default: '-'
     }
   },
   methods: {
     getNestedValue(obj, path) {
       return Array.isArray(path)
         ? path.reduce((acc, key) => {
-            return acc && acc[key];
+            return acc && acc[key]
           }, obj)
-        : (obj && obj[path]) || "";
+        : (obj && obj[path]) || ''
     },
     getValue(value, formatter) {
       if (!value) {
-        return this.emptyText;
+        return this.emptyText
       }
-      if (formatter && typeof formatter === "function") {
-        return formatter(value);
+      if (formatter && typeof formatter === 'function') {
+        return formatter(value)
       }
-      return value;
+      return value
     }
   }
-};
+}
 </script>
 
 <style lang="less" scoped>

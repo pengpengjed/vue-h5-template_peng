@@ -133,32 +133,12 @@
     </van-popup>
 
     <!-- 文件上传弹窗 -->
-    <van-popup v-model="showFileUpload" position="bottom" :style="{ height: '50%' }">
-      <div class="file-upload-popup">
-        <div class="upload-header">
-          <h3>上传佐证材料</h3>
-          <van-icon name="cross" @click="showFileUpload = false" />
-        </div>
-        <div class="upload-content">
-          <van-uploader
-            v-model="uploadedFiles"
-            :max-count="1"
-            :max-size="10 * 1024 * 1024"
-            :accept="acceptedFileTypes"
-            @oversize="onFileOversize"
-            @delete="onFileDelete"
-          />
-          <div class="upload-tips">
-            <p>支持格式：PDF、DOC、DOCX、XLS、XLSX、PNG、JPG、JPEG、BMP</p>
-            <p>文件大小限制：10MB</p>
-          </div>
-        </div>
-        <div class="upload-actions">
-          <van-button type="primary" @click="confirmFileUpload">确认上传</van-button>
-          <van-button type="default" @click="showFileUpload = false">取消</van-button>
-        </div>
-      </div>
-    </van-popup>
+    <csFileUploadPopup
+      v-model="showFileUpload"
+      :accept-exts="acceptedFileTypes"
+      :limit-size="10"
+      @read-file="onFileRead"
+    />
 
     <!-- 文件预览弹窗 -->
     <van-popup v-model="showFilePreview" position="center" :style="{ width: '90%', height: '80%' }">
@@ -203,7 +183,6 @@ export default {
       showFileUpload: false,
       showFilePreview: false,
       selectedStudentId: '',
-      uploadedFiles: [],
       previewFileUrl: '',
       previewFileName: '',
       acceptedFileTypes: ['pdf', 'doc', 'docx', 'xls', 'xlsx', 'png', 'jpg', 'jpeg', 'bmp'],
@@ -536,7 +515,8 @@ export default {
     // 处理确认满足
     handleConfirmSatisfaction(condition) {
       console.log('确认满足条件:', condition)
-      this.showFileUploadDialog(condition)
+      this.currentCondition = condition
+      this.showFileUpload = true
     },
 
     // 处理取消确认
@@ -554,37 +534,21 @@ export default {
     // 处理上传附件
     handleUploadAttachment(condition) {
       console.log('上传附件:', condition)
-      this.showFileUploadDialog(condition)
-    },
-
-    // 显示文件上传弹窗
-    showFileUploadDialog(condition) {
       this.currentCondition = condition
       this.showFileUpload = true
     },
 
     // 文件大小超限
-    onFileOversize() {
-      this.$toast('文件大小不能超过10MB')
-    },
-
-    // 删除文件
-    onFileDelete() {
-      this.uploadedFiles = []
-    },
-
-    // 确认文件上传
-    confirmFileUpload() {
-      if (this.uploadedFiles.length > 0 && this.currentCondition) {
-        const file = this.uploadedFiles[0]
+    // 文件上传相关方法
+    onFileRead(fileData) {
+      if (this.currentCondition) {
         this.currentCondition.attachment = {
-          name: file.file.name,
-          url: URL.createObjectURL(file.file),
-          size: file.file.size
+          name: fileData.name,
+          url: fileData.url || URL.createObjectURL(fileData.file),
+          size: fileData.file.size
         }
         this.currentCondition.status = 'manual'
         this.showFileUpload = false
-        this.uploadedFiles = []
         this.currentCondition = null
       }
     },
@@ -613,7 +577,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="less" scoped>
 .student-admission-detail {
   height: 100%;
   display: flex;
@@ -741,51 +705,6 @@ export default {
   }
 
   .selector-actions {
-    padding: 16px;
-    display: flex;
-    gap: 8px;
-    border-top: 1px solid #eee;
-  }
-}
-
-.file-upload-popup {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-
-  .upload-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 16px;
-    border-bottom: 1px solid #eee;
-
-    h3 {
-      margin: 0;
-    }
-
-    .van-icon {
-      cursor: pointer;
-      font-size: 18px;
-    }
-  }
-
-  .upload-content {
-    flex: 1;
-    padding: 16px;
-
-    .upload-tips {
-      margin-top: 16px;
-      color: #666;
-      font-size: 12px;
-
-      p {
-        margin: 4px 0;
-      }
-    }
-  }
-
-  .upload-actions {
     padding: 16px;
     display: flex;
     gap: 8px;

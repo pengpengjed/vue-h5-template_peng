@@ -6,7 +6,7 @@
       :cardWrapperStyle="cardWrapperStyle"
       :titleName="groupItem.groupName"
     >
-      <template #card-header="{title}" v-if="$scopedSlots['card-header']">
+      <template #card-header="{ title }" v-if="$scopedSlots['card-header']">
         <slot name="card-header" :title="title">
           {{ title }}
         </slot>
@@ -26,11 +26,11 @@
   </div>
 </template>
 <script>
-import CsCellGroup from "./csCellGroup.vue";
-import CsForm from "./csForm.vue";
+import CsCellGroup from './csCellGroup.vue'
+import CsForm from './csForm.vue'
 
 export default {
-  name: "BasicInfoCard",
+  name: 'BasicInfoCard',
   components: {
     CsCellGroup,
     CsForm
@@ -40,7 +40,7 @@ export default {
       type: Array,
       required: true,
       default: () => [],
-      validator: value => value.every(item => "groupKey" in item && "groupName" in item && "colConfig" in item)
+      validator: value => value.every(item => 'groupKey' in item && 'groupName' in item && 'colConfig' in item)
     },
     sourceData: {
       type: Object,
@@ -60,23 +60,23 @@ export default {
       return this.group.map(group => ({
         ...group,
         colConfig: group.colConfig || []
-      }));
+      }))
     }
   },
   methods: {
     getFormData(groupKey) {
-      const groupItem = this.processedGroup.find(item => item.groupKey === groupKey);
-      if (!groupItem) return {};
+      const groupItem = this.processedGroup.find(item => item.groupKey === groupKey)
+      if (!groupItem) return {}
 
       return groupItem.colConfig.reduce((acc, item) => {
         if (item.value) {
-          acc[item.value] = this.sourceData[groupKey]?.[item.value] || "";
+          acc[item.value] = this.sourceData[groupKey]?.[item.value] || ''
         }
-        return acc;
-      }, {});
+        return acc
+      }, {})
     }
   }
-};
+}
 </script>
 
 <style lang="less" scoped>
@@ -89,7 +89,7 @@ export default {
     position: relative;
 
     &::before {
-      content: "";
+      content: '';
       position: absolute;
       left: 0;
       top: 5px;

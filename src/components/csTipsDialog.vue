@@ -32,26 +32,26 @@ export default {
     //提示内容
     tips: {
       type: String,
-      default: ""
+      default: ''
     },
     //自定义类名
     className: {
       type: String,
-      default: "tip-dialog"
+      default: 'tip-dialog'
     },
     title: {
       type: String,
-      default: "提示"
+      default: '提示'
     },
     //取消按钮文案
     cancelButtonText: {
       type: String,
-      default: "关闭"
+      default: '关闭'
     },
     //确认按钮文案
     confirmButtonText: {
       type: String,
-      default: "确认"
+      default: '确认'
     },
     //是否展示确认按钮
     showConfirmButton: {
@@ -61,12 +61,12 @@ export default {
     //取消按钮颜色
     cancelButtonColor: {
       type: String,
-      default: "#666666"
+      default: '#666666'
     },
     //确认按钮颜色
     confirmButtonColor: {
       type: String,
-      default: "#367aff"
+      default: '#367aff'
     },
     //是否展示取消按钮
     showCancelButton: {
@@ -77,26 +77,26 @@ export default {
   data() {
     return {
       visible: false
-    };
+    }
   },
   watch: {
     value(val) {
       if (val) {
-        this.visible = val;
+        this.visible = val
       }
     }
   },
   methods: {
     onClose() {
-      this.visible = false;
-      this.$emit("input");
-      this.$emit("close");
+      this.visible = false
+      this.$emit('input')
+      this.$emit('close')
     },
     confirm() {
-      this.$emit("confirm");
+      this.$emit('confirm')
     }
   }
-};
+}
 </script>
 
 <style lang="less" scoped>

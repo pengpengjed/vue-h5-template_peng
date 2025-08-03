@@ -53,10 +53,10 @@
 </template>
 
 <script>
-import csTreeNode from "./csTreeNode";
+import csTreeNode from './csTreeNode'
 export default {
-  name: "CsTreeCell",
-  componentName: "CsTreeCell",
+  name: 'CsTreeCell',
+  componentName: 'CsTreeCell',
   components: {
     csTreeNode
   },
@@ -86,22 +86,22 @@ export default {
     // 设置ID字段
     idField: {
       type: String,
-      default: "id"
+      default: 'id'
     },
     // 设置文本字段
     textField: {
       type: String,
-      default: "text"
+      default: 'text'
     },
     // 设置父节点字段
     parentField: {
       type: String,
-      default: "parentId"
+      default: 'parentId'
     },
     // 设置子节点字段
     childrenField: {
       type: String,
-      default: "children"
+      default: 'children'
     },
     // 设置是否自动判断根节点
     autoRoot: {
@@ -111,7 +111,7 @@ export default {
     // 设置根节点值
     rootId: {
       type: String,
-      default: ""
+      default: ''
     },
     // 设置多选
     multiple: {
@@ -140,12 +140,12 @@ export default {
     // 设置排序字段
     sortField: {
       type: String,
-      default: "orderNo"
+      default: 'orderNo'
     },
     // 设置排序方式
     sortType: {
       type: String,
-      default: "asc" // 顺序 asc, 倒序 desc
+      default: 'asc' // 顺序 asc, 倒序 desc
     },
     // 设置是否合并选中值，设为合并的话，只返回父节点，不返回子节点
     mergeCheckedValue: {
@@ -170,110 +170,110 @@ export default {
   },
   data() {
     return {
-      keyword: "",
+      keyword: '',
       popupVisible: false,
       treeData: [],
       treeMap: {},
-      componentValue: "",
-      selectedValue: "",
-      selectedText: "",
+      componentValue: '',
+      selectedValue: '',
+      selectedText: '',
       selectedNodeMap: new Map(),
       timeObject: null,
       loading: false,
       loaded: false
-    };
+    }
   },
   created() {
-    this.$on("selectNode", this.onSelectNode);
-    this.$on("unselectNode", this.onUnselectNode);
+    this.$on('selectNode', this.onSelectNode)
+    this.$on('unselectNode', this.onUnselectNode)
     // if (this.data && this.data.length) {
     //   this.treeData = [...this.data];
     //   this.treeToArray(this.treeData);
     //   console.log(this.treeMap);
     // }
-    this.initValue();
+    this.initValue()
   },
   computed: {
     componentText() {
-      return this.selectedNode[this.textField];
+      return this.selectedNode[this.textField]
     }
   },
   methods: {
     initData() {
       if (this.url || this.dataLoader) {
-        this.loading = true;
-        this.loadData({ [this.idField]: this.rootId || "" })
+        this.loading = true
+        this.loadData({ [this.idField]: this.rootId || '' })
           .then(data => {
             if (this.sort && this.sortField) {
-              this.sortData(data);
+              this.sortData(data)
             }
             data.forEach(item => {
-              item.checked = false;
-            });
+              item.checked = false
+            })
 
-            const rootId = this.autoRoot ? this.autoGetRootId(data) : this.rootId;
-            this.treeData = this.async ? data : this.arrayToTree(data, rootId); // this.getChildrenNodes(data, rootId);
+            const rootId = this.autoRoot ? this.autoGetRootId(data) : this.rootId
+            this.treeData = this.async ? data : this.arrayToTree(data, rootId) // this.getChildrenNodes(data, rootId);
             // this.treeData = this.async ? data : this.translateDataToTree(data)
             // console.log(this.treeData, data)
-            this.loading = false;
-            this.loaded = true;
+            this.loading = false
+            this.loaded = true
           })
           .catch(() => {
-            this.loading = false;
-          });
+            this.loading = false
+          })
       }
     },
     autoGetRootId(data) {
       for (let i = 0; i < data.length; ) {
-        const parentId = data[i][this.parentField];
-        let isExists = false;
+        const parentId = data[i][this.parentField]
+        let isExists = false
         for (let j = 0, len = data.length; j < len; j++) {
           if (parentId === data[j][this.idField]) {
-            isExists = true;
-            break;
+            isExists = true
+            break
           }
         }
         if (isExists) {
-          i++;
+          i++
         } else {
-          return parentId;
+          return parentId
         }
       }
-      return "";
+      return ''
     },
     sortData(data) {
       data.sort((a, b) => {
-        const x = Number(a[this.sortField]);
-        const y = Number(b[this.sortField]);
-        if (this.sortType === "asc") {
-          return x - y;
+        const x = Number(a[this.sortField])
+        const y = Number(b[this.sortField])
+        if (this.sortType === 'asc') {
+          return x - y
         } else {
-          return y - x;
+          return y - x
         }
-      });
-      return data;
+      })
+      return data
     },
     loadData(node) {
       return new Promise((resolve, reject) => {
         if (this.dataLoader) {
           this.dataLoader(node)
             .then(data => {
-              resolve(data);
+              resolve(data)
             })
             .catch(err => {
-              reject(err);
-            });
+              reject(err)
+            })
         } else if (this.url) {
           this.$http
             .post(this.url, Object.assign({}, this.queryParams, { [this.idField]: node[this.idField] }))
             .then(data => {
-              resolve(data);
+              resolve(data)
             })
             .catch(err => {
-              reject(err);
-            });
+              reject(err)
+            })
         }
-      });
+      })
     },
     // exist (rows, parentId) {
     //   for (let i = 0; i < rows.length; i++) {
@@ -312,11 +312,11 @@ export default {
     //   return parents
     // },
     arrayToTree(array, rootId) {
-      const tree = []; // 用于存放结果
-      this.treeMap = {};
+      const tree = [] // 用于存放结果
+      this.treeMap = {}
 
       for (const item of array) {
-        let id = item[this.idField];
+        let id = item[this.idField]
         // item[this.childrenField] = item[this.childrenField] || [];
         this.treeMap[id] = Object.assign(
           {
@@ -326,33 +326,33 @@ export default {
             collapse: true // 默认设为折叠
           },
           item
-        );
+        )
       }
 
       for (const item of array) {
-        let id = item[this.idField];
-        let parentId = item[this.parentField];
+        let id = item[this.idField]
+        let parentId = item[this.parentField]
         if (item[this.parentField] === rootId) {
-          tree.push(this.treeMap[id]);
+          tree.push(this.treeMap[id])
         } else if (this.treeMap[parentId]) {
-          this.treeMap[parentId][this.childrenField].push(this.treeMap[id]);
+          this.treeMap[parentId][this.childrenField].push(this.treeMap[id])
         }
       }
-      return tree;
+      return tree
     },
     treeToArray(data) {
-      let res = [];
+      let res = []
       const dfs = tree => {
         tree.forEach(item => {
           if (item[this.childrenField]) {
-            dfs(item[this.childrenField]);
-            delete item[this.childrenField];
+            dfs(item[this.childrenField])
+            delete item[this.childrenField]
           }
-          res.push(Object.assign({}, item));
-        });
-      };
-      dfs(data);
-      return res;
+          res.push(Object.assign({}, item))
+        })
+      }
+      dfs(data)
+      return res
     },
     // getChildrenNodes(data, parentId) {
     //   // 递归获取树数据
@@ -369,133 +369,133 @@ export default {
     // 设置选中项的文本名称
     setText(text) {
       // this.selectedNode[this.textField] = text
-      this.selectedText = text.split(",");
+      this.selectedText = text.split(',')
     },
     onSearch() {
       for (let id in this.treeMap) {
-        let item = this.treeMap[id];
-        item.highlight = this.keyword && item[this.textField].indexOf(this.keyword) !== -1; // 设置高亮
-        item.collapse = true; // 设置折叠
+        let item = this.treeMap[id]
+        item.highlight = this.keyword && item[this.textField].indexOf(this.keyword) !== -1 // 设置高亮
+        item.collapse = true // 设置折叠
       }
       for (let id in this.treeMap) {
-        let item = this.treeMap[id];
+        let item = this.treeMap[id]
         // 高亮显示则把父节点展开
         if (item.highlight) {
-          let parentNode = this.treeMap[item[this.parentField]];
+          let parentNode = this.treeMap[item[this.parentField]]
           while (parentNode) {
-            parentNode.collapse = false;
-            parentNode = this.treeMap[parentNode[this.parentField]];
+            parentNode.collapse = false
+            parentNode = this.treeMap[parentNode[this.parentField]]
           }
         }
       }
     },
     onCellClick() {
-      if (this.disabled) return;
+      if (this.disabled) return
 
       if (!this.loaded) {
-        this.initData();
+        this.initData()
       }
-      this.popupVisible = true;
+      this.popupVisible = true
     },
     onNavBarClickLeft() {
-      this.popupVisible = false;
+      this.popupVisible = false
     },
     onNavBarClickRight() {},
     initValue() {
       // console.log('initValu', this.value)
-      this.componentValue = this.value;
-      this.selectedNodeMap.clear();
+      this.componentValue = this.value
+      this.selectedNodeMap.clear()
       if (Array.isArray(this.componentValue)) {
         this.componentValue.forEach(item => {
-          this.selectedNodeMap.set(item[this.idField], item);
-        });
+          this.selectedNodeMap.set(item[this.idField], item)
+        })
       } else if (this.componentValue && this.componentValue[this.idField]) {
-        this.selectedNodeMap.set(this.componentValue[this.idField], this.componentValue);
+        this.selectedNodeMap.set(this.componentValue[this.idField], this.componentValue)
       }
-      this.initSelectedValueAndText();
+      this.initSelectedValueAndText()
     },
     nodeMapToComponentValue() {
-      const selectedNodes = Array.from(this.selectedNodeMap.values());
+      const selectedNodes = Array.from(this.selectedNodeMap.values())
       if (this.multiple) {
         // this.componentValue = selectedNodes
         if (this.mergeCheckedValue) {
           // 合并选中值
           // console.log('mergeCheckedValue', selectedNodes)
           selectedNodes.sort((a, b) => {
-            return a.level > b.level ? 1 : 0;
-          });
-          const componentValue = [];
+            return a.level > b.level ? 1 : 0
+          })
+          const componentValue = []
           for (const item of selectedNodes) {
             // 判断父项是否有选中
-            let parentChecked = false;
-            const parents = item.fullPath.split(",");
+            let parentChecked = false
+            const parents = item.fullPath.split(',')
             if (componentValue.length) {
               for (const valueItem of componentValue) {
                 for (const parent of parents) {
                   if (parent === valueItem[this.idField].toString()) {
-                    parentChecked = true;
-                    break;
+                    parentChecked = true
+                    break
                   }
                 }
                 if (parentChecked) {
-                  break;
+                  break
                 }
               }
             }
             if (!parentChecked) {
-              componentValue.push(item);
+              componentValue.push(item)
             }
           }
-          this.componentValue = componentValue;
+          this.componentValue = componentValue
         } else {
-          this.componentValue = selectedNodes;
+          this.componentValue = selectedNodes
         }
       } else {
-        this.componentValue = selectedNodes.length ? selectedNodes[0] : null;
+        this.componentValue = selectedNodes.length ? selectedNodes[0] : null
       }
       // console.log('setComponentValue', this.componentValue)
     },
     initSelectedValueAndText() {
-      const selectedValues = [];
-      const selectedTexts = [];
+      const selectedValues = []
+      const selectedTexts = []
 
       if (Array.isArray(this.componentValue)) {
         for (const item of this.componentValue) {
-          selectedValues.push(item[this.idField]);
-          selectedTexts.push(item[this.textField]);
+          selectedValues.push(item[this.idField])
+          selectedTexts.push(item[this.textField])
         }
       } else if (this.componentValue) {
-        selectedValues.push(this.componentValue[this.idField]);
-        selectedTexts.push(this.componentValue[this.textField]);
+        selectedValues.push(this.componentValue[this.idField])
+        selectedTexts.push(this.componentValue[this.textField])
       }
-      this.selectedValue = selectedValues.join(",");
-      this.selectedText = selectedTexts;
+      this.selectedValue = selectedValues.join(',')
+      this.selectedText = selectedTexts
     },
     onNodeInput(item, event) {
-      Object.assign(item, event);
+      Object.assign(item, event)
     },
     onSelectNode(node) {
       // console.log('select', node[this.textField])
       if (!this.multiple) {
-        this.selectedValues = "";
-        this.selectedNodeMap.clear();
+        this.selectedValues = ''
+        this.selectedNodeMap.clear()
       }
-      this.selectedNodeMap.set(node[this.idField], node);
-      this.nodeMapToComponentValue();
-      this.initSelectedValueAndText();
+      this.selectedNodeMap.set(node[this.idField], node)
+      this.nodeMapToComponentValue()
+      this.initSelectedValueAndText()
       if (!this.multiple) {
-        this.popupVisible = false;
+        this.popupVisible = false
       }
-      this.$emit("select-node", node);
+      this.$emit('select-node', node)
     },
     onUnselectNode(node) {
       // console.log('unselcet', node[this.textField])
       if (this.selectedNodeMap.has(node[this.idField])) {
-        this.selectedNodeMap.delete(node[this.idField]);
+        this.selectedNodeMap.delete(node[this.idField])
       }
-      this.nodeMapToComponentValue();
-      this.initSelectedValueAndText();
-      this.$emit("unselect-node", node);
+      this.nodeMapToComponentValue()
+      this.initSelectedValueAndText()
+      this.$emit('unselect-node', node)
     }
   },
   watch: {
@@ -503,18 +503,18 @@ export default {
       deep: true,
       handler() {
         // console.log('valueChange', newValue, oldValue)
-        this.initValue();
+        this.initValue()
       }
     },
     componentValue(newValue) {
       // console.log('componentValueChange', newValue)
-      this.$emit("input", newValue);
+      this.$emit('input', newValue)
     },
     data(newValue) {
       if (newValue && newValue.length) {
-        this.treeData = this.arrayToTree(newValue, this.rootId);
+        this.treeData = this.arrayToTree(newValue, this.rootId)
       } else {
-        this.treeData = [];
+        this.treeData = []
       }
     }
     // selectedNode: {
@@ -524,7 +524,7 @@ export default {
     //   }
     // }
   }
-};
+}
 </script>
 
 <style lang="less">

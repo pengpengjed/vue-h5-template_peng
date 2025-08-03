@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: "CsSticky",
+  name: 'CsSticky',
   props: {
     offsetTop: {
       type: [Number, String]
@@ -17,18 +17,18 @@ export default {
   },
   data() {
     return {
-      topHeight: ""
-    };
+      topHeight: ''
+    }
   },
   created() {
     if (this.offsetTop) {
-      this.topHeight = this.offsetTop;
+      this.topHeight = this.offsetTop
     } else {
-      this.topHeight = this.bodyOffsetTop;
+      this.topHeight = this.bodyOffsetTop
     }
   },
   mounted() {}
-};
+}
 </script>
 
 <style lang="less"></style>

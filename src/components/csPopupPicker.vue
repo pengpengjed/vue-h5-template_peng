@@ -1,11 +1,27 @@
 <template>
-  <CsPopup v-model="popupVisible" ref="popup" class="cs-popup-picker" :show-header="false"
-    :close-on-click-overlay="false" :getContainer="getContainer">
-    <VanPicker ref="picker" :show-toolbar="showToolbar" :title="title" :confirm-button-text="confirmButtonText"
-      :cancel-button-text="cancelButtonText" :columns="comOptions" :default-index="defaultIndex" :value-key="textField"
-      @confirm="onConfirm" @cancel="onCancel" @change="onChange">
+  <CsPopup
+    v-model="popupVisible"
+    ref="popup"
+    class="cs-popup-picker"
+    :show-header="false"
+    :close-on-click-overlay="false"
+    :getContainer="getContainer"
+  >
+    <VanPicker
+      ref="picker"
+      :show-toolbar="showToolbar"
+      :title="title"
+      :confirm-button-text="confirmButtonText"
+      :cancel-button-text="cancelButtonText"
+      :columns="comOptions"
+      :default-index="defaultIndex"
+      :value-key="textField"
+      @confirm="onConfirm"
+      @cancel="onCancel"
+      @change="onChange"
+    >
       <template #title v-if="isPickerTitleSearch">
-        <input type="text" v-model="searchValue" class="input" @input="onInput" placeholder="请输入关键字搜索">
+        <input type="text" v-model="searchValue" class="input" @input="onInput" placeholder="请输入关键字搜索" />
       </template>
     </VanPicker>
   </CsPopup>
@@ -13,7 +29,7 @@
 
 <script>
 export default {
-  name: "CsPopupPicker",
+  name: 'CsPopupPicker',
   props: {
     closeOnClickOverlay: {
       type: Boolean,
@@ -26,22 +42,22 @@ export default {
     // 标题
     title: {
       type: String,
-      default: "请选择"
+      default: '请选择'
     },
     // 绑定值
     value: {
       type: String,
-      default: ""
+      default: ''
     },
     // 确定按钮文本
     confirmButtonText: {
       type: String,
-      default: "确定"
+      default: '确定'
     },
     // 取消按钮文本
     cancelButtonText: {
       type: String,
-      default: "取消"
+      default: '取消'
     },
     // 选项数组
     options: {
@@ -51,12 +67,12 @@ export default {
     // 值字段
     valueField: {
       type: String,
-      default: "value"
+      default: 'value'
     },
     // 文本字段
     textField: {
       type: String,
-      default: "text"
+      default: 'text'
     },
     // 标志返回数据是否是字符串数组
     isStringArrayData: {
@@ -70,24 +86,24 @@ export default {
     },
     // 容器
     getContainer: {
-      default: "body"
-    },
+      default: 'body'
+    }
   },
   data() {
     return {
       copyComOptions: [],
-      searchValue: '',//搜索值
+      searchValue: '', //搜索值
       // columns: [],
       defaultIndex: 0,
       pickerIndex: 0,
       prevIndex: 0,
       popupVisible: false,
-      comValue: "",
+      comValue: '',
       comOptions: []
-    };
+    }
   },
   created() {
-    this.init();
+    this.init()
   },
   methods: {
     clearInputValue() {
@@ -105,77 +121,77 @@ export default {
     },
     init() {
       // let columns = [];
-      let comOptions = [];
-      let defaultIndex = 0;
+      let comOptions = []
+      let defaultIndex = 0
       if (this.isStringArrayData) {
         this.options.forEach((item, index) => {
           // columns.push(item);
-          comOptions.push({ [this.valueField]: item, [this.textField]: item });
+          comOptions.push({ [this.valueField]: item, [this.textField]: item })
           // 获取选中项
           if (this.value && this.value === item) {
-            defaultIndex = index;
+            defaultIndex = index
           }
-        });
+        })
       } else {
         this.options.forEach((item, index) => {
           // columns.push(item[this.textField]);
-          comOptions.push(item);
+          comOptions.push(item)
           // 获取选中项
           if (this.value && this.value === item[this.valueField]) {
-            defaultIndex = index;
+            defaultIndex = index
           }
-        });
+        })
       }
       // 初始值
       // this.columns = columns;
-      this.comOptions = comOptions;
+      this.comOptions = comOptions
       this.copyComOptions = [...comOptions]
-      this.defaultIndex = defaultIndex;
-      this.pickerIndex = this.defaultIndex;
+      this.defaultIndex = defaultIndex
+      this.pickerIndex = this.defaultIndex
     },
     toggle() {
-      this.popupVisible = !this.popupVisible;
+      this.popupVisible = !this.popupVisible
     },
     show() {
-      this.popupVisible = true;
+      this.popupVisible = true
     },
     hide() {
-      this.popupVisible = false;
+      this.popupVisible = false
     },
     getPicker() {
-      return this.$refs.picker;
+      return this.$refs.picker
     },
     onConfirm(value, index) {
       // 设置值
-      const selectedItem = this.comOptions[index];
-      this.comValue = selectedItem[this.valueField];
-      this.$emit("input", this.comValue);
-      this.$emit("select", this.comValue, selectedItem);
+      const selectedItem = this.comOptions[index]
+      this.comValue = selectedItem[this.valueField]
+      this.$emit('input', this.comValue)
+      this.$emit('select', this.comValue, selectedItem)
       if (this.pickerIndex !== this.prevIndex) {
-        this.$emit("change", this.comValue);
+        this.$emit('change', this.comValue)
       }
-      this.popupVisible = false;
+      this.popupVisible = false
     },
     onCancel() {
       // 还原这前的选择
       if (this.$refs.picker) {
-        this.$refs.picker.setIndexes([this.prevIndex]);
+        this.$refs.picker.setIndexes([this.prevIndex])
       }
-      this.pickerIndex = this.prevIndex;
-      this.popupVisible = false;
+      this.pickerIndex = this.prevIndex
+      this.popupVisible = false
     },
     onChange(picker, value, index) {
       // 选项选中变更
-      this.pickerIndex = index;
+      this.pickerIndex = index
     }
   },
   watch: {
     value(newValue) {
-      this.comValue = newValue;
+      this.comValue = newValue
     },
     popupVisible(newValue) {
       if (newValue) {
-        this.prevIndex = this.pickerIndex;
+        this.prevIndex = this.pickerIndex
         return
       }
       this.clearInputValue()
@@ -189,7 +205,7 @@ export default {
       deep: true
     }
   }
-};
+}
 </script>
 
 <style lang="less">

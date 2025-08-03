@@ -55,12 +55,12 @@
 
 <script>
 export default {
-  name: "csPage",
+  name: 'csPage',
   props: {
     // 页面标题
     title: {
       type: String,
-      default: ""
+      default: ''
     },
     // 是否显示导航栏
     showNavBar: {
@@ -71,7 +71,7 @@ export default {
     showHeader: {
       type: Boolean,
       default() {
-        return true; // this.$env.VUE_APP_PLATFORM === "development";
+        return true // this.$env.VUE_APP_PLATFORM === "development";
       }
     },
     // 设置是否显示返回按钮
@@ -88,117 +88,117 @@ export default {
     showRight: {
       type: Boolean,
       default: true
-    },
+    }
   },
   data() {
     return {
       bodyHeight: 0,
       scrollTop: 0
-    };
+    }
   },
   created() {
-    this.setTitle();
+    this.setTitle()
   },
   activated() {
-    this.setTitle();
+    this.setTitle()
     // 恢复滚动位置
     if (this.scrollTop && this.$refs.body) {
-      this.$refs.body.scrollTop = this.scrollTop;
+      this.$refs.body.scrollTop = this.scrollTop
     }
   },
   mounted() {
-    this.init();
-    window.addEventListener("resize", this.init);
+    this.init()
+    window.addEventListener('resize', this.init)
   },
   methods: {
     init() {
       if (this.$refs.body) {
-        this.bodyHeight = this.$refs.body.offsetHeight;
+        this.bodyHeight = this.$refs.body.offsetHeight
       }
     },
     setTitle() {
       if (this.title) {
-        this.$store.commit("setTitle", this.title);
+        this.$store.commit('setTitle', this.title)
       }
     },
     getBodyEl() {
-      return this.$refs.body;
+      return this.$refs.body
     },
     onClickLeft(e) {
       if (this.showBack) {
         if (this.$utility.isIOS()) {
-          window.isIosSysBack = false; // 设置是否IOS系统手势返回
+          window.isIosSysBack = false // 设置是否IOS系统手势返回
           this.$nextTick(() => {
-            this.$eplmApp.goBack();
-          });
+            this.$eplmApp.goBack()
+          })
         } else {
-          this.$eplmApp.goBack();
+          this.$eplmApp.goBack()
         }
       }
-      this.$toast.clear();
-      this.$emit("nav-bar-click-left", e);
+      this.$toast.clear()
+      this.$emit('nav-bar-click-left', e)
     },
     onClickRight(e) {
-      this.$emit("nav-bar-click-right", e);
+      this.$emit('nav-bar-click-right', e)
     },
     onScroll(e) {
       // 记住滚动位置
-      const el = e.target;
-      const scrollTop = el.scrollTop;
-      this.scrollTop = scrollTop;
+      const el = e.target
+      const scrollTop = el.scrollTop
+      this.scrollTop = scrollTop
       // 传递事件
-      this.$emit("scroll", e);
+      this.$emit('scroll', e)
     },
     onClick(e) {
-      this.$emit("click", e);
+      this.$emit('click', e)
     },
     onTouchStart(e) {
-      this.$emit("touchstart", e);
+      this.$emit('touchstart', e)
     },
     onTouchMove(e) {
-      this.$emit("touchmove", e);
+      this.$emit('touchmove', e)
     },
     onTouchEnd(e) {
-      this.$emit("touchend", e);
+      this.$emit('touchend', e)
     },
     getScrollTop() {
-      return this.$refs.body.scrollTop;
+      return this.$refs.body.scrollTop
     },
     setScrollTop(offset) {
       if (this.$refs.body) {
         // this.$refs.body.scrollTop = offset;
-        window.$(this.$refs.body).animate({ scrollTop: offset });
+        window.$(this.$refs.body).animate({ scrollTop: offset })
       }
     },
     onMoreClick() {
-      this.$root.$emit("show-app-more");
+      this.$root.$emit('show-app-more')
     },
     onCloseClick() {
       if (this.isRelease) {
-        this.$native.Navigate.exitCurrentModule();
+        this.$native.Navigate.exitCurrentModule()
       }
     },
     onToolsClick() {
-      this.$root.$emit("show-app-tools");
+      this.$root.$emit('show-app-tools')
     }
   },
   computed: {
     isLogined() {
-      return this.$store.getters.isLogined;
+      return this.$store.getters.isLogined
     },
     headerStyle() {
-      return { "padding-top": this.statusBarHeight + "px" };
+      return { 'padding-top': this.statusBarHeight + 'px' }
     }
   },
   watch: {
     title() {
-      this.setTitle();
+      this.setTitle()
     }
   },
   destroyed() {
-    window.removeEventListener("resize", this.init);
+    window.removeEventListener('resize', this.init)
   }
-};
+}
 </script>
 
 <style lang="less">
@@ -280,7 +280,7 @@ export default {
           font-weight: 600;
         }
         &::after {
-          content: "";
+          content: '';
           background-color: #dadada;
           width: 1px;
           height: 13px;

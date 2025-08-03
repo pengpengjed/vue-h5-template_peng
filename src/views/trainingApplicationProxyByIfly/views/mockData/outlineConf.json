@@ -1,0 +1,53 @@
+[
+  {
+    "id": 20,
+    "outlineCode": "FXXYJCTSKC",
+    "outlineName": "飞行学员基础提升课程训练",
+    "cataCode": "XLFL",
+    "cataValue": "CGXL",
+    "cataName": null,
+    "tagEnable": null,
+    "remark": null,
+    "orderNum": 2,
+    "updaterId": "208111",
+    "updaterName": "谢子涵",
+    "updateTime": "2025-07-23 16:11:12",
+    "creatorId": "208111",
+    "creatorName": "谢子涵",
+    "createTime": "2025-07-23 15:10:47"
+  },
+  {
+    "id": 6,
+    "outlineCode": "FJSCS",
+    "outlineName": "副驾驶初始训练",
+    "cataCode": "XLFL",
+    "cataValue": "CGXL",
+    "cataName": null,
+    "tagEnable": null,
+    "remark": null,
+    "orderNum": 3,
+    "updaterId": "208111",
+    "updaterName": "谢子涵",
+    "updateTime": "2025-07-23 15:10:47",
+    "creatorId": "208111",
+    "creatorName": "谢子涵",
+    "createTime": "2025-07-23 15:10:47"
+  },
+  {
+    "id": 13,
+    "outlineCode": "DJSZJX",
+    "outlineName": "副驾驶转机型训练",
+    "cataCode": "XLFL",
+    "cataValue": "CGXL",
+    "cataName": null,
+    "tagEnable": null,
+    "remark": null,
+    "orderNum": 4,
+    "updaterId": "208111",
+    "updaterName": "谢子涵",
+    "updateTime": "2025-07-23 16:09:48",
+    "creatorId": "208111",
+    "creatorName": "谢子涵",
+    "createTime": "2025-07-23 15:12:47"
+  }
+]

@@ -1,64 +1,56 @@
 <template>
   <div class="student-manager">
-    <!-- 标题和添加按钮 -->
-    <div class="header">
-      <h3 class="title">学员</h3>
-      <van-button type="primary" size="small" @click="showAddPersonnel"> + 添加人员 </van-button>
-    </div>
-
     <!-- 直接输入区域 -->
     <div class="direct-input-section">
       <div class="input-wrapper">
         <van-field
           v-model="employeeIds"
           type="textarea"
-          placeholder="直接输入员工号,多个员工号换行输入"
+          placeholder="直接输入6位数员工号，多个员工号换行输入"
           :rows="4"
           :maxlength="1000"
           @input="handleEmployeeIdsInput"
         />
-        <van-button type="primary" size="small" @click="confirmEmployeeIds" :loading="validating"> 确定 </van-button>
+        <van-button color="#398AFF" plain type="primary" size="small" @click="confirmEmployeeIds" :loading="validating">
+          确定
+        </van-button>
       </div>
     </div>
 
     <!-- 已选学员列表 -->
-    <div class="selected-students">
-      <div class="list-header">
+    <ItemWrapper title="已添加人员" :isContentInBox="true" class="selected-students">
+      <!-- <div class="list-header">
         <span class="header-text">已选学员列表</span>
         <span class="count">({{ selectedStudents.length }})</span>
-      </div>
+      </div> -->
 
       <div class="student-list">
-        <div
-          v-for="student in selectedStudents"
-          :key="student.employeeId"
-          class="student-item"
-          @click="showStudentDetail(student)"
-        >
-          <div class="student-info">
+        <div class="status-desc">
+          <span class="status-dot success" />
+          <span style="margin-right: 20px">已通过 准入条件校验</span>
+          <span class="status-dot error" />
+          <span>未通过 准入条件校验</span>
+        </div>
+        <div v-for="student in selectedStudents" :key="student.employeeId" class="student-item">
+          <div class="student-info" @click="showStudentDetail(student)">
             <div class="name-id" :class="{ success: student.status === 'success', error: student.status === 'error' }">
-              {{ student.name }}({{ student.employeeId }})
+              <span>{{ student.name }}({{ student.employeeId }})</span>
             </div>
             <div class="training-info">
-              {{ student.trainingInfo }}
+              <div class="training-info-text">{{ student.trainingInfo }}</div>
+              <van-button class="training-info-btn" type="info" icon="search" size="small"></van-button>
             </div>
-            <div class="status-info">
-              <div class="status-dot" :class="student.status"></div>
-              <span class="status-text">
-                {{ student.status === 'success' ? '已通过 准入条件校验' : '未通过 准入条件校验' }}
-              </span>
-            </div>
-          </div>
-          <div class="student-actions">
-            <van-button type="danger" size="mini" round @click.stop="removeStudent(student.employeeId)">
-              <van-icon name="minus" />
-            </van-button>
+            <van-icon
+              :name="require('../../theme/images/icon-delete.svg')"
+              @click.stop="removeStudent(student.employeeId)"
+              size="25"
+            />
           </div>
         </div>
 
         <van-empty v-if="selectedStudents.length === 0" description="暂无已选学员" />
       </div>
-    </div>
+    </ItemWrapper>
 
     <!-- 添加人员弹窗 -->
     <van-popup v-model="showAddDialog" position="bottom" :style="{ height: '80%' }">
@@ -194,11 +186,13 @@
 
 <script>
 import StudentAdmissionDetail from '../student-admission-detail/index.vue'
+import ItemWrapper from '../item-wrapper/index.vue'
 
 export default {
   name: 'StudentManager',
   components: {
-    StudentAdmissionDetail
+    StudentAdmissionDetail,
+    ItemWrapper
   },
   props: {
     // 当前选中的机型、大纲版本、提纲等信息
@@ -543,32 +537,33 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="less" scoped>
 .student-manager {
-  .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 16px;
-
-    .title {
-      margin: 0;
-      font-size: 16px;
-      font-weight: 500;
-      color: #333;
-    }
-  }
-
   .direct-input-section {
     margin-bottom: 20px;
 
     .input-wrapper {
+      border: 1px solid #e1e5ee;
+      border-radius: 8px;
       display: flex;
-      gap: 12px;
-      align-items: flex-start;
+      flex-direction: column;
 
-      .van-field {
-        flex: 1;
+      ::v-deep {
+        .van-cell {
+          flex: 1;
+          border-radius: 8px;
+          &::after {
+            border: 1px dashed #e1e5ee;
+          }
+        }
+
+        .van-button {
+          border: unset;
+          border-radius: 8px;
+          &::before {
+            display: none;
+          }
+        }
       }
     }
   }
@@ -593,75 +588,116 @@ export default {
     }
 
     .student-list {
+      padding: 10px;
+      box-sizing: border-box;
+      .status-desc {
+        font-size: 11px;
+        color: #333333;
+        font-weight: 400;
+        line-height: 15px;
+        .status-dot {
+          display: inline-block;
+          width: 10px;
+          height: 10px;
+          border-radius: 1px;
+          margin-right: 6px;
+
+          &.success {
+            background: #10b981;
+          }
+
+          &.error {
+            background: #dc2626;
+          }
+
+          &.manual {
+            background: #f59e0b;
+          }
+        }
+      }
+
       .student-item {
         display: flex;
-        align-items: center;
-        padding: 16px;
-        background: white;
-        border-radius: 8px;
-        margin-bottom: 12px;
+        padding: 10px 0;
         cursor: pointer;
+        border-bottom: 1px dashed #e1e5ee;
         transition: all 0.3s ease;
-
         &:hover {
           box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        &:last-child {
+          border-bottom: unset;
         }
 
         .student-info {
           flex: 1;
-
+          display: flex;
+          align-items: center;
           .name-id {
-            font-size: 16px;
-            font-weight: 500;
-            margin-bottom: 4px;
+            font-size: 12px;
+            font-weight: 400;
+            text-decoration: underline;
+            width: 110px;
+            text-align: center;
+            box-sizing: border-box;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            padding: 10px 10px;
+            border-radius: 4px;
+            margin-right: 4px;
 
             &.success {
-              color: #10b981;
+              color: #007b61;
+              background: #e7fffa;
+              border: 1px dashed #85d1c2;
             }
 
             &.error {
-              color: #dc2626;
+              color: #d14102;
+              background: #fff6f2;
+              border: 1px dashed #ffc2a8;
             }
           }
 
           .training-info {
-            color: #666;
-            font-size: 14px;
-            margin-bottom: 8px;
-          }
-
-          .status-info {
+            box-sizing: border-box;
+            flex: 1;
+            height: 100%;
             display: flex;
             align-items: center;
-
-            .status-dot {
-              width: 8px;
-              height: 8px;
-              border-radius: 50%;
-              margin-right: 8px;
-
-              &.success {
-                background: #10b981;
-              }
-
-              &.error {
-                background: #dc2626;
-              }
-
-              &.manual {
-                background: #f59e0b;
-              }
-            }
-
-            .status-text {
+            justify-content: space-between;
+            flex-direction: row;
+            border-radius: 4px;
+            margin-right: 7px;
+            &-text {
+              padding: 3px 0;
+              box-sizing: border-box;
+              border: 1px dashed #0097eb; //改成伪元素
+              flex: 1;
+              color: #046097;
               font-size: 12px;
-              color: #666;
+              font-weight: 400;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              height: 40px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              text-align: center;
+              /* 保留两行换行效果 */
+              display: -webkit-box;
+              -webkit-box-orient: vertical;
+              -webkit-line-clamp: 2;
+              /* 兼容性处理 */
+              line-height: 1.5;
+            }
+            &-btn {
+              border-radius: 4px;
+              height: 100%;
+              left: -2px;
             }
           }
-        }
-
-        .student-actions {
-          margin-left: 12px;
         }
       }
     }

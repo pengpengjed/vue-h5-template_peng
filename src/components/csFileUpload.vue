@@ -2,7 +2,7 @@
   <van-cell class="cs-file-uploader van-cell-vertical" :title="title" :required="required">
     <div class="file-accept-tips" v-if="!disabled">
       <slot name="tip">
-        <div>支持类型：{{ acceptExts.join(", ") }}</div>
+        <div>支持类型：{{ acceptExts.join(', ') }}</div>
       </slot>
     </div>
     <template v-if="from === 'pad'">
@@ -43,11 +43,11 @@
 
 <script>
 export default {
-  name: "csFileUploader",
+  name: 'csFileUploader',
   props: {
     title: {
       type: String,
-      default: ""
+      default: ''
     },
     // 设置是否必填
     required: {
@@ -56,14 +56,14 @@ export default {
     },
     value: {
       type: [Array, Object], // {name: '', file: null, url: ''}
-      default: function() {
-        return [];
+      default: function () {
+        return []
       }
     },
     // 匹配附件文件类型
     acceptExts: {
       type: Array,
-      default: () => ["png", "jpg", "jpeg", "xls", "xlsx", "doc", "docx", "pdf"]
+      default: () => ['png', 'jpg', 'jpeg', 'xls', 'xlsx', 'doc', 'docx', 'pdf']
     },
     // 最大文件上传数据数量限制，0为无限上传
     limit: {
@@ -100,113 +100,113 @@ export default {
       popupVisible: false,
       fileList: [],
       removeFileList: []
-    };
+    }
   },
   created() {
-    this.initFileList();
+    this.initFileList()
   },
   methods: {
     // 重设数据（为避免多次操作附件时数据冲突，可能需手动调此方法）
     reset() {
-      this.initFileList();
-      this.removeFileList = [];
+      this.initFileList()
+      this.removeFileList = []
     },
     initFileList() {
       if (this.value) {
         if (Array.isArray(this.value)) {
-          let fileList = [];
+          let fileList = []
           this.value.forEach(item => {
-            let newValue = Object.assign({ status: "success", id: new Date().getTime() }, item);
-            fileList.push(newValue);
-          });
-          this.fileList = fileList;
+            let newValue = Object.assign({ status: 'success', id: new Date().getTime() }, item)
+            fileList.push(newValue)
+          })
+          this.fileList = fileList
         } else {
-          let newValue = Object.assign({ status: "success", id: new Date().getTime() }, this.value);
-          this.fileList = [newValue];
+          let newValue = Object.assign({ status: 'success', id: new Date().getTime() }, this.value)
+          this.fileList = [newValue]
         }
       }
     },
     onUploadClick() {
       if (this.limit && this.fileList.length >= this.limit) {
         // 有文件数据量限制
-        this.alertMessage("已达到文件上传数量限制");
-        return;
+        this.alertMessage('已达到文件上传数量限制')
+        return
       }
-      this.popupVisible = true;
+      this.popupVisible = true
     },
     onFileClick(item) {
-      this.$emit("file-preview", item);
+      this.$emit('file-preview', item)
     },
     onRemoveClick(item, index) {
-      if (item.status === "success") {
-        this.removeFileList.push(item);
+      if (item.status === 'success') {
+        this.removeFileList.push(item)
       }
-      this.fileList.splice(index, 1);
-      this.emitInputEvent();
-      this.$emit("change", this.fileList);
+      this.fileList.splice(index, 1)
+      this.emitInputEvent()
+      this.$emit('change', this.fileList)
     },
     onReadFile(file) {
       // 判断文件名是否有重复
       if (!this.isAllowRepetition) {
-        let isExist = false;
+        let isExist = false
         for (let item of this.fileList) {
           if (item.name === file.name) {
-            isExist = true;
-            break;
+            isExist = true
+            break
           }
         }
         if (isExist) {
-          this.alertMessage("文件已存在");
-          return;
+          this.alertMessage('文件已存在')
+          return
         }
       }
       if (this.fileList.length) {
-        const limitTotalSize = this.limitTotalSize * 1024 * 1024;
+        const limitTotalSize = this.limitTotalSize * 1024 * 1024
         const total = this.fileList.reduce((total, fileItem) => {
           if (fileItem.file && fileItem.file.size) {
-            return total + fileItem.file.size;
+            return total + fileItem.file.size
           }
-        }, file.file.size);
+        }, file.file.size)
         if (total > limitTotalSize) {
-          this.alertMessage(`上传总文件大小不能超过${this.limitTotalSize}M`);
-          return;
+          this.alertMessage(`上传总文件大小不能超过${this.limitTotalSize}M`)
+          return
         }
       }
       // 添加文件到列表
-      file.status = "ready";
-      file.id = new Date().getTime();
-      this.fileList.push(file);
-      this.emitInputEvent();
-      this.$emit("change", this.fileList, file);
+      file.status = 'ready'
+      file.id = new Date().getTime()
+      this.fileList.push(file)
+      this.emitInputEvent()
+      this.$emit('change', this.fileList, file)
     },
     getFileList() {
-      return this.fileList;
+      return this.fileList
     },
     getRemoveFiles() {
-      return this.removeFileList;
+      return this.removeFileList
     },
     getUploadFiles() {
-      let uploadFiles = [];
+      let uploadFiles = []
       this.fileList.forEach(item => {
-        if (item.status === "ready") {
-          uploadFiles.push(item);
+        if (item.status === 'ready') {
+          uploadFiles.push(item)
         }
-      });
-      return uploadFiles;
+      })
+      return uploadFiles
     },
     emitInputEvent() {
-      this.$emit("input", this.fileList);
+      this.$emit('input', this.fileList)
     }
   },
   watch: {
     value: {
       deep: true,
       handler() {
-        this.initFileList();
+        this.initFileList()
       }
     }
   }
-};
+}
 </script>
 
 <style lang="less">
@@ -252,14 +252,14 @@ export default {
       font-size: 12px;
       text-align: left;
       &::before {
-        content: "";
+        content: '';
         display: block;
         width: 18px;
         height: 18px;
         position: absolute;
         left: 4px;
         top: 4px;
-        background: url("../theme/images/icon_attachment.png") no-repeat center center transparent;
+        background: url('../theme/images/icon_attachment.png') no-repeat center center transparent;
         background-size: cover;
       }
       .button-delete {
@@ -271,11 +271,11 @@ export default {
         top: 3px;
         padding: 3px 5px;
         &::before {
-          content: "";
+          content: '';
           display: block;
           width: 16px;
           height: 16px;
-          background: url("../theme/images/icon_delete.png") no-repeat center center transparent;
+          background: url('../theme/images/icon_delete.png') no-repeat center center transparent;
           background-size: cover;
         }
       }

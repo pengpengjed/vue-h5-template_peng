@@ -19,7 +19,7 @@
 
 <script>
 export default {
-  name: "CsSearch",
+  name: 'CsSearch',
   props: {
     value: {
       type: String
@@ -33,37 +33,37 @@ export default {
     },
     actionText: {
       type: String,
-      default: "搜索"
+      default: '搜索'
     },
     leftIcon: {
       type: String,
-      default: "search"
+      default: 'search'
     }
   },
   data() {
     return {
-      keyword: ""
-    };
+      keyword: ''
+    }
   },
   created() {
-    this.keyword = this.value;
+    this.keyword = this.value
   },
   methods: {
     onInputChange() {
-      this.$emit("input", this.keyword);
+      this.$emit('input', this.keyword)
     },
     onSearch(e) {
-      this.$emit("search", e);
+      this.$emit('search', e)
     },
     onClear(e) {
-      this.keyword = "";
-      this.$emit("clear", e);
+      this.keyword = ''
+      this.$emit('clear', e)
     }
   },
   watch: {
     value(newValue) {
-      this.keyword = newValue;
+      this.keyword = newValue
     }
   }
-};
+}
 </script>

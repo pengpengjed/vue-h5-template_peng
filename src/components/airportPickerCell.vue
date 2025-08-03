@@ -57,9 +57,9 @@
 </template>
 
 <script>
-import { IndexBar, IndexAnchor } from "vant";
+import { IndexBar, IndexAnchor } from 'vant'
 export default {
-  name: "airportPickerCell",
+  name: 'airportPickerCell',
   components: {
     VanIndexBar: IndexBar,
     VanIndexAnchor: IndexAnchor
@@ -91,72 +91,72 @@ export default {
   },
   data() {
     return {
-      componentValue: "",
+      componentValue: '',
       popupVisible: false,
-      keyword: "",
+      keyword: '',
       airportIndexData: {},
       airportSearchData: [],
-      airportType: "internal",
+      airportType: 'internal',
       selectedItem: null
-    };
+    }
   },
   created() {
-    this.airportIndexData = require("./CityPicker/citydata.json") || {};
-    this.airportSearchData = (require("./CityPicker/gld.json") || {}).data || [];
-    this.componentValue = this.value;
-    this.initData();
+    this.airportIndexData = require('./CityPicker/citydata.json') || {}
+    this.airportSearchData = (require('./CityPicker/gld.json') || {}).data || []
+    this.componentValue = this.value
+    this.initData()
   },
   methods: {
     initData() {
       if (this.value) {
         for (let item of this.airportSearchData) {
           if (item.CODE === this.value) {
-            this.selectedItem = item;
-            break;
+            this.selectedItem = item
+            break
           }
         }
       }
     },
     onCellClick() {
-      this.popupVisible = true;
+      this.popupVisible = true
     },
     onPickerItemClick(item) {
-      this.componentValue = item.CODE;
-      this.selectedItem = item;
-      this.$emit("select", item);
-      this.popupVisible = false;
+      this.componentValue = item.CODE
+      this.selectedItem = item
+      this.$emit('select', item)
+      this.popupVisible = false
     },
     onClearClick() {
-      this.componentValue = "";
-      this.selectedItem = null;
-      this.keyword = "";
-      this.popupVisible = false;
+      this.componentValue = ''
+      this.selectedItem = null
+      this.keyword = ''
+      this.popupVisible = false
     },
     getItemClass(item) {
-      return this.selectedItem && item.CODE === this.selectedItem.CODE;
+      return this.selectedItem && item.CODE === this.selectedItem.CODE
     }
   },
   computed: {
     searchFilter() {
-      return new RegExp(this.keyword, "i");
+      return new RegExp(this.keyword, 'i')
     },
     componentText() {
       if (this.selectedItem) {
-        return `${this.selectedItem.CITY} (${this.selectedItem.CODE})`;
+        return `${this.selectedItem.CITY} (${this.selectedItem.CODE})`
       } else {
-        return "";
+        return ''
       }
     }
   },
   watch: {
     value(newValue) {
-      this.componentValue = newValue;
+      this.componentValue = newValue
     },
     componentValue(newValue) {
-      this.$emit("input", newValue);
+      this.$emit('input', newValue)
     }
   }
-};
+}
 </script>
 
 <style lang="less">

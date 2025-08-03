@@ -29,14 +29,14 @@
 </template>
 
 <script>
-import utility from "../utils/utility";
+import utility from '../utils/utility'
 export default {
-  name: "DatetimePickerCell",
+  name: 'DatetimePickerCell',
   props: {
     // 值，用于v-model
     value: {
       type: String,
-      default: ""
+      default: ''
     },
     // 标题
     title: {
@@ -50,7 +50,7 @@ export default {
     // 时间类型
     type: {
       type: String,
-      default: "date" // 可选值有：date, time, year-month, month-day
+      default: 'date' // 可选值有：date, time, year-month, month-day
     },
     // 最小日期
     minDate: {
@@ -80,100 +80,104 @@ export default {
     return {
       popupVisible: false,
       currentDate: new Date(),
-      componentValue: ""
-    };
+      componentValue: ''
+    }
   },
   created() {
-    this.componentValue = this.value;
-    this.initDate();
+    this.componentValue = this.value
+    this.initDate()
   },
   methods: {
     initDate() {
       if (this.componentValue) {
         switch (this.type) {
-          case "time":
-            this.currentDate = new Date(Date.parse(`${utility.formatDate(new Date(), "yyyy/MM/dd")} ${this.componentValue}`));
-            break;
-          case "year-month":
-            this.currentDate = new Date(Date.parse(`${this.componentValue.replace(/-/g, "/")}/01`));
-            break;
-          case "month-day":
-            this.currentDate = new Date(Date.parse(`${new Date().getFullYear()}/${this.componentValue.replace(/-/g, "/")}`));
-            break;
-          case "datetime":
-          case "date":
+          case 'time':
+            this.currentDate = new Date(
+              Date.parse(`${utility.formatDate(new Date(), 'yyyy/MM/dd')} ${this.componentValue}`)
+            )
+            break
+          case 'year-month':
+            this.currentDate = new Date(Date.parse(`${this.componentValue.replace(/-/g, '/')}/01`))
+            break
+          case 'month-day':
+            this.currentDate = new Date(
+              Date.parse(`${new Date().getFullYear()}/${this.componentValue.replace(/-/g, '/')}`)
+            )
+            break
+          case 'datetime':
+          case 'date':
           default:
-            this.currentDate = new Date(Date.parse(this.componentValue.replace(/-/g, "/")));
-            break;
+            this.currentDate = new Date(Date.parse(this.componentValue.replace(/-/g, '/')))
+            break
         }
       } else if (this.isDefault && !this.clearable) {
-        this.currentDate = new Date();
-        this.setDate();
+        this.currentDate = new Date()
+        this.setDate()
       }
     },
     setDate() {
-      let formatter = "";
+      let formatter = ''
       switch (this.type) {
-        case "datetime":
-          formatter = "yyyy-MM-dd hh:mm";
-          break;
-        case "time":
-          formatter = "hh:mm";
-          break;
-        case "year-month":
-          formatter = "yyyy-MM";
-          break;
-        case "month-day":
-          formatter = "MM-dd";
-          break;
-        case "date":
+        case 'datetime':
+          formatter = 'yyyy-MM-dd hh:mm'
+          break
+        case 'time':
+          formatter = 'hh:mm'
+          break
+        case 'year-month':
+          formatter = 'yyyy-MM'
+          break
+        case 'month-day':
+          formatter = 'MM-dd'
+          break
+        case 'date':
         default:
-          formatter = "yyyy-MM-dd";
-          break;
+          formatter = 'yyyy-MM-dd'
+          break
       }
-      this.componentValue = utility.formatDate(this.currentDate, formatter);
+      this.componentValue = utility.formatDate(this.currentDate, formatter)
     },
     formatter(type, val) {
-      if (type === "year") {
-        return `${val}年`;
-      } else if (type === "month") {
-        return `${val}月`;
-      } else if (type === "day") {
-        return `${val}日`;
+      if (type === 'year') {
+        return `${val}年`
+      } else if (type === 'month') {
+        return `${val}月`
+      } else if (type === 'day') {
+        return `${val}日`
       }
-      return val;
+      return val
     },
     onCellClick() {
-      if (this.disabled) return;
+      if (this.disabled) return
 
-      this.initDate();
-      this.popupVisible = true;
+      this.initDate()
+      this.popupVisible = true
     },
     onCancel() {
-      this.initDate();
-      this.popupVisible = false;
+      this.initDate()
+      this.popupVisible = false
     },
     onConfirm() {
-      this.setDate();
-      this.popupVisible = false;
+      this.setDate()
+      this.popupVisible = false
     },
     onClearClick() {
-      this.componentValue = "";
+      this.componentValue = ''
     }
   },
   watch: {
     value(newValue) {
-      this.componentValue = newValue;
-      this.initDate();
+      this.componentValue = newValue
+      this.initDate()
     },
     componentValue(newValue) {
-      this.$emit("input", newValue);
+      this.$emit('input', newValue)
       this.$nextTick(() => {
-        this.$emit("change", newValue);
-      });
+        this.$emit('change', newValue)
+      })
     }
   }
-};
+}
 </script>
 
 <style lang="less">

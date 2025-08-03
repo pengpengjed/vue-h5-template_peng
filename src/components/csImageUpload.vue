@@ -48,11 +48,11 @@
 </template>
 
 <script>
-import ImageUtil from "../utils/imageUtil";
-import FileUtil from "../utils/fileUtil";
-import AttachmentUtil from "../utils/attachmentUtil";
+import ImageUtil from '../utils/imageUtil'
+import FileUtil from '../utils/fileUtil'
+import AttachmentUtil from '../utils/attachmentUtil'
 export default {
-  name: "ImageUploader",
+  name: 'ImageUploader',
   // components: {
   //   VanImage
   // },
@@ -75,7 +75,7 @@ export default {
     // 设置图片地址字段
     urlField: {
       type: String,
-      default: "url"
+      default: 'url'
     },
     // 设置上传的图片列表
     uploadedImages: {
@@ -110,65 +110,65 @@ export default {
       uploadedImageList: [],
       imageList: [],
       removeImageList: []
-    };
+    }
   },
   created() {
-    this.uploadedImageList = [...this.uploadedImages];
+    this.uploadedImageList = [...this.uploadedImages]
   },
   methods: {
     // 重设数据（为避免多次操作附件时数据冲突，可能需手动调此方法）
     reset() {
-      this.uploadedImageList = [...this.uploadedImages];
-      this.removeImageList = [];
+      this.uploadedImageList = [...this.uploadedImages]
+      this.removeImageList = []
     },
     onAddImageClick() {
-      this.chooseImage();
+      this.chooseImage()
     },
     chooseImage() {
       AttachmentUtil.chooseImage(this.limitSize)
         .then(res => {
-          const item = res[0];
+          const item = res[0]
           if (this.imageList.length) {
-            const limitTotalSize = this.limitTotalSize * 1024 * 1024;
+            const limitTotalSize = this.limitTotalSize * 1024 * 1024
             const total = this.imageList.reduce((total, fileItem) => {
               if (fileItem.file && fileItem.file.size) {
-                return total + fileItem.file.size;
+                return total + fileItem.file.size
               }
-            }, item.size);
+            }, item.size)
             if (total > limitTotalSize) {
-              this.alertMessage(`上传总文件大小不能超过${this.limitTotalSize}M`);
-              return;
+              this.alertMessage(`上传总文件大小不能超过${this.limitTotalSize}M`)
+              return
             }
           }
           if (res.length) {
-            const item = res[0];
-            this.readFile(item);
+            const item = res[0]
+            this.readFile(item)
           }
         })
-        .catch(() => {});
+        .catch(() => {})
     },
     readFile(item) {
       // 读取文件二进制流，转换成File用于上传
-      const file = FileUtil.getFileByBase64(item.base64File, item.fileName);
+      const file = FileUtil.getFileByBase64(item.base64File, item.fileName)
       ImageUtil.compressImage(file, item.fileName).then(data => {
-        this.appendImage(data);
-      });
+        this.appendImage(data)
+      })
     },
     onImageRead(res) {
       // console.log("图片选择", res);
       if (Array.isArray(res)) {
         // IOS图库可以选择多张
         for (const item of res) {
-          const fileName = this.getFileName(item.file);
+          const fileName = this.getFileName(item.file)
           ImageUtil.compressImage(item.file, fileName).then(data => {
-            this.appendImage(data);
-          });
+            this.appendImage(data)
+          })
         }
       } else {
-        const fileName = this.getFileName(res.file);
+        const fileName = this.getFileName(res.file)
         ImageUtil.compressImage(res.file, fileName).then(data => {
-          this.appendImage(data);
-        });
+          this.appendImage(data)
+        })
       }
     },
     appendImage(data) {
@@ -177,29 +177,29 @@ export default {
           this.imageList.push({
             url: data.previewUrl,
             file: data.file
-          });
-          this.$emit("change", this.imageList);
+          })
+          this.$emit('change', this.imageList)
         }
-      };
+      }
 
       if (this.beforeReadFile) {
-        this.beforeReadFile(data, done);
+        this.beforeReadFile(data, done)
       } else {
-        done();
+        done()
       }
     },
     getFileName(file) {
-      const ext = FileUtil.getFileExtend(file.name);
-      return `${new Date().getTime()}.${ext}`;
+      const ext = FileUtil.getFileExtend(file.name)
+      return `${new Date().getTime()}.${ext}`
     },
     onImagePreview(index, isUploaded) {
-      const images = [];
+      const images = []
       this.uploadedImageList.forEach(item => {
-        images.push(item[this.urlField]);
-      });
+        images.push(item[this.urlField])
+      })
       this.imageList.forEach(item => {
-        images.push(item.url);
-      });
+        images.push(item.url)
+      })
 
       window.vant &&
         window.vant.ImagePreview &&
@@ -207,79 +207,79 @@ export default {
           images,
           showIndex: true,
           startPosition: isUploaded ? index : this.uploadedImageList.length + index
-        });
+        })
     },
     onImageRemove(index) {
       this.$dialog
         .confirm({
-          title: "提示",
-          message: "您确定要删除图片吗？"
+          title: '提示',
+          message: '您确定要删除图片吗？'
         })
         .then(() => {
-          this.imageList.splice(index, 1);
+          this.imageList.splice(index, 1)
         })
-        .catch(() => {});
+        .catch(() => {})
     },
     checkedClick(item) {
-      item.checked = !item.checked;
-      this.$emit("checkedClick", item);
+      item.checked = !item.checked
+      this.$emit('checkedClick', item)
     },
     onUploadedImageRemove(item, index) {
       this.$dialog
         .confirm({
-          title: "提示",
-          message: "您确定要删除图片吗？"
+          title: '提示',
+          message: '您确定要删除图片吗？'
         })
         .then(() => {
           // 添加删除图片列表
-          this.removeImageList.push(item);
+          this.removeImageList.push(item)
 
           if (this.removeImageHandler) {
             this.removeImageHandler(item)
               .then(() => {
-                this.uploadedImageList.splice(index, 1);
+                this.uploadedImageList.splice(index, 1)
                 this.$nextTick(() => {
-                  this.$emit("remove-success", index);
-                });
+                  this.$emit('remove-success', index)
+                })
               })
               .catch(err => {
-                this.alertMessage(err.message || err);
-              });
+                this.alertMessage(err.message || err)
+              })
           } else {
-            this.uploadedImageList.splice(index, 1);
+            this.uploadedImageList.splice(index, 1)
             this.$nextTick(() => {
-              this.$emit("remove-success", index);
-            });
+              this.$emit('remove-success', index)
+            })
           }
         })
-        .catch(() => {});
+        .catch(() => {})
     },
     getFiles() {
-      const files = [];
+      const files = []
       this.imageList.forEach(item => {
-        files.push(item.file);
-      });
-      return files;
+        files.push(item.file)
+      })
+      return files
     },
     getUploadImages() {
-      return this.imageList;
+      return this.imageList
     },
     getRemoveImages() {
-      return this.removeImageList;
+      return this.removeImageList
     }
   },
   computed: {
     isCanUpload() {
-      const uploadedCount = this.uploadedImageList.length + this.imageList.length;
-      return !this.maxCount || uploadedCount < this.maxCount;
+      const uploadedCount = this.uploadedImageList.length + this.imageList.length
+      return !this.maxCount || uploadedCount < this.maxCount
     }
   },
   watch: {
     uploadedImages(newValue) {
-      this.uploadedImageList = [...newValue];
+      this.uploadedImageList = [...newValue]
     }
   }
-};
+}
 </script>
 
 <style lang="less">

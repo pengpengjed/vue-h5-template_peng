@@ -289,11 +289,12 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="less" scoped>
 .relationTag {
   border: 1px solid #a5cfb8;
 }
 .access-condition-tree {
+  overflow: auto;
   .root-relation {
     display: flex;
     align-items: center;

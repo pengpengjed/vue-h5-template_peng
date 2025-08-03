@@ -83,6 +83,8 @@ export default {
             textField: 'detailName'
           },
           attrs: {
+            rightIcon: 'arrow',
+            required: true,
             readonly: true,
             clickable: true
           },
@@ -110,6 +112,8 @@ export default {
             textField: 'field2Value'
           },
           attrs: {
+            rightIcon: 'arrow',
+            required: true,
             readonly: true,
             clickable: true
           },
@@ -136,6 +140,8 @@ export default {
             textField: 'outlineName'
           },
           attrs: {
+            rightIcon: 'arrow',
+            required: true,
             readonly: true,
             clickable: true
           },
@@ -170,6 +176,8 @@ export default {
             textField: 'field2Value'
           },
           attrs: {
+            rightIcon: 'arrow',
+            required: true,
             readonly: true,
             clickable: true
           },
@@ -197,6 +205,8 @@ export default {
             textField: 'subjectsName'
           },
           attrs: {
+            rightIcon: 'arrow',
+            required: true,
             readonly: true,
             clickable: true
           },
@@ -235,6 +245,8 @@ export default {
             textField: 'publishTypeName'
           },
           attrs: {
+            rightIcon: 'arrow',
+            required: true,
             readonly: true,
             clickable: true
           },
@@ -271,6 +283,8 @@ export default {
             textField: 'publishName'
           },
           attrs: {
+            rightIcon: 'arrow',
+            required: true,
             readonly: true,
             clickable: true
           },
@@ -409,7 +423,25 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="less" scoped>
 .trainApplyForm {
+  ::v-deep {
+    .van-cell {
+      box-sizing: border-box;
+      // padding: 10px;
+      border: 1px solid #e1e5ee;
+      border-radius: 10px;
+      margin-bottom: 10px;
+      &:last-child {
+        margin-bottom: unset;
+      }
+      &::after {
+        display: none;
+      }
+      .van-field__control {
+        text-align: right;
+      }
+    }
+  }
 }
 </style>

@@ -4,7 +4,6 @@
       v-if="editable"
       v-model="localValue"
       type="textarea"
-      :rows="rows"
       :autosize="autosize"
       :label="label"
       :placeholder="placeholder"
@@ -12,9 +11,8 @@
     />
     <VanField
       v-else
-      :value="value"
+      v-model="value"
       type="textarea"
-      :rows="rows"
       :autosize="autosize"
       :label="label"
       :placeholder="placeholder"
@@ -38,10 +36,6 @@ export default {
     placeholder: {
       type: String,
       default: '请输入准入条件'
-    },
-    rows: {
-      type: Number,
-      default: 10
     },
     autosize: {
       type: Boolean,
@@ -73,6 +67,9 @@ export default {
 
 <style scoped>
 .access-condition-text {
-  margin: 16px 0;
+  /* margin: 16px 0; */
+}
+::v-deep.van-cell {
+  background-color: unset;
 }
 </style>

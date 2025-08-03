@@ -1,6 +1,6 @@
 <template>
   <van-cell class="apply-form-attachment">
-    <div slot="title" v-if="showTitle">{{ titleText || "附件" }}</div>
+    <div slot="title" v-if="showTitle">{{ titleText || '附件' }}</div>
     <div class="container" :class="{ 'table-view': tableView, 'view-only': !uploadable }">
       <div class="head" v-if="uploadable">
         <div class="button" @click="onSelectClick(null)"><van-icon name="add-o" size="18px" />点击上传附件</div>
@@ -17,13 +17,18 @@
         <template v-if="uploadable">
           <li v-for="(item, index) in fileList" :key="index" class="attachment-item" :class="{ active: item.file }">
             <div @click="onUploadItemClick(item)">{{ item.file ? item.file.name : item.name }}</div>
-            <van-icon v-if="item.file" name="delete" class="btn btn-clear" @click.stop="onRemoveFileItem(item, index)" />
+            <van-icon
+              v-if="item.file"
+              name="delete"
+              class="btn btn-clear"
+              @click.stop="onRemoveFileItem(item, index)"
+            />
             <van-icon v-else name="add" class="btn btn-add" @click.stop="onSelectClick(index)"></van-icon>
           </li>
         </template>
       </ul>
       <div class="nodata-tip" v-if="!fileList.length && !attachmentList.length">暂无附件</div>
-      <div class="upload-remark" v-if="uploadable">支持类型：{{ acceptExts.join(", ") }}</div>
+      <div class="upload-remark" v-if="uploadable">支持类型：{{ acceptExts.join(', ') }}</div>
     </div>
 
     <van-popup v-model="dialogVisible" class="choose-uplpad-way-dialog" position="bottom" get-container="body">
@@ -82,13 +87,13 @@
 </template>
 
 <script>
-import AttachmentBase from "./mixins/attachmentBase";
-import FileUtil from "../utils/fileUtil";
-import ImageUtil from "../utils/imageUtil";
-import AttachmentUtil from "../utils/attachmentUtil";
+import AttachmentBase from './mixins/attachmentBase'
+import FileUtil from '../utils/fileUtil'
+import ImageUtil from '../utils/imageUtil'
+import AttachmentUtil from '../utils/attachmentUtil'
 
 export default {
-  name: "ApplyFormFileUploader",
+  name: 'ApplyFormFileUploader',
   mixins: [AttachmentBase],
   props: {
     //上传附件接口地址
@@ -140,7 +145,7 @@ export default {
     // 匹配附件文件类型
     acceptExts: {
       type: Array,
-      default: () => ["png", "jpg", "jpeg", "xls", "xlsx", "doc", "docx", "pdf"]
+      default: () => ['png', 'jpg', 'jpeg', 'xls', 'xlsx', 'doc', 'docx', 'pdf']
     },
     // 自定义获取附件路径方法，返回Promise
     fileUrlLoader: {
@@ -149,7 +154,7 @@ export default {
     // 附件存在APP的目录
     attachmentDirectory: {
       type: String,
-      default: "applyForm"
+      default: 'applyForm'
     },
     // 附件文件ID字段
     fileIdField: {
@@ -158,7 +163,7 @@ export default {
     // 附件文件名称字段
     fileNameField: {
       type: String,
-      default: "attachmentTemplateName"
+      default: 'attachmentTemplateName'
     },
     // 是否物理删除
     physicsDelete: {
@@ -187,13 +192,13 @@ export default {
     // 单个文件限制大小
     limitSize: {
       type: Number,
-      default: 30,
+      default: 30
     },
     // 总上传文件限制大小
     limitTotalSize: {
       type: Number,
-      default: 50,
-    },
+      default: 50
+    }
   },
   data() {
     return {
@@ -206,16 +211,16 @@ export default {
       // sharedFileLoading: false,
       requiredFileIndex: null, // 必须上传的附件序号
       removeFileList: [] //已上传附件被删除的列表
-    };
+    }
   },
   created() {
-    this.init();
+    this.init()
   },
   methods: {
     init() {
       // 组件数据初始化
-      this.componentAttachmentList = this.attachmentList;
-      const fileList = [];
+      this.componentAttachmentList = this.attachmentList
+      const fileList = []
       if (this.requiredFiles && this.requiredFiles.length) {
         this.requiredFiles.forEach(item => {
           fileList.push({
@@ -223,29 +228,29 @@ export default {
             templateName: item[this.fileNameField],
             required: true,
             file: null
-          });
-        });
+          })
+        })
       }
-      const uploadFiles = [];
+      const uploadFiles = []
       this.fileList.forEach(item => {
         if (!item.required) {
-          uploadFiles.push(item);
+          uploadFiles.push(item)
         }
-      });
-      this.fileList = [...fileList, ...uploadFiles];
+      })
+      this.fileList = [...fileList, ...uploadFiles]
     },
     onRead(file) {
       // H5选择附件后回调函数
-      const uploadFile = file.file;
+      const uploadFile = file.file
       if (this.requiredFileIndex !== null) {
-        this.fileList[this.requiredFileIndex].file = uploadFile;
-        this.popupVisible = false;
+        this.fileList[this.requiredFileIndex].file = uploadFile
+        this.popupVisible = false
       } else {
         if (!this.isValidFileType(uploadFile.name)) {
-          this.alertMessage("不支持该类型的文件上传");
-          return;
+          this.alertMessage('不支持该类型的文件上传')
+          return
         }
-        if (uploadFile.type.indexOf("image") !== -1) {
+        if (uploadFile.type.indexOf('image') !== -1) {
           // 压缩上传图片
           ImageUtil.compressImage(uploadFile, this.getFileName(uploadFile))
             .then(res => {
@@ -254,61 +259,61 @@ export default {
                 required: false,
                 file: res.file,
                 previewUrl: res.previewUrl
-              });
+              })
               this.$nextTick(() => {
-                this.popupVisible = false;
-              });
+                this.popupVisible = false
+              })
             })
             .catch(err => {
-              console.log(err);
-              this.alertMessage("图片压缩失败，请重试");
-            });
+              console.log(err)
+              this.alertMessage('图片压缩失败，请重试')
+            })
         } else {
           if (this.repeat) {
             const repeatArr = this.fileList.filter(el => {
-              return el.name === uploadFile.name;
-            });
+              return el.name === uploadFile.name
+            })
             if (repeatArr.length) {
-              this.alertMessage("请勿重复提交文件名相同的文件");
-              return;
+              this.alertMessage('请勿重复提交文件名相同的文件')
+              return
             }
           }
           this.fileList.push({
             name: uploadFile.name,
             required: false,
             file: uploadFile
-          });
-          this.popupVisible = false;
+          })
+          this.popupVisible = false
         }
       }
     },
     onSelectClick(index) {
       if (index === null && this.maxCount) {
         if (this.fileList.length >= this.maxCount) {
-          this.alertMessage("已达到附件上传的最大数");
-          return;
+          this.alertMessage('已达到附件上传的最大数')
+          return
         }
       }
       // 选择按钮事件
-      this.requiredFileIndex = index;
+      this.requiredFileIndex = index
       // this.popupVisible = true;
-      this.dialogVisible = true;
+      this.dialogVisible = true
     },
     onDialogFileClick() {
       // 点击原生接口上传文件事件
       if (this.isInApp) {
-        this.chooseFile();
+        this.chooseFile()
       } else {
-        this.alertMessage("不在APP内不能选择文件");
+        this.alertMessage('不在APP内不能选择文件')
       }
-      this.dialogVisible = false;
+      this.dialogVisible = false
     },
     onDialogPhotoClick() {
       // 点击上传图片事件
       if (this.isInApp) {
-        this.chooseImage();
+        this.chooseImage()
       }
-      this.dialogVisible = false;
+      this.dialogVisible = false
     },
     // loadAppFiles() {
     //   // 调用原生接口选择文件
@@ -343,64 +348,64 @@ export default {
       AttachmentUtil.chooseFile(this.limitSize)
         .then(res => {
           if (res.length) {
-            const item = res[0];
+            const item = res[0]
             if (!this.isValidFileType(item.fileName)) {
-              this.alertMessage("不支持该类型的文件上传");
-              return;
+              this.alertMessage('不支持该类型的文件上传')
+              return
             }
-            if(this.fileList.length){
-              const limitTotalSize = this.limitTotalSize * 1024 * 1024;
-              const total = this.fileList.reduce((total,fileItem)=>{
-                  if(fileItem.file && fileItem.file.size){
-                    return total + fileItem.file.size
-                  }
-              },item.size)
-              if(total > limitTotalSize){
-                this.alertMessage(`上传总文件大小不能超过${this.limitTotalSize}M`);
-                return;
+            if (this.fileList.length) {
+              const limitTotalSize = this.limitTotalSize * 1024 * 1024
+              const total = this.fileList.reduce((total, fileItem) => {
+                if (fileItem.file && fileItem.file.size) {
+                  return total + fileItem.file.size
+                }
+              }, item.size)
+              if (total > limitTotalSize) {
+                this.alertMessage(`上传总文件大小不能超过${this.limitTotalSize}M`)
+                return
               }
             }
-            this.readFile(item);
+            this.readFile(item)
           }
         })
-        .catch(() => {});
+        .catch(() => {})
     },
     chooseImage() {
       AttachmentUtil.chooseImage(this.limitSize)
         .then(res => {
           if (res.length) {
-            const item = res[0];
+            const item = res[0]
             if (!this.isValidFileType(item.fileName)) {
-              this.alertMessage("不支持该类型的文件上传");
-              return;
+              this.alertMessage('不支持该类型的文件上传')
+              return
             }
-            if(this.fileList.length){
-              const limitTotalSize = this.limitTotalSize * 1024 * 1024;
-              const total = this.fileList.reduce((total,fileItem)=>{
-                  if(fileItem.file && fileItem.file.size){
-                    return total + fileItem.file.size
-                  }
-              },item.size)
-              if(total > limitTotalSize){
-                this.alertMessage(`上传总文件大小不能超过${this.limitTotalSize}M`);
-                return;
+            if (this.fileList.length) {
+              const limitTotalSize = this.limitTotalSize * 1024 * 1024
+              const total = this.fileList.reduce((total, fileItem) => {
+                if (fileItem.file && fileItem.file.size) {
+                  return total + fileItem.file.size
+                }
+              }, item.size)
+              if (total > limitTotalSize) {
+                this.alertMessage(`上传总文件大小不能超过${this.limitTotalSize}M`)
+                return
               }
             }
-            this.readFile(item);
+            this.readFile(item)
           }
         })
-        .catch(() => {});
+        .catch(() => {})
     },
     onUploadItemClick(item) {
       // 上传文件点击事件
-      if (!item.file) return;
+      if (!item.file) return
       if (item.filePath) {
-        this.previewFile(item.filePath);
-      } else if (item.file.type.indexOf("image") !== -1) {
+        this.previewFile(item.filePath)
+      } else if (item.file.type.indexOf('image') !== -1) {
         if (item.previewUrl) {
-          ImageUtil.previewImageByUrl(item.previewUrl);
+          ImageUtil.previewImageByUrl(item.previewUrl)
         } else {
-          ImageUtil.previewImageByFile(item.file);
+          ImageUtil.previewImageByFile(item.file)
         }
       }
     },
@@ -415,18 +420,18 @@ export default {
       // 读取文件二进制流，转换成File用于上传
       // this.loadContentOfFile(item.filePath)
       //   .then(data => {
-      const file = FileUtil.getFileByBase64(item.base64File, item.fileName);
+      const file = FileUtil.getFileByBase64(item.base64File, item.fileName)
       if (this.requiredFileIndex !== null) {
-        this.fileList[this.requiredFileIndex].file = file;
-        this.fileList[this.requiredFileIndex].filePath = item.rawName; // 记住文件路径，用于预览文件
+        this.fileList[this.requiredFileIndex].file = file
+        this.fileList[this.requiredFileIndex].filePath = item.rawName // 记住文件路径，用于预览文件
       } else {
         if (this.repeat) {
           const repeatArr = this.fileList.filter(el => {
-            return el.name === item.fileName;
-          });
+            return el.name === item.fileName
+          })
           if (repeatArr.length) {
-            this.alertMessage("请勿重复提交文件名相同的文件");
-            return;
+            this.alertMessage('请勿重复提交文件名相同的文件')
+            return
           }
         }
         this.fileList.push({
@@ -434,7 +439,7 @@ export default {
           required: false,
           file: file,
           filePath: item.rawName // 记住文件路径，用于预览文件
-        });
+        })
       }
       // })
       // .catch(() => {
@@ -447,175 +452,169 @@ export default {
     onRemoveAttachment(item, index) {
       // 删除已上传附件事件
       this.$dialog.confirm({
-        title: "提示",
-        message: "您确定要删除附件吗？",
+        title: '提示',
+        message: '您确定要删除附件吗？',
         beforeClose: (action, done) => {
-          if (action === "confirm") {
+          if (action === 'confirm') {
             if (this.physicsDelete) {
               // 物理删除附件
               // 自定义删除事件
               if (this.removeAttachmentHandler) {
                 this.removeAttachmentHandler(item)
                   .then(() => {
-                    this.componentAttachmentList.splice(index, 1);
-                    done();
+                    this.componentAttachmentList.splice(index, 1)
+                    done()
                   })
                   .catch(res => {
-                    done();
-                    this.alertMessage(res.message);
-                  });
+                    done()
+                    this.alertMessage(res.message)
+                  })
               } else {
                 // 默认训练附件删除
-                let url, params;
+                let url, params
                 if (this.isSimulator) {
-                  url = this.$api.trainApply.deleteSimTrainApproveFileBySelf;
+                  url = this.$api.trainApply.deleteSimTrainApproveFileBySelf
                   params = {
                     staffNum: this.userId,
                     attachSimId: item.attachSimId
-                  };
+                  }
                 } else {
-                  url = this.$api.trainApply.deleteTrainApproveFileBySelf;
+                  url = this.$api.trainApply.deleteTrainApproveFileBySelf
                   params = {
                     staffNum: this.userId,
                     trainPlanApplyFilesId: item.trainPlanApplyFilesId
-                  };
+                  }
                 }
                 this.$http
                   .post(url, params)
                   .then(() => {
-                    this.componentAttachmentList.splice(index, 1);
-                    done();
+                    this.componentAttachmentList.splice(index, 1)
+                    done()
                   })
                   .catch(res => {
-                    done();
-                    this.alertMessage(res.message);
-                  });
+                    done()
+                    this.alertMessage(res.message)
+                  })
               }
             } else {
               // 只删除附件列表数据
-              this.removeFileList.push(item);
-              this.componentAttachmentList.splice(index, 1);
-              done();
+              this.removeFileList.push(item)
+              this.componentAttachmentList.splice(index, 1)
+              done()
             }
           } else {
-            done();
+            done()
           }
         }
-      });
+      })
     },
     // 获取删除已上传的文件
     getRemoveFiles() {
-      return this.removeFileList;
+      return this.removeFileList
     },
     onRemoveFileItem(item, index) {
       // 删除未上传附件事件
       this.$dialog
         .confirm({
-          title: "提示",
-          message: "您确定要删除附件吗？"
+          title: '提示',
+          message: '您确定要删除附件吗？'
         })
         .then(() => {
           if (item.required) {
-            item.file = null;
+            item.file = null
           } else {
-            this.fileList.splice(index, 1);
+            this.fileList.splice(index, 1)
           }
         })
-        .catch(() => {});
+        .catch(() => {})
     },
     isValidFileType(fileName) {
       // 判断文件是否可上传
-      const fileExtend = FileUtil.getFileExtend(fileName);
+      const fileExtend = FileUtil.getFileExtend(fileName)
       if (fileExtend) {
         for (let i = 0, len = this.acceptExts.length; i < len; i++) {
           if (this.acceptExts[i] === fileExtend) {
-            return true;
+            return true
           }
         }
       } else {
-        return false;
+        return false
       }
     },
     getFileName(file) {
       // 存在相同的名称，自动添加相应数字
-      let fileName = file.name;
-      const index = fileName.lastIndexOf(".");
-      const name = fileName.substring(0, index);
-      const ext = fileName.substring(index);
+      let fileName = file.name
+      const index = fileName.lastIndexOf('.')
+      const name = fileName.substring(0, index)
+      const ext = fileName.substring(index)
 
-      let maxCount = 0;
+      let maxCount = 0
       this.fileList.forEach(item => {
         if (item.name === fileName) {
           if (item.file.name === fileName && maxCount === 0) {
-            maxCount = 1;
+            maxCount = 1
           } else {
-            const tmpIndex =
-              parseInt(
-                item.file.name
-                  .replace(name, "")
-                  .replace(ext, "")
-                  .replace("_", "")
-              ) + 1;
+            const tmpIndex = parseInt(item.file.name.replace(name, '').replace(ext, '').replace('_', '')) + 1
             if (maxCount < tmpIndex) {
-              maxCount = tmpIndex;
+              maxCount = tmpIndex
             }
           }
         }
-      });
+      })
       if (maxCount > 0) {
-        fileName = `${name}_${maxCount < 10 ? "0" + maxCount : maxCount}${ext}`;
+        fileName = `${name}_${maxCount < 10 ? '0' + maxCount : maxCount}${ext}`
       }
-      return fileName;
+      return fileName
     },
     upload(file) {
       // 上传附件
       return new Promise((resolve, reject) => {
-        const formData = new FormData();
-        formData.append("file", file, file.name);
+        const formData = new FormData()
+        formData.append('file', file, file.name)
         this.$http
           .postFormData(this.url, formData)
           .then(res => {
-            resolve(res);
+            resolve(res)
           })
-          .catch(err => reject(err));
-      });
+          .catch(err => reject(err))
+      })
     },
     getFiles() {
       // 获取已选择的附件列表
-      const files = [];
-      const uploadFiles = [...this.fileList, ...this.imageList];
+      const files = []
+      const uploadFiles = [...this.fileList, ...this.imageList]
       uploadFiles.forEach(item => {
         if (item.file) {
-          files.push(item.file);
+          files.push(item.file)
         }
-      });
-      return files;
+      })
+      return files
     },
     getAttachmentList() {
       // 获取已上传的附件列表
-      return this.componentAttachmentList;
+      return this.componentAttachmentList
     },
     checkValid() {
       // 检查文件是否合法
       for (let i = 0, len = this.fileList.length; i < len; i++) {
         if (!this.fileList[i].file) {
-          return false;
+          return false
         }
       }
-      return true;
+      return true
     },
     // 查看附件
     onAttachmentClick(item) {
-      const fileId = this.fileIdField ? item[this.fileIdField] : item.trainPlanApplyFilesId || item.attachSimId;
+      const fileId = this.fileIdField ? item[this.fileIdField] : item.trainPlanApplyFilesId || item.attachSimId
       const file = {
         fileId: fileId,
         fileName: item.fileName,
         filePath: `downloadFiles/${this.attachmentDirectory}/${fileId}/`,
-        fileUrl: "",
+        fileUrl: '',
         size: 0,
         rawData: item
-      };
-      this.viewAttachment(file);
+      }
+      this.viewAttachment(file)
     },
     getFileUrl(file) {
       // 获取附件路径，用于调原生接口下载
@@ -623,61 +622,61 @@ export default {
         return new Promise((resolve, reject) => {
           this.fileUrlLoader(file)
             .then(res => {
-              resolve(res);
+              resolve(res)
             })
             .catch(err => {
-              reject(err);
-            });
-        });
+              reject(err)
+            })
+        })
       } else {
         return new Promise((resolve, reject) => {
           const url = !this.isTrainEvaluate
-            ? this.$api.trainApply[this.history ? "downloadTrainApplyFileHistory" : "downloadTrainApplyFile"]
-            : this.$api.trainApply.downloadZhftcApproveFile;
+            ? this.$api.trainApply[this.history ? 'downloadTrainApplyFileHistory' : 'downloadTrainApplyFile']
+            : this.$api.trainApply.downloadZhftcApproveFile
           const params = {
             staffNum: this.form.empid || this.form.staffID,
             fileName: file.fileName,
-            [!this.isTrainEvaluate ? "trainPlanApplyFilesId" : "attachSimId"]: file.fileId
-          };
+            [!this.isTrainEvaluate ? 'trainPlanApplyFilesId' : 'attachSimId']: file.fileId
+          }
 
           this.$http
             .post(url, params)
             .then(res => {
-              resolve(res);
+              resolve(res)
             })
             .catch(res => {
-              reject(res);
-            });
-        });
+              reject(res)
+            })
+        })
       }
     }
   },
   computed: {
     isTrainEvaluate() {
       // 是否是训练评估
-      return this.form && this.form.zhftcSimuInfoList;
+      return this.form && this.form.zhftcSimuInfoList
     }
   },
   watch: {
     uploadable(newValue) {
       // 监视是否可上传字段
       if (!newValue) {
-        this.fileList = [];
-        this.imageList = [];
+        this.fileList = []
+        this.imageList = []
       } else {
-        this.init();
+        this.init()
       }
     },
     requiredFiles() {
       // 监视必须上传文件字段
-      this.init();
+      this.init()
     },
     attachmentList() {
       // 监视附件列表字段
-      this.componentAttachmentList = this.attachmentList;
+      this.componentAttachmentList = this.attachmentList
     }
   }
-};
+}
 </script>
 
 <style lang="less">
@@ -759,14 +758,14 @@ export default {
       margin-top: 5px;
       padding: 5px 5px 5px 30px;
       &::before {
-        content: "";
+        content: '';
         width: 16px;
         height: 16px;
         display: block;
         position: absolute;
         left: 12px;
         top: 18px;
-        background: url("../theme/images/attachment.png") no-repeat center center transparent;
+        background: url('../theme/images/attachment.png') no-repeat center center transparent;
         background-size: cover;
       }
       .attachment-item {
@@ -817,10 +816,10 @@ export default {
         background-repeat: no-repeat;
         background-size: cover;
         &.image {
-          background-image: url("../theme/images/uploader_image.png");
+          background-image: url('../theme/images/uploader_image.png');
         }
         &.file {
-          background-image: url("../theme/images/uploader_file.png");
+          background-image: url('../theme/images/uploader_file.png');
         }
       }
       span {

@@ -19,7 +19,7 @@
 
 <script>
 export default {
-  name: "csPagingList",
+  name: 'csPagingList',
   props: {
     //合并回调
     megerCB: {
@@ -50,7 +50,7 @@ export default {
     // ajax请求方法
     method: {
       type: String,
-      default: "post" // 对应utils目录里面http中的方法
+      default: 'post' // 对应utils目录里面http中的方法
     },
     // 设置每页条数
     pageSize: {
@@ -86,12 +86,12 @@ export default {
     // 设置查询参数pageSize的参数名
     pageSizeField: {
       type: String,
-      default: "pageSize"
+      default: 'pageSize'
     },
     // 设置查询参数pageIndex的参数名
     pageIndexField: {
       type: String,
-      default: "pageCount"
+      default: 'pageCount'
     },
     // 设置是否可以刷新
     refreshable: {
@@ -131,274 +131,274 @@ export default {
       debounceTimer: null,
       debounceDelay: 300,
       originDataList: []
-    };
+    }
   },
   created() {},
   activated() {
     // 恢复滚动位置
     if (this.scrollTop && this.$refs.list) {
-      this.$refs.list.scrollTop = this.scrollTop;
+      this.$refs.list.scrollTop = this.scrollTop
     }
   },
   mounted() {
     if (this.immediateCheck) {
       if (this.storeKey) {
-        const storageData = this.$sessionStorage.getItem(this.storeKey);
+        const storageData = this.$sessionStorage.getItem(this.storeKey)
         if (storageData) {
-          this.pageIndex = storageData.pageIndex;
-          this.dataList = storageData.dataList;
-          this.finished = storageData.finished;
-          this.$emit("load-success", this.dataList);
+          this.pageIndex = storageData.pageIndex
+          this.dataList = storageData.dataList
+          this.finished = storageData.finished
+          this.$emit('load-success', this.dataList)
         } else {
-          this.loadData();
+          this.loadData()
         }
       } else {
-        this.loadData();
+        this.loadData()
       }
     }
     // 自动滚动到上次的位置
     if (this.storeKey) {
-      const scrollTop = this.$sessionStorage.getItem(`${this.storeKey}_SCROLLTOP`);
+      const scrollTop = this.$sessionStorage.getItem(`${this.storeKey}_SCROLLTOP`)
       if (scrollTop) {
         this.$nextTick(() => {
-          this.$refs.list.scrollTop = scrollTop;
-        });
+          this.$refs.list.scrollTop = scrollTop
+        })
       }
     }
   },
   methods: {
     handleMergerData(data, mergerKeys) {
-      const result = [];
+      const result = []
       for (const item of data) {
         const found = result.find(group => {
           return mergerKeys && mergerKeys.length > 0
             ? mergerKeys.every(everyItem => {
-                return group[everyItem] === item[everyItem];
+                return group[everyItem] === item[everyItem]
               })
-            : false;
-        });
+            : false
+        })
         if (!found) {
           const newGroup = {
             ...item,
             mergerList: [item]
-          };
-          result.push(newGroup);
+          }
+          result.push(newGroup)
         } else {
-          found.mergerList.push(item);
+          found.mergerList.push(item)
         }
       }
-      return result;
+      return result
     },
     loadData(isRefresh = false, pageSize = null) {
       if (!pageSize) {
-        pageSize = this.pageSize;
+        pageSize = this.pageSize
       }
 
       return new Promise((resolve, reject) => {
         // 本地数据分页
         if (this.localPagination && this.localData) {
-          let data = [];
+          let data = []
           for (let i = (this.pageIndex - 1) * pageSize, len = this.pageIndex * pageSize; i < len; i++) {
             if (i < this.localData.length) {
-              data.push(this.localData[i]);
+              data.push(this.localData[i])
             } else {
-              break;
+              break
             }
           }
           // 判断是否需要对数据进行个性化处理
           if (this.dataHandle) {
             data.forEach(item => {
-              this.dataHandle(item);
-            });
+              this.dataHandle(item)
+            })
           }
           if (this.megerCB) {
-            this.originDataList = [...this.originDataList, ...data];
+            this.originDataList = [...this.originDataList, ...data]
             this.dataList = Array.isArray(this.megerCB)
               ? this.handleMergerData(isRefresh ? data : [...this.originDataList], this.megerCB)
-              : [...this.megerCB(isRefresh ? data : [...this.originDataList])];
+              : [...this.megerCB(isRefresh ? data : [...this.originDataList])]
           } else {
-            this.dataList = isRefresh ? data : [...this.dataList, ...data];
+            this.dataList = isRefresh ? data : [...this.dataList, ...data]
           }
-          this.finished = !this.pagination || data.length < pageSize;
-          this.loading = false;
-          this.pageIndex++;
-          this.error = false;
-          this.$emit("load-success", data);
-          resolve(data);
-          return;
+          this.finished = !this.pagination || data.length < pageSize
+          this.loading = false
+          this.pageIndex++
+          this.error = false
+          this.$emit('load-success', data)
+          resolve(data)
+          return
         }
         // 自定义加载方式
         if (this.load) {
-          this.loading = !isRefresh;
+          this.loading = !isRefresh
           this.load(this.pageIndex, pageSize)
             .then(data => {
               // 本地分页，第一次获取到数据
               if (this.localPagination) {
-                this.localData = [...data];
-                data = data.slice(0, pageSize);
+                this.localData = [...data]
+                data = data.slice(0, pageSize)
               }
-              this.dataList = isRefresh ? data : [...this.dataList, ...data];
-              this.finished = !this.pagination || data.length < pageSize;
+              this.dataList = isRefresh ? data : [...this.dataList, ...data]
+              this.finished = !this.pagination || data.length < pageSize
               // 缓存数据
               if (this.storeKey) {
                 this.$sessionStorage.setItem(this.storeKey, {
                   pageIndex: this.pageIndex,
                   dataList: this.dataList,
                   finished: this.finished
-                });
+                })
               }
-              this.pageIndex++;
-              this.error = false;
-              this.$emit("load-success", data);
-              resolve(data);
+              this.pageIndex++
+              this.error = false
+              this.$emit('load-success', data)
+              resolve(data)
             })
             .catch(err => {
-              this.error = true;
-              reject(err);
+              this.error = true
+              reject(err)
             })
             .finally(() => {
-              this.loading = false;
-            });
-          return;
+              this.loading = false
+            })
+          return
         }
 
         // 默认加载数据方法
         if (!this.url) {
-          reject(new Error("滚动列表组件未设置url"));
+          reject(new Error('滚动列表组件未设置url'))
         }
-        this.loading = !isRefresh;
+        this.loading = !isRefresh
         // 设置分页参数
         const params =
           this.pagination && !this.localPagination
             ? { [this.pageSizeField]: pageSize, [this.pageIndexField]: this.pageIndex }
-            : {};
+            : {}
         // 调用接口获取数据
         this.$http[this.method](this.url, Object.assign(params, this.otherParams, this.queryParams))
           .then(async data => {
-            let result = JSON.parse(JSON.stringify(data));
-            if (this.isReturnJSON && typeof data === "string") {
-              result = JSON.parse(data);
+            let result = JSON.parse(JSON.stringify(data))
+            if (this.isReturnJSON && typeof data === 'string') {
+              result = JSON.parse(data)
             }
-            let total = 0;
+            let total = 0
             if (result) {
-              total = result.total;
+              total = result.total
             }
             if (this.dataField) {
-              result = result[this.dataField] || [];
+              result = result[this.dataField] || []
             }
 
-            result = result || [];
+            result = result || []
             // 本地分页，第一次获取到数据
             if (this.localPagination) {
-              this.localData = [...result];
-              result = result.slice(0, pageSize);
+              this.localData = [...result]
+              result = result.slice(0, pageSize)
             }
             // 判断是否需要对数据进行个性化处理
             if (this.dataHandle) {
               const promises = result.map(item => {
-                const ret = this.dataHandle(item);
-                return ret instanceof Promise ? ret : Promise.resolve();
-              });
-              await Promise.all(promises);
+                const ret = this.dataHandle(item)
+                return ret instanceof Promise ? ret : Promise.resolve()
+              })
+              await Promise.all(promises)
             }
             if (this.megerCB) {
-              this.originDataList = [...this.originDataList, ...result];
+              this.originDataList = [...this.originDataList, ...result]
               this.dataList = Array.isArray(this.megerCB)
                 ? this.handleMergerData(isRefresh ? result : [...this.originDataList], this.megerCB)
-                : [...this.megerCB(isRefresh ? data : [...this.originDataList])];
+                : [...this.megerCB(isRefresh ? data : [...this.originDataList])]
             } else {
-              this.dataList = isRefresh ? result : [...this.dataList, ...result];
+              this.dataList = isRefresh ? result : [...this.dataList, ...result]
             }
-            this.finished = total === this.dataList.length ? true : !this.pagination || result.length < pageSize;
+            this.finished = total === this.dataList.length ? true : !this.pagination || result.length < pageSize
             // 缓存数据
             if (this.storeKey) {
               this.$sessionStorage.setItem(this.storeKey, {
                 pageIndex: this.pageIndex,
                 dataList: this.dataList,
                 finished: this.finished
-              });
+              })
             }
-            this.pageIndex++;
-            this.error = false;
-            this.$emit("load-success", result);
-            resolve(result);
+            this.pageIndex++
+            this.error = false
+            this.$emit('load-success', result)
+            resolve(result)
           })
           .catch(err => {
-            this.error = true;
-            reject(err);
+            this.error = true
+            reject(err)
           })
           .finally(() => {
-            this.loading = false;
-          });
-      });
+            this.loading = false
+          })
+      })
     },
     refresh(emitRefreshEvent = false) {
       if (this.loading) {
-        return;
+        return
       }
-      this.originDataList = [];
-      this.refreshing = true;
-      this.pageIndex = 1;
+      this.originDataList = []
+      this.refreshing = true
+      this.pageIndex = 1
       // this.finished = false
-      this.$refs.list.scrollTop = 0;
+      this.$refs.list.scrollTop = 0
       if (this.localPagination) {
-        this.localData = null;
+        this.localData = null
       }
       this.loadData(true).finally(() => {
-        this.refreshing = false;
+        this.refreshing = false
         if (emitRefreshEvent) {
-          this.$emit("refresh-success");
+          this.$emit('refresh-success')
         }
-      });
+      })
     },
     reload() {
       // 重载列表
       if (this.loading) {
-        return;
+        return
       }
-      let tempIndex = this.pageIndex;
-      let pageSize = (this.pageIndex - 1) * this.pageSize;
-      this.pageIndex = 1;
+      let tempIndex = this.pageIndex
+      let pageSize = (this.pageIndex - 1) * this.pageSize
+      this.pageIndex = 1
       if (this.localPagination) {
-        this.localData = null;
+        this.localData = null
       }
       this.loadData(true, pageSize).finally(() => {
-        this.pageIndex = tempIndex;
-      });
+        this.pageIndex = tempIndex
+      })
     },
     onScroll(e) {
       // 记住滚动位置
-      const el = e.target;
-      const scrollTop = el.scrollTop;
-      this.scrollTop = scrollTop;
+      const el = e.target
+      const scrollTop = el.scrollTop
+      this.scrollTop = scrollTop
       if (this.storeKey) {
-        this.$sessionStorage.setItem(`${this.storeKey}_SCROLLTOP`, scrollTop);
+        this.$sessionStorage.setItem(`${this.storeKey}_SCROLLTOP`, scrollTop)
       }
       // 传递事件
-      this.$emit("scroll", e);
+      this.$emit('scroll', e)
     },
     clearCache() {
       if (this.storeKey) {
-        this.$sessionStorage.removeItem(this.storeKey);
-        this.$sessionStorage.removeItem(`${this.storeKey}_SCROLLTOP`);
+        this.$sessionStorage.removeItem(this.storeKey)
+        this.$sessionStorage.removeItem(`${this.storeKey}_SCROLLTOP`)
       }
     },
     // 获取数据列表
     getData() {
-      return this.dataList;
+      return this.dataList
     },
     //重新赋值数据列表
     setData(list) {
-      this.dataList = JSON.parse(JSON.stringify(list));
-      this.$forceUpdate();
+      this.dataList = JSON.parse(JSON.stringify(list))
+      this.$forceUpdate()
     }
   },
   computed: {
     getFinishedText() {
       if (this.finishedText) {
-        return this.finishedText;
+        return this.finishedText
       } else {
-        return this.dataList.length ? "— 已加载全部数据 —" : "— 暂无数据 —";
+        return this.dataList.length ? '— 已加载全部数据 —' : '— 暂无数据 —'
       }
     }
   },
@@ -407,23 +407,23 @@ export default {
       deep: true,
       handler() {
         this.$nextTick(() => {
-          clearTimeout(this.debounceTimer);
+          clearTimeout(this.debounceTimer)
           if (this.debounce) {
             this.debounceTimer = setTimeout(() => {
               if (this.autoLoad) {
-                this.refreshable ? this.refresh(false) : this.reload();
+                this.refreshable ? this.refresh(false) : this.reload()
               }
-            }, this.debounceDelay);
+            }, this.debounceDelay)
           } else {
             if (this.autoLoad) {
-              this.refreshable ? this.refresh(false) : this.reload();
+              this.refreshable ? this.refresh(false) : this.reload()
             }
           }
-        });
+        })
       }
     }
   }
-};
+}
 </script>
 
 <style lang="less">

@@ -6,7 +6,7 @@
     :class="{
       'pad-tabbar': true,
       isMasking: showOverlay,
-      'small-tabbar': !showTabs,
+      'small-tabbar': !showTabs
     }"
     :style="{ width: showTabs ? lTabsWidth : sTabsWidth }"
     :before-change="beforeChange"
@@ -43,7 +43,14 @@
         <img src="../../theme/images/tabs/scan.png" alt="" />
         <span v-show="showTabs">扫一扫</span>
       </div>
-      <van-popover v-model="showPopover" trigger="click" placement="right" :offset="[-60, 0]" class="setting-pop" :overlay="true">
+      <van-popover
+        v-model="showPopover"
+        trigger="click"
+        placement="right"
+        :offset="[-60, 0]"
+        class="setting-pop"
+        :overlay="true"
+      >
         <CsSetting @close="showPopover = false" />
         <template #reference>
           <div class="set-item">
@@ -62,29 +69,28 @@
 
 <script>
 export default {
-  props: {
-  },
+  props: {},
   data() {
     return {
       tabIndex: 2,
       lTabsWidth: '120px',
       sTabsWidth: '60px',
-      showPopover: false,
+      showPopover: false
     }
   },
   computed: {
     showTabs() {
-      return this.$store.getters.showTabs;
+      return this.$store.getters.showTabs
     },
     showOverlay() {
-      return this.$store.getters.showOverlay;
-    },
+      return this.$store.getters.showOverlay
+    }
   },
   created() {
     if (this.showTabs) {
-      document.documentElement.style.setProperty('--nav-width', '120px');
+      document.documentElement.style.setProperty('--nav-width', '120px')
     } else {
-      document.documentElement.style.setProperty('--nav-width', '60px');
+      document.documentElement.style.setProperty('--nav-width', '60px')
     }
   },
   methods: {
@@ -92,56 +98,60 @@ export default {
       // 触发toggle
       this.$root.$emit('toggle', this.showTabs)
       // 修改状态
-      this.$store.commit("setTabs", this.showTabs);
+      this.$store.commit('setTabs', this.showTabs)
       // 持久缓存
       this.$localStorage.setItem('showTabs', this.showTabs)
       if (this.showTabs) {
-        document.documentElement.style.setProperty('--nav-width', '120px');
+        document.documentElement.style.setProperty('--nav-width', '120px')
       } else {
-        document.documentElement.style.setProperty('--nav-width', '60px');
+        document.documentElement.style.setProperty('--nav-width', '60px')
       }
     },
     onScanClick() {
       this.getQrCode().then(data => {
-        this.$root.$emit("app-scan", data);
-      });
+        this.$root.$emit('app-scan', data)
+      })
     },
     getQrCode() {
       return new Promise((resolve, reject) => {
         // 调原生扫码
         if (this.isInApp) {
-          this.$native.EmasBarcodeScanner.scan({ class: "qrcode" })
+          this.$native.EmasBarcodeScanner.scan({ class: 'qrcode' })
             .then(res => {
               // let result = res.scan_result ? JSON.parse(res.scan_result) : {};
               // 如果扫描结果为对象字符串则自动转为对象
-              let result = res.scan_result || "";
+              let result = res.scan_result || ''
               try {
-                let obj = JSON.parse(result);
-                result = obj;
+                let obj = JSON.parse(result)
+                result = obj
               } catch (err) {
                 //
               }
-              resolve(result);
+              resolve(result)
             })
             .catch(err => {
-              reject(err);
-            });
+              reject(err)
+            })
         } else {
-          let err = "不在App内，不能扫一扫";
-          this.alertMessage(err);
-          reject(err);
+          let err = '不在App内，不能扫一扫'
+          this.alertMessage(err)
+          reject(err)
         }
-      });
+      })
     },
     goPage(e) {
-      console.log(e);
+      console.log(e)
       // 首页不做处理
       if (this.isHomeModule) return
       // 其他页面跳转首页进入固定tab
-      if(this.isTestPlatform){
-        window.location.href = 'https://ceph-test-emasn.csair.com:7480/emas-cdn/app/nmobile-eplmFlightHome-pad/flightHomePad/index.html#?toTabs='+e
-      }else if(this.isProductionPlatform){
-        window.location.href = 'https://cdn-emasn.csair.com/csair-emas-cdn/app/nmobile-eplmFlightHome-pad/flightHomePad/index.html#?toTabs='+e
+      if (this.isTestPlatform) {
+        window.location.href =
+          'https://ceph-test-emasn.csair.com:7480/emas-cdn/app/nmobile-eplmFlightHome-pad/flightHomePad/index.html#?toTabs=' +
+          e
+      } else if (this.isProductionPlatform) {
+        window.location.href =
+          'https://cdn-emasn.csair.com/csair-emas-cdn/app/nmobile-eplmFlightHome-pad/flightHomePad/index.html#?toTabs=' +
+          e
       }
     },
     beforeChange() {
@@ -156,10 +166,10 @@ export default {
         .logout()
         .then(() => {
           // this.$router.push("/login");
-          this.reloadModule();
+          this.reloadModule()
         })
-        .catch(() => { });
-    },
+        .catch(() => {})
+    }
   }
 }
 </script>
@@ -211,7 +221,7 @@ export default {
       display: inline-block; /* 强制文本不换行 */
     }
     .open {
-      background-image: url("../../theme/images/tabs/zhankai.png");
+      background-image: url('../../theme/images/tabs/zhankai.png');
       background-size: cover;
       background-repeat: no-repeat;
       background-position: 0 0;
@@ -222,7 +232,7 @@ export default {
       height: 20px;
     }
     .close {
-      background-image: url("../../theme/images/tabs/shouqi.png");
+      background-image: url('../../theme/images/tabs/shouqi.png');
       background-size: cover;
       background-repeat: no-repeat;
       background-position: 0 0;
@@ -238,7 +248,7 @@ export default {
   }
   .setting {
     flex: 1 !important;
-    background: url("../../theme/images/tabs/tabbar_bg.png");
+    background: url('../../theme/images/tabs/tabbar_bg.png');
     background-size: 100% 100%;
     background-repeat: no-repeat;
     background-position: 0 0;
@@ -287,19 +297,19 @@ export default {
       }
 
       .icon-message {
-        background-image: url("../../theme/images/tabs/message.png");
+        background-image: url('../../theme/images/tabs/message.png');
       }
       .icon-schedule {
-        background-image: url("../../theme/images/tabs/schedule.png");
+        background-image: url('../../theme/images/tabs/schedule.png');
       }
       .icon-workbench {
-        background-image: url("../../theme/images/tabs/workbench.png");
+        background-image: url('../../theme/images/tabs/workbench.png');
       }
       .icon-module {
-        background-image: url("../../theme/images/tabs/module.png");
+        background-image: url('../../theme/images/tabs/module.png');
       }
       .icon-mine {
-        background-image: url("../../theme/images/tabs/mine.png");
+        background-image: url('../../theme/images/tabs/mine.png');
       }
       .van-info {
         white-space: nowrap;
@@ -321,7 +331,7 @@ export default {
   }
 
   .van-tabbar-item--active {
-    background: url("../../theme/images/tabs/tab_icon_active_bg.png") no-repeat center center;
+    background: url('../../theme/images/tabs/tab_icon_active_bg.png') no-repeat center center;
     background-size: 110px 105px;
     z-index: 2;
     position: relative;
@@ -333,19 +343,19 @@ export default {
         height: 36px;
       }
       .icon-message {
-        background-image: url("../../theme/images/tabs/message_active.png");
+        background-image: url('../../theme/images/tabs/message_active.png');
       }
       .icon-schedule {
-        background-image: url("../../theme/images/tabs/schedule_active.png");
+        background-image: url('../../theme/images/tabs/schedule_active.png');
       }
       .icon-workbench {
-        background-image: url("../../theme/images/tabs/workbench_active.png");
+        background-image: url('../../theme/images/tabs/workbench_active.png');
       }
       .icon-module {
-        background-image: url("../../theme/images/tabs/module_active.png");
+        background-image: url('../../theme/images/tabs/module_active.png');
       }
       .icon-mine {
-        background-image: url("../../theme/images/tabs/mine_active.png");
+        background-image: url('../../theme/images/tabs/mine_active.png');
       }
     }
     .van-tabbar-item__text {
@@ -356,14 +366,14 @@ export default {
 }
 .isMasking {
   .van-tabbar-item--active {
-    background: url("../../theme/images/tabs/tab_icon_active_over_bg.png") no-repeat center center;
+    background: url('../../theme/images/tabs/tab_icon_active_over_bg.png') no-repeat center center;
     background-size: 110px 105px;
     transition: 0.3s;
   }
 }
 .small-tabbar {
   .van-tabbar-item--active {
-    background: url("../../theme/images/tabs/tab_icon_active_small_bg.png") no-repeat center center transparent;
+    background: url('../../theme/images/tabs/tab_icon_active_small_bg.png') no-repeat center center transparent;
     background-size: cover;
     padding-left: 17px;
     margin-left: 0;
@@ -371,7 +381,7 @@ export default {
 }
 .small-tabbar.isMasking {
   .van-tabbar-item--active {
-    background: url("../../theme/images/tabs/tab_icon_active_small_over_bg.png") no-repeat center center transparent;
+    background: url('../../theme/images/tabs/tab_icon_active_small_over_bg.png') no-repeat center center transparent;
     background-size: cover;
     transition: 0.3s;
   }

@@ -45,9 +45,9 @@
 </template>
 
 <script>
-import Emitter from "./mixins/emitter";
+import Emitter from './mixins/emitter'
 export default {
-  name: "CsTreeNode",
+  name: 'CsTreeNode',
   mixins: [Emitter],
   props: {
     value: {
@@ -56,19 +56,19 @@ export default {
     },
     idField: {
       type: String,
-      default: "id"
+      default: 'id'
     },
     textField: {
       type: String,
-      default: "text"
+      default: 'text'
     },
     parentField: {
       type: String,
-      default: "parentId"
+      default: 'parentId'
     },
     childrenField: {
       type: String,
-      default: "children"
+      default: 'children'
     },
     level: {
       type: Number,
@@ -76,7 +76,7 @@ export default {
     },
     selectedValue: {
       type: String,
-      default: ""
+      default: ''
     },
     multiple: {
       type: Boolean,
@@ -95,7 +95,7 @@ export default {
     },
     parentFullPath: {
       type: String,
-      default: ""
+      default: ''
     },
     mergeCheckedValue: {
       type: Boolean,
@@ -114,30 +114,32 @@ export default {
   data() {
     return {
       comValue: {},
-      bodyHeight: "0px",
+      bodyHeight: '0px',
       loading: false,
       isLoaded: false,
       checked: false,
       emmitEventable: true,
       timeObject: null
-    };
+    }
   },
   created() {
     this.comValue = Object.assign(
       {
-        fullPath: this.parentFullPath ? `${this.parentFullPath},${this.value[this.idField]}` : this.value[this.idField].toString()
+        fullPath: this.parentFullPath
+          ? `${this.parentFullPath},${this.value[this.idField]}`
+          : this.value[this.idField].toString()
       },
       this.value
-    );
-    this.checked = this.comValue.checked;
-    this.initChecked();
+    )
+    this.checked = this.comValue.checked
+    this.initChecked()
   },
   computed: {
     isLeaf() {
       if (this.async && !this.isLoaded) {
-        return false;
+        return false
       } else {
-        return !this.value[this.childrenField] || this.value[this.childrenField].length === 0;
+        return !this.value[this.childrenField] || this.value[this.childrenField].length === 0
       }
     }
     // isSelected () {
@@ -147,17 +149,17 @@ export default {
   methods: {
     loadData(fn) {
       if (this.dataLoader) {
-        this.loading = true;
+        this.loading = true
         this.dataLoader(this.value)
           .then(data => {
-            this.comValue[this.childrenField] = data;
-            this.loading = false;
-            this.isLoaded = true;
-            if (fn) fn();
+            this.comValue[this.childrenField] = data
+            this.loading = false
+            this.isLoaded = true
+            if (fn) fn()
           })
           .catch(() => {
-            this.loading = false;
-          });
+            this.loading = false
+          })
       }
     },
     onExtend() {
@@ -177,41 +179,41 @@ export default {
       if (this.async && !this.isLoaded) {
         this.loadData(() => {
           this.$nextTick(() => {
-            this.comValue.collapse = !this.comValue.collapse;
-            this.emitInputEvent();
-            this.setHeightAnimate();
-          });
-        });
+            this.comValue.collapse = !this.comValue.collapse
+            this.emitInputEvent()
+            this.setHeightAnimate()
+          })
+        })
       } else {
-        this.comValue.collapse = !this.comValue.collapse;
-        this.emitInputEvent();
-        this.setHeightAnimate();
+        this.comValue.collapse = !this.comValue.collapse
+        this.emitInputEvent()
+        this.setHeightAnimate()
       }
     },
     emitInputEvent() {
-      this.$emit("input", this.comValue);
+      this.$emit('input', this.comValue)
     },
     onNodeInput(item, event) {
-      Object.assign(item, event);
-      this.emitInputEvent();
+      Object.assign(item, event)
+      this.emitInputEvent()
     },
     setHeightAnimate() {
-      let height = this.$refs.children.scrollHeight + this.$refs.children.scrollTop + "px";
-      clearTimeout(this.timeObject);
+      let height = this.$refs.children.scrollHeight + this.$refs.children.scrollTop + 'px'
+      clearTimeout(this.timeObject)
       if (!this.comValue.collapse) {
-        this.bodyHeight = "0px";
+        this.bodyHeight = '0px'
         this.timeObject = setTimeout(() => {
-          this.bodyHeight = height;
+          this.bodyHeight = height
 
           this.timeObject = setTimeout(() => {
-            this.bodyHeight = "";
-          }, 500);
-        }, 50);
+            this.bodyHeight = ''
+          }, 500)
+        }, 50)
       } else {
-        this.bodyHeight = height;
+        this.bodyHeight = height
         this.timeObject = setTimeout(() => {
-          this.bodyHeight = "0px";
-        }, 50);
+          this.bodyHeight = '0px'
+        }, 50)
       }
     },
     // resizeHeight(height) {
@@ -230,91 +232,90 @@ export default {
     //   this.emitEvant();
     // },
     onCheckboxClick() {
-      this.comValue.checked = this.checked ? 1 : 0;
-      this.setChildChecked();
-      this.emitEvant();
+      this.comValue.checked = this.checked ? 1 : 0
+      this.setChildChecked()
+      this.emitEvant()
     },
     onSelectNode(nodes) {
-      const node = nodes[nodes.length - 1];
+      const node = nodes[nodes.length - 1]
       if (this.multiple && this.recursion) {
-        let hasChild = false;
-        let isAllChildChecked = true; // 判断是否所有子项都选中
+        let hasChild = false
+        let isAllChildChecked = true // 判断是否所有子项都选中
         for (const item of this.comValue.children || []) {
           if (item[this.idField] === node[this.idField]) {
-            item.checked = true;
-            hasChild = true;
+            item.checked = true
+            hasChild = true
           }
           if (!item.checked) {
-            isAllChildChecked = false;
+            isAllChildChecked = false
           }
         }
 
         if (hasChild) {
-          this.checked = isAllChildChecked;
-          this.comValue.checked = isAllChildChecked ? 1 : 2;
+          this.checked = isAllChildChecked
+          this.comValue.checked = isAllChildChecked ? 1 : 2
           if (this.comValue.checked === 1) {
-            nodes.push(this.comValue);
+            nodes.push(this.comValue)
           }
         }
       }
       // 继续向上传递事件
-      this.$emit("select-node", nodes);
+      this.$emit('select-node', nodes)
     },
     onUnselectNode(nodes) {
-      const node = nodes[nodes.length - 1];
+      const node = nodes[nodes.length - 1]
       if (this.multiple && this.recursion) {
-        let hasChecked = false;
-        let hasChild = false;
+        let hasChecked = false
+        let hasChild = false
         for (const item of this.comValue.children || []) {
           if (item[this.idField] === node[this.idField]) {
-            item.checked = false;
-            hasChild = true;
+            item.checked = false
+            hasChild = true
           }
           if (item.checked) {
-            hasChecked = true;
+            hasChecked = true
           }
         }
         if (hasChild) {
-          this.checked = false;
-          this.comValue.checked = hasChecked ? 2 : node.checked;
-          nodes.push(this.comValue);
+          this.checked = false
+          this.comValue.checked = hasChecked ? 2 : node.checked
+          nodes.push(this.comValue)
         }
       }
       // 继续向上传递事件
-      this.$emit("unselect-node", nodes);
+      this.$emit('unselect-node', nodes)
     },
     setChildChecked() {
-      if (!this.recursion) return;
-
-      (this.comValue.children || []).forEach(item => {
-        item.checked = this.checked;
-      });
+      if (!this.recursion) return
+      ;(this.comValue.children || []).forEach(item => {
+        item.checked = this.checked
+      })
     },
     emitEvant() {
       if (this.checked) {
-        this.$emit("select-node", [this.comValue]);
+        this.$emit('select-node', [this.comValue])
       } else {
-        this.$emit("unselect-node", [this.comValue]);
+        this.$emit('unselect-node', [this.comValue])
       }
     },
     initChecked() {
-      this.emmitEventable = false;
+      this.emmitEventable = false
 
       if (!this.multiple) {
-        this.checked = this.comValue[this.idField].toString() === this.selectedValue;
+        this.checked = this.comValue[this.idField].toString() === this.selectedValue
       } else {
-        const selectedArray = this.selectedValue.split(",");
+        const selectedArray = this.selectedValue.split(',')
         for (const value of selectedArray) {
           if (value === this.comValue[this.idField].toString()) {
-            this.checked = true;
-            this.comValue.checked = 1;
-            break;
+            this.checked = true
+            this.comValue.checked = 1
+            break
           }
         }
       }
       this.$nextTick(() => {
-        this.emmitEventable = true;
-      });
+        this.emmitEventable = true
+      })
     }
   },
   watch: {
@@ -324,62 +325,62 @@ export default {
         // 判断是否需要自动展开或折叠
         if (newValue.collapse !== this.comValue.collapse) {
           this.$nextTick(() => {
-            this.setHeightAnimate();
-          });
+            this.setHeightAnimate()
+          })
         }
-        Object.assign(this.comValue, newValue);
+        Object.assign(this.comValue, newValue)
       }
     },
     parentChecked(newValue) {
       if (this.multiple && this.recursion) {
         if (newValue === 0) {
-          this.checked = false;
-          this.comValue.checked = 0;
-          this.setChildChecked();
+          this.checked = false
+          this.comValue.checked = 0
+          this.setChildChecked()
         } else if (newValue === 1) {
-          this.checked = true;
-          this.comValue.checked = 1;
-          this.setChildChecked();
+          this.checked = true
+          this.comValue.checked = 1
+          this.setChildChecked()
         }
       }
     },
     checked(newValue) {
-      if (!this.emmitEventable) return;
+      if (!this.emmitEventable) return
 
-      const eventName = newValue ? "selectNode" : "unselectNode";
-      this.dispatch("CsTreeCell", eventName, this.comValue);
+      const eventName = newValue ? 'selectNode' : 'unselectNode'
+      this.dispatch('CsTreeCell', eventName, this.comValue)
     },
     selectedValue() {
       if (!this.multiple) {
-        this.initChecked();
+        this.initChecked()
       }
       // this.initChecked()
       // 如果是合并选中值且子项为选中，判断父项是否选中，如果没选中，则传递选中事件
       if (this.mergeCheckedValue && this.checked) {
         this.$nextTick(() => {
-          let parentChecked = false;
+          let parentChecked = false
           if (this.parentFullPath && this.selectedValue) {
-            const parents = this.parentFullPath.split(",");
-            const values = this.selectedValue.split(",");
+            const parents = this.parentFullPath.split(',')
+            const values = this.selectedValue.split(',')
             for (const parent of parents) {
               for (const value of values) {
                 if (value.toString() === parent.toString()) {
-                  parentChecked = true;
+                  parentChecked = true
                 }
               }
               if (parentChecked) {
-                break;
+                break
               }
             }
           }
-          this.dispatch("CsTreeCell", !parentChecked ? "selectNode" : "unselectNode", this.comValue);
-        });
+          this.dispatch('CsTreeCell', !parentChecked ? 'selectNode' : 'unselectNode', this.comValue)
+        })
       } else {
-        this.initChecked();
+        this.initChecked()
       }
     }
   }
-};
+}
 </script>
 
 <style lang="less">

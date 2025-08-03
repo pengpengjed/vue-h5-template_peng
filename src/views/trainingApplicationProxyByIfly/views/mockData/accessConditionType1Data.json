@@ -1,0 +1,184 @@
+{
+  "id": 69,
+  "trainProcessRemark": null,
+  "accessConditionContent": "11",
+  "accessConditionType": 1,
+  "conditionalExpression": null,
+  "conditionalExpressionDesc": null,
+  "accessConditionRelational": 1,
+  "remark": null,
+  "accessConditionZhftcGroupList": [
+    {
+      "id": 1948207631607459800,
+      "accessConditionRelational": 1,
+      "accessConditionLevel": "分组1",
+      "remark": null,
+      "accessConditionParentId": 0,
+      "childrenList": [
+        {
+          "id": 1948207631607459800,
+          "accessConditionRelational": 1,
+          "accessConditionLevel": "分组1.1",
+          "remark": null,
+          "accessConditionParentId": 1948207631607459800,
+          "childrenList": [
+            {
+              "id": 1948207631611654100,
+              "accessConditionRelational": 1,
+              "accessConditionLevel": "分组1.1.1",
+              "remark": null,
+              "accessConditionParentId": 1948207631607459800,
+              "childrenList": [],
+              "labelList": [
+                {
+                  "id": 72,
+                  "labelId": 2,
+                  "businessOperator": 1,
+                  "businessValue": "2",
+                  "conditionContent": "有效的汉语语言等级大于2级",
+                  "remark": null,
+                  "conditionLabel": {
+                    "id": 2,
+                    "labelName": "有效的汉语语言等级",
+                    "labelCode": "721a0090",
+                    "valueType": 1,
+                    "unit": "级",
+                    "relatedLabel": "CHNL_LVL",
+                    "notes": "有效的汉语语言等级\r\n"
+                  },
+                  "selectFlag": false
+                }
+              ]
+            }
+          ],
+          "labelList": [
+            {
+              "id": 71,
+              "labelId": 1,
+              "businessOperator": 1,
+              "businessValue": "1",
+              "conditionContent": "有效的ICAO英语语言等级大于1级",
+              "remark": null,
+              "conditionLabel": {
+                "id": 1,
+                "labelName": "有效的ICAO英语语言等级",
+                "labelCode": "34c4cc37",
+                "valueType": 1,
+                "unit": "级",
+                "relatedLabel": "ICAO_LVL",
+                "notes": "飞行门户"
+              },
+              "selectFlag": false
+            }
+          ]
+        }
+      ],
+      "labelList": [
+        {
+          "id": 70,
+          "labelId": 1,
+          "businessOperator": 1,
+          "businessValue": "1",
+          "conditionContent": "有效的ICAO英语语言等级大于1级",
+          "remark": null,
+          "conditionLabel": {
+            "id": 1,
+            "labelName": "有效的ICAO英语语言等级",
+            "labelCode": "34c4cc37",
+            "valueType": 1,
+            "unit": "级",
+            "relatedLabel": "ICAO_LVL",
+            "notes": "飞行门户"
+          },
+          "selectFlag": false
+        }
+      ]
+    },
+    {
+      "id": 1948207631611654100,
+      "accessConditionRelational": 1,
+      "accessConditionLevel": "分组2",
+      "remark": null,
+      "accessConditionParentId": 0,
+      "childrenList": [
+        {
+          "id": 1948207631611654100,
+          "accessConditionRelational": 1,
+          "accessConditionLevel": "分组2.1",
+          "remark": null,
+          "accessConditionParentId": 1948207631611654100,
+          "childrenList": [],
+          "labelList": [
+            {
+              "id": 74,
+              "labelId": 4,
+              "businessOperator": 4,
+              "businessValue": "1",
+              "conditionContent": "持有商用驾驶员执照小于等于1",
+              "remark": null,
+              "conditionLabel": {
+                "id": 4,
+                "labelName": "持有商用驾驶员执照",
+                "labelCode": "532b1a7c",
+                "valueType": 1,
+                "unit": null,
+                "relatedLabel": "COM_DRV_LIC",
+                "notes": "飞行门户"
+              },
+              "selectFlag": false
+            }
+          ]
+        }
+      ],
+      "labelList": [
+        {
+          "id": 73,
+          "labelId": 2,
+          "businessOperator": 2,
+          "businessValue": "2",
+          "conditionContent": "有效的汉语语言等级大于等于2级",
+          "remark": null,
+          "conditionLabel": {
+            "id": 2,
+            "labelName": "有效的汉语语言等级",
+            "labelCode": "721a0090",
+            "valueType": 1,
+            "unit": "级",
+            "relatedLabel": "CHNL_LVL",
+            "notes": "有效的汉语语言等级\r\n"
+          },
+          "selectFlag": false
+        }
+      ]
+    },
+    {
+      "id": 1948207631611654100,
+      "accessConditionRelational": 1,
+      "accessConditionLevel": "分组3",
+      "remark": null,
+      "accessConditionParentId": 0,
+      "childrenList": [],
+      "labelList": [
+        {
+          "id": 75,
+          "labelId": 3,
+          "businessOperator": 5,
+          "businessValue": "1",
+          "conditionContent": "持有有效执照等于是",
+          "remark": null,
+          "conditionLabel": {
+            "id": 3,
+            "labelName": "持有有效执照",
+            "labelCode": "b2f1534d",
+            "valueType": 2,
+            "unit": null,
+            "relatedLabel": "",
+            "notes": "计算结果"
+          },
+          "selectFlag": false
+        }
+      ]
+    }
+  ],
+  "accessConditionDetailList": []
+}

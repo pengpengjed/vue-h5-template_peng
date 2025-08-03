@@ -45,7 +45,7 @@
 
 <script>
 export default {
-  name: "CsSystemNotice",
+  name: 'CsSystemNotice',
   props: {},
   data() {
     return {
@@ -55,35 +55,35 @@ export default {
       noticeList: [],
       channel: 3, // 2-移动飞行，3-南航智飞
       networkStatus: true
-    };
+    }
   },
   mounted() {
-    window.addEventListener("online", () => {
-      this.networkStatus = true;
-      console.log("用户重新上线");
-    });
-    window.addEventListener("offline", () => {
-      this.networkStatus = false;
-      console.log("用户离线");
-    });
+    window.addEventListener('online', () => {
+      this.networkStatus = true
+      console.log('用户重新上线')
+    })
+    window.addEventListener('offline', () => {
+      this.networkStatus = false
+      console.log('用户离线')
+    })
   },
   methods: {
     onCloseClick() {
-      this.popupShow = false;
+      this.popupShow = false
     },
     onReadClick() {
       if (this.showIndex + 1 < this.noticeList.length) {
-        this.showIndex++;
+        this.showIndex++
       } else {
-        this.setReaded();
-        this.popupShow = false;
+        this.setReaded()
+        this.popupShow = false
       }
     },
     load() {
       return new Promise((resolve, reject) => {
         this.$http
           .get({
-            url: "/restapp/announcementRestFul/findByAfterLogin",
+            url: '/restapp/announcementRestFul/findByAfterLogin',
             data: {
               channel: this.channel
             },
@@ -92,22 +92,22 @@ export default {
             }
           })
           .then(data => {
-            this.noticeList = data || [];
-            resolve(data);
+            this.noticeList = data || []
+            resolve(data)
           })
           .catch(err => {
-            reject(err);
-          });
-      });
+            reject(err)
+          })
+      })
     },
     setReaded() {
-      let noticeId = [];
+      let noticeId = []
       this.noticeList.forEach(item => {
-        noticeId.push(item.id);
-      });
+        noticeId.push(item.id)
+      })
       this.$http
         .put({
-          url: "/restapp/announcementRestFul/saveUserWatch",
+          url: '/restapp/announcementRestFul/saveUserWatch',
           data: {
             channel: this.channel,
             watchId: noticeId
@@ -116,39 +116,39 @@ export default {
             handleError: false
           }
         })
-        .catch(() => {});
+        .catch(() => {})
     },
     show({ isStopServer, isLogin }) {
       // 有loading的toast时，关闭不了dialog，所以弹出dialog时先关掉toast,dialog
-      this.$toast.clear();
-      this.$dialog.close();
+      this.$toast.clear()
+      this.$dialog.close()
 
-      this.isStopServer = isStopServer;
+      this.isStopServer = isStopServer
       if (this.isStopServer) {
-        this.popupShow = true;
+        this.popupShow = true
       } else {
         // 加载通告数据
         this.load(isLogin)
           .then(() => {
             if (this.noticeList && this.noticeList.length) {
               // 有公告才显示
-              this.popupShow = true;
+              this.popupShow = true
             }
           })
-          .catch(() => {});
+          .catch(() => {})
       }
     }
   },
   computed: {
     currentNotice() {
       if (this.noticeList.length) {
-        return this.noticeList[this.showIndex];
+        return this.noticeList[this.showIndex]
       } else {
-        return {};
+        return {}
       }
     }
   }
-};
+}
 </script>
 
 <style lang="less">
@@ -169,7 +169,7 @@ export default {
     height: 80px;
     text-align: center;
     color: #333333;
-    background: url("../theme/images/systemNotice/notice_bg_normal.png") no-repeat center center transparent;
+    background: url('../theme/images/systemNotice/notice_bg_normal.png') no-repeat center center transparent;
     background-size: cover;
     border-radius: 8px 8px 0 0;
   }
@@ -220,14 +220,14 @@ export default {
     overflow: visible;
     .cs-system-notice-popup__header {
       height: 150px;
-      background-image: url("../theme/images/systemNotice/notice_bg_upgrade_1.png");
+      background-image: url('../theme/images/systemNotice/notice_bg_upgrade_1.png');
       position: relative;
       &::before {
-        content: "";
+        content: '';
         width: 117px;
         height: 179px;
         display: block;
-        background: url("../theme/images/systemNotice/notice_upgrade_icon_1.png") no-repeat center center transparent;
+        background: url('../theme/images/systemNotice/notice_upgrade_icon_1.png') no-repeat center center transparent;
         background-size: cover;
         position: absolute;
         top: -28px;
@@ -238,7 +238,7 @@ export default {
     .cs-system-notice-popup__title {
       width: 110px;
       height: 72px;
-      background: url("../theme/images/systemNotice/notice_upgrade_text1.png") no-repeat center center transparent;
+      background: url('../theme/images/systemNotice/notice_upgrade_text1.png') no-repeat center center transparent;
       background-size: cover;
       padding: 0;
       position: absolute;
@@ -256,14 +256,14 @@ export default {
     overflow: visible;
     .cs-system-notice-popup__header {
       height: 150px;
-      background-image: url("../theme/images/systemNotice/notice_bg_upgrade_2.png");
+      background-image: url('../theme/images/systemNotice/notice_bg_upgrade_2.png');
       position: relative;
       &::before {
-        content: "";
+        content: '';
         width: 64px;
         height: 150px;
         display: block;
-        background: url("../theme/images/systemNotice/notice_upgrade_icon_2.png") no-repeat center center transparent;
+        background: url('../theme/images/systemNotice/notice_upgrade_icon_2.png') no-repeat center center transparent;
         background-size: cover;
         position: absolute;
         top: -35px;
@@ -274,7 +274,7 @@ export default {
     .cs-system-notice-popup__title {
       width: 132px;
       height: 24px;
-      background: url("../theme/images/systemNotice/notice_upgrade_text2.png") no-repeat center center transparent;
+      background: url('../theme/images/systemNotice/notice_upgrade_text2.png') no-repeat center center transparent;
       background-size: cover;
       padding: 0;
       position: absolute;
@@ -300,7 +300,7 @@ export default {
       display: none;
     }
     .cs-system-notice-popup__header {
-      background-image: url("../theme/images/systemNotice/notice_bg_stop.png");
+      background-image: url('../theme/images/systemNotice/notice_bg_stop.png');
     }
     .cs-system-notice-popup__body {
       text-indent: 0;

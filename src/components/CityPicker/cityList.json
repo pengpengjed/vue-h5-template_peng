@@ -1,3521 +1,591 @@
 {
-	"ver": "201808291549",
-	"data": [
-		[
-			"AAT",
-			"阿勒泰",
-			"a le tai",
-			"1"
-		],
-		[
-			"ABJ",
-			"阿比让",
-			"a bi rang",
-			"0"
-		],
-		[
-			"ABV",
-			"阿布贾",
-			"a bu jia",
-			"0"
-		],
-		[
-			"ACC",
-			"阿克拉",
-			"a ke la",
-			"0"
-		],
-		[
-			"ACX",
-			"兴义",
-			"xing yi",
-			"1"
-		],
-		[
-			"ADD",
-			"亚的斯亚贝巴",
-			"ya de si ya bei ba",
-			"0"
-		],
-		[
-			"ADL",
-			"阿德莱德",
-			"a de lai de",
-			"0"
-		],
-		[
-			"AEB",
-			"百色",
-			"bai se",
-			"1"
-		],
-		[
-			"BUE",
-			"布宜诺斯艾利斯",
-			"bu yi nuo si ai li si",
-			"0"
-		],
-		[
-			"AGP",
-			"马拉加",
-			"ma la jia",
-			"0"
-		],
-		[
-			"AHJ",
-			"红原",
-			"hong yuan",
-			"1"
-		],
-		[
-			"AKA",
-			"安康",
-			"an kang",
-			"1"
-		],
-		[
-			"AKL",
-			"奥克兰",
-			"ao ke lan",
-			"0"
-		],
-		[
-			"AKU",
-			"阿克苏",
-			"a ke su",
-			"1"
-		],
-		[
-			"ALA",
-			"阿拉木图",
-			"a la mu tu",
-			"0"
-		],
-		[
-			"ALG",
-			"阿尔及尔",
-			"a er ji er",
-			"0"
-		],
-		[
-			"AMD",
-			"艾哈迈达巴德",
-			"ai ha mai da ba de",
-			"0"
-		],
-		[
-			"AMM",
-			"安曼",
-			"an man",
-			"0"
-		],
-		[
-			"AMS",
-			"阿姆斯特丹",
-			"a mu si te dan",
-			"0"
-		],
-		[
-			"ANC",
-			"安克雷奇",
-			"an ke lei qi",
-			"0"
-		],
-		[
-			"AOG",
-			"鞍山",
-			"an shan",
-			"1"
-		],
-		[
-			"APW",
-			"阿皮亚",
-			"a pi ya",
-			"0"
-		],
-		[
-			"AQG",
-			"安庆",
-			"an qing",
-			"1"
-		],
-		[
-			"STO",
-			"斯德哥尔摩",
-			"si de ge er mo",
-			"0"
-		],
-		[
-			"ASB",
-			"阿什哈巴德",
-			"a shen ha ba de",
-			"0"
-		],
-		[
-			"ATH",
-			"雅典",
-			"ya dian",
-			"0"
-		],
-		[
-			"ATL",
-			"亚特兰大",
-			"ya te lan da",
-			"0"
-		],
-		[
-			"ATQ",
-			"阿姆利则",
-			"a mu li ze",
-			"0"
-		],
-		[
-			"AUS",
-			"奥斯汀",
-			"ao si ting",
-			"0"
-		],
-		[
-			"AVA",
-			"安顺",
-			"an shun",
-			"1"
-		],
-		[
-			"AXF",
-			"阿拉善盟",
-			"a la shan meng",
-			"1"
-		],
-		[
-			"BAH",
-			"巴林",
-			"ba lin",
-			"0"
-		],
-		[
-			"BAR",
-			"琼海博鳌",
-			"qiong hai bo ao",
-			"1"
-		],
-		[
-			"BAV",
-			"包头",
-			"bao tou",
-			"1"
-		],
-		[
-			"BCN",
-			"巴塞罗那",
-			"ba sai luo na",
-			"0"
-		],
-		[
-			"BDB",
-			"班达伯格",
-			"ban da bo ge",
-			"0"
-		],
-		[
-			"HFD",
-			"哈特福德",
-			"ha te fu de",
-			"0"
-		],
-		[
-			"BDQ",
-			"巴罗达",
-			"ba luo da",
-			"0"
-		],
-		[
-			"BEG",
-			"贝尔格莱德",
-			"bei er ge lai de",
-			"0"
-		],
-		[
-			"BEY",
-			"贝鲁特",
-			"bei lu te",
-			"0"
-		],
-		[
-			"BFJ",
-			"毕节",
-			"bi jie",
-			"1"
-		],
-		[
-			"BFS",
-			"贝尔法斯特",
-			"bei er fa si te",
-			"0"
-		],
-		[
-			"BHO",
-			"博帕尔",
-			"bo pa er",
-			"0"
-		],
-		[
-			"BHX",
-			"伯明翰",
-			"bo ming han",
-			"0"
-		],
-		[
-			"BHY",
-			"北海",
-			"bei hai",
-			"1"
-		],
-		[
-			"BKI",
-			"沙巴",
-			"sha ba",
-			"0"
-		],
-		[
-			"BKI",
-			"哥打基纳巴卢",
-			"ge da ji na ba lu",
-			"0"
-		],
-		[
-			"BKK",
-			"曼谷",
-			"man gu",
-			"0"
-		],
-		[
-			"BKO",
-			"巴马科",
-			"ba ma ke",
-			"0"
-		],
-		[
-			"BLQ",
-			"博洛尼亚",
-			"bo luo ni ya",
-			"0"
-		],
-		[
-			"BLR",
-			"班加罗尔",
-			"ban jia luo er",
-			"0"
-		],
-		[
-			"BNA",
-			"纳什维尔",
-			"na shen wei er",
-			"0"
-		],
-		[
-			"BNE",
-			"布里斯班",
-			"bu li si ban",
-			"0"
-		],
-		[
-			"BOD",
-			"波尔多",
-			"bo er duo",
-			"0"
-		],
-		[
-			"BOG",
-			"波哥大",
-			"bo ge da",
-			"0"
-		],
-		[
-			"BOM",
-			"孟买",
-			"meng mai",
-			"0"
-		],
-		[
-			"BOS",
-			"波士顿",
-			"bo shi dun",
-			"0"
-		],
-		[
-			"BPE",
-			"秦皇岛",
-			"qin huang dao",
-			"1"
-		],
-		[
-			"BPL",
-			"博乐",
-			"bo le",
-			"1"
-		],
-		[
-			"BPN",
-			"巴厘巴板",
-			"ba li ba ban",
-			"0"
-		],
-		[
-			"BPX",
-			"昌都",
-			"chang dou",
-			"1"
-		],
-		[
-			"BRU",
-			"布鲁塞尔",
-			"bu lu sai er",
-			"0"
-		],
-		[
-			"BSD",
-			"保山",
-			"bao shan",
-			"1"
-		],
-		[
-			"BUF",
-			"布法罗",
-			"bu fa luo",
-			"0"
-		],
-		[
-			"BZN",
-			"博兹曼",
-			"bo zi man",
-			"0"
-		],
-		[
-			"CAI",
-			"开罗",
-			"kai luo",
-			"0"
-		],
-		[
-			"CAN",
-			"广州",
-			"guang zhou",
-			"1"
-		],
-		[
-			"CAS",
-			"卡萨布兰卡",
-			"ka sa bu lan ka",
-			"0"
-		],
-		[
-			"CBR",
-			"堪培拉",
-			"kan pei la",
-			"0"
-		],
-		[
-			"CCJ",
-			"卡利刻特",
-			"ka li ke te",
-			"0"
-		],
-		[
-			"CCS",
-			"加拉加斯",
-			"jia la jia si",
-			"0"
-		],
-		[
-			"CCU",
-			"加尔各答",
-			"jia er ge da",
-			"0"
-		],
-		[
-			"PAR",
-			"巴黎",
-			"ba li",
-			"0"
-		],
-		[
-			"CEI",
-			"清莱",
-			"qing lai",
-			"0"
-		],
-		[
-			"CFS",
-			"科夫斯港",
-			"ke fu si gang",
-			"0"
-		],
-		[
-			"CGD",
-			"常德",
-			"chang de",
-			"1"
-		],
-		[
-			"JKT",
-			"雅加达",
-			"ya jia da",
-			"0"
-		],
-		[
-			"CGN",
-			"科隆",
-			"ke long",
-			"0"
-		],
-		[
-			"CGO",
-			"郑州",
-			"zheng zhou",
-			"1"
-		],
-		[
-			"CGQ",
-			"长春",
-			"chang chun",
-			"1"
-		],
-		[
-			"CHC",
-			"基督城",
-			"ji du cheng",
-			"0"
-		],
-		[
-			"CHG",
-			"朝阳",
-			"chao yang",
-			"1"
-		],
-		[
-			"CIF",
-			"赤峰",
-			"chi feng",
-			"1"
-		],
-		[
-			"CIH",
-			"长治",
-			"chang zhi",
-			"1"
-		],
-		[
-			"CJJ",
-			"清州",
-			"qing zhou",
-			"0"
-		],
-		[
-			"CJU",
-			"济州",
-			"ji zhou",
-			"0"
-		],
-		[
-			"CKG",
-			"重庆",
-			"chong qing",
-			"1"
-		],
-		[
-			"CLE",
-			"克利夫兰",
-			"ke li fu lan",
-			"0"
-		],
-		[
-			"CLT",
-			"夏洛特",
-			"xia luo te",
-			"0"
-		],
-		[
-			"CMB",
-			"科伦坡",
-			"ke lun po",
-			"0"
-		],
-		[
-			"MPH",
-			"哥伦布",
-			"ge lun bu",
-			"0"
-		],
-		[
-			"CNS",
-			"凯恩斯",
-			"kai en si",
-			"0"
-		],
-		[
-			"CNX",
-			"清迈",
-			"qing mai",
-			"0"
-		],
-		[
-			"COK",
-			"科钦",
-			"ke qin",
-			"0"
-		],
-		[
-			"COO",
-			"科托努",
-			"ke tuo nu",
-			"0"
-		],
-		[
-			"CPH",
-			"哥本哈根",
-			"ge ben ha gen",
-			"0"
-		],
-		[
-			"CPT",
-			"开普敦",
-			"kai pu dun",
-			"0"
-		],
-		[
-			"CRK",
-			"克拉克",
-			"ke la ke",
-			"0"
-		],
-		[
-			"CSX",
-			"长沙",
-			"chang sha",
-			"1"
-		],
-		[
-			"SPK",
-			"札幌",
-			"zha huang",
-			"0"
-		],
-		[
-			"CTU",
-			"成都",
-			"cheng du",
-			"1"
-		],
-		[
-			"CUN",
-			"坎昆",
-			"kan kun",
-			"0"
-		],
-		[
-			"CVG",
-			"辛辛那提",
-			"xin xin na ti",
-			"0"
-		],
-		[
-			"CWJ",
-			"沧源",
-			"cang yuan",
-			"1"
-		],
-		[
-			"NHA",
-			"芽庄",
-			"ya zhuang",
-			"0"
-		],
-		[
-			"CZX",
-			"常州",
-			"chang zhou",
-			"1"
-		],
-		[
-			"DAC",
-			"达卡",
-			"da ka",
-			"0"
-		],
-		[
-			"DAD",
-			"岘港",
-			"xian gang",
-			"0"
-		],
-		[
-			"DAR",
-			"达累斯萨拉姆",
-			"da lei si sa la mu",
-			"0"
-		],
-		[
-			"DAT",
-			"大同",
-			"da tong",
-			"1"
-		],
-		[
-			"DAX",
-			"达州",
-			"da zhou",
-			"1"
-		],
-		[
-			"WAS",
-			"华盛顿",
-			"hua sheng dun",
-			"0"
-		],
-		[
-			"DCY",
-			"稻城",
-			"dao cheng",
-			"1"
-		],
-		[
-			"DDG",
-			"丹东",
-			"dan dong",
-			"1"
-		],
-		[
-			"DEL",
-			"德里",
-			"de li",
-			"0"
-		],
-		[
-			"DEN",
-			"丹佛",
-			"dan fo",
-			"0"
-		],
-		[
-			"DFW",
-			"达拉斯-沃斯堡",
-			"da la si - wo si bao",
-			"0"
-		],
-		[
-			"DIG",
-			"迪庆",
-			"di qing",
-			"1"
-		],
-		[
-			"DKR",
-			"达喀尔",
-			"da ka er",
-			"0"
-		],
-		[
-			"DLA",
-			"杜阿拉",
-			"du a la",
-			"0"
-		],
-		[
-			"DLC",
-			"大连",
-			"da lian",
-			"1"
-		],
-		[
-			"DLU",
-			"大理",
-			"da li",
-			"1"
-		],
-		[
-			"DMM",
-			"达曼",
-			"da man",
-			"0"
-		],
-		[
-			"DNH",
-			"敦煌",
-			"dun huang",
-			"1"
-		],
-		[
-			"DOH",
-			"多哈",
-			"duo ha",
-			"0"
-		],
-		[
-			"DOY",
-			"东营",
-			"dong ying",
-			"1"
-		],
-		[
-			"DPS",
-			"巴厘岛",
-			"ba li dao",
-			"0"
-		],
-		[
-			"DQA",
-			"大庆",
-			"da qing",
-			"1"
-		],
-		[
-			"DRW",
-			"达尔文",
-			"da er wen",
-			"0"
-		],
-		[
-			"DSN",
-			"鄂尔多斯",
-			"e er duo si",
-			"1"
-		],
-		[
-			"DTT",
-			"底特律",
-			"di te lv",
-			"0"
-		],
-		[
-			"DTT",
-			"底特律",
-			"di te lv",
-			"0"
-		],
-		[
-			"DUB",
-			"都柏林",
-			"dou bo lin",
-			"0"
-		],
-		[
-			"DUD",
-			"达尼丁",
-			"da ni ding",
-			"0"
-		],
-		[
-			"DUR",
-			"德班",
-			"de ban",
-			"0"
-		],
-		[
-			"DUS",
-			"杜塞尔多夫",
-			"du sai er duo fu",
-			"0"
-		],
-		[
-			"DXB",
-			"迪拜",
-			"di bai",
-			"0"
-		],
-		[
-			"DYG",
-			"张家界",
-			"zhang jia jie",
-			"1"
-		],
-		[
-			"DYU",
-			"杜尚别",
-			"du shang bie",
-			"0"
-		],
-		[
-			"EBB",
-			"恩德培",
-			"en de pei",
-			"0"
-		],
-		[
-			"EDI",
-			"爱丁堡",
-			"ai ding bao",
-			"0"
-		],
-		[
-			"EJN",
-			"额济纳旗",
-			"e ji na qi",
-			"1"
-		],
-		[
-			"EMD",
-			"埃默拉尔德",
-			"ai mo la er de",
-			"0"
-		],
-		[
-			"ENH",
-			"恩施",
-			"en shi",
-			"1"
-		],
-		[
-			"ENY",
-			"延安",
-			"yan an",
-			"1"
-		],
-		[
-			"ERL",
-			"二连浩特",
-			"er lian hao te",
-			"1"
-		],
-		[
-			"NYC",
-			"纽约",
-			"niu yue",
-			"0"
-		],
-		[
-			"BUE",
-			"布宜诺斯艾利斯",
-			"bu yi nuo si ai li si",
-			"0"
-		],
-		[
-			"FAT",
-			"弗雷斯诺",
-			"fu lei si nuo",
-			"0"
-		],
-		[
-			"ROM",
-			"罗马",
-			"luo ma",
-			"0"
-		],
-		[
-			"FIH",
-			"金沙萨",
-			"jin sha sa",
-			"0"
-		],
-		[
-			"FKS",
-			"福岛",
-			"fu dao",
-			"0"
-		],
-		[
-			"FLL",
-			"罗德岱堡",
-			"luo de dai bao",
-			"0"
-		],
-		[
-			"FOC",
-			"福州",
-			"fu zhou",
-			"1"
-		],
-		[
-			"FRA",
-			"法兰克福",
-			"fa lan ke fu",
-			"0"
-		],
-		[
-			"FRU",
-			"比什凯克",
-			"bi shen kai ke",
-			"0"
-		],
-		[
-			"FSZ",
-			"静冈",
-			"jing gang",
-			"0"
-		],
-		[
-			"FUG",
-			"阜阳",
-			"fu yang",
-			"1"
-		],
-		[
-			"FUK",
-			"福冈",
-			"fu gang",
-			"0"
-		],
-		[
-			"FYJ",
-			"抚远",
-			"fu yuan",
-			"1"
-		],
-		[
-			"FYN",
-			"富蕴",
-			"fu yun",
-			"1"
-		],
-		[
-			"GAU",
-			"古瓦哈蒂",
-			"gu wa ha di",
-			"0"
-		],
-		[
-			"GDL",
-			"瓜达拉哈拉",
-			"gua da la ha la",
-			"0"
-		],
-		[
-			"GEG",
-			"斯波坎",
-			"si bo kan",
-			"0"
-		],
-		[
-			"GHN",
-			"广汉",
-			"guang han",
-			"1"
-		],
-		[
-			"RIO",
-			"里约热内卢",
-			"li yue re nei lu",
-			"0"
-		],
-		[
-			"GLA",
-			"格拉斯哥",
-			"ge la si ge",
-			"0"
-		],
-		[
-			"GLT",
-			"格莱斯顿",
-			"ge lai si dun",
-			"0"
-		],
-		[
-			"SEL",
-			"首尔",
-			"shou er",
-			"0"
-		],
-		[
-			"GMQ",
-			"果洛",
-			"guo luo",
-			"1"
-		],
-		[
-			"GOQ",
-			"格尔木",
-			"ge er mu",
-			"1"
-		],
-		[
-			"GOT",
-			"哥德堡",
-			"ge de bao",
-			"0"
-		],
-		[
-			"SAO",
-			"圣保罗",
-			"sheng bao luo",
-			"0"
-		],
-		[
-			"GUM",
-			"关岛",
-			"guan dao",
-			"0"
-		],
-		[
-			"GVA",
-			"日内瓦",
-			"ri nei wa",
-			"0"
-		],
-		[
-			"GXH",
-			"夏河",
-			"xia he",
-			"1"
-		],
-		[
-			"BAK",
-			"巴库",
-			"ba ku",
-			"0"
-		],
-		[
-			"GYE",
-			"瓜亚基尔",
-			"gua ya ji er",
-			"0"
-		],
-		[
-			"GYS",
-			"广元",
-			"guang yuan",
-			"1"
-		],
-		[
-			"GYU",
-			"固原",
-			"gu yuan",
-			"1"
-		],
-		[
-			"HAJ",
-			"汉诺威",
-			"han nuo wei",
-			"0"
-		],
-		[
-			"HAK",
-			"海口",
-			"hai kou",
-			"1"
-		],
-		[
-			"HAM",
-			"汉堡",
-			"han bao",
-			"0"
-		],
-		[
-			"HAN",
-			"河内",
-			"he nei",
-			"0"
-		],
-		[
-			"HBA",
-			"霍巴特",
-			"huo ba te",
-			"0"
-		],
-		[
-			"HCJ",
-			"河池",
-			"he chi",
-			"1"
-		],
-		[
-			"HDG",
-			"邯郸",
-			"han dan",
-			"1"
-		],
-		[
-			"HEK",
-			"黑河",
-			"hei he",
-			"1"
-		],
-		[
-			"HEL",
-			"赫尔辛基",
-			"he er xin ji",
-			"0"
-		],
-		[
-			"HET",
-			"呼和浩特",
-			"hu he hao te",
-			"1"
-		],
-		[
-			"HFE",
-			"合肥",
-			"he fei",
-			"1"
-		],
-		[
-			"HGH",
-			"杭州",
-			"hang zhou",
-			"1"
-		],
-		[
-			"HIA",
-			"淮安",
-			"huai an",
-			"1"
-		],
-		[
-			"HIJ",
-			"广岛",
-			"guang dao",
-			"0"
-		],
-		[
-			"HIS",
-			"海曼岛",
-			"hai man dao",
-			"0"
-		],
-		[
-			"HJJ",
-			"怀化",
-			"huai hua",
-			"1"
-		],
-		[
-			"HJR",
-			"克久拉霍",
-			"ke jiu la huo",
-			"0"
-		],
-		[
-			"HKG",
-			"中国香港",
-			"zhong guo xiang gang",
-			"0"
-		],
-		[
-			"HKT",
-			"普吉",
-			"pu ji",
-			"0"
-		],
-		[
-			"HLD",
-			"海拉尔",
-			"hai la er",
-			"1"
-		],
-		[
-			"HLH",
-			"乌兰浩特",
-			"wu lan hao te",
-			"1"
-		],
-		[
-			"HLZ",
-			"哈密尔顿",
-			"ha mi er dun",
-			"0"
-		],
-		[
-			"HMI",
-			"哈密",
-			"ha mi",
-			"1"
-		],
-		[
-			"TYO",
-			"东京",
-			"dong jing",
-			"0"
-		],
-		[
-			"NRT",
-			"东京成田",
-			"dong jing cheng tian",
-			"0"
-		],
-		[
-			"HNL",
-			"火奴鲁鲁",
-			"huo nu lu lu",
-			"0"
-		],
-		[
-			"HNY",
-			"衡阳",
-			"heng yang",
-			"1"
-		],
-		[
-			"HOU",
-			"休斯顿",
-			"xiu si dun",
-			"0"
-		],
-		[
-			"HPG",
-			"神农架",
-			"shen nong jia",
-			"1"
-		],
-		[
-			"HRB",
-			"哈尔滨",
-			"ha er bin",
-			"1"
-		],
-		[
-			"HRE",
-			"哈拉雷",
-			"ha la lei",
-			"0"
-		],
-		[
-			"HSN",
-			"舟山",
-			"zhou shan",
-			"1"
-		],
-		[
-			"HTI",
-			"汉密尔顿岛",
-			"han mi er dun dao",
-			"0"
-		],
-		[
-			"HTN",
-			"和田",
-			"he tian",
-			"1"
-		],
-		[
-			"HUZ",
-			"惠州",
-			"hui zhou",
-			"1"
-		],
-		[
-			"HXD",
-			"德令哈",
-			"de ling ha",
-			"1"
-		],
-		[
-			"HYD",
-			"海得拉巴",
-			"hai de la ba",
-			"0"
-		],
-		[
-			"HYN",
-			"台州",
-			"tai zhou",
-			"1"
-		],
-		[
-			"HZG",
-			"汉中",
-			"han zhong",
-			"1"
-		],
-		[
-			"HZH",
-			"黎平",
-			"li ping",
-			"1"
-		],
-		[
-			"WAS",
-			"华盛顿",
-			"hua sheng dun",
-			"0"
-		],
-		[
-			"HOU",
-			"休斯顿",
-			"xiu si dun",
-			"0"
-		],
-		[
-			"IBR",
-			"茨城",
-			"ci cheng",
-			"0"
-		],
-		[
-			"SEL",
-			"首尔",
-			"shou er",
-			"0"
-		],
-		[
-			"IEV",
-			"基辅",
-			"ji fu",
-			"0"
-		],
-		[
-			"THR",
-			"德黑兰",
-			"de hei lan",
-			"0"
-		],
-		[
-			"IKT",
-			"伊尔库茨克",
-			"yi er ku ci ke",
-			"0"
-		],
-		[
-			"INC",
-			"银川",
-			"yin chuan",
-			"1"
-		],
-		[
-			"IND",
-			"印第安纳波利斯",
-			"yin di an na bo li si",
-			"0"
-		],
-		[
-			"IQM",
-			"且末",
-			"qie mo",
-			"1"
-		],
-		[
-			"IQN",
-			"庆阳",
-			"qing yang",
-			"1"
-		],
-		[
-			"ISA",
-			"芒特艾萨",
-			"mang te ai sa",
-			"0"
-		],
-		[
-			"ISB",
-			"伊斯兰堡",
-			"yi si lan bao",
-			"0"
-		],
-		[
-			"IST",
-			"伊斯坦布尔",
-			"yi si tan bu er",
-			"0"
-		],
-		[
-			"IXB",
-			"巴格多格拉",
-			"ba ge duo ge la",
-			"0"
-		],
-		[
-			"IXC",
-			"昌迪加尔",
-			"chang di jia er",
-			"0"
-		],
-		[
-			"IXL",
-			"列城",
-			"lie cheng",
-			"0"
-		],
-		[
-			"LXR",
-			"兰契",
-			"lan qi",
-			"0"
-		],
-		[
-			"JAI",
-			"斋浦尔",
-			"zhai pu er",
-			"0"
-		],
-		[
-			"JAX",
-			"捷克逊维尔",
-			"jie ke xun wei er",
-			"0"
-		],
-		[
-			"JDH",
-			"焦特布尔",
-			"jiao te bu er",
-			"0"
-		],
-		[
-			"JDZ",
-			"景德镇",
-			"jing de zhen",
-			"1"
-		],
-		[
-			"JED",
-			"吉达",
-			"ji da",
-			"0"
-		],
-		[
-			"NYC",
-			"纽约",
-			"niu yue",
-			"0"
-		],
-		[
-			"JGD",
-			"加格达奇",
-			"jia ge da qi",
-			"1"
-		],
-		[
-			"JGN",
-			"嘉峪关",
-			"jia yu guan",
-			"1"
-		],
-		[
-			"JGS",
-			"井冈山",
-			"jing gang shan",
-			"1"
-		],
-		[
-			"JHG",
-			"西双版纳",
-			"xi shuang ban na",
-			"1"
-		],
-		[
-			"JIB",
-			"吉布提",
-			"ji bu ti",
-			"0"
-		],
-		[
-			"JCH",
-			"金昌",
-			"jin chang",
-			"1"
-		],
-		[
-			"JIQ",
-			"黔江",
-			"qian jiang",
-			"1"
-		],
-		[
-			"JIU",
-			"九江",
-			"jiu jiang",
-			"1"
-		],
-		[
-			"JJN",
-			"晋江",
-			"jin jiang",
-			"1"
-		],
-		[
-			"JKT",
-			"雅加达",
-			"ya jia da",
-			"0"
-		],
-		[
-			"JLR",
-			"贾巴尔普尔",
-			"jia ba er pu er",
-			"0"
-		],
-		[
-			"JMU",
-			"佳木斯",
-			"jia mu si",
-			"1"
-		],
-		[
-			"JNB",
-			"约翰内斯堡",
-			"yue han nei si bao",
-			"0"
-		],
-		[
-			"JNG",
-			"济宁",
-			"ji ning",
-			"1"
-		],
-		[
-			"JNZ",
-			"锦州",
-			"jin zhou",
-			"1"
-		],
-		[
-			"JRO",
-			"乞力马扎罗",
-			"qi li ma za luo",
-			"0"
-		],
-		[
-			"JSJ",
-			"建三江",
-			"jian san jiang",
-			"1"
-		],
-		[
-			"JUH",
-			"池州",
-			"chi zhou",
-			"1"
-		],
-		[
-			"JXA",
-			"鸡西",
-			"ji xi",
-			"1"
-		],
-		[
-			"JZH",
-			"九寨沟",
-			"jiu zhai gou",
-			"1"
-		],
-		[
-			"KAN",
-			"卡诺",
-			"ka nuo",
-			"0"
-		],
-		[
-			"KBL",
-			"喀布尔",
-			"ka bu er",
-			"0"
-		],
-		[
-			"KBR",
-			"哥打巴鲁",
-			"ge da ba lu",
-			"0"
-		],
-		[
-			"KBV",
-			"甲米",
-			"jia mi",
-			"0"
-		],
-		[
-			"KCA",
-			"库车",
-			"ku che",
-			"1"
-		],
-		[
-			"KCH",
-			"古晋",
-			"gu jin",
-			"0"
-		],
-		[
-			"REK",
-			"雷克雅未克",
-			"lei ke ya wei ke",
-			"0"
-		],
-		[
-			"KGL",
-			"基加利",
-			"ji jia li",
-			"0"
-		],
-		[
-			"KGT",
-			"康定",
-			"kang ding",
-			"1"
-		],
-		[
-			"KHG",
-			"喀什",
-			"ka shen",
-			"1"
-		],
-		[
-			"KHH",
-			"中国高雄",
-			"zhong guo gao xiong",
-			"0"
-		],
-		[
-			"KHN",
-			"南昌",
-			"nan chang",
-			"1"
-		],
-		[
-			"KHV",
-			"哈巴罗夫斯克",
-			"ha ba luo fu si ke",
-			"0"
-		],
-		[
-			"KIJ",
-			"新泻",
-			"xin xie",
-			"0"
-		],
-		[
-			"OSA",
-			"大阪",
-			"da ban",
-			"0"
-		],
-		[
-			"KJH",
-			"凯里",
-			"kai li",
-			"1"
-		],
-		[
-			"KJI",
-			"喀纳斯",
-			"ka na si",
-			"1"
-		],
-		[
-			"KKJ",
-			"北九州",
-			"bei jiu zhou",
-			"0"
-		],
-		[
-			"KMG",
-			"昆明",
-			"kun ming",
-			"1"
-		],
-		[
-			"KMQ",
-			"小松",
-			"xiao song",
-			"0"
-		],
-		[
-			"KNH",
-			"中国金门",
-			"zhong guo jin men",
-			"0"
-		],
-		[
-			"MES",
-			"棉兰",
-			"mian lan",
-			"0"
-		],
-		[
-			"KOJ",
-			"鹿儿岛",
-			"lu er dao",
-			"0"
-		],
-		[
-			"KOW",
-			"赣州",
-			"gan zhou",
-			"1"
-		],
-		[
-			"KPO",
-			"浦项",
-			"pu xiang",
-			"0"
-		],
-		[
-			"KRK",
-			"克拉科夫",
-			"ke la ke fu",
-			"0"
-		],
-		[
-			"KRL",
-			"库尔勒",
-			"ku er le",
-			"1"
-		],
-		[
-			"KRT",
-			"喀土穆",
-			"ka tu mu",
-			"0"
-		],
-		[
-			"KRY",
-			"克拉玛依",
-			"ke la ma yi",
-			"1"
-		],
-		[
-			"KTM",
-			"加德满都",
-			"jia de man dou",
-			"0"
-		],
-		[
-			"KUA",
-			"关丹",
-			"guan dan",
-			"0"
-		],
-		[
-			"KUL",
-			"吉隆坡",
-			"ji long po",
-			"0"
-		],
-		[
-			"KWE",
-			"贵阳",
-			"gui yang",
-			"1"
-		],
-		[
-			"KWI",
-			"科威特",
-			"ke wei te",
-			"0"
-		],
-		[
-			"KWL",
-			"桂林",
-			"gui lin",
-			"1"
-		],
-		[
-			"LAD",
-			"罗安达",
-			"luo an da",
-			"0"
-		],
-		[
-			"LAS",
-			"拉斯维加斯",
-			"la si wei jia si",
-			"0"
-		],
-		[
-			"LAX",
-			"洛杉矶",
-			"luo shan ji",
-			"0"
-		],
-		[
-			"LBD",
-			"胡占德",
-			"hu zhan de",
-			"0"
-		],
-		[
-			"LBV",
-			"利伯维尔",
-			"li bo wei er",
-			"0"
-		],
-		[
-			"LCA",
-			"拉纳卡",
-			"la na ka",
-			"0"
-		],
-		[
-			"LCX",
-			"龙岩",
-			"long yan",
-			"1"
-		],
-		[
-			"LON",
-			"伦敦",
-			"lun dun",
-			"0"
-		],
-		[
-			"LDS",
-			"伊春",
-			"yi chun",
-			"1"
-		],
-		[
-			"LED",
-			"圣彼得堡",
-			"sheng bi de bao",
-			"0"
-		],
-		[
-			"LFQ",
-			"临汾",
-			"lin fen",
-			"1"
-		],
-		[
-			"NYC",
-			"纽约",
-			"niu yue",
-			"0"
-		],
-		[
-			"LGK",
-			"兰卡威",
-			"lan ka wei",
-			"0"
-		],
-		[
-			"LON",
-			"伦敦",
-			"lun dun",
-			"0"
-		],
-		[
-			"LHE",
-			"拉合尔",
-			"la he er",
-			"0"
-		],
-		[
-			"LON",
-			"伦敦",
-			"lun dun",
-			"0"
-		],
-		[
-			"LHW",
-			"兰州",
-			"lan zhou",
-			"1"
-		],
-		[
-			"DAA",
-			"大安",
-			"da an",
-			"1"
-		],
-		[
-			"LIM",
-			"利马",
-			"li ma",
-			"0"
-		],
-		[
-			"MIL",
-			"米兰",
-			"mi lan",
-			"0"
-		],
-		[
-			"LIS",
-			"里斯本",
-			"li si ben",
-			"0"
-		],
-		[
-			"LJG",
-			"丽江",
-			"li jiang",
-			"1"
-		],
-		[
-			"LJU",
-			"卢布尔亚那",
-			"lu bu er ya na",
-			"0"
-		],
-		[
-			"LKO",
-			"勒克瑙",
-			"le ke nao",
-			"0"
-		],
-		[
-			"LLB",
-			"荔波",
-			"li bo",
-			"1"
-		],
-		[
-			"LLF",
-			"永州",
-			"yong zhou",
-			"1"
-		],
-		[
-			"LLV",
-			"吕梁",
-			"lv liang",
-			"1"
-		],
-		[
-			"LNJ",
-			"临沧",
-			"lin cang",
-			"1"
-		],
-		[
-			"LOS",
-			"拉各斯",
-			"la ge si",
-			"0"
-		],
-		[
-			"LPF",
-			"六盘水",
-			"liu pan shui",
-			"1"
-		],
-		[
-			"LUM",
-			"芒市",
-			"mang shi",
-			"1"
-		],
-		[
-			"LUN",
-			"卢萨卡",
-			"lu sa ka",
-			"0"
-		],
-		[
-			"LUX",
-			"卢森堡",
-			"lu sen bao",
-			"0"
-		],
-		[
-			"LXA",
-			"拉萨",
-			"la sa",
-			"1"
-		],
-		[
-			"LYA",
-			"洛阳",
-			"luo yang",
-			"1"
-		],
-		[
-			"LYG",
-			"连云港",
-			"lian yun gang",
-			"1"
-		],
-		[
-			"LYI",
-			"临沂",
-			"lin yi",
-			"1"
-		],
-		[
-			"LYS",
-			"里昂",
-			"li ang",
-			"0"
-		],
-		[
-			"LZH",
-			"柳州",
-			"liu zhou",
-			"1"
-		],
-		[
-			"LZO",
-			"泸州",
-			"lu zhou",
-			"1"
-		],
-		[
-			"LZY",
-			"林芝",
-			"lin zhi",
-			"1"
-		],
-		[
-			"MAA",
-			"金奈",
-			"jin nai",
-			"0"
-		],
-		[
-			"MAD",
-			"马德里",
-			"ma de li",
-			"0"
-		],
-		[
-			"MAN",
-			"曼彻斯特",
-			"man che si te",
-			"0"
-		],
-		[
-			"ORL",
-			"奥兰多",
-			"ao lan duo",
-			"0"
-		],
-		[
-			"MCT",
-			"马斯喀特",
-			"ma si ka te",
-			"0"
-		],
-		[
-			"MDC",
-			"万鸦老",
-			"wan ya lao",
-			"0"
-		],
-		[
-			"MDG",
-			"牡丹江",
-			"mu dan jiang",
-			"1"
-		],
-		[
-			"CHI",
-			"芝加哥",
-			"zhi jia ge",
-			"0"
-		],
-		[
-			"MED",
-			"麦地那",
-			"mai di na",
-			"0"
-		],
-		[
-			"MEL",
-			"墨尔本",
-			"mo er ben",
-			"0"
-		],
-		[
-			"MEM",
-			"孟菲斯",
-			"meng fei si",
-			"0"
-		],
-		[
-			"MES",
-			"棉兰",
-			"mian lan",
-			"0"
-		],
-		[
-			"MEX",
-			"墨西哥城",
-			"mo xi ge cheng",
-			"0"
-		],
-		[
-			"MFM",
-			"中国澳门",
-			"zhong guo ao men",
-			"0"
-		],
-		[
-			"MFR",
-			"梅德福",
-			"mei de fu",
-			"0"
-		],
-		[
-			"MIA",
-			"迈阿密",
-			"mai a mi",
-			"0"
-		],
-		[
-			"MIG",
-			"绵阳",
-			"mian yang",
-			"1"
-		],
-		[
-			"MKE",
-			"密尔沃基",
-			"mi er wo ji",
-			"0"
-		],
-		[
-			"MKY",
-			"麦凯",
-			"mai kai",
-			"0"
-		],
-		[
-			"MKZ",
-			"马六甲",
-			"ma liu jia",
-			"0"
-		],
-		[
-			"MLE",
-			"马累",
-			"ma lei",
-			"0"
-		],
-		[
-			"MNL",
-			"马尼拉",
-			"ma ni la",
-			"0"
-		],
-		[
-			"MRL",
-			"米尔迪拉",
-			"mi er di la",
-			"0"
-		],
-		[
-			"MRS",
-			"马赛",
-			"ma sai",
-			"0"
-		],
-		[
-			"MRU",
-			"毛里求斯",
-			"mao li qiu si",
-			"0"
-		],
-		[
-			"MRY",
-			"蒙特雷",
-			"meng te lei",
-			"0"
-		],
-		[
-			"MSP",
-			"明尼阿波利斯",
-			"ming ni a bo li si",
-			"0"
-		],
-		[
-			"MSQ",
-			"明斯克",
-			"ming si ke",
-			"0"
-		],
-		[
-			"MSY",
-			"新奥尔良",
-			"xin ao er liang",
-			"0"
-		],
-		[
-			"MTY",
-			"蒙特雷(墨西哥)",
-			"meng te lei ( mo xi ge )",
-			"0"
-		],
-		[
-			"MUC",
-			"慕尼黑",
-			"mu ni hei",
-			"0"
-		],
-		[
-			"KWJ",
-			"光州",
-			"guang zhou",
-			"0"
-		],
-		[
-			"MIL",
-			"米兰",
-			"mi lan",
-			"0"
-		],
-		[
-			"MXZ",
-			"梅州",
-			"mei zhou",
-			"1"
-		],
-		[
-			"MYJ",
-			"松山",
-			"song shan",
-			"0"
-		],
-		[
-			"NGA",
-			"那格浦尔",
-			"na ge pu er",
-			"0"
-		],
-		[
-			"NAN",
-			"纳迪",
-			"na di",
-			"0"
-		],
-		[
-			"NAO",
-			"南充",
-			"nan chong",
-			"1"
-		],
-		[
-			"NBO",
-			"内罗毕",
-			"nei luo bi",
-			"0"
-		],
-		[
-			"NBS",
-			"长白山",
-			"chang bai shan",
-			"1"
-		],
-		[
-			"NCE",
-			"尼斯",
-			"ni si",
-			"0"
-		],
-		[
-			"NCL",
-			"纽卡斯尔(英国)",
-			"niu ka si er ( ying guo )",
-			"0"
-		],
-		[
-			"NDG",
-			"齐齐哈尔",
-			"qi qi ha er",
-			"1"
-		],
-		[
-			"NGB",
-			"宁波",
-			"ning bo",
-			"1"
-		],
-		[
-			"NGO",
-			"名古屋",
-			"ming gu wu",
-			"0"
-		],
-		[
-			"NGQ",
-			"阿里",
-			"a li",
-			"1"
-		],
-		[
-			"NGS",
-			"长崎",
-			"chang qi",
-			"0"
-		],
-		[
-			"NKG",
-			"南京",
-			"nan jing",
-			"1"
-		],
-		[
-			"NLH",
-			"宁蒗",
-			"ning lang",
-			"1"
-		],
-		[
-			"NLT",
-			"那拉提",
-			"na la ti",
-			"1"
-		],
-		[
-			"NNG",
-			"南宁",
-			"nan ning",
-			"1"
-		],
-		[
-			"NNY",
-			"南阳",
-			"nan yang",
-			"1"
-		],
-		[
-			"TYO",
-			"东京",
-			"dong jing",
-			"0"
-		],
-		[
-			"NTG",
-			"南通",
-			"nan tong",
-			"1"
-		],
-		[
-			"NTL",
-			"纽卡斯尔(澳大利亚)",
-			"niu ka si er ( ao da li ya )",
-			"0"
-		],
-		[
-			"NUE",
-			"纽伦堡",
-			"niu lun bao",
-			"0"
-		],
-		[
-			"NYT",
-			"内比都",
-			"nei bi dou",
-			"0"
-		],
-		[
-			"NZH",
-			"满洲里",
-			"man zhou li",
-			"1"
-		],
-		[
-			"NZL",
-			"扎兰屯",
-			"za lan tun",
-			"1"
-		],
-		[
-			"OGG",
-			"卡胡卢伊",
-			"ka hu lu yi",
-			"0"
-		],
-		[
-			"OHE",
-			"漠河",
-			"mo he",
-			"1"
-		],
-		[
-			"OKA",
-			"冲绳",
-			"chong sheng",
-			"0"
-		],
-		[
-			"OKJ",
-			"冈山",
-			"gang shan",
-			"0"
-		],
-		[
-			"OOL",
-			"黄金海岸",
-			"huang jin hai an",
-			"0"
-		],
-		[
-			"OPO",
-			"波尔图",
-			"bo er tu",
-			"0"
-		],
-		[
-			"CHI",
-			"芝加哥",
-			"zhi jia ge",
-			"0"
-		],
-		[
-			"PAR",
-			"巴黎",
-			"ba li",
-			"0"
-		],
-		[
-			"OSL",
-			"奥斯陆",
-			"ao si lu",
-			"0"
-		],
-		[
-			"OSS",
-			"奥什",
-			"ao shen",
-			"0"
-		],
-		[
-			"BUH",
-			"布加勒斯特",
-			"bu jia le si te",
-			"0"
-		],
-		[
-			"OVB",
-			"新西伯利亚",
-			"xin xi bo li ya",
-			"0"
-		],
-		[
-			"PAT",
-			"巴特那",
-			"ba te na",
-			"0"
-		],
-		[
-			"PBM",
-			"帕拉马里博",
-			"pa la ma li bo",
-			"0"
-		],
-		[
-			"PDX",
-			"波特兰",
-			"bo te lan",
-			"0"
-		],
-		[
-			"PEK",
-			"北京",
-			"bei jing",
-			"1"
-		],
-		[
-			"PEN",
-			"槟城",
-			"bin cheng",
-			"0"
-		],
-		[
-			"PER",
-			"珀斯",
-			"po si",
-			"0"
-		],
-		[
-			"PHC",
-			"哈科特港",
-			"ha ke te gang",
-			"0"
-		],
-		[
-			"PHL",
-			"费城",
-			"fei cheng",
-			"0"
-		],
-		[
-			"PHX",
-			"凤凰城",
-			"feng huang cheng",
-			"0"
-		],
-		[
-			"PIT",
-			"匹兹堡",
-			"pi zi bao",
-			"0"
-		],
-		[
-			"PLM",
-			"巴邻旁",
-			"ba lin pang",
-			"0"
-		],
-		[
-			"PNH",
-			"金边",
-			"jin bian",
-			"0"
-		],
-		[
-			"PNQ",
-			"浦那",
-			"pu na",
-			"0"
-		],
-		[
-			"POM",
-			"莫尔斯比港",
-			"mo er si bi gang",
-			"0"
-		],
-		[
-			"PPP",
-			"普罗瑟派恩",
-			"pu luo se pai en",
-			"0"
-		],
-		[
-			"PQC",
-			"富国岛",
-			"fu guo dao",
-			"0"
-		],
-		[
-			"PQQ",
-			"麦夸里港",
-			"mai kua li gang",
-			"0"
-		],
-		[
-			"PRG",
-			"布拉格",
-			"bu la ge",
-			"0"
-		],
-		[
-			"PSA",
-			"比萨",
-			"bi sa",
-			"0"
-		],
-		[
-			"PTY",
-			"巴拿马城",
-			"ba na ma cheng",
-			"0"
-		],
-		[
-			"PUS",
-			"釜山",
-			"fu shan",
-			"0"
-		],
-		[
-			"PVG",
-			"上海浦东",
-			"shang hai pu dong",
-			"1"
-		],
-		[
-			"PVR",
-			"巴亚尔塔港",
-			"ba ya er ta gang",
-			"0"
-		],
-		[
-			"PZI",
-			"攀枝花",
-			"pan zhi hua",
-			"1"
-		],
-		[
-			"QSZ",
-			"莎车",
-			"suo che",
-			"1"
-		],
-		[
-			"RAR",
-			"拉罗汤加",
-			"la luo tang jia",
-			"0"
-		],
-		[
-			"RDU",
-			"罗利",
-			"luo li",
-			"0"
-		],
-		[
-			"REP",
-			"暹粒",
-			"xian li",
-			"0"
-		],
-		[
-			"RGN",
-			"仰光",
-			"yang guang",
-			"0"
-		],
-		[
-			"AXF",
-			"阿拉善盟",
-			"a la shan meng",
-			"1"
-		],
-		[
-			"RIX",
-			"里加",
-			"li jia",
-			"0"
-		],
-		[
-			"RIY",
-			"里雅恩姆卡拉",
-			"li ya en mu ka la",
-			"0"
-		],
-		[
-			"RIZ",
-			"日照",
-			"ri zhao",
-			"1"
-		],
-		[
-			"RKZ",
-			"日喀则",
-			"ri ka ze",
-			"1"
-		],
-		[
-			"RMQ",
-			"中国台中",
-			"zhong guo tai zhong",
-			"0"
-		],
-		[
-			"ROK",
-			"罗克汉普顿",
-			"luo ke han pu dun",
-			"0"
-		],
-		[
-			"RPR",
-			"赖布尔",
-			"lai bu er",
-			"0"
-		],
-		[
-			"RQA",
-			"若羌",
-			"ruo qiang",
-			"1"
-		],
-		[
-			"RUH",
-			"利雅得",
-			"li ya de",
-			"0"
-		],
-		[
-			"SAH",
-			"萨那",
-			"sa na",
-			"0"
-		],
-		[
-			"SAN",
-			"圣地亚哥(美国)",
-			"sheng di ya ge ( mei guo )",
-			"0"
-		],
-		[
-			"SBA",
-			"圣芭芭拉",
-			"sheng ba ba la",
-			"0"
-		],
-		[
-			"SCL",
-			"圣地亚哥(智利)",
-			"sheng di ya ge ( zhi li )",
-			"0"
-		],
-		[
-			"SDJ",
-			"仙台",
-			"xian tai",
-			"0"
-		],
-		[
-			"SEA",
-			"西雅图",
-			"xi ya tu",
-			"0"
-		],
-		[
-			"SFO",
-			"旧金山",
-			"jiu jin shan",
-			"0"
-		],
-		[
-			"SGN",
-			"胡志明市",
-			"hu zhi ming shi",
-			"0"
-		],
-		[
-			"SHA",
-			"上海虹桥",
-			"shang hai hong qiao",
-			"1"
-		],
-		[
-			"SHE",
-			"沈阳",
-			"shen yang",
-			"1"
-		],
-		[
-			"SHF",
-			"石河子",
-			"shi he zi",
-			"1"
-		],
-		[
-			"SHJ",
-			"沙迦",
-			"sha jia",
-			"0"
-		],
-		[
-			"SHS",
-			"荆州",
-			"jing zhou",
-			"1"
-		],
-		[
-			"SIN",
-			"新加坡",
-			"xin jia po",
-			"0"
-		],
-		[
-			"SJO",
-			"圣何塞",
-			"sheng he sai",
-			"0"
-		],
-		[
-			"SJW",
-			"石家庄",
-			"shi jia zhuang",
-			"1"
-		],
-		[
-			"SLC",
-			"盐湖城",
-			"yan hu cheng",
-			"0"
-		],
-		[
-			"SAC",
-			"萨克拉门托",
-			"sa ke la men tuo",
-			"0"
-		],
-		[
-			"SOF",
-			"索非亚",
-			"suo fei ya",
-			"0"
-		],
-		[
-			"SPN",
-			"塞班",
-			"sai ban",
-			"0"
-		],
-		[
-			"SHR",
-			"上饶",
-			"shang rao",
-			"1"
-		],
-		[
-			"SQJ",
-			"三明",
-			"san ming",
-			"1"
-		],
-		[
-			"STR",
-			"斯图加特",
-			"si tu jia te",
-			"0"
-		],
-		[
-			"SUB",
-			"泗水",
-			"si shui",
-			"0"
-		],
-		[
-			"MOW",
-			"莫斯科",
-			"mo si ke",
-			"0"
-		],
-		[
-			"SWA",
-			"汕头",
-			"shan tou",
-			"1"
-		],
-		[
-			"SWA",
-			"揭阳",
-			"jie yang",
-			"1"
-		],
-		[
-			"SXB",
-			"斯特拉斯堡",
-			"si te la si bao",
-			"0"
-		],
-		[
-			"BER",
-			"柏林",
-			"bo lin",
-			"0"
-		],
-		[
-			"SXR",
-			"斯利那加",
-			"si li na jia",
-			"0"
-		],
-		[
-			"SYD",
-			"悉尼",
-			"xi ni",
-			"0"
-		],
-		[
-			"SYM",
-			"普洱",
-			"pu er",
-			"1"
-		],
-		[
-			"SYX",
-			"三亚",
-			"san ya",
-			"1"
-		],
-		[
-			"SZX",
-			"深圳",
-			"shen zhen",
-			"1"
-		],
-		[
-			"TAE",
-			"大邱",
-			"da qiu",
-			"0"
-		],
-		[
-			"TAO",
-			"青岛",
-			"qing dao",
-			"1"
-		],
-		[
-			"TAS",
-			"塔什干",
-			"ta shen gan",
-			"0"
-		],
-		[
-			"TBS",
-			"第比利斯",
-			"di bi li si",
-			"0"
-		],
-		[
-			"TBU",
-			"努库阿洛法",
-			"nu ku a luo fa",
-			"0"
-		],
-		[
-			"TCG",
-			"塔城",
-			"ta cheng",
-			"1"
-		],
-		[
-			"TCZ",
-			"腾冲",
-			"teng chong",
-			"1"
-		],
-		[
-			"TEN",
-			"铜仁",
-			"tong ren",
-			"1"
-		],
-		[
-			"IGG",
-			"瓜拉丁加奴",
-			"gua la ding jia nu",
-			"0"
-		],
-		[
-			"TGO",
-			"通辽",
-			"tong liao",
-			"1"
-		],
-		[
-			"THQ",
-			"天水",
-			"tian shui",
-			"1"
-		],
-		[
-			"TLL",
-			"塔林",
-			"ta lin",
-			"0"
-		],
-		[
-			"TLQ",
-			"吐鲁番",
-			"tu lu fan",
-			"1"
-		],
-		[
-			"TNA",
-			"济南",
-			"ji nan",
-			"1"
-		],
-		[
-			"TNH",
-			"通化",
-			"tong hua",
-			"1"
-		],
-		[
-			"TNR",
-			"塔那那利佛",
-			"ta na na li fo",
-			"0"
-		],
-		[
-			"TOY",
-			"富山",
-			"fu shan",
-			"0"
-		],
-		[
-			"TPA",
-			"坦帕",
-			"tan pa",
-			"0"
-		],
-		[
-			"TPE",
-			"中国台北",
-			"zhong guo tai bei",
-			"0"
-		],
-		[
-			"TRV",
-			"特里凡得琅",
-			"te li fan de lang",
-			"0"
-		],
-		[
-			"TPE",
-			"中国台北",
-			"zhong guo tai bei",
-			"0"
-		],
-		[
-			"TSE",
-			"阿斯塔纳",
-			"a si ta na",
-			"0"
-		],
-		[
-			"TSN",
-			"天津",
-			"tian jin",
-			"1"
-		],
-		[
-			"TSV",
-			"汤斯维尔",
-			"tang si wei er",
-			"0"
-		],
-		[
-			"TUN",
-			"突尼斯",
-			"tu ni si",
-			"0"
-		],
-		[
-			"TVS",
-			"唐山",
-			"tang shan",
-			"1"
-		],
-		[
-			"BER",
-			"柏林",
-			"bo lin",
-			"0"
-		],
-		[
-			"TXN",
-			"黄山",
-			"huang shan",
-			"1"
-		],
-		[
-			"TYN",
-			"太原",
-			"tai yuan",
-			"1"
-		],
-		[
-			"UCB",
-			"乌兰察布",
-			"wu lan cha bu",
-			"1"
-		],
-		[
-			"UDR",
-			"乌代布尔",
-			"wu dai bu er",
-			"0"
-		],
-		[
-			"UIO",
-			"基多",
-			"ji duo",
-			"0"
-		],
-		[
-			"URC",
-			"乌鲁木齐",
-			"wu lu mu qi",
-			"1"
-		],
-		[
-			"USM",
-			"苏梅岛",
-			"su mei dao",
-			"0"
-		],
-		[
-			"UTP",
-			"芭提雅",
-			"ba ti ya",
-			"0"
-		],
-		[
-			"UYN",
-			"榆林",
-			"yu lin",
-			"1"
-		],
-		[
-			"VCE",
-			"威尼斯",
-			"wei ni si",
-			"0"
-		],
-		[
-			"VIE",
-			"维也纳",
-			"wei ye na",
-			"0"
-		],
-		[
-			"VII",
-			"荣市",
-			"rong shi",
-			"0"
-		],
-		[
-			"MOW",
-			"莫斯科",
-			"mo si ke",
-			"0"
-		],
-		[
-			"VLC",
-			"巴伦西亚",
-			"ba lun xi ya",
-			"0"
-		],
-		[
-			"VNS",
-			"瓦拉纳西",
-			"wa la na xi",
-			"0"
-		],
-		[
-			"VTE",
-			"万象",
-			"wan xiang",
-			"0"
-		],
-		[
-			"VVO",
-			"海参崴",
-			"hai can wei",
-			"0"
-		],
-		[
-			"VVO",
-			"符拉迪沃斯托克",
-			"fu la di wo si tuo ke",
-			"0"
-		],
-		[
-			"WAW",
-			"华沙",
-			"hua sha",
-			"0"
-		],
-		[
-			"WDS",
-			"十堰",
-			"shi yan",
-			"1"
-		],
-		[
-			"WEF",
-			"潍坊",
-			"wei fang",
-			"1"
-		],
-		[
-			"WEH",
-			"威海",
-			"wei hai",
-			"1"
-		],
-		[
-			"WGN",
-			"邵阳",
-			"shao yang",
-			"1"
-		],
-		[
-			"WLG",
-			"惠灵顿",
-			"hui ling dun",
-			"0"
-		],
-		[
-			"WNH",
-			"文山",
-			"wen shan",
-			"1"
-		],
-		[
-			"WNZ",
-			"温州",
-			"wen zhou",
-			"1"
-		],
-		[
-			"WUA",
-			"乌海",
-			"wu hai",
-			"1"
-		],
-		[
-			"WUH",
-			"武汉",
-			"wu han",
-			"1"
-		],
-		[
-			"WUS",
-			"武夷山",
-			"wu yi shan",
-			"1"
-		],
-		[
-			"WUT",
-			"忻州",
-			"xin zhou",
-			"1"
-		],
-		[
-			"WUX",
-			"无锡",
-			"wu xi",
-			"1"
-		],
-		[
-			"WUZ",
-			"梧州",
-			"wu zhou",
-			"1"
-		],
-		[
-			"WXN",
-			"万州",
-			"wan zhou",
-			"1"
-		],
-		[
-			"XFN",
-			"襄阳",
-			"xiang yang",
-			"1"
-		],
-		[
-			"XIC",
-			"西昌",
-			"xi chang",
-			"1"
-		],
-		[
-			"XIL",
-			"锡林浩特",
-			"xi lin hao te",
-			"1"
-		],
-		[
-			"XIY",
-			"咸阳",
-			"xian yang",
-			"1"
-		],
-		[
-			"SIA",
-			"西安",
-			"xi an",
-			"1"
-		],
-		[
-			"XMN",
-			"厦门",
-			"xia men",
-			"1"
-		],
-		[
-			"XNN",
-			"西宁",
-			"xi ning",
-			"1"
-		],
-		[
-			"XUZ",
-			"徐州",
-			"xu zhou",
-			"1"
-		],
-		[
-			"YBP",
-			"宜宾",
-			"yi bin",
-			"1"
-		],
-		[
-			"YCU",
-			"运城",
-			"yun cheng",
-			"1"
-		],
-		[
-			"YEA",
-			"埃德蒙顿",
-			"ai de meng dun",
-			"0"
-		],
-		[
-			"YIC",
-			"宜春",
-			"yi chun",
-			"1"
-		],
-		[
-			"YIE",
-			"阿尔山",
-			"a er shan",
-			"1"
-		],
-		[
-			"YIH",
-			"宜昌",
-			"yi chang",
-			"1"
-		],
-		[
-			"YIN",
-			"伊宁",
-			"yi ning",
-			"1"
-		],
-		[
-			"YIW",
-			"义乌",
-			"yi wu",
-			"1"
-		],
-		[
-			"YKH",
-			"营口",
-			"ying kou",
-			"1"
-		],
-		[
-			"YLW",
-			"基隆拿",
-			"ji long na",
-			"0"
-		],
-		[
-			"YNJ",
-			"延吉",
-			"yan ji",
-			"1"
-		],
-		[
-			"YNT",
-			"烟台",
-			"yan tai",
-			"1"
-		],
-		[
-			"YNZ",
-			"盐城",
-			"yan cheng",
-			"1"
-		],
-		[
-			"YOW",
-			"渥太华",
-			"wo tai hua",
-			"0"
-		],
-		[
-			"YQR",
-			"里贾纳",
-			"li jia na",
-			"0"
-		],
-		[
-			"YSQ",
-			"松原",
-			"song yuan",
-			"1"
-		],
-		[
-			"YTY",
-			"扬州",
-			"yang zhou",
-			"1"
-		],
-		[
-			"YTY",
-			"泰州",
-			"tai zhou",
-			"1"
-		],
-		[
-			"YMQ",
-			"蒙特利尔",
-			"meng te li er",
-			"0"
-		],
-		[
-			"YUS",
-			"玉树",
-			"yu shu",
-			"1"
-		],
-		[
-			"YVR",
-			"温哥华",
-			"wen ge hua",
-			"0"
-		],
-		[
-			"YWG",
-			"温尼伯",
-			"wen ni bo",
-			"0"
-		],
-		[
-			"YXS",
-			"乔治王子城",
-			"qiao zhi wang zi cheng",
-			"0"
-		],
-		[
-			"YYC",
-			"卡尔加里",
-			"ka er jia li",
-			"0"
-		],
-		[
-			"YTO",
-			"多伦多",
-			"duo lun duo",
-			"0"
-		],
-		[
-			"YZY",
-			"张掖",
-			"zhang ye",
-			"1"
-		],
-		[
-			"ZAG",
-			"萨格勒布",
-			"sa ge le bu",
-			"0"
-		],
-		[
-			"ZAT",
-			"昭通",
-			"zhao tong",
-			"1"
-		],
-		[
-			"ZHA",
-			"湛江",
-			"zhan jiang",
-			"1"
-		],
-		[
-			"ZHY",
-			"中卫",
-			"zhong wei",
-			"1"
-		],
-		[
-			"ZQZ",
-			"张家口",
-			"zhang jia kou",
-			"1"
-		],
-		[
-			"ZRH",
-			"苏黎世",
-			"su li shi",
-			"0"
-		],
-		[
-			"ZUH",
-			"珠海",
-			"zhu hai",
-			"1"
-		],
-		[
-			"ZYI",
-			"遵义",
-			"zun yi",
-			"1"
-		]
-	]
+  "ver": "201808291549",
+  "data": [
+    ["AAT", "阿勒泰", "a le tai", "1"],
+    ["ABJ", "阿比让", "a bi rang", "0"],
+    ["ABV", "阿布贾", "a bu jia", "0"],
+    ["ACC", "阿克拉", "a ke la", "0"],
+    ["ACX", "兴义", "xing yi", "1"],
+    ["ADD", "亚的斯亚贝巴", "ya de si ya bei ba", "0"],
+    ["ADL", "阿德莱德", "a de lai de", "0"],
+    ["AEB", "百色", "bai se", "1"],
+    ["BUE", "布宜诺斯艾利斯", "bu yi nuo si ai li si", "0"],
+    ["AGP", "马拉加", "ma la jia", "0"],
+    ["AHJ", "红原", "hong yuan", "1"],
+    ["AKA", "安康", "an kang", "1"],
+    ["AKL", "奥克兰", "ao ke lan", "0"],
+    ["AKU", "阿克苏", "a ke su", "1"],
+    ["ALA", "阿拉木图", "a la mu tu", "0"],
+    ["ALG", "阿尔及尔", "a er ji er", "0"],
+    ["AMD", "艾哈迈达巴德", "ai ha mai da ba de", "0"],
+    ["AMM", "安曼", "an man", "0"],
+    ["AMS", "阿姆斯特丹", "a mu si te dan", "0"],
+    ["ANC", "安克雷奇", "an ke lei qi", "0"],
+    ["AOG", "鞍山", "an shan", "1"],
+    ["APW", "阿皮亚", "a pi ya", "0"],
+    ["AQG", "安庆", "an qing", "1"],
+    ["STO", "斯德哥尔摩", "si de ge er mo", "0"],
+    ["ASB", "阿什哈巴德", "a shen ha ba de", "0"],
+    ["ATH", "雅典", "ya dian", "0"],
+    ["ATL", "亚特兰大", "ya te lan da", "0"],
+    ["ATQ", "阿姆利则", "a mu li ze", "0"],
+    ["AUS", "奥斯汀", "ao si ting", "0"],
+    ["AVA", "安顺", "an shun", "1"],
+    ["AXF", "阿拉善盟", "a la shan meng", "1"],
+    ["BAH", "巴林", "ba lin", "0"],
+    ["BAR", "琼海博鳌", "qiong hai bo ao", "1"],
+    ["BAV", "包头", "bao tou", "1"],
+    ["BCN", "巴塞罗那", "ba sai luo na", "0"],
+    ["BDB", "班达伯格", "ban da bo ge", "0"],
+    ["HFD", "哈特福德", "ha te fu de", "0"],
+    ["BDQ", "巴罗达", "ba luo da", "0"],
+    ["BEG", "贝尔格莱德", "bei er ge lai de", "0"],
+    ["BEY", "贝鲁特", "bei lu te", "0"],
+    ["BFJ", "毕节", "bi jie", "1"],
+    ["BFS", "贝尔法斯特", "bei er fa si te", "0"],
+    ["BHO", "博帕尔", "bo pa er", "0"],
+    ["BHX", "伯明翰", "bo ming han", "0"],
+    ["BHY", "北海", "bei hai", "1"],
+    ["BKI", "沙巴", "sha ba", "0"],
+    ["BKI", "哥打基纳巴卢", "ge da ji na ba lu", "0"],
+    ["BKK", "曼谷", "man gu", "0"],
+    ["BKO", "巴马科", "ba ma ke", "0"],
+    ["BLQ", "博洛尼亚", "bo luo ni ya", "0"],
+    ["BLR", "班加罗尔", "ban jia luo er", "0"],
+    ["BNA", "纳什维尔", "na shen wei er", "0"],
+    ["BNE", "布里斯班", "bu li si ban", "0"],
+    ["BOD", "波尔多", "bo er duo", "0"],
+    ["BOG", "波哥大", "bo ge da", "0"],
+    ["BOM", "孟买", "meng mai", "0"],
+    ["BOS", "波士顿", "bo shi dun", "0"],
+    ["BPE", "秦皇岛", "qin huang dao", "1"],
+    ["BPL", "博乐", "bo le", "1"],
+    ["BPN", "巴厘巴板", "ba li ba ban", "0"],
+    ["BPX", "昌都", "chang dou", "1"],
+    ["BRU", "布鲁塞尔", "bu lu sai er", "0"],
+    ["BSD", "保山", "bao shan", "1"],
+    ["BUF", "布法罗", "bu fa luo", "0"],
+    ["BZN", "博兹曼", "bo zi man", "0"],
+    ["CAI", "开罗", "kai luo", "0"],
+    ["CAN", "广州", "guang zhou", "1"],
+    ["CAS", "卡萨布兰卡", "ka sa bu lan ka", "0"],
+    ["CBR", "堪培拉", "kan pei la", "0"],
+    ["CCJ", "卡利刻特", "ka li ke te", "0"],
+    ["CCS", "加拉加斯", "jia la jia si", "0"],
+    ["CCU", "加尔各答", "jia er ge da", "0"],
+    ["PAR", "巴黎", "ba li", "0"],
+    ["CEI", "清莱", "qing lai", "0"],
+    ["CFS", "科夫斯港", "ke fu si gang", "0"],
+    ["CGD", "常德", "chang de", "1"],
+    ["JKT", "雅加达", "ya jia da", "0"],
+    ["CGN", "科隆", "ke long", "0"],
+    ["CGO", "郑州", "zheng zhou", "1"],
+    ["CGQ", "长春", "chang chun", "1"],
+    ["CHC", "基督城", "ji du cheng", "0"],
+    ["CHG", "朝阳", "chao yang", "1"],
+    ["CIF", "赤峰", "chi feng", "1"],
+    ["CIH", "长治", "chang zhi", "1"],
+    ["CJJ", "清州", "qing zhou", "0"],
+    ["CJU", "济州", "ji zhou", "0"],
+    ["CKG", "重庆", "chong qing", "1"],
+    ["CLE", "克利夫兰", "ke li fu lan", "0"],
+    ["CLT", "夏洛特", "xia luo te", "0"],
+    ["CMB", "科伦坡", "ke lun po", "0"],
+    ["MPH", "哥伦布", "ge lun bu", "0"],
+    ["CNS", "凯恩斯", "kai en si", "0"],
+    ["CNX", "清迈", "qing mai", "0"],
+    ["COK", "科钦", "ke qin", "0"],
+    ["COO", "科托努", "ke tuo nu", "0"],
+    ["CPH", "哥本哈根", "ge ben ha gen", "0"],
+    ["CPT", "开普敦", "kai pu dun", "0"],
+    ["CRK", "克拉克", "ke la ke", "0"],
+    ["CSX", "长沙", "chang sha", "1"],
+    ["SPK", "札幌", "zha huang", "0"],
+    ["CTU", "成都", "cheng du", "1"],
+    ["CUN", "坎昆", "kan kun", "0"],
+    ["CVG", "辛辛那提", "xin xin na ti", "0"],
+    ["CWJ", "沧源", "cang yuan", "1"],
+    ["NHA", "芽庄", "ya zhuang", "0"],
+    ["CZX", "常州", "chang zhou", "1"],
+    ["DAC", "达卡", "da ka", "0"],
+    ["DAD", "岘港", "xian gang", "0"],
+    ["DAR", "达累斯萨拉姆", "da lei si sa la mu", "0"],
+    ["DAT", "大同", "da tong", "1"],
+    ["DAX", "达州", "da zhou", "1"],
+    ["WAS", "华盛顿", "hua sheng dun", "0"],
+    ["DCY", "稻城", "dao cheng", "1"],
+    ["DDG", "丹东", "dan dong", "1"],
+    ["DEL", "德里", "de li", "0"],
+    ["DEN", "丹佛", "dan fo", "0"],
+    ["DFW", "达拉斯-沃斯堡", "da la si - wo si bao", "0"],
+    ["DIG", "迪庆", "di qing", "1"],
+    ["DKR", "达喀尔", "da ka er", "0"],
+    ["DLA", "杜阿拉", "du a la", "0"],
+    ["DLC", "大连", "da lian", "1"],
+    ["DLU", "大理", "da li", "1"],
+    ["DMM", "达曼", "da man", "0"],
+    ["DNH", "敦煌", "dun huang", "1"],
+    ["DOH", "多哈", "duo ha", "0"],
+    ["DOY", "东营", "dong ying", "1"],
+    ["DPS", "巴厘岛", "ba li dao", "0"],
+    ["DQA", "大庆", "da qing", "1"],
+    ["DRW", "达尔文", "da er wen", "0"],
+    ["DSN", "鄂尔多斯", "e er duo si", "1"],
+    ["DTT", "底特律", "di te lv", "0"],
+    ["DTT", "底特律", "di te lv", "0"],
+    ["DUB", "都柏林", "dou bo lin", "0"],
+    ["DUD", "达尼丁", "da ni ding", "0"],
+    ["DUR", "德班", "de ban", "0"],
+    ["DUS", "杜塞尔多夫", "du sai er duo fu", "0"],
+    ["DXB", "迪拜", "di bai", "0"],
+    ["DYG", "张家界", "zhang jia jie", "1"],
+    ["DYU", "杜尚别", "du shang bie", "0"],
+    ["EBB", "恩德培", "en de pei", "0"],
+    ["EDI", "爱丁堡", "ai ding bao", "0"],
+    ["EJN", "额济纳旗", "e ji na qi", "1"],
+    ["EMD", "埃默拉尔德", "ai mo la er de", "0"],
+    ["ENH", "恩施", "en shi", "1"],
+    ["ENY", "延安", "yan an", "1"],
+    ["ERL", "二连浩特", "er lian hao te", "1"],
+    ["NYC", "纽约", "niu yue", "0"],
+    ["BUE", "布宜诺斯艾利斯", "bu yi nuo si ai li si", "0"],
+    ["FAT", "弗雷斯诺", "fu lei si nuo", "0"],
+    ["ROM", "罗马", "luo ma", "0"],
+    ["FIH", "金沙萨", "jin sha sa", "0"],
+    ["FKS", "福岛", "fu dao", "0"],
+    ["FLL", "罗德岱堡", "luo de dai bao", "0"],
+    ["FOC", "福州", "fu zhou", "1"],
+    ["FRA", "法兰克福", "fa lan ke fu", "0"],
+    ["FRU", "比什凯克", "bi shen kai ke", "0"],
+    ["FSZ", "静冈", "jing gang", "0"],
+    ["FUG", "阜阳", "fu yang", "1"],
+    ["FUK", "福冈", "fu gang", "0"],
+    ["FYJ", "抚远", "fu yuan", "1"],
+    ["FYN", "富蕴", "fu yun", "1"],
+    ["GAU", "古瓦哈蒂", "gu wa ha di", "0"],
+    ["GDL", "瓜达拉哈拉", "gua da la ha la", "0"],
+    ["GEG", "斯波坎", "si bo kan", "0"],
+    ["GHN", "广汉", "guang han", "1"],
+    ["RIO", "里约热内卢", "li yue re nei lu", "0"],
+    ["GLA", "格拉斯哥", "ge la si ge", "0"],
+    ["GLT", "格莱斯顿", "ge lai si dun", "0"],
+    ["SEL", "首尔", "shou er", "0"],
+    ["GMQ", "果洛", "guo luo", "1"],
+    ["GOQ", "格尔木", "ge er mu", "1"],
+    ["GOT", "哥德堡", "ge de bao", "0"],
+    ["SAO", "圣保罗", "sheng bao luo", "0"],
+    ["GUM", "关岛", "guan dao", "0"],
+    ["GVA", "日内瓦", "ri nei wa", "0"],
+    ["GXH", "夏河", "xia he", "1"],
+    ["BAK", "巴库", "ba ku", "0"],
+    ["GYE", "瓜亚基尔", "gua ya ji er", "0"],
+    ["GYS", "广元", "guang yuan", "1"],
+    ["GYU", "固原", "gu yuan", "1"],
+    ["HAJ", "汉诺威", "han nuo wei", "0"],
+    ["HAK", "海口", "hai kou", "1"],
+    ["HAM", "汉堡", "han bao", "0"],
+    ["HAN", "河内", "he nei", "0"],
+    ["HBA", "霍巴特", "huo ba te", "0"],
+    ["HCJ", "河池", "he chi", "1"],
+    ["HDG", "邯郸", "han dan", "1"],
+    ["HEK", "黑河", "hei he", "1"],
+    ["HEL", "赫尔辛基", "he er xin ji", "0"],
+    ["HET", "呼和浩特", "hu he hao te", "1"],
+    ["HFE", "合肥", "he fei", "1"],
+    ["HGH", "杭州", "hang zhou", "1"],
+    ["HIA", "淮安", "huai an", "1"],
+    ["HIJ", "广岛", "guang dao", "0"],
+    ["HIS", "海曼岛", "hai man dao", "0"],
+    ["HJJ", "怀化", "huai hua", "1"],
+    ["HJR", "克久拉霍", "ke jiu la huo", "0"],
+    ["HKG", "中国香港", "zhong guo xiang gang", "0"],
+    ["HKT", "普吉", "pu ji", "0"],
+    ["HLD", "海拉尔", "hai la er", "1"],
+    ["HLH", "乌兰浩特", "wu lan hao te", "1"],
+    ["HLZ", "哈密尔顿", "ha mi er dun", "0"],
+    ["HMI", "哈密", "ha mi", "1"],
+    ["TYO", "东京", "dong jing", "0"],
+    ["NRT", "东京成田", "dong jing cheng tian", "0"],
+    ["HNL", "火奴鲁鲁", "huo nu lu lu", "0"],
+    ["HNY", "衡阳", "heng yang", "1"],
+    ["HOU", "休斯顿", "xiu si dun", "0"],
+    ["HPG", "神农架", "shen nong jia", "1"],
+    ["HRB", "哈尔滨", "ha er bin", "1"],
+    ["HRE", "哈拉雷", "ha la lei", "0"],
+    ["HSN", "舟山", "zhou shan", "1"],
+    ["HTI", "汉密尔顿岛", "han mi er dun dao", "0"],
+    ["HTN", "和田", "he tian", "1"],
+    ["HUZ", "惠州", "hui zhou", "1"],
+    ["HXD", "德令哈", "de ling ha", "1"],
+    ["HYD", "海得拉巴", "hai de la ba", "0"],
+    ["HYN", "台州", "tai zhou", "1"],
+    ["HZG", "汉中", "han zhong", "1"],
+    ["HZH", "黎平", "li ping", "1"],
+    ["WAS", "华盛顿", "hua sheng dun", "0"],
+    ["HOU", "休斯顿", "xiu si dun", "0"],
+    ["IBR", "茨城", "ci cheng", "0"],
+    ["SEL", "首尔", "shou er", "0"],
+    ["IEV", "基辅", "ji fu", "0"],
+    ["THR", "德黑兰", "de hei lan", "0"],
+    ["IKT", "伊尔库茨克", "yi er ku ci ke", "0"],
+    ["INC", "银川", "yin chuan", "1"],
+    ["IND", "印第安纳波利斯", "yin di an na bo li si", "0"],
+    ["IQM", "且末", "qie mo", "1"],
+    ["IQN", "庆阳", "qing yang", "1"],
+    ["ISA", "芒特艾萨", "mang te ai sa", "0"],
+    ["ISB", "伊斯兰堡", "yi si lan bao", "0"],
+    ["IST", "伊斯坦布尔", "yi si tan bu er", "0"],
+    ["IXB", "巴格多格拉", "ba ge duo ge la", "0"],
+    ["IXC", "昌迪加尔", "chang di jia er", "0"],
+    ["IXL", "列城", "lie cheng", "0"],
+    ["LXR", "兰契", "lan qi", "0"],
+    ["JAI", "斋浦尔", "zhai pu er", "0"],
+    ["JAX", "捷克逊维尔", "jie ke xun wei er", "0"],
+    ["JDH", "焦特布尔", "jiao te bu er", "0"],
+    ["JDZ", "景德镇", "jing de zhen", "1"],
+    ["JED", "吉达", "ji da", "0"],
+    ["NYC", "纽约", "niu yue", "0"],
+    ["JGD", "加格达奇", "jia ge da qi", "1"],
+    ["JGN", "嘉峪关", "jia yu guan", "1"],
+    ["JGS", "井冈山", "jing gang shan", "1"],
+    ["JHG", "西双版纳", "xi shuang ban na", "1"],
+    ["JIB", "吉布提", "ji bu ti", "0"],
+    ["JCH", "金昌", "jin chang", "1"],
+    ["JIQ", "黔江", "qian jiang", "1"],
+    ["JIU", "九江", "jiu jiang", "1"],
+    ["JJN", "晋江", "jin jiang", "1"],
+    ["JKT", "雅加达", "ya jia da", "0"],
+    ["JLR", "贾巴尔普尔", "jia ba er pu er", "0"],
+    ["JMU", "佳木斯", "jia mu si", "1"],
+    ["JNB", "约翰内斯堡", "yue han nei si bao", "0"],
+    ["JNG", "济宁", "ji ning", "1"],
+    ["JNZ", "锦州", "jin zhou", "1"],
+    ["JRO", "乞力马扎罗", "qi li ma za luo", "0"],
+    ["JSJ", "建三江", "jian san jiang", "1"],
+    ["JUH", "池州", "chi zhou", "1"],
+    ["JXA", "鸡西", "ji xi", "1"],
+    ["JZH", "九寨沟", "jiu zhai gou", "1"],
+    ["KAN", "卡诺", "ka nuo", "0"],
+    ["KBL", "喀布尔", "ka bu er", "0"],
+    ["KBR", "哥打巴鲁", "ge da ba lu", "0"],
+    ["KBV", "甲米", "jia mi", "0"],
+    ["KCA", "库车", "ku che", "1"],
+    ["KCH", "古晋", "gu jin", "0"],
+    ["REK", "雷克雅未克", "lei ke ya wei ke", "0"],
+    ["KGL", "基加利", "ji jia li", "0"],
+    ["KGT", "康定", "kang ding", "1"],
+    ["KHG", "喀什", "ka shen", "1"],
+    ["KHH", "中国高雄", "zhong guo gao xiong", "0"],
+    ["KHN", "南昌", "nan chang", "1"],
+    ["KHV", "哈巴罗夫斯克", "ha ba luo fu si ke", "0"],
+    ["KIJ", "新泻", "xin xie", "0"],
+    ["OSA", "大阪", "da ban", "0"],
+    ["KJH", "凯里", "kai li", "1"],
+    ["KJI", "喀纳斯", "ka na si", "1"],
+    ["KKJ", "北九州", "bei jiu zhou", "0"],
+    ["KMG", "昆明", "kun ming", "1"],
+    ["KMQ", "小松", "xiao song", "0"],
+    ["KNH", "中国金门", "zhong guo jin men", "0"],
+    ["MES", "棉兰", "mian lan", "0"],
+    ["KOJ", "鹿儿岛", "lu er dao", "0"],
+    ["KOW", "赣州", "gan zhou", "1"],
+    ["KPO", "浦项", "pu xiang", "0"],
+    ["KRK", "克拉科夫", "ke la ke fu", "0"],
+    ["KRL", "库尔勒", "ku er le", "1"],
+    ["KRT", "喀土穆", "ka tu mu", "0"],
+    ["KRY", "克拉玛依", "ke la ma yi", "1"],
+    ["KTM", "加德满都", "jia de man dou", "0"],
+    ["KUA", "关丹", "guan dan", "0"],
+    ["KUL", "吉隆坡", "ji long po", "0"],
+    ["KWE", "贵阳", "gui yang", "1"],
+    ["KWI", "科威特", "ke wei te", "0"],
+    ["KWL", "桂林", "gui lin", "1"],
+    ["LAD", "罗安达", "luo an da", "0"],
+    ["LAS", "拉斯维加斯", "la si wei jia si", "0"],
+    ["LAX", "洛杉矶", "luo shan ji", "0"],
+    ["LBD", "胡占德", "hu zhan de", "0"],
+    ["LBV", "利伯维尔", "li bo wei er", "0"],
+    ["LCA", "拉纳卡", "la na ka", "0"],
+    ["LCX", "龙岩", "long yan", "1"],
+    ["LON", "伦敦", "lun dun", "0"],
+    ["LDS", "伊春", "yi chun", "1"],
+    ["LED", "圣彼得堡", "sheng bi de bao", "0"],
+    ["LFQ", "临汾", "lin fen", "1"],
+    ["NYC", "纽约", "niu yue", "0"],
+    ["LGK", "兰卡威", "lan ka wei", "0"],
+    ["LON", "伦敦", "lun dun", "0"],
+    ["LHE", "拉合尔", "la he er", "0"],
+    ["LON", "伦敦", "lun dun", "0"],
+    ["LHW", "兰州", "lan zhou", "1"],
+    ["DAA", "大安", "da an", "1"],
+    ["LIM", "利马", "li ma", "0"],
+    ["MIL", "米兰", "mi lan", "0"],
+    ["LIS", "里斯本", "li si ben", "0"],
+    ["LJG", "丽江", "li jiang", "1"],
+    ["LJU", "卢布尔亚那", "lu bu er ya na", "0"],
+    ["LKO", "勒克瑙", "le ke nao", "0"],
+    ["LLB", "荔波", "li bo", "1"],
+    ["LLF", "永州", "yong zhou", "1"],
+    ["LLV", "吕梁", "lv liang", "1"],
+    ["LNJ", "临沧", "lin cang", "1"],
+    ["LOS", "拉各斯", "la ge si", "0"],
+    ["LPF", "六盘水", "liu pan shui", "1"],
+    ["LUM", "芒市", "mang shi", "1"],
+    ["LUN", "卢萨卡", "lu sa ka", "0"],
+    ["LUX", "卢森堡", "lu sen bao", "0"],
+    ["LXA", "拉萨", "la sa", "1"],
+    ["LYA", "洛阳", "luo yang", "1"],
+    ["LYG", "连云港", "lian yun gang", "1"],
+    ["LYI", "临沂", "lin yi", "1"],
+    ["LYS", "里昂", "li ang", "0"],
+    ["LZH", "柳州", "liu zhou", "1"],
+    ["LZO", "泸州", "lu zhou", "1"],
+    ["LZY", "林芝", "lin zhi", "1"],
+    ["MAA", "金奈", "jin nai", "0"],
+    ["MAD", "马德里", "ma de li", "0"],
+    ["MAN", "曼彻斯特", "man che si te", "0"],
+    ["ORL", "奥兰多", "ao lan duo", "0"],
+    ["MCT", "马斯喀特", "ma si ka te", "0"],
+    ["MDC", "万鸦老", "wan ya lao", "0"],
+    ["MDG", "牡丹江", "mu dan jiang", "1"],
+    ["CHI", "芝加哥", "zhi jia ge", "0"],
+    ["MED", "麦地那", "mai di na", "0"],
+    ["MEL", "墨尔本", "mo er ben", "0"],
+    ["MEM", "孟菲斯", "meng fei si", "0"],
+    ["MES", "棉兰", "mian lan", "0"],
+    ["MEX", "墨西哥城", "mo xi ge cheng", "0"],
+    ["MFM", "中国澳门", "zhong guo ao men", "0"],
+    ["MFR", "梅德福", "mei de fu", "0"],
+    ["MIA", "迈阿密", "mai a mi", "0"],
+    ["MIG", "绵阳", "mian yang", "1"],
+    ["MKE", "密尔沃基", "mi er wo ji", "0"],
+    ["MKY", "麦凯", "mai kai", "0"],
+    ["MKZ", "马六甲", "ma liu jia", "0"],
+    ["MLE", "马累", "ma lei", "0"],
+    ["MNL", "马尼拉", "ma ni la", "0"],
+    ["MRL", "米尔迪拉", "mi er di la", "0"],
+    ["MRS", "马赛", "ma sai", "0"],
+    ["MRU", "毛里求斯", "mao li qiu si", "0"],
+    ["MRY", "蒙特雷", "meng te lei", "0"],
+    ["MSP", "明尼阿波利斯", "ming ni a bo li si", "0"],
+    ["MSQ", "明斯克", "ming si ke", "0"],
+    ["MSY", "新奥尔良", "xin ao er liang", "0"],
+    ["MTY", "蒙特雷(墨西哥)", "meng te lei ( mo xi ge )", "0"],
+    ["MUC", "慕尼黑", "mu ni hei", "0"],
+    ["KWJ", "光州", "guang zhou", "0"],
+    ["MIL", "米兰", "mi lan", "0"],
+    ["MXZ", "梅州", "mei zhou", "1"],
+    ["MYJ", "松山", "song shan", "0"],
+    ["NGA", "那格浦尔", "na ge pu er", "0"],
+    ["NAN", "纳迪", "na di", "0"],
+    ["NAO", "南充", "nan chong", "1"],
+    ["NBO", "内罗毕", "nei luo bi", "0"],
+    ["NBS", "长白山", "chang bai shan", "1"],
+    ["NCE", "尼斯", "ni si", "0"],
+    ["NCL", "纽卡斯尔(英国)", "niu ka si er ( ying guo )", "0"],
+    ["NDG", "齐齐哈尔", "qi qi ha er", "1"],
+    ["NGB", "宁波", "ning bo", "1"],
+    ["NGO", "名古屋", "ming gu wu", "0"],
+    ["NGQ", "阿里", "a li", "1"],
+    ["NGS", "长崎", "chang qi", "0"],
+    ["NKG", "南京", "nan jing", "1"],
+    ["NLH", "宁蒗", "ning lang", "1"],
+    ["NLT", "那拉提", "na la ti", "1"],
+    ["NNG", "南宁", "nan ning", "1"],
+    ["NNY", "南阳", "nan yang", "1"],
+    ["TYO", "东京", "dong jing", "0"],
+    ["NTG", "南通", "nan tong", "1"],
+    ["NTL", "纽卡斯尔(澳大利亚)", "niu ka si er ( ao da li ya )", "0"],
+    ["NUE", "纽伦堡", "niu lun bao", "0"],
+    ["NYT", "内比都", "nei bi dou", "0"],
+    ["NZH", "满洲里", "man zhou li", "1"],
+    ["NZL", "扎兰屯", "za lan tun", "1"],
+    ["OGG", "卡胡卢伊", "ka hu lu yi", "0"],
+    ["OHE", "漠河", "mo he", "1"],
+    ["OKA", "冲绳", "chong sheng", "0"],
+    ["OKJ", "冈山", "gang shan", "0"],
+    ["OOL", "黄金海岸", "huang jin hai an", "0"],
+    ["OPO", "波尔图", "bo er tu", "0"],
+    ["CHI", "芝加哥", "zhi jia ge", "0"],
+    ["PAR", "巴黎", "ba li", "0"],
+    ["OSL", "奥斯陆", "ao si lu", "0"],
+    ["OSS", "奥什", "ao shen", "0"],
+    ["BUH", "布加勒斯特", "bu jia le si te", "0"],
+    ["OVB", "新西伯利亚", "xin xi bo li ya", "0"],
+    ["PAT", "巴特那", "ba te na", "0"],
+    ["PBM", "帕拉马里博", "pa la ma li bo", "0"],
+    ["PDX", "波特兰", "bo te lan", "0"],
+    ["PEK", "北京", "bei jing", "1"],
+    ["PEN", "槟城", "bin cheng", "0"],
+    ["PER", "珀斯", "po si", "0"],
+    ["PHC", "哈科特港", "ha ke te gang", "0"],
+    ["PHL", "费城", "fei cheng", "0"],
+    ["PHX", "凤凰城", "feng huang cheng", "0"],
+    ["PIT", "匹兹堡", "pi zi bao", "0"],
+    ["PLM", "巴邻旁", "ba lin pang", "0"],
+    ["PNH", "金边", "jin bian", "0"],
+    ["PNQ", "浦那", "pu na", "0"],
+    ["POM", "莫尔斯比港", "mo er si bi gang", "0"],
+    ["PPP", "普罗瑟派恩", "pu luo se pai en", "0"],
+    ["PQC", "富国岛", "fu guo dao", "0"],
+    ["PQQ", "麦夸里港", "mai kua li gang", "0"],
+    ["PRG", "布拉格", "bu la ge", "0"],
+    ["PSA", "比萨", "bi sa", "0"],
+    ["PTY", "巴拿马城", "ba na ma cheng", "0"],
+    ["PUS", "釜山", "fu shan", "0"],
+    ["PVG", "上海浦东", "shang hai pu dong", "1"],
+    ["PVR", "巴亚尔塔港", "ba ya er ta gang", "0"],
+    ["PZI", "攀枝花", "pan zhi hua", "1"],
+    ["QSZ", "莎车", "suo che", "1"],
+    ["RAR", "拉罗汤加", "la luo tang jia", "0"],
+    ["RDU", "罗利", "luo li", "0"],
+    ["REP", "暹粒", "xian li", "0"],
+    ["RGN", "仰光", "yang guang", "0"],
+    ["AXF", "阿拉善盟", "a la shan meng", "1"],
+    ["RIX", "里加", "li jia", "0"],
+    ["RIY", "里雅恩姆卡拉", "li ya en mu ka la", "0"],
+    ["RIZ", "日照", "ri zhao", "1"],
+    ["RKZ", "日喀则", "ri ka ze", "1"],
+    ["RMQ", "中国台中", "zhong guo tai zhong", "0"],
+    ["ROK", "罗克汉普顿", "luo ke han pu dun", "0"],
+    ["RPR", "赖布尔", "lai bu er", "0"],
+    ["RQA", "若羌", "ruo qiang", "1"],
+    ["RUH", "利雅得", "li ya de", "0"],
+    ["SAH", "萨那", "sa na", "0"],
+    ["SAN", "圣地亚哥(美国)", "sheng di ya ge ( mei guo )", "0"],
+    ["SBA", "圣芭芭拉", "sheng ba ba la", "0"],
+    ["SCL", "圣地亚哥(智利)", "sheng di ya ge ( zhi li )", "0"],
+    ["SDJ", "仙台", "xian tai", "0"],
+    ["SEA", "西雅图", "xi ya tu", "0"],
+    ["SFO", "旧金山", "jiu jin shan", "0"],
+    ["SGN", "胡志明市", "hu zhi ming shi", "0"],
+    ["SHA", "上海虹桥", "shang hai hong qiao", "1"],
+    ["SHE", "沈阳", "shen yang", "1"],
+    ["SHF", "石河子", "shi he zi", "1"],
+    ["SHJ", "沙迦", "sha jia", "0"],
+    ["SHS", "荆州", "jing zhou", "1"],
+    ["SIN", "新加坡", "xin jia po", "0"],
+    ["SJO", "圣何塞", "sheng he sai", "0"],
+    ["SJW", "石家庄", "shi jia zhuang", "1"],
+    ["SLC", "盐湖城", "yan hu cheng", "0"],
+    ["SAC", "萨克拉门托", "sa ke la men tuo", "0"],
+    ["SOF", "索非亚", "suo fei ya", "0"],
+    ["SPN", "塞班", "sai ban", "0"],
+    ["SHR", "上饶", "shang rao", "1"],
+    ["SQJ", "三明", "san ming", "1"],
+    ["STR", "斯图加特", "si tu jia te", "0"],
+    ["SUB", "泗水", "si shui", "0"],
+    ["MOW", "莫斯科", "mo si ke", "0"],
+    ["SWA", "汕头", "shan tou", "1"],
+    ["SWA", "揭阳", "jie yang", "1"],
+    ["SXB", "斯特拉斯堡", "si te la si bao", "0"],
+    ["BER", "柏林", "bo lin", "0"],
+    ["SXR", "斯利那加", "si li na jia", "0"],
+    ["SYD", "悉尼", "xi ni", "0"],
+    ["SYM", "普洱", "pu er", "1"],
+    ["SYX", "三亚", "san ya", "1"],
+    ["SZX", "深圳", "shen zhen", "1"],
+    ["TAE", "大邱", "da qiu", "0"],
+    ["TAO", "青岛", "qing dao", "1"],
+    ["TAS", "塔什干", "ta shen gan", "0"],
+    ["TBS", "第比利斯", "di bi li si", "0"],
+    ["TBU", "努库阿洛法", "nu ku a luo fa", "0"],
+    ["TCG", "塔城", "ta cheng", "1"],
+    ["TCZ", "腾冲", "teng chong", "1"],
+    ["TEN", "铜仁", "tong ren", "1"],
+    ["IGG", "瓜拉丁加奴", "gua la ding jia nu", "0"],
+    ["TGO", "通辽", "tong liao", "1"],
+    ["THQ", "天水", "tian shui", "1"],
+    ["TLL", "塔林", "ta lin", "0"],
+    ["TLQ", "吐鲁番", "tu lu fan", "1"],
+    ["TNA", "济南", "ji nan", "1"],
+    ["TNH", "通化", "tong hua", "1"],
+    ["TNR", "塔那那利佛", "ta na na li fo", "0"],
+    ["TOY", "富山", "fu shan", "0"],
+    ["TPA", "坦帕", "tan pa", "0"],
+    ["TPE", "中国台北", "zhong guo tai bei", "0"],
+    ["TRV", "特里凡得琅", "te li fan de lang", "0"],
+    ["TPE", "中国台北", "zhong guo tai bei", "0"],
+    ["TSE", "阿斯塔纳", "a si ta na", "0"],
+    ["TSN", "天津", "tian jin", "1"],
+    ["TSV", "汤斯维尔", "tang si wei er", "0"],
+    ["TUN", "突尼斯", "tu ni si", "0"],
+    ["TVS", "唐山", "tang shan", "1"],
+    ["BER", "柏林", "bo lin", "0"],
+    ["TXN", "黄山", "huang shan", "1"],
+    ["TYN", "太原", "tai yuan", "1"],
+    ["UCB", "乌兰察布", "wu lan cha bu", "1"],
+    ["UDR", "乌代布尔", "wu dai bu er", "0"],
+    ["UIO", "基多", "ji duo", "0"],
+    ["URC", "乌鲁木齐", "wu lu mu qi", "1"],
+    ["USM", "苏梅岛", "su mei dao", "0"],
+    ["UTP", "芭提雅", "ba ti ya", "0"],
+    ["UYN", "榆林", "yu lin", "1"],
+    ["VCE", "威尼斯", "wei ni si", "0"],
+    ["VIE", "维也纳", "wei ye na", "0"],
+    ["VII", "荣市", "rong shi", "0"],
+    ["MOW", "莫斯科", "mo si ke", "0"],
+    ["VLC", "巴伦西亚", "ba lun xi ya", "0"],
+    ["VNS", "瓦拉纳西", "wa la na xi", "0"],
+    ["VTE", "万象", "wan xiang", "0"],
+    ["VVO", "海参崴", "hai can wei", "0"],
+    ["VVO", "符拉迪沃斯托克", "fu la di wo si tuo ke", "0"],
+    ["WAW", "华沙", "hua sha", "0"],
+    ["WDS", "十堰", "shi yan", "1"],
+    ["WEF", "潍坊", "wei fang", "1"],
+    ["WEH", "威海", "wei hai", "1"],
+    ["WGN", "邵阳", "shao yang", "1"],
+    ["WLG", "惠灵顿", "hui ling dun", "0"],
+    ["WNH", "文山", "wen shan", "1"],
+    ["WNZ", "温州", "wen zhou", "1"],
+    ["WUA", "乌海", "wu hai", "1"],
+    ["WUH", "武汉", "wu han", "1"],
+    ["WUS", "武夷山", "wu yi shan", "1"],
+    ["WUT", "忻州", "xin zhou", "1"],
+    ["WUX", "无锡", "wu xi", "1"],
+    ["WUZ", "梧州", "wu zhou", "1"],
+    ["WXN", "万州", "wan zhou", "1"],
+    ["XFN", "襄阳", "xiang yang", "1"],
+    ["XIC", "西昌", "xi chang", "1"],
+    ["XIL", "锡林浩特", "xi lin hao te", "1"],
+    ["XIY", "咸阳", "xian yang", "1"],
+    ["SIA", "西安", "xi an", "1"],
+    ["XMN", "厦门", "xia men", "1"],
+    ["XNN", "西宁", "xi ning", "1"],
+    ["XUZ", "徐州", "xu zhou", "1"],
+    ["YBP", "宜宾", "yi bin", "1"],
+    ["YCU", "运城", "yun cheng", "1"],
+    ["YEA", "埃德蒙顿", "ai de meng dun", "0"],
+    ["YIC", "宜春", "yi chun", "1"],
+    ["YIE", "阿尔山", "a er shan", "1"],
+    ["YIH", "宜昌", "yi chang", "1"],
+    ["YIN", "伊宁", "yi ning", "1"],
+    ["YIW", "义乌", "yi wu", "1"],
+    ["YKH", "营口", "ying kou", "1"],
+    ["YLW", "基隆拿", "ji long na", "0"],
+    ["YNJ", "延吉", "yan ji", "1"],
+    ["YNT", "烟台", "yan tai", "1"],
+    ["YNZ", "盐城", "yan cheng", "1"],
+    ["YOW", "渥太华", "wo tai hua", "0"],
+    ["YQR", "里贾纳", "li jia na", "0"],
+    ["YSQ", "松原", "song yuan", "1"],
+    ["YTY", "扬州", "yang zhou", "1"],
+    ["YTY", "泰州", "tai zhou", "1"],
+    ["YMQ", "蒙特利尔", "meng te li er", "0"],
+    ["YUS", "玉树", "yu shu", "1"],
+    ["YVR", "温哥华", "wen ge hua", "0"],
+    ["YWG", "温尼伯", "wen ni bo", "0"],
+    ["YXS", "乔治王子城", "qiao zhi wang zi cheng", "0"],
+    ["YYC", "卡尔加里", "ka er jia li", "0"],
+    ["YTO", "多伦多", "duo lun duo", "0"],
+    ["YZY", "张掖", "zhang ye", "1"],
+    ["ZAG", "萨格勒布", "sa ge le bu", "0"],
+    ["ZAT", "昭通", "zhao tong", "1"],
+    ["ZHA", "湛江", "zhan jiang", "1"],
+    ["ZHY", "中卫", "zhong wei", "1"],
+    ["ZQZ", "张家口", "zhang jia kou", "1"],
+    ["ZRH", "苏黎世", "su li shi", "0"],
+    ["ZUH", "珠海", "zhu hai", "1"],
+    ["ZYI", "遵义", "zun yi", "1"]
+  ]
 }

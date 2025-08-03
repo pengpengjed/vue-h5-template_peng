@@ -13,7 +13,7 @@
 
 <script>
 export default {
-  name: "RelateUserBar",
+  name: 'RelateUserBar',
   data() {
     return {
       simulateUserPoints: {
@@ -21,7 +21,7 @@ export default {
         start: { x: 0, y: 0 },
         end: { x: 0, y: 0 }
       }
-    };
+    }
   },
   methods: {
     // 关联用户退出点击事件
@@ -29,70 +29,70 @@ export default {
       this.confirmMessage(`您确定要退出关联用户吗？`)
         .then(() => {
           // 天健退出关联
-          this.$http.delete({ url: "/login-app/mobile/loginUserInfo/relevance" }).catch(err => console.log(err));
+          this.$http.delete({ url: '/login-app/mobile/loginUserInfo/relevance' }).catch(err => console.log(err))
 
           setTimeout(() => {
-            this.$localStorage.removeItem(this.$storeKeys.relateUser);
+            this.$localStorage.removeItem(this.$storeKeys.relateUser)
             // window.location.reload();
-            let url = window.location.href;
-            let index = url.indexOf("#/");
+            let url = window.location.href
+            let index = url.indexOf('#/')
             if (index !== -1) {
-              url = url.substring(0, index);
+              url = url.substring(0, index)
             }
-            window.location.href = url;
-          }, 100);
+            window.location.href = url
+          }, 100)
         })
-        .catch(() => {});
+        .catch(() => {})
     },
     // 关联用户色块拖动开始事件
     onSimulateUserTouchStart(e) {
       if (e.touches.length) {
-        this.simulateUserPoints.start.x = e.touches[0].clientX;
-        this.simulateUserPoints.start.y = e.touches[0].clientY;
-        this.simulateUserPoints.end.x = e.touches[0].clientX;
-        this.simulateUserPoints.end.y = e.touches[0].clientY;
+        this.simulateUserPoints.start.x = e.touches[0].clientX
+        this.simulateUserPoints.start.y = e.touches[0].clientY
+        this.simulateUserPoints.end.x = e.touches[0].clientX
+        this.simulateUserPoints.end.y = e.touches[0].clientY
       }
     },
     // 关联用户色块拖动移动事件
     onSimulateUserTouchMove(e) {
       if (e.touches.length) {
-        this.simulateUserPoints.end.x = e.touches[0].clientX;
-        this.simulateUserPoints.end.y = e.touches[0].clientY;
+        this.simulateUserPoints.end.x = e.touches[0].clientX
+        this.simulateUserPoints.end.y = e.touches[0].clientY
       }
-      this.setSimulateUserOffset();
+      this.setSimulateUserOffset()
     },
     // 关联用户色块拖动结束事件
     onSimulateUserTouchEnd(e) {
       if (e.touches.length) {
-        this.simulateUserPoints.end.x = e.touches[0].clientX;
-        this.simulateUserPoints.end.y = e.touches[0].clientY;
+        this.simulateUserPoints.end.x = e.touches[0].clientX
+        this.simulateUserPoints.end.y = e.touches[0].clientY
       }
-      this.setSimulateUserOffset();
+      this.setSimulateUserOffset()
     },
     // 计算关联用户色块拖动的偏移量
     setSimulateUserOffset() {
-      const el = document.getElementById("relateUserBar");
-      let offsetX = this.simulateUserPoints.end.x - this.simulateUserPoints.start.x;
-      let offsetY = this.simulateUserPoints.end.y - this.simulateUserPoints.start.y;
+      const el = document.getElementById('relateUserBar')
+      let offsetX = this.simulateUserPoints.end.x - this.simulateUserPoints.start.x
+      let offsetY = this.simulateUserPoints.end.y - this.simulateUserPoints.start.y
       // 计算偏移量
-      this.simulateUserPoints.offset.x += offsetX;
-      this.simulateUserPoints.offset.y += offsetY;
+      this.simulateUserPoints.offset.x += offsetX
+      this.simulateUserPoints.offset.y += offsetY
       // 设置样式
-      el.style.transform = `translate(${this.simulateUserPoints.offset.x}px, ${this.simulateUserPoints.offset.y}px)`;
+      el.style.transform = `translate(${this.simulateUserPoints.offset.x}px, ${this.simulateUserPoints.offset.y}px)`
       // 设置开始位置为当前结束点的位置
-      this.simulateUserPoints.start.x = this.simulateUserPoints.end.x;
-      this.simulateUserPoints.start.y = this.simulateUserPoints.end.y;
+      this.simulateUserPoints.start.x = this.simulateUserPoints.end.x
+      this.simulateUserPoints.start.y = this.simulateUserPoints.end.y
     }
   },
   computed: {
     relateUser() {
-      return this.relateUserId || "";
+      return this.relateUserId || ''
     },
     barStyle() {
-      return { top: (this.statusBarHeight + 5) / 14 + "rem" };
+      return { top: (this.statusBarHeight + 5) / 14 + 'rem' }
     }
   }
-};
+}
 </script>
 
 <style lang="less">

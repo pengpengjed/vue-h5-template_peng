@@ -29,12 +29,12 @@
 
 <script>
 export default {
-  name: "DatetimePickerCellEx",
+  name: 'DatetimePickerCellEx',
   props: {
     // 设置绑定值
     value: {
       type: String,
-      default: ""
+      default: ''
     },
     // 设置标题
     title: {
@@ -68,139 +68,149 @@ export default {
     return {
       popupVisible: false,
       currentDate: new Date(),
-      componentValue: "",
+      componentValue: '',
       pickerColumns: [
-        { values: [], defaultIndex: 0, className: "date-column" }, // 第一列
+        { values: [], defaultIndex: 0, className: 'date-column' }, // 第一列
         { values: [], defaultIndex: 0 }, // 第二列
         { values: [], defaultIndex: 0 } // 第三列
       ],
       pickerMinDate: new Date(),
       pickerMaxDate: new Date(),
-      weekday: ["周日", "周一", "周二", "周三", "周四", "周五", "周六"]
-    };
+      weekday: ['周日', '周一', '周二', '周三', '周四', '周五', '周六']
+    }
   },
   created() {
-    this.componentValue = this.value;
+    this.componentValue = this.value
     if (this.componentValue) {
-      this.currentDate = this.$utility.parseDate(this.componentValue);
+      this.currentDate = this.$utility.parseDate(this.componentValue)
     }
-    this.ininColumns();
+    this.ininColumns()
   },
   methods: {
     ininColumns() {
       if (this.minDate) {
-        this.pickerMinDate = this.minDate;
+        this.pickerMinDate = this.minDate
       } else {
-        this.pickerMinDate.setDate(this.pickerMinDate.getDate() - 10);
+        this.pickerMinDate.setDate(this.pickerMinDate.getDate() - 10)
       }
 
       if (this.maxDate) {
-        this.pickerMaxDate = this.maxDate;
+        this.pickerMaxDate = this.maxDate
       } else {
-        this.pickerMaxDate.setDate(this.pickerMaxDate.getDate() + 60);
+        this.pickerMaxDate.setDate(this.pickerMaxDate.getDate() + 60)
       }
 
       // 添加日期列
-      let tmpDate = new Date(this.pickerMinDate.getFullYear(), this.pickerMinDate.getMonth(), this.pickerMinDate.getDate());
-      let dateIndex = 0;
+      let tmpDate = new Date(
+        this.pickerMinDate.getFullYear(),
+        this.pickerMinDate.getMonth(),
+        this.pickerMinDate.getDate()
+      )
+      let dateIndex = 0
       while (tmpDate.getTime() < this.pickerMaxDate.getTime()) {
-        this.pickerColumns[0].values.push(`${this.$utility.formatDate(tmpDate, "yyyy-MM-dd")} ${this.weekday[tmpDate.getDay()]}`);
+        this.pickerColumns[0].values.push(
+          `${this.$utility.formatDate(tmpDate, 'yyyy-MM-dd')} ${this.weekday[tmpDate.getDay()]}`
+        )
         // 设置日期选择中项
         if (this.currentDate && this.currentDate.toString().slice(0, 10) === tmpDate.toString().slice(0, 10)) {
-          this.pickerColumns[0].defaultIndex = dateIndex;
+          this.pickerColumns[0].defaultIndex = dateIndex
         }
         // 设置下一个日期
-        tmpDate.setDate(tmpDate.getDate() + 1);
-        dateIndex++;
+        tmpDate.setDate(tmpDate.getDate() + 1)
+        dateIndex++
       }
 
       //添加小时列
       for (let i = 0; i < 24; i++) {
-        this.pickerColumns[1].values.push(i < 10 ? "0" + i : i);
+        this.pickerColumns[1].values.push(i < 10 ? '0' + i : i)
       }
       // 设置小时选中项
       if (this.currentDate) {
-        this.pickerColumns[1].defaultIndex = this.currentDate.getHours();
+        this.pickerColumns[1].defaultIndex = this.currentDate.getHours()
       }
       //添加分钟列
       for (let i = 0; i < 60; i++) {
-        this.pickerColumns[2].values.push(i < 10 ? "0" + i : i);
+        this.pickerColumns[2].values.push(i < 10 ? '0' + i : i)
       }
       // 设置分钟选中项
       if (this.currentDate) {
-        this.pickerColumns[2].defaultIndex = this.currentDate.getMinutes();
+        this.pickerColumns[2].defaultIndex = this.currentDate.getMinutes()
       }
     },
     initDate() {
-      let dateIndex = 0;
-      let tmpDate = new Date(this.pickerMinDate.getFullYear(), this.pickerMinDate.getMonth(), this.pickerMinDate.getDate());
+      let dateIndex = 0
+      let tmpDate = new Date(
+        this.pickerMinDate.getFullYear(),
+        this.pickerMinDate.getMonth(),
+        this.pickerMinDate.getDate()
+      )
       while (tmpDate.getTime() < this.pickerMaxDate.getTime()) {
         if (this.currentDate && this.currentDate.toString().slice(0, 10) === tmpDate.toString().slice(0, 10)) {
-          break;
+          break
         }
         // 设置下一个日期
-        tmpDate.setDate(tmpDate.getDate() + 1);
-        dateIndex++;
+        tmpDate.setDate(tmpDate.getDate() + 1)
+        dateIndex++
       }
 
       // 设置小时选中项
-      let hourIndex = 0;
+      let hourIndex = 0
       if (this.currentDate) {
-        hourIndex = this.currentDate.getHours();
+        hourIndex = this.currentDate.getHours()
       }
 
       // 设置分钟选中项
-      let miniteIndex = 0;
+      let miniteIndex = 0
       if (this.currentDate) {
-        miniteIndex = this.currentDate.getMinutes();
+        miniteIndex = this.currentDate.getMinutes()
       }
       if (this.$refs.picker) {
-        this.$refs.picker.setIndexes([dateIndex, hourIndex, miniteIndex]);
+        this.$refs.picker.setIndexes([dateIndex, hourIndex, miniteIndex])
       } else {
-        this.pickerColumns[0].defaultIndex = dateIndex;
-        this.pickerColumns[1].defaultIndex = hourIndex;
-        this.pickerColumns[2].defaultIndex = miniteIndex;
+        this.pickerColumns[0].defaultIndex = dateIndex
+        this.pickerColumns[1].defaultIndex = hourIndex
+        this.pickerColumns[2].defaultIndex = miniteIndex
       }
     },
     setDate() {
-      let values = this.$refs.picker.getValues();
-      this.currentDate = this.$utility.parseDate(`${values[0].substring(0, 10)} ${values[1]}:${values[2]}`);
-      this.componentValue = this.$utility.formatDate(this.currentDate, "yyyy-MM-dd hh:mm");
+      let values = this.$refs.picker.getValues()
+      this.currentDate = this.$utility.parseDate(`${values[0].substring(0, 10)} ${values[1]}:${values[2]}`)
+      this.componentValue = this.$utility.formatDate(this.currentDate, 'yyyy-MM-dd hh:mm')
     },
     onCellClick() {
-      if (this.disabled) return;
+      if (this.disabled) return
 
-      this.initDate();
-      this.popupVisible = true;
+      this.initDate()
+      this.popupVisible = true
     },
     onCancel() {
-      this.initDate();
-      this.popupVisible = false;
+      this.initDate()
+      this.popupVisible = false
     },
     onConfirm() {
-      this.setDate();
-      this.popupVisible = false;
+      this.setDate()
+      this.popupVisible = false
     },
     onClearClick() {
-      this.componentValue = "";
+      this.componentValue = ''
     }
   },
   watch: {
     value(newValue) {
-      this.componentValue = newValue;
+      this.componentValue = newValue
       if (this.componentValue) {
-        this.currentDate = this.$utility.parseDate(this.componentValue);
+        this.currentDate = this.$utility.parseDate(this.componentValue)
       }
-      this.initDate();
+      this.initDate()
     },
     componentValue(newValue) {
-      this.$emit("input", newValue);
+      this.$emit('input', newValue)
       this.$nextTick(() => {
-        this.$emit("change", newValue);
-      });
+        this.$emit('change', newValue)
+      })
     }
   }
-};
+}
 </script>
 
 <style lang="less">

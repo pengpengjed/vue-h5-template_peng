@@ -1,25 +1,39 @@
 <template>
   <div class="access-condition-formula">
     <!-- 组合公式 -->
+    <!-- 例子：组合公式：条件1且（条件2或条件3） -->
     <div class="formula-section">
-      <div class="section-title">
-        <div class="title-bar"></div>
-        <span class="title-text">组合公式</span>
-      </div>
       <div class="formula-content">
-        <van-cell-group>
-          <van-cell :title="formulaText" />
-        </van-cell-group>
+        <span>组合公式：</span>
+        <span>{{ formulaText }}</span>
       </div>
     </div>
 
     <!-- 条件列表 -->
     <div class="conditions-section">
-      <div class="section-title">
+      <!-- <div class="section-title">
         <div class="title-bar"></div>
         <span class="title-text">条件列表</span>
-      </div>
+      </div> -->
       <div class="conditions-content">
+        <template v-if="pageType === 1">
+          <div
+            v-for="(condition, index) in conditionsList"
+            :key="condition.id || index"
+            :title="`条件${index + 1}`"
+            :label="condition.conditionContent"
+            :value="getConditionValue(condition)"
+            :class="{ 'selected-condition': condition.selectFlag }"
+            class="conditions-content-view"
+          >
+            <div class="conditions-content-view-title">
+              {{ `条件${index + 1}：` }}
+            </div>
+            <div class="conditions-content-view-content">
+              {{ condition.conditionContent }}
+            </div>
+          </div>
+        </template>
         <van-cell-group>
           <van-cell
             v-for="(condition, index) in conditionsList"
@@ -29,16 +43,16 @@
             :value="getConditionValue(condition)"
             :class="{ 'selected-condition': condition.selectFlag }"
           >
-            <template #right-icon>
+            <!-- <template #right-icon>
               <div class="condition-actions">
-                <!-- 校验状态图标 -->
+                校验状态图标
                 <van-icon
                   :name="getConditionIcon(condition)"
                   :class="getConditionIconClass(condition)"
                   @click="showConditionDetail(condition)"
                 />
 
-                <!-- 编辑模式下的复选框 -->
+                编辑模式下的复选框
                 <van-checkbox
                   v-if="ifModify"
                   v-model="condition.selectFlag"
@@ -46,9 +60,9 @@
                   :disabled="!ifModify"
                 />
 
-                <!-- 操作按钮 -->
+                操作按钮
                 <div class="action-buttons" v-if="!ifModify">
-                  <!-- 确认满足按钮 -->
+                  确认满足按钮
                   <van-button
                     v-if="condition.status === 'error'"
                     type="primary"
@@ -58,7 +72,7 @@
                     确认满足
                   </van-button>
 
-                  <!-- 取消确认按钮 -->
+                  取消确认按钮
                   <van-button
                     v-if="condition.status === 'manual'"
                     type="default"
@@ -68,7 +82,7 @@
                     取消确认
                   </van-button>
 
-                  <!-- 上传按钮 -->
+                  上传按钮
                   <van-button
                     v-if="condition.status === 'manual' && condition.attachment"
                     type="primary"
@@ -78,7 +92,7 @@
                     上传
                   </van-button>
 
-                  <!-- 附件名称 -->
+                  附件名称
                   <span v-if="condition.attachment" class="attachment-name" @click="previewFile(condition.attachment)">
                     {{ condition.attachment.name }}
                   </span>
@@ -89,7 +103,7 @@
               <span class="condition-number" @click="addConditionToFormula(index + 1)" :class="{ clickable: ifModify }">
                 条件{{ index + 1 }}
               </span>
-            </template>
+            </template> -->
           </van-cell>
         </van-cell-group>
       </div>
@@ -172,6 +186,12 @@ export default {
     ifModify: {
       type: Boolean,
       default: false
+    },
+    // 页面类型：1： 代申请选择科目后显示纯查看
+    pageType: {
+      type: Number,
+      default: 1,
+      require: true
     }
   },
   data() {
@@ -226,6 +246,10 @@ export default {
 
     // 获取所有条件列表
     conditionsList() {
+      console.log(
+        'this.data.accessConditionDetailList',
+        JSON.parse(JSON.stringify(this.data.accessConditionDetailList))
+      )
       // 优先使用 accessConditionDetailList
       if (this.data.accessConditionDetailList && this.data.accessConditionDetailList.length > 0) {
         return this.data.accessConditionDetailList
@@ -234,6 +258,7 @@ export default {
       // 如果没有 detailList，尝试从 groupList 中提取
       const conditions = []
       this.traverseConditions(this.data.accessConditionZhftcGroupList || [], conditions)
+      console.log('conditions', conditions)
       return conditions
     }
   },
@@ -508,9 +533,9 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="less" scoped>
 .access-condition-formula {
-  .section-title {
+  /* .section-title {
     display: flex;
     align-items: center;
     margin-bottom: 12px;
@@ -528,23 +553,15 @@ export default {
       font-weight: 500;
       color: #5a709b;
     }
-  }
+  } */
 
   .formula-section {
-    margin-bottom: 24px;
-
+    margin-bottom: 6px;
     .formula-content {
-      ::v-deep .van-cell {
-        background-color: #f8f9fa;
-        border-radius: 6px;
-        border-left: 3px solid #3986ff;
-
-        .van-cell__title {
-          font-weight: 500;
-          color: #333;
-          font-size: 14px;
-        }
-      }
+      color: #00304d;
+      font-size: 12px;
+      font-weight: 500;
+      line-height: 18px;
     }
   }
 
@@ -552,6 +569,13 @@ export default {
     margin-bottom: 24px;
 
     .conditions-content {
+      .conditions-content-view {
+        color: #333333;
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 18px;
+      }
+
       ::v-deep .van-cell {
         margin-bottom: 8px;
         background-color: #ffffff;

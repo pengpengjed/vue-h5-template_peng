@@ -29,11 +29,15 @@
         <!-- 只在Home模块出现 -->
         <div class="css-app-more-item" v-if="!isProductionPlatform">
           <div class="text">调试器</div>
-          <div style="flex: 1;textAlign: right;">
+          <div style="flex: 1; textalign: right">
             <van-switch v-model="vConsoleEnabled" size="18px" @change="onVconsoleChange" />
           </div>
         </div>
-        <div class="css-app-more-item" @click="onRelateClick" v-if="!isSTM && !relateUser && userRight['sys_ehome_relate']">
+        <div
+          class="css-app-more-item"
+          @click="onRelateClick"
+          v-if="!isSTM && !relateUser && userRight['sys_ehome_relate']"
+        >
           <div class="text">关联用户</div>
           <van-icon name="arrow"></van-icon>
         </div>
@@ -66,171 +70,166 @@
     </van-dialog>
 
     <!-- 切换服务器，仅开发环境开启 -->
-    <van-popup
-      v-if="switchServerEnable"
-      v-model="serverPopupVisible"
-      get-container="body"
-      class="app-server-popup-pad"
-    >
+    <van-popup v-if="switchServerEnable" v-model="serverPopupVisible" get-container="body" class="app-server-popup-pad">
       <CsServerList @close="serverPopupVisible = false"></CsServerList>
     </van-popup>
 
     <!-- 模块管理列表 -->
-    <van-popup  v-model="modulePopupVisible"  get-container="body" class="app-module-popup-pad">
+    <van-popup v-model="modulePopupVisible" get-container="body" class="app-module-popup-pad">
       <CsModuleList @close="modulePopupVisible = false"></CsModuleList>
     </van-popup>
     <!-- 关于我们 -->
-    <van-popup  v-model="aboutPopupVisible"  get-container="body" class="app-module-popup-pad">
+    <van-popup v-model="aboutPopupVisible" get-container="body" class="app-module-popup-pad">
       <cs-about @close="aboutPopupVisible = false"></cs-about>
     </van-popup>
   </div>
 </template>
 
 <script>
-import VConsole from "vconsole";
-import { getIebTokenRelate, getIflyTokenRelate } from "@/core";
+import VConsole from 'vconsole'
+import { getIebTokenRelate, getIflyTokenRelate } from '@/core'
 export default {
-  name: "CsSetting",
+  name: 'CsSetting',
   data() {
     return {
       vConsoleEnabled: false,
       relateDialogVisible: false,
       serverPopupVisible: false,
       modulePopupVisible: false,
-      aboutPopupVisible:false,
+      aboutPopupVisible: false,
       sliderValue: 0,
       fontModeText: {
-        "-1": { text: "小", mode: "S" },
-        "0": { text: "标准", mode: "N" },
-        "1": { text: "大", mode: "L" },
-        "2": { text: "超大", mode: "XL" }
+        '-1': { text: '小', mode: 'S' },
+        0: { text: '标准', mode: 'N' },
+        1: { text: '大', mode: 'L' },
+        2: { text: '超大', mode: 'XL' }
       },
       relateForm: {
-        staffNum: ""
+        staffNum: ''
       },
       relateRules: {
         staffNum: [
-          { required: true, message: "请输入关联员工号" },
+          { required: true, message: '请输入关联员工号' },
           {
             validator: val => {
-              return val.length <= 9;
+              return val.length <= 9
             },
-            message: "请输入有效的关联员工号"
+            message: '请输入有效的关联员工号'
           },
           {
             validator: val => {
-              return val !== this.userId;
+              return val !== this.userId
             },
-            message: "不能关联自己"
+            message: '不能关联自己'
           }
         ]
       },
-      userRight: {},
-    };
+      userRight: {}
+    }
   },
   created() {
-    this.loadRight();
-    const fontMode = this.$localStorage.getItem(this.$storeKeys.fontMode);
-    if (fontMode === "S") {
-      this.sliderValue = -1;
-    } else if (fontMode === "N") {
-      this.sliderValue = 0;
-    } else if (fontMode === "L") {
-      this.sliderValue = 1;
-    } else if (fontMode === "XL") {
-      this.sliderValue = 2;
+    this.loadRight()
+    const fontMode = this.$localStorage.getItem(this.$storeKeys.fontMode)
+    if (fontMode === 'S') {
+      this.sliderValue = -1
+    } else if (fontMode === 'N') {
+      this.sliderValue = 0
+    } else if (fontMode === 'L') {
+      this.sliderValue = 1
+    } else if (fontMode === 'XL') {
+      this.sliderValue = 2
     }
-    this.vConsoleEnabled = this.$localStorage.getItem(this.$storeKeys.vConsoleEnabled) || false;
+    this.vConsoleEnabled = this.$localStorage.getItem(this.$storeKeys.vConsoleEnabled) || false
   },
   methods: {
     onCancelClick() {
-      this.$emit("close");
+      this.$emit('close')
     },
     onReloadClick() {
-      this.reloadModule();
+      this.reloadModule()
     },
     onClearClick() {
       this.$dialog
         .confirm({
-          title: "提示",
-          message: "您确认要清空数据缓存，并重载模块吗？"
+          title: '提示',
+          message: '您确认要清空数据缓存，并重载模块吗？'
         })
         .then(() => {
-          window.$localStorage.clear();
-          window.$sessionStorage.clear();
-          this.reloadModule();
+          window.$localStorage.clear()
+          window.$sessionStorage.clear()
+          this.reloadModule()
         })
-        .catch(() => { });
+        .catch(() => {})
     },
     onExchangeClick() {
-      this.$emit("close");
+      this.$emit('close')
       this.$nextTick(() => {
-        this.serverPopupVisible = true;
-      });
+        this.serverPopupVisible = true
+      })
     },
     onVconsoleChange(value) {
       if (value) {
-        window.vConsoleInstance = new VConsole();
-        this.$localStorage.setItem(this.$storeKeys.vConsoleEnabled, true);
+        window.vConsoleInstance = new VConsole()
+        this.$localStorage.setItem(this.$storeKeys.vConsoleEnabled, true)
       } else {
         if (window.vConsoleInstance) {
-          window.vConsoleInstance.destroy();
+          window.vConsoleInstance.destroy()
         }
-        this.$localStorage.setItem(this.$storeKeys.vConsoleEnabled, false);
+        this.$localStorage.setItem(this.$storeKeys.vConsoleEnabled, false)
       }
     },
     dispatchEvent() {
-      const customEvent = new CustomEvent("fontModeChange", {});
-      window.dispatchEvent(customEvent);
+      const customEvent = new CustomEvent('fontModeChange', {})
+      window.dispatchEvent(customEvent)
     },
     onRelateClick() {
-      this.$emit("close");
-      this.relateDialogVisible = true;
+      this.$emit('close')
+      this.relateDialogVisible = true
     },
     onRelateBeforeClose(action, done) {
-      if (action === "confirm") {
+      if (action === 'confirm') {
         this.$refs.relateForm
           .validate()
           .then(() => {
             this.submitRelateUser()
               .then(() => {
-                this.reloadModule();
-                done();
+                this.reloadModule()
+                done()
               })
               .catch(() => {
-                done(false);
-              });
+                done(false)
+              })
           })
           .catch(() => {
-            done(false);
-          });
+            done(false)
+          })
       } else {
-        done();
+        done()
       }
     },
     submitRelateUser() {
       return new Promise((resolve, reject) => {
         if (!this.relateForm.staffNum) {
-          this.alertMessage("请输入关联用户账号");
-          return;
+          this.alertMessage('请输入关联用户账号')
+          return
         } else if (this.relateForm.staffNum.length > 9) {
-          this.alertMessage("请输入有效的关联用户账号");
-          return;
+          this.alertMessage('请输入有效的关联用户账号')
+          return
         } else if (this.relateForm.staffNum === this.userId) {
-          this.alertMessage("操作失败，目标账号与登录号相同");
-          return;
+          this.alertMessage('操作失败，目标账号与登录号相同')
+          return
         }
 
         // this.getIebTokenRelate(this.relateForm.staffNum)
         Promise.all([getIebTokenRelate(this.relateForm.staffNum), getIflyTokenRelate(this.relateForm.staffNum)])
           .then(([iebRes, iflyRes]) => {
-            const operationRights = {};
+            const operationRights = {}
             if (iebRes.OperationResourceSet) {
               iebRes.OperationResourceSet.forEach(item => {
-                operationRights[item] = true;
-              });
+                operationRights[item] = true
+              })
             }
-            let accountMessage = window.$sessionStorage.getItem(this.$storeKeys.loginUser) || {};
+            let accountMessage = window.$sessionStorage.getItem(this.$storeKeys.loginUser) || {}
             // 设置关联用户缓存数据
             this.$localStorage.setItem(this.$storeKeys.relateUser, {
               userId: this.userId,
@@ -240,86 +239,86 @@ export default {
               iflyToken: window.$sessionStorage.getItem(this.$storeKeys.iflyToken),
               iflyRelateToken: iflyRes, // 御风系统关联Token
               isCAS: iebRes.isCAS || false,
-              isCSG: iebRes.orgUnitBase === "CSG",
-              isCKG: iebRes.orgUnitBase === "CKG",
-              stdNum: iebRes.stdNum || "",
-              tempStaffNum: iebRes.tempStaffNum || "",
+              isCSG: iebRes.orgUnitBase === 'CSG',
+              isCKG: iebRes.orgUnitBase === 'CKG',
+              stdNum: iebRes.stdNum || '',
+              tempStaffNum: iebRes.tempStaffNum || '',
               rights: operationRights,
               ssotoken: accountMessage.ssotoken // 从APP外壳得到的token
-            });
-            resolve(iebRes);
+            })
+            resolve(iebRes)
           })
           .catch(err => {
-            console.log(err);
-            reject(err);
-          });
-      });
+            console.log(err)
+            reject(err)
+          })
+      })
     },
     onLogoutClick() {
-      this.$emit("close");
+      this.$emit('close')
       this.$eplmApp
         .logout()
         .then(() => {
           // this.$router.push("/login");
-          this.reloadModule();
+          this.reloadModule()
         })
-        .catch(() => { });
+        .catch(() => {})
     },
     onModuleClick() {
-      this.$emit("close");
-      console.log(111);
+      this.$emit('close')
+      console.log(111)
       this.$nextTick(() => {
-        this.modulePopupVisible = true;
-      });
+        this.modulePopupVisible = true
+      })
     },
     onAboutClick() {
-      this.$emit("close");
+      this.$emit('close')
       this.$nextTick(() => {
-        this.aboutPopupVisible = true;
-      });
+        this.aboutPopupVisible = true
+      })
     },
     loadRight() {
       this.getRights()
         .then(right => {
-          this.userRight = right;
+          this.userRight = right
         })
-        .catch(() => {});
-    },
+        .catch(() => {})
+    }
   },
   computed: {
     userRights() {
-      return this.$store.getters.userRights;
+      return this.$store.getters.userRights
     },
     relateUser() {
-      return this.relateUserId || "";
+      return this.relateUserId || ''
     },
     isLogined() {
       // return this.$eplmApp.isLogined();
-      return this.$route.name !== "login" && this.$route.name !== "loginForgetPassword";
+      return this.$route.name !== 'login' && this.$route.name !== 'loginForgetPassword'
     },
     switchServerEnable() {
       // 仅对开发环境 与 测试环境的home模块(有sys_server_switching权限) 开放
       if (
         !this.isInApp ||
-        (this.isInApp && this.isTestPlatform && this.isHomeModule && this.userRights["sys_server_switching"])
+        (this.isInApp && this.isTestPlatform && this.isHomeModule && this.userRights['sys_server_switching'])
       ) {
         // 开发环境
-        return this.$env.VUE_APP_SWITCH_SERVER === "true";
+        return this.$env.VUE_APP_SWITCH_SERVER === 'true'
       } else {
-        return false;
+        return false
       }
     }
   },
   watch: {
     sliderValue() {
-      this.$localStorage.setItem(this.$storeKeys.fontMode, this.fontModeText[this.sliderValue.toString()].mode);
-      window.setRem();
+      this.$localStorage.setItem(this.$storeKeys.fontMode, this.fontModeText[this.sliderValue.toString()].mode)
+      window.setRem()
       this.$nextTick(() => {
-        this.dispatchEvent();
-      });
+        this.dispatchEvent()
+      })
     }
   }
-};
+}
 </script>
 
 <style lang="less" scoped>
@@ -429,18 +428,17 @@ export default {
   height: 80%;
   border-radius: 10px;
 }
-.cs-server-list{
-  /deep/ .header{
+.cs-server-list {
+  /deep/ .header {
     border-radius: 0 !important;
     background-color: #638dfd !important;
   }
 }
 
-.cs-module-list{
-  /deep/ .header{
+.cs-module-list {
+  /deep/ .header {
     border-radius: 0 !important;
     background-color: #638dfd !important;
   }
-
 }
 </style>

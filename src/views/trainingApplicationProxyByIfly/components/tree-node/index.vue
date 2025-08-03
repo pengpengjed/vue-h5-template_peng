@@ -261,7 +261,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="less" scoped>
 .relationTag {
   border: 1px solid #a5cfb8;
 }

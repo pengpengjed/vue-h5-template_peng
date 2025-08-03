@@ -4,18 +4,18 @@
 
 <script>
 export default {
-  name: "CsEmpty",
+  name: 'CsEmpty',
   props: {
     image: {
       type: String,
-      default: () => require("../theme/images/empty-image-default.png")
+      default: () => require('../theme/images/empty-image-default.png')
     },
     description: {
       type: String,
-      default: "暂无数据"
+      default: '暂无数据'
     }
   }
-};
+}
 </script>
 
 <style lang="less">

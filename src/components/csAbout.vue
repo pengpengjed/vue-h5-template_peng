@@ -7,7 +7,9 @@
     <div class="content">
       <div class="logo-wrap">
         <img src="../theme/images/app_logo.png" alt="" class="logo" />
-        <span class="app-name">南航智飞 <span class="appVersion">v{{appVersion}}</span></span>
+        <span class="app-name"
+          >南航智飞 <span class="appVersion">v{{ appVersion }}</span></span
+        >
       </div>
       <div class="text1">飞行千里万里 | 服务零距离</div>
       <div class="text-wrap">
@@ -23,33 +25,33 @@
 
 <script>
 export default {
-  name: "CsAbout",
+  name: 'CsAbout',
   data() {
     return {
-      appVersion: "0.0.2"
-    };
+      appVersion: '0.0.2'
+    }
   },
   created() {
-    this.init();
+    this.init()
   },
   methods: {
     onCloseClick() {
-      this.$emit("close");
+      this.$emit('close')
     },
     init() {
       if (this.isInApp) {
         this.$native.EmasInformation.getInformation().then(data => {
-          this.appVersion = data.appVersion;
-        });
+          this.appVersion = data.appVersion
+        })
       }
     }
   }
-};
+}
 </script>
 
 <style lang="less" scoped>
 .content {
-  background-image: url("../theme/images/aboutUs.png");
+  background-image: url('../theme/images/aboutUs.png');
   background-size: cover;
   padding: 20px 20px 60px 40px;
   display: flex;
@@ -62,7 +64,7 @@ export default {
       width: 60px;
       height: 60px;
     }
-    .appVersion{
+    .appVersion {
       font-size: 12px;
       margin-left: 5px;
     }

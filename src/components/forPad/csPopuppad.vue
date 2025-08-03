@@ -21,8 +21,12 @@
     </div>
     <div class="cs-popup__footer" v-if="showFooter">
       <slot name="footer">
-        <button class="cs-popup__button cancel" v-if="showCloseButton" @click="onCloseClick">{{ closeButtonText }}</button>
-        <button class="cs-popup__button confirm" v-if="showConfirmButton" @click="onConfirmClick">{{ confirmButtonText }}</button>
+        <button class="cs-popup__button cancel" v-if="showCloseButton" @click="onCloseClick">
+          {{ closeButtonText }}
+        </button>
+        <button class="cs-popup__button confirm" v-if="showConfirmButton" @click="onConfirmClick">
+          {{ confirmButtonText }}
+        </button>
       </slot>
     </div>
   </van-popup>
@@ -30,7 +34,7 @@
 
 <script>
 export default {
-  name: "CsPopup",
+  name: 'CsPopup',
   props: {
     value: {
       type: Boolean,
@@ -41,11 +45,11 @@ export default {
     // 弹出位置，可选值为 top bottom right left
     position: {
       type: String,
-      default: "center"
+      default: 'center'
     },
     // 容器
     getContainer: {
-      default: "body"
+      default: 'body'
     },
     // 显示头部
     showHeader: {
@@ -65,12 +69,12 @@ export default {
     // 关闭按钮文本
     closeButtonText: {
       type: String,
-      default: "取消"
+      default: '取消'
     },
     // 确定按钮文本
     confirmButtonText: {
       type: String,
-      default: "提交"
+      default: '提交'
     },
     // 是否在点击遮罩层后关闭
     closeOnClickOverlay: {
@@ -80,40 +84,38 @@ export default {
     showFooter: {
       type: Boolean,
       default: false
-
     }
-
   },
   data() {
     return {
       popupVisible: false
-    };
+    }
   },
   created() {
-    this.popupVisible = this.value;
+    this.popupVisible = this.value
   },
   methods: {
     handleClosed() {
-      this.$emit("closed");
+      this.$emit('closed')
     },
     onCloseClick() {
-      this.$emit("close");
+      this.$emit('close')
     },
     onConfirmClick() {
-      this.$emit("confirm");
+      this.$emit('confirm')
     }
   },
   watch: {
     value(newValue) {
-      this.popupVisible = newValue;
+      this.popupVisible = newValue
     },
     popupVisible(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.$emit("input", newValue);
+        this.$emit('input', newValue)
       }
     }
   }
-};
+}
 </script>
 
 <style lang="less">

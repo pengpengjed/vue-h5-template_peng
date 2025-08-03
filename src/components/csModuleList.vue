@@ -2,8 +2,8 @@
   <div class="cs-module-list">
     <div class="header">
       <span>模块管理</span>
-      <van-icon class="btn-refresh" name="replay" @click="refresh()"/>
-      <van-icon class="btn-close" name="cross"  @click="onCloseClick" />
+      <van-icon class="btn-refresh" name="replay" @click="refresh()" />
+      <van-icon class="btn-close" name="cross" @click="onCloseClick" />
     </div>
     <div class="content">
       <van-loading v-if="loading">正在加载</van-loading>
@@ -31,67 +31,67 @@
 
 <script>
 export default {
-  name: "CsModuleList",
+  name: 'CsModuleList',
   data() {
     return {
       loading: false,
       moduleList: [],
       statusMap: {
-        1: "准备就绪",
-        2: "待更新",
-        3: "未加载",
-        4: "正在下载"
+        1: '准备就绪',
+        2: '待更新',
+        3: '未加载',
+        4: '正在下载'
       }
-    };
+    }
   },
   created() {
-    this.load();
-    console.log(123);
+    this.load()
+    console.log(123)
   },
   methods: {
     onCloseClick() {
-      this.$emit("close");
+      this.$emit('close')
     },
     refresh() {
-      this.load();
+      this.load()
     },
     load() {
       if (this.loading) {
-        return;
+        return
       }
 
-      this.loading = true;
+      this.loading = true
       if (this.isInApp) {
         this.$native.Imap.getH5ModuleList()
           .then(res => {
-            this.moduleList = res.modules || [];
-            this.loading = false;
+            this.moduleList = res.modules || []
+            this.loading = false
           })
           .catch(() => {
-            this.loading = false;
-          });
+            this.loading = false
+          })
       } else {
         this.moduleList = [
-          { identifier: "com.csair.eplm.flightHome", name: "南航智飞", version: "v1.0", cubeStatus: 1 },
-          { identifier: "com.csair.eplm.personalFile", name: "个人档案", version: "v1.0", cubeStatus: 2 },
-          { identifier: "com.csair.eplm.approvalRelease", name: "审批发布", version: "v1.0", cubeStatus: 3 },
-          { identifier: "com.csair.eplm.ebpreflyt", name: "网上准备", version: "v1.0", cubeStatus: 4 },
-          { identifier: "com.csair.eplm.empCards", name: "我的证件", version: "v1.0", cubeStatus: 1 },
-          { identifier: "com.csair.eplm.trainApplyPersonal", name: "个人申请", version: "v1.0", cubeStatus: 1 },
-          { identifier: "com.csair.eplm.trainApplyAgent", name: "代理申请", version: "v1.0", cubeStatus: 1 },
-          { identifier: "com.csair.eplm.trainCourseware", name: "训练课件", version: "v1.0", cubeStatus: 2 },
-          { identifier: "com.csair.eplm.trainEvaluate", name: "训练评估", version: "v1.0", cubeStatus: 3 },
-          { identifier: "com.csair.eplm.trainMonitor", name: "训练监控", version: "v1.0", cubeStatus: 4 },
-          { identifier: "com.csair.eplm.airlineCheck", name: "航线检查", version: "v1.0", cubeStatus: 1 },
-          { identifier: "com.csair.eplm.assessmentConfirm", name: "考核确认", version: "v1.0", cubeStatus: 1 }
-        ];
+          { identifier: 'com.csair.eplm.flightHome', name: '南航智飞', version: 'v1.0', cubeStatus: 1 },
+          { identifier: 'com.csair.eplm.personalFile', name: '个人档案', version: 'v1.0', cubeStatus: 2 },
+          { identifier: 'com.csair.eplm.approvalRelease', name: '审批发布', version: 'v1.0', cubeStatus: 3 },
+          { identifier: 'com.csair.eplm.ebpreflyt', name: '网上准备', version: 'v1.0', cubeStatus: 4 },
+          { identifier: 'com.csair.eplm.empCards', name: '我的证件', version: 'v1.0', cubeStatus: 1 },
+          { identifier: 'com.csair.eplm.trainApplyPersonal', name: '个人申请', version: 'v1.0', cubeStatus: 1 },
+          { identifier: 'com.csair.eplm.trainApplyAgent', name: '代理申请', version: 'v1.0', cubeStatus: 1 },
+          { identifier: 'com.csair.eplm.trainCourseware', name: '训练课件', version: 'v1.0', cubeStatus: 2 },
+          { identifier: 'com.csair.eplm.trainEvaluate', name: '训练评估', version: 'v1.0', cubeStatus: 3 },
+          { identifier: 'com.csair.eplm.trainMonitor', name: '训练监控', version: 'v1.0', cubeStatus: 4 },
+          { identifier: 'com.csair.eplm.airlineCheck', name: '航线检查', version: 'v1.0', cubeStatus: 1 },
+          { identifier: 'com.csair.eplm.assessmentConfirm', name: '考核确认', version: 'v1.0', cubeStatus: 1 }
+        ]
         setTimeout(() => {
-          this.loading = false;
-        }, 200);
+          this.loading = false
+        }, 200)
       }
     }
   }
-};
+}
 </script>
 
 <style lang="less">

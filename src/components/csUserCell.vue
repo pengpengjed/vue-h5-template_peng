@@ -10,7 +10,7 @@
       </div>
       <!--单选选中值-->
       <div v-if="!multiple" class="picker-single-value">
-        <span>{{ componentValue ? componentValue : "请选择" }}</span>
+        <span>{{ componentValue ? componentValue : '请选择' }}</span>
         <van-icon name="cross" @click.stop="onClearClick" v-if="componentValue && clearable" />
       </div>
 
@@ -57,7 +57,7 @@
             @click="onSelectUser(item)"
           />
         </van-cell-group>
-        <div class="tips" v-else>{{ loaded ? "没有搜索到相关数据" : "请先搜索再进行人员选择" }}</div>
+        <div class="tips" v-else>{{ loaded ? '没有搜索到相关数据' : '请先搜索再进行人员选择' }}</div>
       </div>
       <div class="button-bar">
         <van-button type="info" @click="onNavBarClickLeft">关闭</van-button>
@@ -68,7 +68,7 @@
 
 <script>
 export default {
-  name: "csUserCell",
+  name: 'csUserCell',
   props: {
     // 设置标题
     title: {
@@ -85,7 +85,7 @@ export default {
     userList: {
       type: Array,
       default: () => {
-        return [];
+        return []
       }
     },
     // 设置关键字变更之后，是否主动加载数据
@@ -101,119 +101,119 @@ export default {
   },
   data() {
     return {
-      componentValue: "",
+      componentValue: '',
       popupVisible: false,
-      keyword: "",
+      keyword: '',
       selectedUsers: [],
       dataList: [],
       loading: false,
       loaded: false,
       userSingleData: []
-    };
+    }
   },
   created() {
-    this.componentValue = this.value;
+    this.componentValue = this.value
   },
   methods: {
     loadData() {
       if (!this.keyword) {
-        this.alertMessage("请输入关键词搜索");
-        return;
+        this.alertMessage('请输入关键词搜索')
+        return
       }
       if (this.loading) {
-        return;
+        return
       }
-      this.loading = true;
-      this.loaded = true;
+      this.loading = true
+      this.loaded = true
       this.$http
         .postJson(this.$api.base.toAddCirculateStaffListPageForApprove, {
           personName: this.keyword
         })
         .then(data => {
-          this.dataList = data.queryEmpInfoList || [];
+          this.dataList = data.queryEmpInfoList || []
         })
         .finally(() => {
-          this.loading = false;
-        });
+          this.loading = false
+        })
     },
     onCellClick() {
-      this.keyword = "";
-      this.dataList = [];
-      this.popupVisible = true;
+      this.keyword = ''
+      this.dataList = []
+      this.popupVisible = true
     },
     onClearClick() {
-      this.componentValue = "";
-      this.$emit("input", this.componentValue);
+      this.componentValue = ''
+      this.$emit('input', this.componentValue)
     },
     onNavBarClickLeft() {
-      this.popupVisible = false;
+      this.popupVisible = false
     },
     onSelectUser(user) {
       if (!this.multiple) {
-        this.componentValue = user.staffNum;
+        this.componentValue = user.staffNum
 
-        this.$emit("input", user.staffNum);
-        this.popupVisible = false;
-        this.userSingleData = [];
-        this.userSingleData.push(user);
-        return;
+        this.$emit('input', user.staffNum)
+        this.popupVisible = false
+        this.userSingleData = []
+        this.userSingleData.push(user)
+        return
       }
-      let isExists = false;
+      let isExists = false
       for (let i = 0, len = this.selectedUsers.length; i < len; i++) {
-        const el = this.selectedUsers[i];
+        const el = this.selectedUsers[i]
         if (el) {
           if (el.staffNum === user.staffNum) {
-            isExists = true;
-            break;
+            isExists = true
+            break
           }
         }
       }
       if (!isExists) {
-        this.selectedUsers.push(user);
+        this.selectedUsers.push(user)
       }
-      this.popupVisible = false;
+      this.popupVisible = false
     },
     onRemoveUser(index) {
       this.$dialog
         .confirm({
-          title: "警告",
-          message: "您确定删除吗？"
+          title: '警告',
+          message: '您确定删除吗？'
         })
         .then(() => {
           if (!this.multiple) {
-            this.componentValue = "";
-            this.$emit("input", "");
-            this.userSingleData = [];
-            return;
+            this.componentValue = ''
+            this.$emit('input', '')
+            this.userSingleData = []
+            return
           }
-          this.selectedUsers.splice(index, 1);
+          this.selectedUsers.splice(index, 1)
         })
-        .catch(() => {});
+        .catch(() => {})
     }
   },
   watch: {
     value(newValue) {
-      this.componentValue = newValue;
+      this.componentValue = newValue
     },
     selectedUsers(newValue) {
-      const value = [];
+      const value = []
       newValue.forEach(item => {
         if (item) {
-          value.push(item.staffNum);
+          value.push(item.staffNum)
         }
-      });
-      this.$emit("input", value);
+      })
+      this.$emit('input', value)
     },
     userList() {
-      this.selectedUsers = this.userList;
+      this.selectedUsers = this.userList
     },
     keyword() {
       if (this.isVoluntarily && this.keyword) {
-        this.loadData();
+        this.loadData()
       }
     }
   }
-};
+}
 </script>
 
 <style lang="less">

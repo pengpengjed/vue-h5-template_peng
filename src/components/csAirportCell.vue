@@ -1,5 +1,12 @@
 <template>
-  <van-cell class="cs-airport-cell" :title="title" :is-link="!disabled" @click="onCellClick" :required="required" :icon="icon">
+  <van-cell
+    class="cs-airport-cell"
+    :title="title"
+    :is-link="!disabled"
+    @click="onCellClick"
+    :required="required"
+    :icon="icon"
+  >
     <div class="picker-cell-value">
       <template v-if="selectedItem">
         <span class="componentText">{{ componentText }}</span>
@@ -41,7 +48,7 @@
                 :otherParams="queryParams"
                 :url="url"
               >
-                <template #default="{data}">
+                <template #default="{ data }">
                   <van-cell
                     v-for="item in data"
                     :key="index + '_' + item.value"
@@ -72,11 +79,11 @@
 </template>
 
 <script>
-import { IndexBar, IndexAnchor } from "vant";
-import csPagingList from "./csPagingList.vue";
-import pinyin from "pinyin";
+import { IndexBar, IndexAnchor } from 'vant'
+import csPagingList from './csPagingList.vue'
+import pinyin from 'pinyin'
 export default {
-  name: "csAirportCell",
+  name: 'csAirportCell',
   components: {
     VanIndexBar: IndexBar,
     VanIndexAnchor: IndexAnchor,
@@ -109,7 +116,7 @@ export default {
     // 请求地址
     url: {
       type: String,
-      default: "/restapp/rird/enum/port"
+      default: '/restapp/rird/enum/port'
     },
     // 是否组件初始化请求数据
     immediateResquest: {
@@ -124,7 +131,7 @@ export default {
     storeKey: {
       type: String,
       default: () => {
-        return Math.random().toString(36).substring(2, 9);
+        return Math.random().toString(36).substring(2, 9)
       }
     },
     // 左侧图标
@@ -135,70 +142,70 @@ export default {
   },
   data() {
     return {
-      componentValue: "",
+      componentValue: '',
       popupVisible: false,
-      keyword: "",
+      keyword: '',
       airportIndexData: {},
       airportSearchData: [],
-      airportType: "internal",
+      airportType: 'internal',
       selectedItem: null,
-      airportIndexDataSessionKey: "AIRPORT_INDEX_DATA_SESSION_KEY",
-      airportSearchDataSessionKey: "AIRPORT_SEARCH_DATA_SESSION_KEY",
+      airportIndexDataSessionKey: 'AIRPORT_INDEX_DATA_SESSION_KEY',
+      airportSearchDataSessionKey: 'AIRPORT_SEARCH_DATA_SESSION_KEY',
 
       queryParams: {
         // 搜索参数
-        str: "" // 搜索关键字
+        str: '' // 搜索关键字
       },
       debounceTimer: null,
       debounceDelay: 500 // 防抖延迟时间，单位毫秒
-    };
+    }
   },
   created() {
-    this.componentValue = this.value;
-    this.immediateResquest && this.loadData();
+    this.componentValue = this.value
+    this.immediateResquest && this.loadData()
   },
   methods: {
     /**
      * 分页模式请求数据
      */
     queryHandle(str) {
-      this.isPagnation && (this.queryParams.str = str || "");
+      this.isPagnation && (this.queryParams.str = str || '')
       this.$nextTick(() => {
-        this.$refs.csPagingListRef && this.$refs.csPagingListRef?.refresh();
-      });
+        this.$refs.csPagingListRef && this.$refs.csPagingListRef?.refresh()
+      })
     },
     /**
      * 输入框防抖
      */
     handleInput(str) {
-      if (!this.isPagnation) return;
-      clearTimeout(this.debounceTimer); // 使用统一的timer变量
+      if (!this.isPagnation) return
+      clearTimeout(this.debounceTimer) // 使用统一的timer变量
       this.debounceTimer = setTimeout(() => {
-        this.queryHandle(str);
-      }, this.debounceDelay);
+        this.queryHandle(str)
+      }, this.debounceDelay)
     },
     async initData() {
-      let findSource = [];
+      let findSource = []
       if (this.value) {
         if (!this.immediateResquest && !this.isPagnation) {
-          let airportIndexData = this.$sessionStorage.getItem(this.airportIndexDataSessionKey);
-          let airportSearchData = this.$sessionStorage.getItem(this.airportSearchDataSessionKey);
+          let airportIndexData = this.$sessionStorage.getItem(this.airportIndexDataSessionKey)
+          let airportSearchData = this.$sessionStorage.getItem(this.airportSearchDataSessionKey)
           if (airportIndexData && airportSearchData) {
-            this.airportIndexData = airportIndexData;
-            this.airportSearchData = airportSearchData;
-            findSource = airportSearchData;
+            this.airportIndexData = airportIndexData
+            this.airportSearchData = airportSearchData
+            findSource = airportSearchData
           }
         }
         if (this.isPagnation) {
-          this.queryParams.str = this.value;
-          this.keyword = this.value;
-          const res = await this.$http.get({ url: this.url, data: { ...this.queryParams } });
-          res.dataList && (findSource = res.dataList);
+          this.queryParams.str = this.value
+          this.keyword = this.value
+          const res = await this.$http.get({ url: this.url, data: { ...this.queryParams } })
+          res.dataList && (findSource = res.dataList)
         }
         for (let item of findSource) {
           if (item.value === this.value) {
-            this.selectedItem = item;
-            break;
+            this.selectedItem = item
+            break
           }
         }
       }
@@ -208,98 +215,98 @@ export default {
      */
     loadData() {
       // 使用缓存数据
-      let airportIndexData = this.$sessionStorage.getItem(this.airportIndexDataSessionKey);
-      let airportSearchData = this.$sessionStorage.getItem(this.airportSearchDataSessionKey);
+      let airportIndexData = this.$sessionStorage.getItem(this.airportIndexDataSessionKey)
+      let airportSearchData = this.$sessionStorage.getItem(this.airportSearchDataSessionKey)
       if (airportIndexData && airportSearchData) {
-        this.airportIndexData = airportIndexData;
-        this.airportSearchData = airportSearchData;
-        this.initData();
-        return Promise.resolve();
+        this.airportIndexData = airportIndexData
+        this.airportSearchData = airportSearchData
+        this.initData()
+        return Promise.resolve()
       }
       // 远程获取数据
       return this.$http
         .get(this.url)
         .then(data => {
-          let airportIndexData = {};
-          let airportSearchData = [];
+          let airportIndexData = {}
+          let airportSearchData = []
           for (var i = 0; i < 25; i++) {
-            airportIndexData[String.fromCharCode(65 + i)] = [];
+            airportIndexData[String.fromCharCode(65 + i)] = []
           }
-          (data || []).forEach(item => {
-            let pinyinStr = this.getPinYin(item.name);
-            item.keyword = `${item.name} ${item.value} ${pinyinStr} ${pinyinStr.toUpperCase()}`;
+          ;(data || []).forEach(item => {
+            let pinyinStr = this.getPinYin(item.name)
+            item.keyword = `${item.name} ${item.value} ${pinyinStr} ${pinyinStr.toUpperCase()}`
 
-            let indexValue = pinyinStr.substring(0, 1).toUpperCase();
+            let indexValue = pinyinStr.substring(0, 1).toUpperCase()
             if (!airportIndexData[indexValue]) {
-              airportIndexData[indexValue] = [];
+              airportIndexData[indexValue] = []
             }
-            airportIndexData[indexValue].push(item);
-            airportSearchData.push(item);
-          });
-          this.airportIndexData = airportIndexData;
-          this.airportSearchData = airportSearchData;
+            airportIndexData[indexValue].push(item)
+            airportSearchData.push(item)
+          })
+          this.airportIndexData = airportIndexData
+          this.airportSearchData = airportSearchData
           // 保存缓存数据
-          this.$sessionStorage.setItem(this.airportIndexDataSessionKey, this.airportIndexData);
-          this.$sessionStorage.setItem(this.airportSearchDataSessionKey, this.airportSearchData);
+          this.$sessionStorage.setItem(this.airportIndexDataSessionKey, this.airportIndexData)
+          this.$sessionStorage.setItem(this.airportSearchDataSessionKey, this.airportSearchData)
           // 初始化默认值
-          this.initData();
+          this.initData()
         })
         .catch(err => {
-          console.error("加载机场数据失败:", err);
-          this.hideLoading();
-          return Promise.reject(err);
-        });
+          console.error('加载机场数据失败:', err)
+          this.hideLoading()
+          return Promise.reject(err)
+        })
     },
     getPinYin(name) {
-      let result = [];
+      let result = []
       let tmp = pinyin(name, {
         style: pinyin.STYLE_NORMAL
-      });
+      })
       tmp.forEach(item => {
-        result = [...result, ...item];
-      });
-      return result.join("");
+        result = [...result, ...item]
+      })
+      return result.join('')
     },
     async onCellClick() {
-      this.showLoading("数据加载中...");
-      !this.isPagnation && (await this.loadData());
-      this.open();
+      this.showLoading('数据加载中...')
+      !this.isPagnation && (await this.loadData())
+      this.open()
     },
     open() {
-      this.popupVisible = true;
-      this.hideLoading();
+      this.popupVisible = true
+      this.hideLoading()
     },
     onPickerItemClick(item) {
-      this.componentValue = item.value;
-      this.selectedItem = item;
-      this.$emit("select", item);
-      this.popupVisible = false;
-      this.keyword = "";
+      this.componentValue = item.value
+      this.selectedItem = item
+      this.$emit('select', item)
+      this.popupVisible = false
+      this.keyword = ''
 
-      this.queryParams.str = "";
+      this.queryParams.str = ''
     },
     onClearClick() {
-      this.componentValue = "";
-      this.selectedItem = null;
-      this.keyword = "";
+      this.componentValue = ''
+      this.selectedItem = null
+      this.keyword = ''
       // this.popupVisible = false;
     },
     getItemClass(item) {
-      return this.selectedItem && item.value === this.selectedItem.value;
+      return this.selectedItem && item.value === this.selectedItem.value
     }
   },
   beforeDestroy() {
-    this.debounceTimer && clearTimeout(this.debounceTimer);
+    this.debounceTimer && clearTimeout(this.debounceTimer)
   },
   computed: {
     searchFilter() {
-      return new RegExp(this.keyword, "i");
+      return new RegExp(this.keyword, 'i')
     },
     componentText() {
       if (this.selectedItem) {
-        return `${this.selectedItem.name} (${this.selectedItem.value})`;
+        return `${this.selectedItem.name} (${this.selectedItem.value})`
       } else {
-        return "";
+        return ''
       }
     }
   },
@@ -308,25 +315,25 @@ export default {
       deep: true,
       immediate: true,
       handler(newValue) {
-        this.componentValue = newValue;
-        this.initData(); // 重新初始化选中项
+        this.componentValue = newValue
+        this.initData() // 重新初始化选中项
       }
     },
     componentValue(newValue) {
-      this.$emit("input", newValue);
+      this.$emit('input', newValue)
     },
     keyword: {
       deep: true,
       immediate: true,
       handler(newValue) {
         if (this.isPagnation) {
-          this.queryParams.str = newValue;
+          this.queryParams.str = newValue
         }
-        this.handleInput(newValue);
+        this.handleInput(newValue)
       }
     }
   }
-};
+}
 </script>
 
 <style lang="less">

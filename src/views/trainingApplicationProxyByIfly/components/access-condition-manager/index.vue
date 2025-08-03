@@ -1,27 +1,23 @@
 <template>
   <div class="access-condition-manager">
     <!-- 切换按钮 -->
-    <div class="type-switch">
-      <div class="switch-container">
-        <van-button
-          :class="['switch-btn', { active: accessConditionType === 1 }]"
-          size="small"
-          @click="switchConditionType(1)"
-        >
-          按标签配置
-        </van-button>
-        <van-button
-          :class="['switch-btn', { active: accessConditionType === 2 }]"
-          size="small"
-          @click="switchConditionType(2)"
-        >
-          自由组合
-        </van-button>
-      </div>
-    </div>
+    <!-- <div class="type-switch">
+      <VanButton :type="accessConditionType === 1 ? 'primary' : 'default'" size="small" @click="switchConditionType(1)">
+        按标签配置
+      </VanButton>
+      <VanButton :type="accessConditionType === 2 ? 'primary' : 'default'" size="small" @click="switchConditionType(2)">
+        自由组合
+      </VanButton>
+    </div> -->
 
     <!-- accessConditionType === 1 -->
     <div class="access-conditions-wrapper" v-if="accessConditionType === 1">
+      <!-- 手指引导 -->
+      <div class="finger-guide" v-if="showFingerGuide">
+        <img src="../../theme/images/icon-tips.png" alt="手指引导" class="finger-guide-icon" />
+        <div class="guide-text">左右滑动查看全部</div>
+      </div>
+
       <AccessConditionTree
         ref="accessConditionTreeRef"
         v-if="accessConditionData"
@@ -52,6 +48,7 @@
         v-if="accessConditionData"
         :data="accessConditionData"
         :if-modify="isEditMode"
+        :pageType="pageType"
         @show-detail="handleShowDetail"
         @condition-change="handleConditionChange"
         @formula-change="handleFormulaChange"
@@ -74,32 +71,12 @@
     </div>
 
     <!-- 文件上传弹窗 -->
-    <van-popup v-model="showFileUpload" position="bottom" :style="{ height: '50%' }">
-      <div class="file-upload-popup">
-        <div class="upload-header">
-          <h3>上传佐证材料</h3>
-          <van-icon name="cross" @click="showFileUpload = false" />
-        </div>
-        <div class="upload-content">
-          <van-uploader
-            v-model="uploadedFiles"
-            :max-count="1"
-            :max-size="10 * 1024 * 1024"
-            :accept="acceptedFileTypes"
-            @oversize="onFileOversize"
-            @delete="onFileDelete"
-          />
-          <div class="upload-tips">
-            <p>支持格式：PDF、DOC、DOCX、XLS、XLSX、PNG、JPG、JPEG、BMP</p>
-            <p>文件大小限制：10MB</p>
-          </div>
-        </div>
-        <div class="upload-actions">
-          <van-button type="primary" @click="confirmFileUpload">确认上传</van-button>
-          <van-button type="default" @click="showFileUpload = false">取消</van-button>
-        </div>
-      </div>
-    </van-popup>
+    <csFileUploadPopup
+      v-model="showFileUpload"
+      :accept-exts="acceptedFileTypes"
+      :limit-size="10"
+      @read-file="onFileRead"
+    />
 
     <!-- 文件预览弹窗 -->
     <van-popup v-model="showFilePreview" position="center" :style="{ width: '90%', height: '80%' }">
@@ -145,6 +122,12 @@ export default {
     editable: {
       type: Boolean,
       default: false
+    },
+    // 页面类型：1： 代申请选择科目后显示纯查看
+    pageType: {
+      type: Number,
+      default: 1,
+      require: true
     }
   },
   data() {
@@ -153,10 +136,12 @@ export default {
       accessConditionData: this.data,
       isEditMode: false,
       originalConditions: null,
+      // 手指引导相关
+      showFingerGuide: false,
+      fingerGuideTimer: null,
       // 文件上传相关
       showFileUpload: false,
       showFilePreview: false,
-      uploadedFiles: [],
       previewFileUrl: '',
       previewFileName: '',
       acceptedFileTypes: ['pdf', 'doc', 'docx', 'xls', 'xlsx', 'png', 'jpg', 'jpeg', 'bmp'],
@@ -174,11 +159,51 @@ export default {
     type: {
       handler(newType) {
         this.accessConditionType = newType
+        // 当类型为1时显示手指引导
+        if (newType === 1) {
+          this.showFingerGuideWithAutoHide()
+        }
       },
       immediate: true
+    },
+    accessConditionType: {
+      handler(newType) {
+        // 当类型为1时显示手指引导
+        if (newType === 1) {
+          this.showFingerGuideWithAutoHide()
+        } else {
+          this.hideFingerGuide()
+        }
+      }
     }
   },
   methods: {
+    // 显示手指引导并自动隐藏
+    showFingerGuideWithAutoHide() {
+      // 清除之前的定时器
+      if (this.fingerGuideTimer) {
+        clearTimeout(this.fingerGuideTimer)
+      }
+
+      // 显示手指引导
+      this.showFingerGuide = true
+
+      // 3秒后自动隐藏
+      this.fingerGuideTimer = setTimeout(() => {
+        this.showFingerGuide = false
+        this.fingerGuideTimer = null
+      }, 3000)
+    },
+
+    // 隐藏手指引导
+    hideFingerGuide() {
+      if (this.fingerGuideTimer) {
+        clearTimeout(this.fingerGuideTimer)
+        this.fingerGuideTimer = null
+      }
+      this.showFingerGuide = false
+    },
+
     // 切换条件类型
     switchConditionType(type) {
       this.accessConditionType = type
@@ -281,25 +306,15 @@ export default {
       this.showFileUpload = true
     },
 
-    onFileOversize() {
-      this.$toast('文件大小不能超过10MB')
-    },
-
-    onFileDelete() {
-      this.uploadedFiles = []
-    },
-
-    confirmFileUpload() {
-      if (this.uploadedFiles.length > 0 && this.currentCondition) {
-        const file = this.uploadedFiles[0]
+    onFileRead(fileData) {
+      if (this.currentCondition) {
         this.currentCondition.attachment = {
-          name: file.file.name,
-          url: URL.createObjectURL(file.file),
-          size: file.file.size
+          name: fileData.name,
+          url: fileData.url || URL.createObjectURL(fileData.file),
+          size: fileData.file.size
         }
         this.currentCondition.status = 'manual'
         this.showFileUpload = false
-        this.uploadedFiles = []
         this.currentCondition = null
       }
     },
@@ -341,120 +356,102 @@ export default {
     handleUploadAttachment(condition) {
       this.$emit('upload-attachment', condition)
     }
+  },
+  beforeDestroy() {
+    // 清理定时器
+    if (this.fingerGuideTimer) {
+      clearTimeout(this.fingerGuideTimer)
+    }
   }
 }
 </script>
 
-<style lang="scss" scoped>
-.relationTag {
-  border: 1px solid #a5cfb8;
-}
+<style lang="less" scoped>
 .access-condition-manager {
-  .type-switch {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-    padding: 0 16px;
-
-    .switch-container {
-      display: flex;
-      background: #f5f5f5;
-      border-radius: 6px;
-      padding: 2px;
-      gap: 0;
-
-      .switch-btn {
-        border: none;
-        background: transparent;
-        color: #666;
-        border-radius: 4px;
-        transition: all 0.3s ease;
-        min-width: 80px;
-
-        &.active {
-          background: #fff;
-          color: #1989fa;
-          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-        }
-
-        &:not(.active):hover {
-          color: #333;
-        }
-      }
-    }
-  }
-
   .access-conditions-wrapper {
     min-height: 300px;
-    padding: 20px;
-    background-color: #f7fcff;
-    border: 1px solid #e8e8e8;
+    padding: 14px;
+    background-color: #f8f9fa;
     border-radius: 8px;
-    margin: 0 16px 16px;
+    overflow: hidden;
+
+    // 手指引导样式
+    .finger-guide {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 1000;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      animation: fadeInOut 3s ease-in-out;
+      pointer-events: none;
+
+      .finger-guide-icon {
+        width: 80px;
+        height: 80px;
+        animation: slideLeftRight 2s infinite ease-in-out;
+      }
+
+      .guide-text {
+        margin-top: 12px;
+        font-size: 16px;
+        font-weight: bold;
+        color: #333;
+        text-align: center;
+        background: rgba(255, 255, 255, 0.9);
+        padding: 8px 16px;
+        border-radius: 20px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+    }
 
     .action-buttons {
-      margin-top: 20px;
-      padding-top: 20px;
-      border-top: 1px solid #f0f0f0;
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid #eee;
       display: flex;
-      justify-content: center;
-      gap: 12px;
+      justify-content: flex-end;
 
       .edit-actions {
         display: flex;
-        gap: 12px;
-      }
-
-      .van-button {
-        min-width: 80px;
-        border-radius: 6px;
-      }
-    }
-  }
-}
-
-.file-upload-popup {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-
-  .upload-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 16px;
-    border-bottom: 1px solid #eee;
-
-    h3 {
-      margin: 0;
-    }
-
-    .van-icon {
-      cursor: pointer;
-      font-size: 18px;
-    }
-  }
-
-  .upload-content {
-    flex: 1;
-    padding: 16px;
-
-    .upload-tips {
-      margin-top: 16px;
-      color: #666;
-      font-size: 12px;
-
-      p {
-        margin: 4px 0;
+        gap: 8px;
       }
     }
   }
 
-  .upload-actions {
-    padding: 16px;
-    display: flex;
-    gap: 8px;
-    border-top: 1px solid #eee;
+  // 手指引导动画
+  @keyframes fadeInOut {
+    0% {
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(0.8);
+    }
+    20% {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+    }
+    80% {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+    }
+    100% {
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(0.8);
+    }
+  }
+
+  @keyframes slideLeftRight {
+    0%,
+    100% {
+      transform: translateX(0);
+    }
+    25% {
+      transform: translateX(-15px);
+    }
+    75% {
+      transform: translateX(15px);
+    }
   }
 }
 

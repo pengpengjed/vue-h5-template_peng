@@ -59,7 +59,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="less">
 .about-container {
   /* 你的命名空间 */
   background: #fff;
@@ -97,7 +97,7 @@ export default {
       .logo {
         width: 120px;
         height: 120px;
-        background: url($cdn + '/weapp/logo.png') center / contain no-repeat;
+        background: url('https://www.sunniejs.cn/static/weapp/logo.png') center / contain no-repeat;
       }
       .wechat {
         width: 200px;

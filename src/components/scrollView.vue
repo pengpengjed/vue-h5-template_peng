@@ -7,10 +7,10 @@
 </template>
 
 <script>
-import IScroll from "iscroll/build/iscroll-probe";
+import IScroll from 'iscroll/build/iscroll-probe'
 export default {
-  componentName: "ScrollView",
-  name: "ScrollView",
+  componentName: 'ScrollView',
+  name: 'ScrollView',
   props: {
     click: {
       type: Boolean,
@@ -39,10 +39,10 @@ export default {
   data() {
     return {
       iscroll: null
-    };
+    }
   },
   created() {
-    this.$on("refresh-view", this.refresh);
+    this.$on('refresh-view', this.refresh)
   },
   mounted() {
     this.iscroll = new IScroll(this.$refs.wapper, {
@@ -53,35 +53,35 @@ export default {
       scrollbars: this.scrollbars,
       fadeScrollbars: true,
       eventPassthrough: this.eventPassthrough
-    });
-    this.iscroll.on("scrollStart", () => {
-      this.emitEvant("scroll-start");
-    });
-    this.iscroll.on("scroll", () => {
-      this.emitEvant("scroll");
-    });
-    this.iscroll.on("scrollEnd", () => {
-      this.emitEvant("scroll-end");
-    });
+    })
+    this.iscroll.on('scrollStart', () => {
+      this.emitEvant('scroll-start')
+    })
+    this.iscroll.on('scroll', () => {
+      this.emitEvant('scroll')
+    })
+    this.iscroll.on('scrollEnd', () => {
+      this.emitEvant('scroll-end')
+    })
   },
   methods: {
     refresh() {
       setTimeout(() => {
-        this.iscroll.refresh();
-        this.emitEvant("scroll");
-      }, 50);
+        this.iscroll.refresh()
+        this.emitEvant('scroll')
+      }, 50)
     },
     emitEvant(eventName) {
-      this.$emit(eventName, this.iscroll || {});
+      this.$emit(eventName, this.iscroll || {})
     }
   },
   destroyed() {
     if (this.iscroll) {
-      this.iscroll.destroy();
-      this.iscroll = null;
+      this.iscroll.destroy()
+      this.iscroll = null
     }
   }
-};
+}
 </script>
 
 <style lang="less">

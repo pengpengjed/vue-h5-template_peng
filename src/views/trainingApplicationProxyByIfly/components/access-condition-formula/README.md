@@ -52,10 +52,7 @@ AccessConditionFormula 组件用于显示和编辑电子化准入条件的组合
 
 ```vue
 <template>
-  <AccessConditionFormula 
-    :data="accessConditionData" 
-    @show-detail="handleShowDetail" 
-  />
+  <AccessConditionFormula :data="accessConditionData" @show-detail="handleShowDetail" />
 </template>
 
 <script>
@@ -85,8 +82,8 @@ export default {
 
 ```vue
 <template>
-  <AccessConditionFormula 
-    :data="accessConditionData" 
+  <AccessConditionFormula
+    :data="accessConditionData"
     :if-modify="isEditMode"
     @show-detail="handleShowDetail"
     @condition-change="handleConditionChange"
@@ -133,34 +130,36 @@ export default {
 
 ## Props
 
-| 参数 | 类型 | 默认值 | 说明 |
-|------|------|--------|------|
-| data | Object | - | 准入条件数据，必需 |
-| ifModify | Boolean | false | 是否为编辑模式 |
+| 参数     | 类型    | 默认值 | 说明               |
+| -------- | ------- | ------ | ------------------ |
+| data     | Object  | -      | 准入条件数据，必需 |
+| ifModify | Boolean | false  | 是否为编辑模式     |
 
 ## Events
 
-| 事件名 | 参数 | 说明 |
-|--------|------|------|
-| show-detail | condition | 显示条件详情时触发 |
+| 事件名           | 参数                | 说明                   |
+| ---------------- | ------------------- | ---------------------- |
+| show-detail      | condition           | 显示条件详情时触发     |
 | condition-change | condition, selected | 条件选择状态变更时触发 |
-| formula-change | formula | 组合公式变更时触发 |
+| formula-change   | formula             | 组合公式变更时触发     |
 
 ## Methods
 
-| 方法名 | 参数 | 返回值 | 说明 |
-|--------|------|--------|------|
-| getFormData | - | Object | 获取表单数据，包含条件表达式和选中的条件列表 |
+| 方法名      | 参数 | 返回值 | 说明                                         |
+| ----------- | ---- | ------ | -------------------------------------------- |
+| getFormData | -    | Object | 获取表单数据，包含条件表达式和选中的条件列表 |
 
 ## 功能特性
 
 ### 查看模式
+
 - 显示组合公式
 - 显示条件列表
 - 支持查看条件详情
 - 显示条件的操作符、比较值、单位等信息
 
 ### 编辑模式
+
 - 支持选择/取消选择条件
 - 支持编辑组合公式
 - 提供运算符按钮（括号、或、且）
@@ -169,6 +168,7 @@ export default {
 - 实时更新组合公式
 
 ### 组合公式编辑
+
 - 支持添加括号进行分组
 - 支持使用"或"、"且"逻辑运算符
 - 支持点击条件编号添加到公式
@@ -177,7 +177,7 @@ export default {
 
 ## 样式定制
 
-组件使用 SCSS 编写样式，主要样式类：
+组件使用 less 编写样式，主要样式类：
 
 - `.access-condition-formula` - 主容器
 - `.formula-section` - 组合公式区域
@@ -191,6 +191,6 @@ export default {
 ## 注意事项
 
 1. 数据中的 `conditionalExpression` 应该使用数字表示条件编号，使用 `|` 表示"或"，使用 `&` 表示"且"
-2. 条件编号从1开始，对应 `accessConditionDetailList` 中的索引+1
+2. 条件编号从 1 开始，对应 `accessConditionDetailList` 中的索引+1
 3. 编辑模式下，需要手动调用 `getFormData()` 方法获取最终数据
-4. 组件会自动处理数据格式转换和验证 
+4. 组件会自动处理数据格式转换和验证

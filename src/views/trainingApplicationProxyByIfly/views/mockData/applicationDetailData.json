@@ -1,0 +1,208 @@
+{
+  "studentBasicInfo": {
+    "name": "张三",
+    "employeeId": "111222",
+    "technicalLevel": "机长",
+    "division": "二分部",
+    "registrationBase": "广州",
+    "operatingBase": "广州",
+    "trainingBase": "广州",
+    "status": "审批中"
+  },
+  "applicationDetails": {
+    "trainingAircraftModel": "320",
+    "category": "航线检查",
+    "outline": "英语通信单飞航线检查",
+    "stage": "航线检查",
+    "subject": "日韩区域英语通信资格",
+    "description": "申请日韩区域英语通信资格训练，需要完成相关航线检查科目。",
+    "attachments": [
+      {
+        "id": "1",
+        "name": "训练申请表.pdf",
+        "url": "/files/training-application.pdf",
+        "size": "256KB"
+      },
+      {
+        "id": "2",
+        "name": "资格证明文件.pdf",
+        "url": "/files/qualification-cert.pdf",
+        "size": "512KB"
+      }
+    ],
+    "applicationTime": "2024-01-15 10:30:00",
+    "associatedCompletedTraining": [
+      {
+        "subjectName": "英语通信基础训练",
+        "trainingDate": "2024-01-10"
+      },
+      {
+        "subjectName": "航线飞行基础训练",
+        "trainingDate": "2024-01-08"
+      }
+    ],
+    "serialNumber": "TR202401150001",
+    "trainingOutlineVersion": "V2.1",
+    "manualVersion": "V3.0"
+  },
+  "admissionConditions": {
+    "content": "1. 持有有效的飞行执照\n2. 具备英语通信基础能力\n3. 完成相关理论课程学习\n4. 通过模拟机训练考核\n5. 身体健康状况良好\n6. 无重大飞行事故记录"
+  },
+  "electronicAdmissionConditions": {
+    "type": 1,
+    "data": {
+      "groups": [
+        {
+          "id": "group1",
+          "name": "基础资格",
+          "conditions": [
+            {
+              "id": "condition1",
+              "name": "飞行执照有效性",
+              "description": "持有有效的飞行执照",
+              "status": "passed",
+              "attachment": {
+                "name": "飞行执照.pdf",
+                "url": "/files/license.pdf",
+                "size": "1024KB"
+              },
+              "manualConfirmation": {
+                "confirmerName": "李四",
+                "confirmerEmployeeId": "222333",
+                "confirmationTime": "2024-01-14 15:30:00"
+              }
+            },
+            {
+              "id": "condition2",
+              "name": "英语通信能力",
+              "description": "具备英语通信基础能力",
+              "status": "passed",
+              "manualConfirmation": {
+                "confirmerName": "王五",
+                "confirmerEmployeeId": "333444",
+                "confirmationTime": "2024-01-14 16:00:00"
+              }
+            }
+          ]
+        },
+        {
+          "id": "group2",
+          "name": "训练要求",
+          "conditions": [
+            {
+              "id": "condition3",
+              "name": "理论课程完成",
+              "description": "完成相关理论课程学习",
+              "status": "passed",
+              "attachment": {
+                "name": "理论课程成绩单.pdf",
+                "url": "/files/theory-scores.pdf",
+                "size": "512KB"
+              },
+              "manualConfirmation": {
+                "confirmerName": "赵六",
+                "confirmerEmployeeId": "444555",
+                "confirmationTime": "2024-01-14 16:30:00"
+              }
+            }
+          ]
+        }
+      ],
+      "formula": "(基础资格 AND 训练要求) OR 特殊审批",
+      "result": "通过"
+    }
+  },
+  "trainingDetails": {
+    "trainingStage": "航线检查",
+    "checklist": {
+      "subject": "日韩区域英语通信资格",
+      "checklistName": "英语通信航线检查单",
+      "trainingDate": "2024-01-20",
+      "isCompleted": true,
+      "checklistId": "CL202401200001"
+    }
+  },
+  "inspectionHistory": [
+    {
+      "id": "1",
+      "subject": "英语通信基础训练",
+      "checklistName": "英语通信基础检查单",
+      "trainingDate": "2024-01-10",
+      "inspectionDate": "2024-01-10",
+      "inspector": "李四",
+      "result": "通过",
+      "aircraftModel": "320",
+      "outline": "英语通信基础训练"
+    },
+    {
+      "id": "2",
+      "subject": "航线飞行基础训练",
+      "checklistName": "航线飞行基础检查单",
+      "trainingDate": "2024-01-08",
+      "inspectionDate": "2024-01-08",
+      "inspector": "王五",
+      "result": "通过",
+      "aircraftModel": "320",
+      "outline": "航线飞行基础训练"
+    }
+  ],
+  "checkHistoryList": [
+    {
+      "id": "1",
+      "subject": "日韩区域英语通信资格",
+      "result": "通过",
+      "trainingStage": "航线检查",
+      "aircraftModel": "320",
+      "outline": "英语通信单飞航线检查",
+      "trainingDate": "2024-01-20",
+      "checkDate": "2024-01-21",
+      "inspector": "李四",
+      "checklistAvailable": true
+    },
+    {
+      "id": "2",
+      "subject": "航线飞行基础训练",
+      "result": "通过",
+      "trainingStage": "本场阶段",
+      "aircraftModel": "320",
+      "outline": "基础飞行训练",
+      "trainingDate": "2024-01-10",
+      "checkDate": "2024-01-11",
+      "inspector": "王五",
+      "checklistAvailable": false
+    }
+  ],
+  "approvalRecordsList": [
+    {
+      "nodeName": "申请发起",
+      "nodeType": "start",
+      "receiveTime": "2024-01-15 10:30:00",
+      "operator": {
+        "employeeId": "111222",
+        "name": "张三"
+      }
+    },
+    {
+      "nodeName": "一级审批",
+      "nodeType": "approved",
+      "receiveTime": "2024-01-15 14:20:00",
+      "operator": {
+        "employeeId": "222333",
+        "name": "李四"
+      },
+      "operationTime": "2024-01-15 15:30:00",
+      "result": "审批通过",
+      "comment": "同意申请"
+    },
+    {
+      "nodeName": "二级审批",
+      "nodeType": "pending",
+      "receiveTime": "2024-01-15 16:00:00"
+    },
+    {
+      "nodeName": "三级审批",
+      "nodeType": "pending",
+      "receiveTime": null
+    }
+  ]
+}

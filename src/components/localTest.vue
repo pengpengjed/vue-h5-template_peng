@@ -1,5 +1,5 @@
 <!-- 本地调试页面 -->
-  <template>
+<template>
   <!-- 本地调试页面可供APP内调试问题 -->
   <div class="local-test">
     <div class="header">
@@ -35,9 +35,8 @@
         <van-radio name="5">5</van-radio>
         <van-radio name="6">6</van-radio>
         <van-radio name="7">7</van-radio>
-
       </van-radio-group>
-      <input class="picker-search" v-model="params.domain2" type="text" placeholder="请输入IP最后一位"  />
+      <input class="picker-search" v-model="params.domain2" type="text" placeholder="请输入IP最后一位" />
     </div>
     <!-- 端口 -->
     <div class="flex pt2">
@@ -52,86 +51,85 @@
         <van-radio name="8080">8080</van-radio>
       </van-radio-group>
     </div>
-   
   </div>
 </template>
-  <script>
+<script>
 export default {
-  name: "LocalTest",
+  name: 'LocalTest',
   data() {
     return {
       params: {
-        network: "http",
-        domain1: "10.95.15",
-        domain2: "132",
-        port: "840",
-        url: "/index"
+        network: 'http',
+        domain1: '10.95.15',
+        domain2: '132',
+        port: '840',
+        url: '/index'
       },
-      href: "http://192.168.1.101:4399/#/",
-      href1: "http://192.168.1.101:4399/#/"
-    };
+      href: 'http://192.168.1.101:4399/#/',
+      href1: 'http://192.168.1.101:4399/#/'
+    }
   },
   mounted() {
     this.$native.Imap.getH5ModuleList().then(res => {
-      window.console.log("获取模块列表", res);
-    });
+      window.console.log('获取模块列表', res)
+    })
   },
   computed: {
     url() {
-      const { network, domain1, domain2, port } = this.params;
-      return `${network}://${domain1}.${domain2}:${port}/#/`;
+      const { network, domain1, domain2, port } = this.params
+      return `${network}://${domain1}.${domain2}:${port}/#/`
     },
     isAndroid() {
-      return this.$store.state.isAndroid;
+      return this.$store.state.isAndroid
     }
   },
   methods: {
-    onConfirmClick(){
-        const url = this.params.network +'://'+ this.params.domain1 + '.'+this.params.domain2 +':'+ this.params.port
-        window.location.href = url
+    onConfirmClick() {
+      const url = this.params.network + '://' + this.params.domain1 + '.' + this.params.domain2 + ':' + this.params.port
+      window.location.href = url
     },
     go1() {
-      this.$router.push(this.params.url);
+      this.$router.push(this.params.url)
     },
     go2() {
-      window.location.href = this.url;
+      window.location.href = this.url
     },
     go3() {
-      window.location.href = this.href;
+      window.location.href = this.href
     },
     go4() {
-      window.open(this.href1);
+      window.open(this.href1)
     }
   }
-};
+}
 </script>
 <style lang="less" scoped>
 .header {
-    background-color: #3788fe;
-    height: 40px;
-    line-height: 40px;
-    position: relative;
-    text-align: center;
-    color: #ffffff;
-    font-size: 16px;
-    display: flex;
-    flex-direction: row;
+  background-color: #3788fe;
+  height: 40px;
+  line-height: 40px;
+  position: relative;
+  text-align: center;
+  color: #ffffff;
+  font-size: 16px;
+  display: flex;
+  flex-direction: row;
 
-    span[name="title"] {
-      flex: 1;
-    }
-    span[name="button"] {
-      line-height: 40px;
-      font-size: 14px;
-      padding: 0 20px;
-    }
+  span[name='title'] {
+    flex: 1;
   }
+  span[name='button'] {
+    line-height: 40px;
+    font-size: 14px;
+    padding: 0 20px;
+  }
+}
 .local-test {
   font-size: 16px;
   line-height: 24px;
 }
-.picker-search{
-    width: 100%;
-    border: 1px solid #3788fe;
+.picker-search {
+  width: 100%;
+  border: 1px solid #3788fe;
 }
 </style>

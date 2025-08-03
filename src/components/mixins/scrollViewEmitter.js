@@ -1,10 +1,10 @@
-import Emitter from "./emitter";
+import Emitter from './emitter'
 export default {
-  name: "ScrollViewEmitter",
+  name: 'ScrollViewEmitter',
   mixins: [Emitter],
   methods: {
     refreshView() {
-      this.dispatch("ScrollView", "refresh-view");
+      this.dispatch('ScrollView', 'refresh-view')
     }
   }
-};
+}

@@ -5,13 +5,24 @@
         <input type="hidden" v-bind:value="myCity" v-on:input="$emit('input', $event.target.value)" />
 
         <div class="search-bar flex">
-          <input v-model="keyword" class="flex-1" type="search" style="width:85%" name placeholder="机场三字码，如 CAN 或 can" />
+          <input
+            v-model="keyword"
+            class="flex-1"
+            type="search"
+            style="width: 85%"
+            name
+            placeholder="机场三字码，如 CAN 或 can"
+          />
           <span class="colse-btn" v-on:click="close">关闭</span>
         </div>
 
         <div class="tab flex">
-          <div class="flex-1 item" :class="{ active: type === 'internal' }" @click="type = 'internal'">国内（含港澳台）</div>
-          <div class="flex-1 item" :class="{ active: type === 'international' }" @click="type = 'international'">国际</div>
+          <div class="flex-1 item" :class="{ active: type === 'internal' }" @click="type = 'internal'">
+            国内（含港澳台）
+          </div>
+          <div class="flex-1 item" :class="{ active: type === 'international' }" @click="type = 'international'">
+            国际
+          </div>
         </div>
 
         <div class="city-pad flex-1">
@@ -21,7 +32,7 @@
                 <div class="title" :class="'title-' + index">{{ index }}</div>
                 <ul class="city-list">
                   <li v-for="(city, idx) in cities" :key="city.CODE + city.CITY + idx" @click="select(city)">
-                    {{ city.CITY + "（" + city.CODE + "）" }}
+                    {{ city.CITY + '（' + city.CODE + '）' }}
                   </li>
                 </ul>
               </li>
@@ -43,7 +54,7 @@
               :key="city.CODE + city.CITY + index"
               v-show="filter.test(city.CODE) || filter.test(city.keyword)"
             >
-              {{ city.CITY + "（" + city.CODE + "）" }}
+              {{ city.CITY + '（' + city.CODE + '）' }}
             </li>
           </ul>
         </div>
@@ -192,64 +203,64 @@ input {
 
 <script>
 export default {
-  name: "city-picker",
+  name: 'city-picker',
 
-  props: ["value", "showUp"],
+  props: ['value', 'showUp'],
   data() {
     return {
       lvSheet: [],
-      keyword: "",
+      keyword: '',
 
       cityData: {},
-      type: "internal",
+      type: 'internal',
 
       myCity: this.value
-    };
+    }
   },
   computed: {
     filter() {
-      return new RegExp(this.keyword, "i");
+      return new RegExp(this.keyword, 'i')
     }
   },
   methods: {
     close() {
-      this.$emit("close");
-      this.keyword = "";
+      this.$emit('close')
+      this.keyword = ''
     },
     setIndex(key) {
-      var node = document.querySelector(".title-" + key);
-      var scroller = document.querySelector(".city-box");
-      scroller.scrollTop = node.offsetTop;
+      var node = document.querySelector('.title-' + key)
+      var scroller = document.querySelector('.city-box')
+      scroller.scrollTop = node.offsetTop
     },
     select(item) {
       var city = {
         code: item.CODE,
         city: item.CITY
-      };
-      this.myCity = city;
-      this.$emit("select", city);
-      this.keyword = "";
+      }
+      this.myCity = city
+      this.$emit('select', city)
+      this.keyword = ''
     },
 
     ajCityData() {
       // 根据 远程api接口，请求城市清单  feilong 修订
-      var moni = 1;
+      var moni = 1
       if (moni) {
-        var res = require("./citydata.json"); // 规范的 citydata
-        this.cityData = res;
+        var res = require('./citydata.json') // 规范的 citydata
+        this.cityData = res
 
-        var gld = require("./gld.json"); // 规范的 过滤单
-        this.lvSheet = gld.data;
+        var gld = require('./gld.json') // 规范的 过滤单
+        this.lvSheet = gld.data
       } else {
-        var requrl = this.appSetting.apiHost + this.appSetting.apiPath1 + "queryALLCities";
+        var requrl = this.appSetting.apiHost + this.appSetting.apiPath1 + 'queryALLCities'
         this.$axios({
-          method: "post",
+          method: 'post',
           url: requrl,
           data: {}
         }).then(response => {
-          this.newCityData(response.data);
-          this.$toast.clear();
-        });
+          this.newCityData(response.data)
+          this.$toast.clear()
+        })
       }
     },
 
@@ -259,15 +270,15 @@ export default {
       function sortByPinyin(a, b) {
         // 排序
         // let keyA, keyB
-        const keyA = a[3].toLowerCase();
-        const keyB = b[3].toLowerCase();
+        const keyA = a[3].toLowerCase()
+        const keyB = b[3].toLowerCase()
         if (keyA < keyB) {
-          return -1;
+          return -1
         }
         if (keyA > keyB) {
-          return 1;
+          return 1
         }
-        return 0;
+        return 0
       }
 
       const newResJson = {
@@ -330,56 +341,56 @@ export default {
           Y: [],
           Z: []
         }
-      };
+      }
 
       for (var k in resData) {
         // 调整并分组 feilong
-        var dd = resData[k];
-        dd[3] = window.PinyinHelper.convertToPinyinString(dd[1], " ", window.PinyinFormat.WITHOUT_TONE); // 根据中文名获得拼音
-        var zukey = dd[3].charAt(0).toUpperCase();
-        if (dd[2] === "1") {
-          newResJson.internal[zukey].push(dd);
+        var dd = resData[k]
+        dd[3] = window.PinyinHelper.convertToPinyinString(dd[1], ' ', window.PinyinFormat.WITHOUT_TONE) // 根据中文名获得拼音
+        var zukey = dd[3].charAt(0).toUpperCase()
+        if (dd[2] === '1') {
+          newResJson.internal[zukey].push(dd)
         } else {
-          newResJson.international[zukey].push(dd);
+          newResJson.international[zukey].push(dd)
         }
       }
 
-      let cities; // 某组比如热门 下的 城市二维数组
+      let cities // 某组比如热门 下的 城市二维数组
       for (var l in newResJson) {
         // 排序并精简 feilong
-        var region = newResJson[l];
+        var region = newResJson[l]
         for (var groupName in region) {
-          cities = region[groupName];
+          cities = region[groupName]
 
           if (cities.length) {
-            cities.sort(sortByPinyin);
+            cities.sort(sortByPinyin)
           } else {
-            delete region[groupName];
+            delete region[groupName]
           }
         }
       }
 
-      this.cityData = newResJson; // 国际国内分组城市清单
+      this.cityData = newResJson // 国际国内分组城市清单
 
-      this.lvSheet = resData; // 过滤单
+      this.lvSheet = resData // 过滤单
     }
   },
 
   watch: {
     value(newv) {
-      this.myCity = newv;
+      this.myCity = newv
     },
 
     myCity(newv) {
       if (newv) {
-        this.$emit("input", newv);
+        this.$emit('input', newv)
       }
     }
   },
 
   created() {
     // 只需请求一次 feilong.org
-    this.ajCityData();
+    this.ajCityData()
   }
-};
+}
 </script>
