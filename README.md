@@ -1050,7 +1050,7 @@ Vscode setting.json 设置
   "vetur.format.defaultFormatter.css": "prettier",
   "vetur.format.defaultFormatter.scss": "prettier",
   "vetur.format.defaultFormatter.postcss": "prettier",
-  "vetur.format.defaultFormatter.less": "prettier",
+  "vetur.format.defaultFormatter.scss": "prettier",
   "vetur.format.defaultFormatter.js": "vscode-typescript",
   "vetur.format.defaultFormatter.sass": "sass-formatter",
   "vetur.format.defaultFormatter.ts": "prettier",
