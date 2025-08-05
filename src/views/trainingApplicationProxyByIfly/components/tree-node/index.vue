@@ -18,65 +18,60 @@
 
       <!-- 当前分组的条件列表 -->
       <div class="conditions-list" v-if="nodeData.labelList && nodeData.labelList.length > 0">
-        <div class="condition-item" v-for="condition in nodeData.labelList" :key="condition.id">
-          <van-cell :title="condition.conditionContent">
-            <!-- <template #right-icon>
-              <div class="condition-actions">
-                校验状态图标
-                <van-icon
-                  :name="getConditionIcon(condition)"
-                  :class="getConditionIconClass(condition)"
-                  @click="showConditionDetail(condition)"
-                />
+        <template v-for="condition in nodeData.labelList">
+          <div class="conditions-list-item" :key="condition.id">
+            <div class="condition-item" :class="getConditionClass(condition)">
+              {{ condition.conditionContent }}
+            </div>
+            <div class="action-buttons" v-if="!ifModify">
+              <!-- 确认满足按钮 -->
+              <van-button
+                v-if="condition.status === 'error'"
+                type="info"
+                size="mini"
+                @click="confirmSatisfaction(condition)"
+              >
+                确认满足
+              </van-button>
 
-                编辑模式下的复选框
-                <van-checkbox
-                  v-if="ifModify"
-                  v-model="condition.selectFlag"
-                  @change="handleConditionChange(condition)"
-                />
+              <!-- 取消确认按钮 -->
+              <van-button
+                v-if="condition.status === 'manual'"
+                type="info"
+                plain
+                size="mini"
+                @click="cancelConfirmation(condition)"
+              >
+                取消确认
+              </van-button>
+            </div>
+          </div>
 
-                操作按钮
-                <div class="action-buttons" v-if="!ifModify">
-                  确认满足按钮
-                  <van-button
-                    v-if="condition.status === 'error'"
-                    type="primary"
-                    size="mini"
-                    @click="confirmSatisfaction(condition)"
-                  >
-                    确认满足
-                  </van-button>
-
-                  取消确认按钮
-                  <van-button
-                    v-if="condition.status === 'manual'"
-                    type="default"
-                    size="mini"
-                    @click="cancelConfirmation(condition)"
-                  >
-                    取消确认
-                  </van-button>
-
-                  上传按钮
-                  <van-button
-                    v-if="condition.status === 'manual' && condition.attachment"
-                    type="primary"
-                    size="mini"
-                    @click="uploadAttachment(condition)"
-                  >
-                    上传
-                  </van-button>
-
-                  附件名称
-                  <span v-if="condition.attachment" class="attachment-name" @click="previewFile(condition.attachment)">
-                    {{ condition.attachment.name }}
-                  </span>
-                </div>
-              </div>
-            </template> -->
-          </van-cell>
-        </div>
+          <div
+            v-if="condition.status === 'manual' && condition.attachment"
+            class="conditions-list-item"
+            :key="condition.id"
+          >
+            <!-- 附件名称 -->
+            <div
+              v-if="condition.attachment"
+              class="condition-item condition-item-file"
+              @click="previewFile(condition.attachment)"
+            >
+              <van-icon :name="require('../../theme/images/icon-file.svg')" size="15px" />
+              {{ condition.attachment.name }}
+            </div>
+            <van-button
+              style="padding: 2px 12px; font-size: 10px; line-height: 15px"
+              v-if="condition.status === 'manual' && condition.attachment"
+              type="info"
+              size="mini"
+              @click="uploadAttachment(condition)"
+            >
+              重新上传
+            </van-button>
+          </div>
+        </template>
       </div>
 
       <!-- 子分组 -->
@@ -88,6 +83,7 @@
             :node-data="child"
             :level="level + 1"
             :if-modify="ifModify"
+            :pageType="pageType"
             @show-detail="handleShowDetail"
             @condition-change="handleChildConditionChange"
             @confirm-satisfaction="handleConfirmSatisfaction"
@@ -107,13 +103,13 @@
         </div>
         <div class="detail-content" v-if="currentCondition">
           <van-cell-group>
-            <van-cell title="条件名称" :value="currentCondition.conditionLabel?.labelName" />
+            <van-cell title="条件名称" :value="currentCondition.conditionLabel.labelName" />
             <van-cell title="条件内容" :value="currentCondition.conditionContent" />
             <van-cell title="操作符" :value="getOperatorText(currentCondition.businessOperator)" />
             <van-cell title="比较值" :value="currentCondition.businessValue" />
-            <van-cell title="单位" :value="currentCondition.conditionLabel?.unit || '无'" />
-            <van-cell title="标签代码" :value="currentCondition.conditionLabel?.labelCode || '无'" />
-            <van-cell title="关联标签" :value="currentCondition.conditionLabel?.relatedLabel || '无'" />
+            <van-cell title="单位" :value="currentCondition.conditionLabel.unit || '无'" />
+            <van-cell title="标签代码" :value="currentCondition.conditionLabel.labelCode || '无'" />
+            <van-cell title="关联标签" :value="currentCondition.conditionLabel.relatedLabel || '无'" />
             <van-cell title="备注" :value="currentCondition.remark || '无'" />
           </van-cell-group>
         </div>
@@ -123,8 +119,10 @@
 </template>
 
 <script>
+import accessConditionBase from '../../mixins/accessConditionBase'
 export default {
   name: 'TreeNode',
+  mixins: [accessConditionBase],
   props: {
     nodeData: {
       type: Object,
@@ -224,6 +222,20 @@ export default {
       }
     },
 
+    getConditionClass(condition) {
+      if (!this.isReview) return ''
+      switch (condition.status) {
+        case 'success':
+          return 'condition-item-success'
+        case 'error':
+          return 'condition-item-error'
+        case 'manual':
+          return 'condition-item-manual'
+        default:
+          return 'condition-item-manual'
+      }
+    },
+
     showConditionDetail(condition) {
       this.currentCondition = condition
       this.showDetail = true
@@ -311,75 +323,101 @@ export default {
     .conditions-list {
       margin-left: 24px;
       margin-bottom: 12px;
+      display: flex;
+      flex-direction: column;
+      width: 100vw;
+
+      .conditions-list-item {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        margin-bottom: 8px;
+        :last-child {
+          margin-bottom: unset;
+        }
+      }
 
       .condition-item {
-        margin-bottom: 8px;
+        background-color: #fff;
+        min-width: 204px;
+        padding: 6px 16px;
+        box-sizing: border-box;
+        font-weight: 400;
+        color: #444444;
+        font-size: 12px;
+        display: flex;
+        align-items: center;
+        gap: 4px;
 
-        ::v-deep .van-cell {
-          background-color: #fff;
-          // border: 1px solid #e8e8e8;
-          // border-radius: 6px;
-          // border-left: 4px solid #667eea;
-          // transition: all 0.3s ease;
-          width: unset;
-          min-width: 204px;
-          padding: 6px 16px;
-
-          &:hover {
-            box-shadow: 0 2px 8px rgba(102, 126, 234, 0.1);
-            border-color: #667eea;
+        &-success {
+          border: 1px solid #94dcce;
+          border-radius: 2px;
+          position: relative;
+          &::after {
+            content: '';
+            position: absolute;
+            top: -1px;
+            right: -1px;
+            width: 16px;
+            height: 16px;
+            background-image: url('../../theme/images/icon-pass.png');
+            background-size: contain;
+            background-repeat: no-repeat;
           }
+        }
 
-          .van-cell__title {
-            font-weight: 400;
-            color: #444444;
-            font-size: 12px;
+        &-error {
+          background: #fff7f7;
+          border: 1px solid #f0c6bb;
+          border-radius: 2px;
+          position: relative;
+          &::after {
+            content: '';
+            position: absolute;
+            top: -1px;
+            right: -1px;
+            width: 16px;
+            height: 16px;
+            background-image: url('../../theme/images/icon-fail.png');
+            background-size: contain;
+            background-repeat: no-repeat;
           }
+        }
 
-          .van-cell__label {
-            color: #666;
-            font-size: 12px;
-            margin-top: 4px;
+        &-manual {
+          background: #fffcf7;
+          border: 1px solid #f0dcbb;
+          border-radius: 2px;
+          position: relative;
+          &::after {
+            content: '';
+            position: absolute;
+            top: -1px;
+            right: -1px;
+            width: 16px;
+            height: 16px;
+            background-image: url('../../theme/images/icon-question.png');
+            background-size: contain;
+            background-repeat: no-repeat;
           }
+        }
 
-          .condition-actions {
-            display: flex;
-            align-items: center;
-            gap: 8px;
+        &-file {
+          background: #ddeeff;
+          border-radius: 4px;
+        }
+      }
+      .action-buttons {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        flex: 1;
 
-            .van-icon {
-              cursor: pointer;
-              font-size: 16px;
-
-              &.icon-success {
-                color: #10b981;
-              }
-
-              &.icon-error {
-                color: #dc2626;
-              }
-
-              &.icon-manual {
-                color: #f59e0b;
-              }
-            }
-
-            .action-buttons {
-              display: flex;
-              align-items: center;
-              gap: 4px;
-
-              .attachment-name {
-                color: #3986ff;
-                font-size: 12px;
-                cursor: pointer;
-                text-decoration: underline;
-                max-width: 100px;
-                overflow: hidden;
-                text-overflow: ellipsis;
-                white-space: nowrap;
-              }
-            }
+        ::v-deep {
+          .van-button {
+            padding: 2px 12px;
+            font-size: 10px;
+            line-height: 15px;
           }
         }
       }

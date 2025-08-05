@@ -11,7 +11,7 @@
         <AccessConditionText v-model="accessConditionContent" label="" placeholder="" :editable="false" />
       </ItemWrapper>
       <!-- 电子准入条件 -->
-      <!-- <div class="type-switch">
+      <div class="type-switch">
         <VanButton
           :type="accessConditionType === 1 ? 'primary' : 'default'"
           size="small"
@@ -26,14 +26,14 @@
         >
           自由组合
         </VanButton>
-      </div> -->
+      </div>
       <ItemWrapper title="电子准入条件" :isContentInBox="true">
         <AccessConditionManager
           ref="accessConditionManagerRef"
           :data="accessConditionData"
           :type="accessConditionType"
           :page-type="1"
-          :editable="true"
+          :editable="false"
           @type-change="handleTypeChange"
           @save="handleSaveConditions"
           @condition-change="handleConditionChange"
@@ -43,7 +43,7 @@
       </ItemWrapper>
 
       <!-- 学员 -->
-      <ItemWrapper v-show="false" title="学员">
+      <ItemWrapper v-show="true" title="学员">
         <template #item-title-right>
           <VanButton color="#398AFF" size="mini" icon="add-o" round @click="showAddPersonnel">添加人员</VanButton>
         </template>
@@ -112,6 +112,7 @@ import AccessConditionText from '../components/access-condition-text/index.vue'
 import AppliedList from './components/applied-list.vue'
 import TabsWrapper from '../components/tabs-wrapper/index.vue'
 import ItemWrapper from '../components/item-wrapper/index.vue'
+import CsFileUpload from '@/components/csFileUpload.vue'
 
 export default {
   name: 'trainingApplicationProxyByIfly',
@@ -122,7 +123,8 @@ export default {
     AccessConditionText,
     AppliedList,
     TabsWrapper,
-    ItemWrapper
+    ItemWrapper,
+    CsFileUpload
   },
   data() {
     return {

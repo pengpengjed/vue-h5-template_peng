@@ -53,7 +53,9 @@ export default {
   data() {
     return {
       popupVisible: false,
-      fileList: []
+      fileList: [],
+      isInApp: false,
+      isRelease: false
     }
   },
   methods: {

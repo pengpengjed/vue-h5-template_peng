@@ -37,8 +37,10 @@ import selectOptsLocalObj from './mockData/selectOpts.json'
 import outlineConf from './mockData/outlineConf.json'
 import syllabusSubject from './mockData/syllabusSubject.json'
 import publishTypeOption from './mockData/publishTypeOption.json'
+import CsPopupPicker from '@/components/csPopupPicker.vue'
 export default {
   name: 'trainApplyForm',
+  components: { CsPopupPicker },
   props: {
     /* formConfig: {
       type: Array,
@@ -58,7 +60,9 @@ export default {
     } */
   },
   data() {
-    const { isEmpty } = this.$utility
+    const isEmpty = val => {
+      return val === '' || val === undefined || val === null
+    }
     return {
       formData: {
         fleetCd: '', // 训练机型
@@ -334,8 +338,12 @@ export default {
     showPopPick() {
       this.$refs.CsPopupPicker.toggle()
     },
+    // 判断是否为空
+    isEmpty(val) {
+      return val === '' || val === undefined || val === null
+    },
     getIsDisplay(isShow) {
-      if (this.$utility.isEmpty(isShow)) {
+      if (this.isEmpty(isShow)) {
         return true
       } else if (typeof isShow === 'boolean') {
         return isShow

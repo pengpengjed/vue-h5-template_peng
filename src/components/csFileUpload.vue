@@ -42,8 +42,10 @@
 </template>
 
 <script>
+import csFileUploadPopup from '@/components/csFileUploadPopup.vue'
 export default {
   name: 'csFileUploader',
+  components: { csFileUploadPopup },
   props: {
     title: {
       type: String,

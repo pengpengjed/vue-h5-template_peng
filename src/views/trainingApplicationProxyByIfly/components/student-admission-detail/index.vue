@@ -1,100 +1,44 @@
 <template>
-  <van-popup
-    :value="visible"
-    @input="$emit('update:visible', $event)"
-    position="bottom"
-    :style="{ height: '90%' }"
-    round
-  >
-    <div class="student-admission-detail">
-      <!-- 头部 -->
-      <div class="popup-header">
-        <h3>准入条件详情</h3>
-        <van-icon name="cross" @click="closePopup" />
-      </div>
-
-      <!-- 内容区域 -->
-      <div class="popup-content">
-        <!-- 基本信息 -->
-        <div class="basic-info-section">
-          <div class="section-title">
-            <div class="title-bar"></div>
-            <span class="title-text">基本信息</span>
-          </div>
-          <van-cell-group>
-            <van-cell title="训练机型" :value="studentInfo.fleetCd" />
-            <van-cell title="提纲" :value="studentInfo.outlineName" />
-            <van-cell title="科目" :value="studentInfo.subjectsName" />
-            <van-cell title="学员" :value="`${studentInfo.studentName} (${studentInfo.employeeId})`">
-              <template #right-icon>
-                <van-button type="primary" size="small" @click="showStudentSelector">切换学员</van-button>
-              </template>
-            </van-cell>
-          </van-cell-group>
-        </div>
-
-        <!-- 技术信息 -->
-        <div class="technical-info-section">
-          <div class="section-title">
-            <div class="title-bar"></div>
-            <span class="title-text">技术信息</span>
-          </div>
-          <div class="technical-info-box">
-            <van-cell-group>
-              <van-cell title="技术等级" :value="studentInfo.technicalLevel" />
-              <van-cell title="分部" :value="studentInfo.division || '无'" />
-              <van-cell title="注册基地" :value="studentInfo.registrationBase" />
-              <van-cell title="运行基地" :value="studentInfo.operatingBase" />
-              <van-cell title="训练基地" :value="studentInfo.trainingBase" />
-            </van-cell-group>
-          </div>
-        </div>
-
-        <!-- 准入条件 -->
-        <div class="access-condition-section">
-          <div class="section-title">
-            <div class="title-bar"></div>
-            <span class="title-text">准入条件</span>
-          </div>
-          <div class="access-condition-content">
-            <van-cell-group>
-              <van-cell :title="accessConditionContent" />
-            </van-cell-group>
-          </div>
-        </div>
-
-        <!-- 电子化准入条件 -->
-        <div class="electronic-access-condition-section">
-          <div class="section-title">
-            <div class="title-bar"></div>
-            <span class="title-text">电子化准入条件</span>
-          </div>
-
-          <!-- 校验结果 -->
-          <div class="validation-result">
-            <van-tag :type="validationResult.isValid ? 'success' : 'danger'" size="medium">
-              {{ validationResult.isValid ? '准入条件校验通过' : '准入条件校验不通过' }}
-            </van-tag>
-          </div>
-
-          <!-- 电子化准入条件管理器 -->
-          <AccessConditionManager
-            :data="electronicAccessConditionData"
-            :type="electronicAccessConditionData.accessConditionType"
-            :editable="false"
-            @show-detail="handleShowDetail"
-            @condition-change="handleConditionChange"
-            @formula-change="handleFormulaChange"
-            @confirm-satisfaction="handleConfirmSatisfaction"
-            @cancel-confirmation="handleCancelConfirmation"
-            @preview-file="handlePreviewFile"
-            @upload-attachment="handleUploadAttachment"
-            ref="accessConditionManagerRef"
-          />
-        </div>
-      </div>
+  <div class="student-admission-detail">
+    <div class="item-wrapper-top-header" v-show="false">
+      <span class="item-wrapper-top-header-text">
+        {{ `${studentInfo.studentName} (${studentInfo.employeeId})` }}
+      </span>
+      <div class="switch-stu" @click="showStudentSelectorHandle" />
     </div>
+    <ItemWrapper v-show="false" class="item-wrapper-to-top" :title="''" :isContentInBox="true">
+      <!-- 基本信息 -->
+      <CsForm :colConfig="studentInfoColConfig" :formData="studentInfo" wrapperClass="student-info-form" />
+    </ItemWrapper>
+    <ItemWrapper v-show="false" title="准入条件" :isContentInBox="true">
+      <AccessConditionText v-model="accessConditionContent" label="" placeholder="" :editable="false" />
+    </ItemWrapper>
+    <!-- 电子化准入条件 -->
+    <ItemWrapper title="电子化准入条件" :isContentInBox="true">
+      <div class="validation-result">
+        <div
+          class="validation-result-bar"
+          :class="{ success: validationResult.isValid, danger: !validationResult.isValid }"
+        >
+          结果：{{ validationResult.isValid ? '准入条件校验通过' : '准入条件校验不通过' }}
+        </div>
+      </div>
 
+      <AccessConditionManager
+        :data="electronicAccessConditionData"
+        :type="electronicAccessConditionData.accessConditionType"
+        :pageType="2"
+        :editable="false"
+        @show-detail="handleShowDetail"
+        @condition-change="handleConditionChange"
+        @formula-change="handleFormulaChange"
+        @confirm-satisfaction="handleConfirmSatisfaction"
+        @cancel-confirmation="handleCancelConfirmation"
+        @preview-file="handlePreviewFile"
+        @upload-attachment="handleUploadAttachment"
+        ref="accessConditionManagerRef"
+      />
+    </ItemWrapper>
     <!-- 学员选择器弹窗 -->
     <van-popup
       :value="showStudentSelector"
@@ -156,22 +100,25 @@
         </div>
       </div>
     </van-popup>
-  </van-popup>
+  </div>
 </template>
 
 <script>
 import AccessConditionManager from '../access-condition-manager/index.vue'
-
+import ItemWrapper from '../item-wrapper/index.vue'
+import AccessConditionText from '../access-condition-text/index.vue'
+import CsForm from '@/components/csForm.vue'
+import csFileUploadPopup from '@/components/csFileUploadPopup.vue'
 export default {
   name: 'StudentAdmissionDetail',
   components: {
-    AccessConditionManager
+    AccessConditionManager,
+    ItemWrapper,
+    AccessConditionText,
+    CsForm,
+    csFileUploadPopup
   },
   props: {
-    visible: {
-      type: Boolean,
-      default: false
-    },
     studentData: {
       type: Object,
       default: () => ({})
@@ -179,6 +126,16 @@ export default {
   },
   data() {
     return {
+      studentInfoColConfig: [
+        { label: '训练机型：', value: 'fleetCd', span: 24 },
+        { label: '提纲：', value: 'outlineName', span: 24 },
+        { label: '科目：', value: 'subjectsName', span: 24 },
+        { label: '技术等级：', value: 'technicalLevel', span: 24 },
+        { label: '分部：', value: 'division', span: 24, formatter: val => val || '无' },
+        { label: '注册基地：', value: 'registrationBase', span: 24 },
+        { label: '运行基地：', value: 'operatingBase', span: 24 },
+        { label: '训练基地：', value: 'trainingBase', span: 24 }
+      ],
       showStudentSelector: false,
       showFileUpload: false,
       showFilePreview: false,
@@ -230,11 +187,6 @@ export default {
     }
   },
   watch: {
-    visible(newVal) {
-      if (newVal) {
-        this.initData()
-      }
-    },
     studentData: {
       handler(newData) {
         if (newData && Object.keys(newData).length > 0) {
@@ -243,6 +195,9 @@ export default {
       },
       immediate: true
     }
+  },
+  created() {
+    this.initData()
   },
   methods: {
     // 初始化数据
@@ -267,6 +222,7 @@ export default {
 
     // 加载准入条件
     loadAccessConditions() {
+      console.log('this.studentInfo', this.studentInfo)
       // 模拟加载准入条件数据
       // 这里应该根据实际的API调用获取数据
       if (this.studentInfo.employeeId === '333555') {
@@ -472,11 +428,6 @@ export default {
       console.log('加载的准入条件数据:', this.electronicAccessConditionData)
     },
 
-    // 关闭弹窗
-    closePopup() {
-      this.$emit('update:visible', false)
-    },
-
     // 显示学员选择器
     showStudentSelectorHandle() {
       this.showStudentSelector = true
@@ -579,99 +530,78 @@ export default {
 
 <style lang="less" scoped>
 .student-admission-detail {
-  height: 100%;
+  padding: 10px;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
 
-  .popup-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 16px;
-    border-bottom: 1px solid #eee;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
+  .item-wrapper-top-header {
+    width: 100%;
+    height: 57px;
+    background: url('../../theme/images/access-condition-dialog-header.png') 100% 100% no-repeat transparent;
+    background-size: contain;
+    padding: 11px 0px 0px 17px;
+    box-sizing: border-box;
+    position: relative;
 
-    h3 {
-      margin: 0;
-      color: white;
+    &-text {
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 22px;
+      color: #fff;
     }
 
-    .van-icon {
+    .switch-stu {
+      width: 70px;
+      height: 22px;
+      background: url('../../theme/images/icon-switch.png') 100% 100% no-repeat transparent;
+      background-size: cover;
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      z-index: 1;
       cursor: pointer;
-      color: white;
-      font-size: 18px;
+      transition: all 0.2s;
+      &:hover {
+        transform: scale(1.1);
+      }
     }
   }
 
-  .popup-content {
-    flex: 1;
-    overflow-y: auto;
-    padding: 16px;
-
-    .section-title {
-      display: flex;
-      align-items: center;
-      margin-bottom: 12px;
-
-      .title-bar {
-        width: 4px;
-        height: 18px;
-        background: #3986ff;
-        margin-right: 8px;
-        border-radius: 2px;
-      }
-
-      .title-text {
-        font-size: 16px;
-        font-weight: 500;
-        color: #5a709b;
+  .item-wrapper-to-top {
+    position: relative;
+    top: -17px;
+    margin-bottom: unset;
+    ::v-deep {
+      .item-wrapper-warp {
+        padding-top: 5px;
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
       }
     }
+  }
 
-    .basic-info-section,
-    .technical-info-section,
-    .access-condition-section,
-    .electronic-access-condition-section {
-      margin-bottom: 24px;
+  .validation-result {
+    width: 100%;
+    margin-top: 10px;
+    padding: 0px 8px;
+    box-sizing: border-box;
+    font-size: 12px;
+    color: #fff;
+    line-height: 18px;
+
+    &-bar {
+      border-radius: 5px;
+      padding: 6px 10px;
+      box-sizing: border-box;
     }
 
-    .technical-info-box {
-      background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-      border-radius: 8px;
-      padding: 16px;
-      color: white;
-
-      ::v-deep {
-        .van-cell-group {
-          background: unset;
-        }
-        .van-cell {
-          background: transparent;
-          color: white;
-
-          .van-cell__title {
-            color: rgba(255, 255, 255, 0.8);
-          }
-
-          .van-cell__value {
-            color: white;
-          }
-        }
-      }
+    .success {
+      background: #0bc4a2;
     }
 
-    .access-condition-content {
-      ::v-deep .van-cell {
-        background-color: #f8f9fa;
-        border-radius: 6px;
-        border-left: 3px solid #3986ff;
-      }
-    }
-
-    .validation-result {
-      margin-bottom: 16px;
-      text-align: center;
+    .danger {
+      background: #ff5656;
     }
   }
 }

@@ -15,7 +15,6 @@
       <!-- 手指引导 -->
       <div class="finger-guide" v-if="showFingerGuide">
         <img src="../../theme/images/icon-tips.png" alt="手指引导" class="finger-guide-icon" />
-        <div class="guide-text">左右滑动查看全部</div>
       </div>
 
       <AccessConditionTree
@@ -23,6 +22,7 @@
         v-if="accessConditionData"
         :data="accessConditionData"
         :if-modify="isEditMode"
+        :pageType="pageType"
         @show-detail="handleShowDetail"
         @condition-change="handleConditionChange"
         @confirm-satisfaction="handleConfirmSatisfaction"
@@ -100,12 +100,16 @@
 <script>
 import AccessConditionTree from '../access-condition-tree/index.vue'
 import AccessConditionFormula from '../access-condition-formula/index.vue'
+import accessConditionBase from '../../mixins/accessConditionBase'
+import csFileUploadPopup from '@/components/csFileUploadPopup.vue'
 
 export default {
   name: 'AccessConditionManager',
+  mixins: [accessConditionBase],
   components: {
     AccessConditionTree,
-    AccessConditionFormula
+    AccessConditionFormula,
+    csFileUploadPopup
   },
   props: {
     // 准入条件数据
@@ -122,12 +126,6 @@ export default {
     editable: {
       type: Boolean,
       default: false
-    },
-    // 页面类型：1： 代申请选择科目后显示纯查看
-    pageType: {
-      type: Number,
-      default: 1,
-      require: true
     }
   },
   data() {
@@ -186,7 +184,9 @@ export default {
       }
 
       // 显示手指引导
-      this.showFingerGuide = true
+      this.$nextTick(() => {
+        this.showFingerGuide = true
+      })
 
       // 3秒后自动隐藏
       this.fingerGuideTimer = setTimeout(() => {
@@ -369,18 +369,20 @@ export default {
 <style lang="less" scoped>
 .access-condition-manager {
   .access-conditions-wrapper {
-    min-height: 300px;
+    min-height: 100px;
     padding: 14px;
     background-color: #f8f9fa;
     border-radius: 8px;
     overflow: hidden;
+    position: relative;
 
     // 手指引导样式
     .finger-guide {
       position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+      top: 10%;
+      right: 5%;
+      left: auto;
+      transform: none;
       z-index: 1000;
       display: flex;
       flex-direction: column;
@@ -389,21 +391,9 @@ export default {
       pointer-events: none;
 
       .finger-guide-icon {
-        width: 80px;
-        height: 80px;
+        width: 125px;
+        height: 125px;
         animation: slideLeftRight 2s infinite ease-in-out;
-      }
-
-      .guide-text {
-        margin-top: 12px;
-        font-size: 16px;
-        font-weight: bold;
-        color: #333;
-        text-align: center;
-        background: rgba(255, 255, 255, 0.9);
-        padding: 8px 16px;
-        border-radius: 20px;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
       }
     }
 

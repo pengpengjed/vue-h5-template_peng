@@ -28,8 +28,11 @@
 </template>
 
 <script>
+import CsPopup from './csPopup.vue'
+export const isInApp = false
 export default {
   name: 'CsPopupPicker',
+  components: { CsPopup },
   props: {
     closeOnClickOverlay: {
       type: Boolean,

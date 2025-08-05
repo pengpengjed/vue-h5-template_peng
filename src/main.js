@@ -16,6 +16,8 @@ Vue.prototype.$cdn = $cdn
 import '@/plugins/vant'
 // 引入全局样式
 import '@/assets/css/index.less'
+import '@/theme/css/style.less'
+
 // 移动端适配
 import 'amfe-flexible'
 

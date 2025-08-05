@@ -1,0 +1,717 @@
+@import url("./base.less");
+* {
+  -webkit-overflow-scrolling: touch; /*开启IOS硬件加速*/
+
+}
+.form-cell-group {
+  .van-cell {
+    // padding: 7px 13px;
+    .van-cell__title {
+      color: #888888;
+      flex: none;
+      width: 90px;
+      line-height: 22px;
+      &.van-field__label {
+        margin-right: 0;
+      }
+    }
+    .van-cell__value {
+      text-align: left;
+      flex: 1;
+      color: #333333;
+      line-height: 22px;
+    }
+  }
+}
+.card-cell-group {
+  margin: 0 5px;
+  background-color: transparent;
+  .van-cell {
+    margin: 5px 0;
+    background: #ffffff;
+    box-shadow: 0px 2px 6px 0px rgba(217, 225, 238, 0.57);
+    border-radius: 6px;
+    padding: 10px;
+    .card-title {
+      color: #282831;
+      font-size: 14px;
+      line-height: 24px;
+      font-weight: 600;
+      .icon {
+        display: inline-block;
+        width: 22px;
+        height: 22px;
+        background: url("../images/icon_train_apply_item.png") no-repeat center center transparent;
+        background-size: cover;
+        vertical-align: middle;
+        margin-right: 10px;
+        margin-top: -2px;
+      }
+      span {
+        margin-right: 6px;
+        padding-right: 6px;
+        position: relative;
+        display: inline-block;
+        vertical-align: middle;
+        &::after {
+          content: "";
+          display: block;
+          width: 1px;
+          height: 14px;
+          position: absolute;
+          right: 0;
+          top: 5px;
+          background-color: #bdc2d1;
+        }
+        &:last-child {
+          margin: 0;
+          padding: 0;
+          border: 0;
+          &::after {
+            display: none;
+          }
+        }
+      }
+    }
+    .detail-info {
+      background: #f8f9fb;
+      border-radius: 4px;
+      padding: 10px;
+      color: #7a859b;
+      .info-row {
+        span {
+          display: inline-block;
+          margin-right: 6px;
+          padding-right: 6px;
+          position: relative;
+          line-height: 20px;
+          &::after {
+            content: "";
+            display: block;
+            width: 1px;
+            height: 10px;
+            position: absolute;
+            right: 0;
+            top: 5px;
+            background-color: #bdc2d1;
+          }
+          &:last-child {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            &::after {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+    .van-icon-arrow {
+      position: absolute;
+      right: 5px;
+      top: 5px;
+    }
+  }
+}
+.van-list {
+  min-height: 150px;
+}
+.gray-form {
+  margin: 10px;
+  border-radius: 4px;
+  overflow: hidden;
+  .van-cell {
+    background-color: #fafafa;
+  }
+}
+.van-cell {
+  padding: 7px 13px;
+  // .van-cell__label {
+  //   margin-top: 0;
+  // }
+  .van-cell__value {
+    flex: 2;
+  }
+  &.van-cell-vertical {
+    flex-direction: column;
+    .van-cell__title {
+      width: auto;
+    }
+    .van-cell__value {
+      text-align: left;
+      textarea {
+        border: 1px solid #e1e5ee;
+        padding: 5px;
+        border-radius: 4px;
+        margin-top: 5px;
+      }
+    }
+  }
+}
+
+.van-tabs {
+  padding-top: 0px;
+  .van-tabs__wrap {
+    position: relative;
+    z-index: 1;
+    padding-bottom: 0px;
+    .van-tab {
+      // flex: none!important;
+      padding: 0 8px;
+      .van-tab__text {
+        font-size: 14px;
+        font-weight: 600;
+        color: #697079;
+        white-space: nowrap;
+        padding: 10px 0;
+        position: relative;
+      }
+      &.van-tab--active {
+        .van-tab__text {
+          // font-size: 18px;
+          font-weight: 600;
+          color: #202432;
+        }
+      }
+    }
+    .van-tabs__line {
+      background-color: #3989ff;
+      bottom: 20px;
+    }
+    &::after {
+      border: 0;
+    }
+  }
+  .van-sticky--fixed {
+    transform: translate3d(0, 0, 0);
+    -webkit-overflow-scrolling: auto;
+  }
+}
+.page-tabs {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  .van-tabs__content {
+    flex: 1;
+    overflow: hidden;
+    position: relative;
+    .van-tabs__track {
+      position: absolute;
+    }
+    .van-tab__pane-wrapper {
+      position: relative;
+    }
+    .van-tab__pane {
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      overflow: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+  }
+}
+.van-search {
+  padding: 0;
+  margin: 10px 20px;
+  border-radius: 18px;
+  overflow: hidden;
+  // background-color: #f2f2f2 !important;
+  .van-field__left-icon {
+    color: #3989ff;
+  }
+  // .van-search__content {
+  //   background-color: #f2f2f2 !important;
+  // }
+  .van-search__action {
+    // background-color: #cbd3df;
+    background-color: #3889ff;
+    border-radius: 0 18px 18px 0;
+    padding: 0 15px;
+    color: #ffffff;
+    line-height: 33px;
+  }
+  .van-icon {
+    line-height: 24px;
+  }
+  &.active {
+    .van-search__action {
+      background-color: #3889ff;
+    }
+  }
+}
+.van-pull-refresh {
+  min-height: 100%;
+  .van-pull-refresh__head {
+    font-size: 14px;
+  }
+}
+.van-cell-group {
+  .van-cell {
+    .button-rollback {
+      position: relative;
+      right: 0;
+      top: 0;
+      margin-top: 0px;
+      min-width: 50px;
+      font-size: 12px;
+      height: 22px;
+      line-height: 20px;
+      margin-right: 15px;
+      border-radius: 4px;
+    }
+  }
+}
+.van-tabbar {
+  .van-tabbar-item__icon {
+    font-size: 20px;
+  }
+  .van-tabbar-item__text {
+    font-size: 14px;
+  }
+}
+.van-dialog {
+  // border-radius: 4px;
+  max-width: 96%;
+  .van-dialog__header {
+    padding: 15px 10px 10px;
+    font-weight: 600;
+  }
+  .van-dialog__content {
+    font-size: 14px;
+    line-height: 22px;
+  }
+  // .van-icon {
+  //   line-height: 24px;
+  // }
+  // .van-dialog__footer--buttons {
+  //   .van-button {
+  //     height: 40px;
+  //     margin: 10px;
+  //     border: 1px solid #3889ff;
+  //     font-size: 14px;
+  //     &::after,
+  //     &::before {
+  //       border: 0;
+  //     }
+  //     &.van-dialog__confirm {
+  //       color: #ffffff;
+  //       border: 1px solid #3889ff;
+  //       background-color: #3889ff;
+  //     }
+  //     & + .van-button {
+  //       margin-left: 0;
+  //     }
+  //   }
+  //   &::after {
+  //     border: 0;
+  //   }
+  // }
+}
+.van-popup {
+  box-sizing: border-box;
+  overflow: unset !important;
+  &.van-dropdown-item__content {
+    position: absolute;
+  }
+}
+.van-popup--bottom,
+.van-popup--bottom.van-popup--round {
+  border-radius: 20px 20px 0 0;
+  overflow: hidden;
+}
+.nodata-tip,
+.no-data-tips {
+  line-height: 35px;
+  text-align: center;
+  font-size: 12px;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #bcc2d2;
+}
+.van-loading {
+  text-align: center;
+  .van-loading__spinner {
+    width: 24px;
+    height: 24px;
+  }
+}
+// .van-button {
+//   border-radius: 22px;
+//   &.van-button--small {
+//     border-radius: 16px;
+//   }
+//   &.van-button--mini {
+//     border-radius: 12px;
+//   }
+// }
+.cs-page,
+.van-popup {
+  .button-bar {
+    display: flex;
+    flex-direction: row;
+    margin: 10px 20px;
+    border: 0;
+    border-radius: 20px;
+    background: #ffffff;
+    box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.15);
+    padding: 1px;
+    .van-button {
+      height: 40px;
+      line-height: 40px;
+      margin: 0;
+      display: block;
+      flex: 1;
+      border-radius: 0px;
+      &:first-of-type {
+        border-top-left-radius: 20px;
+        border-bottom-left-radius: 20px;
+      }
+      &:last-of-type {
+        border-top-right-radius: 20px;
+        border-bottom-right-radius: 20px;
+      }
+    }
+    .van-button--default {
+      background-color: #ffffff;
+      border-color: #ffffff;
+      color: #202533;
+    }
+  }
+}
+
+.cs-page {
+  &.button-bar-page {
+    .cs-page__body {
+      padding-bottom: 60px;
+    }
+    .cs-page__footer {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      z-index: 999;
+    }
+  }
+}
+
+.van-nav-bar {
+  .van-icon {
+    vertical-align: middle;
+  }
+}
+
+.van-picker {
+  .van-picker__title {
+    color: #202533;
+  }
+  .van-picker__cancel {
+    color: #aeb3bf;
+  }
+  .van-picker__confirm {
+    color: #3889ff;
+  }
+  .van-picker__toolbar {
+    .van-picker__cancel,
+    .van-picker__confirm {
+      padding: 0;
+      width: 64px;
+      text-align: center;
+    }
+    input[type="text"] {
+      border-radius: 15px;
+      height: 30px;
+      background: #f2f2f2;
+      padding: 0px 10px;
+      box-sizing: border-box;
+      line-height: 30px;
+      text-align: center;
+      flex: 1;
+      min-width: unset;
+    }
+  }
+  .van-picker-column {
+    .van-picker-column__item--selected {
+      color: #3889ff;
+    }
+  }
+}
+
+.van-field {
+  .van-field__body {
+    .van-cell {
+      padding: 0;
+      &:focus,
+      &:active {
+        background-color: transparent;
+      }
+    }
+  }
+}
+.van-field--error {
+  .van-field__control::placeholder {
+    color: #aaaaaa;
+  }
+}
+
+.no-selecte {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.scr {
+  background-color: #ffffff;
+}
+.dvc:before {
+  background-color: transparent;
+}
+
+.badge {
+  min-width: 16px;
+  height: 16px;
+  border-radius: 100px;
+  background: #e32116;
+  line-height: 1.2;
+  text-align: center;
+  padding: 0 3px;
+  box-sizing: border-box;
+  color: #ffffff;
+  display: inline-block;
+  font-size: 12px;
+  font-family: -apple-system-font, Helvetica Neue, Arial, sans-serif;
+  border: 1px solid #fff;
+}
+
+.info-loading {
+  text-align: center;
+  margin-top: 23px;
+  color: #888888;
+  .text {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 11px;
+  }
+}
+.font-hightlight {
+  color: #118eea;
+}
+
+.train-apply-list {
+  &.van-cell-group {
+    margin: 0 5px;
+    background-color: transparent;
+    &::after {
+      border: 0;
+    }
+    .van-cell {
+      margin: 5px 0;
+      padding: 10px;
+      border-radius: 6px;
+      box-shadow: 0px 2px 6px 0px rgba(217, 225, 238, 0.57);
+      &::after {
+        border: 0;
+      }
+      .van-cell__title {
+        color: #405266;
+      }
+      .van-cell__label {
+        color: #7a859b;
+      }
+      .van-icon-arrow {
+        position: absolute;
+        right: 10px;
+        top: 5px;
+      }
+      .detail-info {
+        background-color: #f8f9fb;
+        border: 1px solid #e8ecf3;
+        border-radius: 6px;
+        padding: 5px 10px;
+      }
+      .type-row {
+        color: #4c6384;
+        font-size: 14px;
+        padding-left: 30px;
+        position: relative;
+        line-height: 24px;
+        &::before {
+          content: "";
+          width: 22px;
+          height: 22px;
+          background: url("../images/icon_train_apply_item.png") no-repeat center center transparent;
+          background-size: cover;
+          position: absolute;
+          left: 0;
+          top: 1px;
+        }
+      }
+      .name-row {
+        color: #405266;
+        font-size: 14px;
+        border-bottom: 1px solid #e8ecf3;
+        margin-bottom: 10px;
+        line-height: 30px;
+        overflow: hidden;
+      }
+      .info-row {
+        color: #7a859b;
+        span {
+          margin-right: 5px;
+          padding-right: 5px;
+          border-right: 1px solid #e8ecf3;
+          display: inline-block;
+          &:last-child {
+            border: 0;
+            margin: 0;
+            padding: 0;
+          }
+        }
+        & + .info-row {
+          margin-top: 5px;
+        }
+      }
+      .van-button {
+        height: 20px;
+        line-height: 20px;
+        background-color: #ffffff;
+        border: 1px solid #ff2e00;
+        border-radius: 10px;
+        color: #ff2e00;
+        float: right;
+        margin-top: 3px;
+        padding: 0px 9px;
+        &.btn-red {
+          border: 1px solid #ff2e00;
+          color: #ff2e00;
+        }
+      }
+      .status {
+        display: block;
+        width: 50px;
+        height: 50px;
+        position: absolute;
+        right: 25px;
+        top: 50%;
+        margin-top: -35px;
+        background: url("../images/train_apply_status_end.png") no-repeat center center transparent;
+        background-size: cover;
+        &.end {
+          background-image: url("../images/train_apply_status_end.png");
+        }
+      }
+    }
+
+    &.typeless {
+      .van-cell {
+        .name-row {
+          margin-bottom: 0;
+          border-bottom: 0;
+          padding-left: 5px;
+          color: #282831;
+        }
+        .detail-info {
+          padding-right: 20px;
+        }
+        .van-icon-arrow {
+          top: 45px;
+          right: 15px;
+        }
+        .van-button {
+          margin-top: 5px;
+        }
+      }
+    }
+  }
+}
+
+.van-radio-group,
+.van-checkbox-group {
+  &.is-disabled {
+    position: relative;
+    &::before {
+      content: "";
+      display: block;
+      position: absolute;
+      z-index: 2;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+    }
+  }
+}
+.van-checkbox-group {
+  .van-checkbox {
+    .van-checkbox__icon:not(.van-checkbox__icon--round) {
+      .van-icon {
+        border-radius: 4px;
+      }
+    }
+  }
+}
+
+div.van-overlay {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.van-empty {
+  text-align: center;
+  .van-empty__description {
+    color: #999999;
+  }
+}
+
+.van-dialog {
+  &.system-error-dialog {
+    border-radius: 8px;
+    width: 300px;
+    .van-dialog__header {
+      height: 80px;
+      background: url("../images/systemNotice/notice_bg_stop.png") no-repeat center center transparent;
+      background-size: cover;
+      box-sizing: border-box;
+      padding-top: 45px;
+      padding-left: 30px;
+      text-align: left;
+    }
+
+    .van-dialog__content {
+      .van-dialog__message.van-dialog__message--has-title {
+        color: #666666;
+        text-align: left;
+        line-height: 1.5;
+        padding: 25px 30px 15px;
+        h3 {
+          color: #444444;
+          margin-bottom: 5px;
+          font-size: 15px;
+        }
+      }
+    }
+
+    .van-dialog__footer {
+      .van-button {
+        height: 40px;
+        background: linear-gradient(90deg, #b0aaf9 0%, #4273ff 100%);
+        border-radius: 20px;
+        color: #fff;
+        margin: 10px 50px 20px;
+        font-size: 14px;
+      }
+      &::after {
+        border: 0;
+      }
+    }
+  }
+}
+
+// @import url("./iconfont.css");
+@import url("./ios.less");
+@import url("./android.less");
+@import url("./pad.less");

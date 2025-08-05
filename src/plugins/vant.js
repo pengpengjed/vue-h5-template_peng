@@ -18,7 +18,11 @@ import {
   Toast,
   Tabs,
   Tab,
-  Dialog
+  Dialog,
+  Form,
+  Picker,
+  Row,
+  Col
 } from 'vant'
 
 Vue.use(Button)
@@ -37,3 +41,7 @@ Vue.use(Radio)
 Vue.use(Toast)
 Vue.use(Tabs).use(Tab)
 Vue.use(Dialog)
+Vue.use(Form)
+Vue.use(Picker)
+Vue.use(Row)
+Vue.use(Col)

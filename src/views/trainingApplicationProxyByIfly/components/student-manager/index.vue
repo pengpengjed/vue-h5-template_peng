@@ -53,46 +53,51 @@
     </ItemWrapper>
 
     <!-- 添加人员弹窗 -->
-    <van-popup v-model="showAddDialog" position="bottom" :style="{ height: '80%' }">
-      <div class="add-personnel-dialog">
-        <div class="dialog-header">
-          <h3>添加人员</h3>
-          <van-icon name="cross" @click="showAddDialog = false" />
-        </div>
-
+    <CsPopup
+      v-model="showAddDialog"
+      title="添加人员"
+      :showCloseButton="false"
+      confirmButtonText="关闭"
+      @confirm="() => (showAddDialog = false)"
+      :style="{ height: '90vh' }"
+    >
+      <div class="add-personnel-dialog" v-if="showAddDialog">
         <div class="dialog-content">
           <!-- 搜索区域 -->
           <div class="search-section">
-            <van-field
+            <van-search
               v-model="searchKeyword"
-              placeholder="请输入员工号、姓名或姓名简拼"
+              left-icon=" "
+              placeholder="请输入员工号/姓名/姓名简拼搜索"
               clearable
               @input="handleSearch"
+              :show-action="true"
             >
-              <template #left-icon>
-                <van-icon name="search" />
+              <template #action>
+                <van-button type="info" size="small" @click="handleSearch">搜索</van-button>
               </template>
-            </van-field>
+            </van-search>
           </div>
 
           <!-- 推荐人员列表 -->
-          <div class="recommended-section" v-if="!searchKeyword">
-            <div class="section-title">系统推荐人员</div>
-            <div class="personnel-list">
-              <div
-                v-for="person in recommendedPersonnel"
-                :key="person.employeeId"
-                class="personnel-item"
-                @click="selectPersonnel(person)"
-              >
-                <div class="personnel-info">
-                  <div class="name-id">{{ person.name }}({{ person.employeeId }})</div>
-                  <div class="training-record">{{ person.lastTraining }}</div>
+          <ItemWrapper title="默认推荐" :isContentInBox="true" :bgConfig="'#FFF'">
+            <div class="recommended-section" v-if="!searchKeyword">
+              <template v-if="recommendedPersonnel && recommendedPersonnel.length > 0">
+                <div class="personnel-list">
+                  <div v-for="person in recommendedPersonnel" :key="person.employeeId" class="personnel-item">
+                    <div class="personnel-info">
+                      <div class="name-id">{{ person.name }}({{ person.employeeId }})</div>
+                      <div class="training-record">{{ person.lastTraining }}</div>
+                    </div>
+                    <van-checkbox v-model="person.selected" icon-size="18px" @click="selectPersonnel(person)" />
+                  </div>
                 </div>
-                <van-icon name="arrow" />
-              </div>
+              </template>
+              <template v-else>
+                <CsEmpty image="" description="—暂无数据—" />
+              </template>
             </div>
-          </div>
+          </ItemWrapper>
 
           <!-- 搜索结果 -->
           <div class="search-results" v-if="searchKeyword">
@@ -114,43 +119,59 @@
           </div>
 
           <!-- 已选人员列表 -->
-          <div class="selected-section">
-            <div class="section-title">已选人员</div>
-            <div class="selected-personnel-list">
-              <div v-for="person in tempSelectedPersonnel" :key="person.employeeId" class="selected-personnel-item">
-                <div class="personnel-info">
-                  <div class="name-id">{{ person.name }}({{ person.employeeId }})</div>
-                  <div class="training-selection">
-                    <van-field
-                      v-model="person.selectedTraining"
-                      placeholder="请选择关联同一提纲已完成训练"
-                      readonly
-                      @click="openTrainingSelector(person)"
+          <ItemWrapper title="已添加人员" :isContentInBox="true">
+            <div class="selected-section">
+              <template v-if="tempSelectedPersonnel && tempSelectedPersonnel.length > 0">
+                <div class="selected-personnel-list">
+                  <div v-for="person in tempSelectedPersonnel" :key="person.employeeId" class="selected-personnel-item">
+                    <div class="personnel-info">
+                      <div class="name-id">{{ person.name }}({{ person.employeeId }})</div>
+                      <div class="training-info">
+                        <div class="training-info-text">
+                          {{ person.selectedTraining || '请选择关联同一提纲已完成训练' }}
+                        </div>
+                        <van-button
+                          class="training-info-btn"
+                          type="info"
+                          icon="search"
+                          size="small"
+                          @click="openTrainingSelector(person)"
+                        ></van-button>
+                      </div>
+                    </div>
+                    <van-icon
+                      :name="require('../../theme/images/icon-delete.svg')"
+                      @click.stop="removeStudent(student.employeeId)"
+                      size="25"
                     />
                   </div>
                 </div>
-                <van-button type="danger" size="mini" @click="removeTempPersonnel(person.employeeId)">
-                  移除
-                </van-button>
-              </div>
+              </template>
+              <template v-else>
+                <CsEmpty image="" description="—暂无数据—" />
+              </template>
             </div>
-          </div>
-        </div>
-
-        <div class="dialog-footer">
-          <van-button type="default" @click="showAddDialog = false">取消</van-button>
-          <van-button type="primary" @click="confirmAddPersonnel">确认</van-button>
+          </ItemWrapper>
         </div>
       </div>
-    </van-popup>
+      <template #footer>
+        <div class="dialog-footer">
+          <van-button size="large" round type="default" @click="showAddDialog = false">取消</van-button>
+          <van-button size="large" round type="info" @click="confirmAddPersonnel">确认</van-button>
+        </div>
+      </template>
+    </CsPopup>
 
     <!-- 训练选择弹窗 -->
-    <van-popup v-model="showTrainingSelector" position="bottom" :style="{ height: '60%' }">
+    <CsPopup
+      v-model="showTrainingSelector"
+      title="选择关联训练"
+      :showCloseButton="false"
+      confirmButtonText="关闭"
+      @confirm="() => (showTrainingSelector = false)"
+      :style="{ height: '45vh' }"
+    >
       <div class="training-selector">
-        <div class="selector-header">
-          <h3>选择关联训练</h3>
-          <van-icon name="cross" @click="showTrainingSelector = false" />
-        </div>
         <div class="selector-content">
           <van-radio-group v-model="selectedTrainingId">
             <van-cell-group>
@@ -169,30 +190,44 @@
             </van-cell-group>
           </van-radio-group>
         </div>
-        <div class="selector-footer">
+        <!-- <div class="selector-footer">
           <van-button type="primary" @click="confirmTrainingSelection">确认</van-button>
-        </div>
+        </div> -->
       </div>
-    </van-popup>
+      <template #footer>
+        <div class="dialog-footer">
+          <van-button size="large" round type="info" @click="confirmTrainingSelection">确认</van-button>
+        </div>
+      </template>
+    </CsPopup>
 
     <!-- 学员准入条件详情弹窗 -->
-    <StudentAdmissionDetail
-      :visible.sync="showDetail"
-      :student-data="currentStudent"
-      @student-change="handleStudentChange"
-    />
+    <CsPopup
+      v-model="showDetail"
+      title="准入条件详情"
+      :showCloseButton="false"
+      confirmButtonText="关闭"
+      @confirm="() => (showDetail = false)"
+      :style="{ height: '90vh' }"
+    >
+      <StudentAdmissionDetail v-if="showDetail" :student-data="currentStudent" @student-change="handleStudentChange" />
+    </CsPopup>
   </div>
 </template>
 
 <script>
 import StudentAdmissionDetail from '../student-admission-detail/index.vue'
 import ItemWrapper from '../item-wrapper/index.vue'
+import CsPopup from '@/components/csPopup.vue'
+import csEmpty from '@/components/csEmpty.vue'
 
 export default {
   name: 'StudentManager',
   components: {
     StudentAdmissionDetail,
-    ItemWrapper
+    ItemWrapper,
+    CsPopup,
+    csEmpty
   },
   props: {
     // 当前选中的机型、大纲版本、提纲等信息
@@ -224,7 +259,7 @@ export default {
       currentSelectingPerson: null, // 当前选择训练的人员
 
       // 学员详情弹窗
-      showDetail: false,
+      showDetail: true,
       currentStudent: {}
     }
   },
@@ -437,8 +472,12 @@ export default {
       if (existingIndex === -1) {
         this.tempSelectedPersonnel.push({
           ...person,
+          selected: true,
           selectedTraining: '无上一科目'
         })
+      } else {
+        // 切换选中状态
+        this.tempSelectedPersonnel[existingIndex].selected = !this.tempSelectedPersonnel[existingIndex].selected
       }
     },
 
@@ -523,7 +562,9 @@ export default {
     // 显示学员详情
     showStudentDetail(student) {
       this.currentStudent = student
-      this.showDetail = true
+      this.$nextTick(() => {
+        this.showDetail = true
+      })
     },
 
     // 处理学员变更
@@ -533,9 +574,199 @@ export default {
       // 通知父组件学员变更
       this.$emit('student-change', newStudent)
     }
+  },
+  mounted() {
+    // this.showStudentDetail(this.addStudentToList)
   }
 }
 </script>
+
+<style lang="less">
+.add-personnel-dialog {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  .dialog-content {
+    flex: 1;
+    overflow-y: auto;
+    padding: 10px 16px 0;
+
+    .search-section {
+      margin-bottom: 16px;
+      .van-search {
+        margin: unset;
+        border: 1px solid #e1e5ee;
+        background: #ffffff;
+        border-radius: 8px;
+      }
+    }
+
+    .section-title {
+      font-size: 14px;
+      font-weight: 500;
+      color: #333;
+      margin-bottom: 8px;
+    }
+
+    .personnel-list {
+      margin-bottom: 20px;
+
+      .personnel-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px;
+        margin-bottom: 8px;
+        background: #fff;
+        border-radius: 6px;
+        cursor: pointer;
+
+        &:hover {
+          // background: #e9ecef;
+        }
+
+        .personnel-info {
+          flex: 1;
+
+          .name-id {
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 4px;
+          }
+
+          .training-record {
+            font-size: 12px;
+            color: #666;
+          }
+        }
+      }
+    }
+
+    .selected-personnel-list {
+      padding: 0 14px;
+      box-sizing: border-box;
+      .selected-personnel-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 0;
+        border-bottom: 1px dashed #e1e5ee;
+        &:last-child {
+          border-bottom: unset;
+        }
+
+        .personnel-info {
+          flex: 1;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          margin-right: 12px;
+
+          .name-id {
+            font-size: 12px;
+            font-weight: 400;
+            width: 110px;
+            text-align: center;
+            box-sizing: border-box;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            padding: 10px 10px;
+            border-radius: 4px;
+            margin-right: 4px;
+            background-color: #fff;
+            border: 1px solid#C2E9FF;
+          }
+
+          .training-info {
+            box-sizing: border-box;
+            flex: 1;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-direction: row;
+            border-radius: 4px;
+            margin-right: 7px;
+            &-text {
+              padding: 3px 0;
+              box-sizing: border-box;
+              border: 1px dashed #0097eb; //改成伪元素
+              flex: 1;
+              color: #046097;
+              font-size: 12px;
+              font-weight: 400;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              height: 40px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              text-align: center;
+              /* 保留两行换行效果 */
+              display: -webkit-box;
+              -webkit-box-orient: vertical;
+              -webkit-line-clamp: 2;
+              /* 兼容性处理 */
+              line-height: 1.5;
+            }
+            &-btn {
+              height: 40px;
+              border-radius: 4px;
+              // height: 100%;
+              left: -2px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.dialog-footer {
+  display: flex;
+  justify-content: space-evenly;
+  gap: 31px;
+  padding: 16px;
+  border-top: 1px solid #eee;
+}
+.training-selector {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  .selector-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    border-bottom: 1px solid #eee;
+
+    h3 {
+      margin: 0;
+      font-size: 16px;
+      font-weight: 500;
+    }
+
+    .van-icon {
+      cursor: pointer;
+      font-size: 18px;
+      color: #999;
+    }
+  }
+
+  .selector-content {
+    flex: 1;
+    overflow-y: auto;
+  }
+
+  .selector-footer {
+    padding: 16px;
+    border-top: 1px solid #eee;
+    text-align: center;
+  }
+}
+</style>
 
 <style lang="less" scoped>
 .student-manager {
@@ -700,152 +931,6 @@ export default {
           }
         }
       }
-    }
-  }
-
-  .add-personnel-dialog {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-
-    .dialog-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 16px;
-      border-bottom: 1px solid #eee;
-
-      h3 {
-        margin: 0;
-        font-size: 16px;
-        font-weight: 500;
-      }
-
-      .van-icon {
-        cursor: pointer;
-        font-size: 18px;
-        color: #999;
-      }
-    }
-
-    .dialog-content {
-      flex: 1;
-      overflow-y: auto;
-      padding: 16px;
-
-      .search-section {
-        margin-bottom: 16px;
-      }
-
-      .section-title {
-        font-size: 14px;
-        font-weight: 500;
-        color: #333;
-        margin-bottom: 8px;
-      }
-
-      .personnel-list {
-        margin-bottom: 20px;
-
-        .personnel-item {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          padding: 12px;
-          margin-bottom: 8px;
-          background: #f8f9fa;
-          border-radius: 6px;
-          cursor: pointer;
-
-          &:hover {
-            background: #e9ecef;
-          }
-
-          .personnel-info {
-            flex: 1;
-
-            .name-id {
-              font-size: 14px;
-              font-weight: 500;
-              margin-bottom: 4px;
-            }
-
-            .training-record {
-              font-size: 12px;
-              color: #666;
-            }
-          }
-        }
-      }
-
-      .selected-personnel-list {
-        .selected-personnel-item {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          padding: 12px;
-          margin-bottom: 8px;
-          background: #fff;
-          border: 1px solid #e8e8e8;
-          border-radius: 6px;
-
-          .personnel-info {
-            flex: 1;
-            margin-right: 12px;
-
-            .name-id {
-              font-size: 14px;
-              font-weight: 500;
-              margin-bottom: 8px;
-            }
-          }
-        }
-      }
-    }
-
-    .dialog-footer {
-      display: flex;
-      justify-content: flex-end;
-      gap: 12px;
-      padding: 16px;
-      border-top: 1px solid #eee;
-    }
-  }
-
-  .training-selector {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-
-    .selector-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 16px;
-      border-bottom: 1px solid #eee;
-
-      h3 {
-        margin: 0;
-        font-size: 16px;
-        font-weight: 500;
-      }
-
-      .van-icon {
-        cursor: pointer;
-        font-size: 18px;
-        color: #999;
-      }
-    }
-
-    .selector-content {
-      flex: 1;
-      overflow-y: auto;
-    }
-
-    .selector-footer {
-      padding: 16px;
-      border-top: 1px solid #eee;
-      text-align: center;
     }
   }
 }

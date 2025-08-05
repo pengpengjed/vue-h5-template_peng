@@ -1,20 +1,18 @@
 <template>
   <div class="access-condition-formula">
+    <div class="divider" v-if="isReview" />
     <!-- 组合公式 -->
     <!-- 例子：组合公式：条件1且（条件2或条件3） -->
     <div class="formula-section">
-      <div class="formula-content">
+      <div :class="{ 'formula-content': isOnlyShow, 'formula-content-plus': isReview }">
         <span>组合公式：</span>
-        <span>{{ formulaText }}</span>
+        <span v-if="isOnlyShow">{{ formulaText }}</span>
+        <span v-if="isReview" v-html="formulaTextPlus" />
       </div>
     </div>
 
     <!-- 条件列表 -->
     <div class="conditions-section">
-      <!-- <div class="section-title">
-        <div class="title-bar"></div>
-        <span class="title-text">条件列表</span>
-      </div> -->
       <div class="conditions-content">
         <template v-if="pageType === 1">
           <div
@@ -26,15 +24,10 @@
             :class="{ 'selected-condition': condition.selectFlag }"
             class="conditions-content-view"
           >
-            <div class="conditions-content-view-title">
-              {{ `条件${index + 1}：` }}
-            </div>
-            <div class="conditions-content-view-content">
-              {{ condition.conditionContent }}
-            </div>
+            {{ `条件${index + 1}：` }}{{ condition.conditionContent }}
           </div>
         </template>
-        <van-cell-group>
+        <van-cell-group v-else>
           <van-cell
             v-for="(condition, index) in conditionsList"
             :key="condition.id || index"
@@ -43,16 +36,17 @@
             :value="getConditionValue(condition)"
             :class="{ 'selected-condition': condition.selectFlag }"
           >
-            <!-- <template #right-icon>
+            <!-- <template #label></template> -->
+            <template #right-icon>
               <div class="condition-actions">
-                校验状态图标
+                <!-- 校验状态图标 -->
                 <van-icon
                   :name="getConditionIcon(condition)"
                   :class="getConditionIconClass(condition)"
                   @click="showConditionDetail(condition)"
                 />
 
-                编辑模式下的复选框
+                <!-- 编辑模式下的复选框 -->
                 <van-checkbox
                   v-if="ifModify"
                   v-model="condition.selectFlag"
@@ -60,9 +54,9 @@
                   :disabled="!ifModify"
                 />
 
-                操作按钮
+                <!-- 操作按钮 -->
                 <div class="action-buttons" v-if="!ifModify">
-                  确认满足按钮
+                  <!-- 确认满足按钮 -->
                   <van-button
                     v-if="condition.status === 'error'"
                     type="primary"
@@ -72,7 +66,7 @@
                     确认满足
                   </van-button>
 
-                  取消确认按钮
+                  <!-- 取消确认按钮 -->
                   <van-button
                     v-if="condition.status === 'manual'"
                     type="default"
@@ -82,7 +76,7 @@
                     取消确认
                   </van-button>
 
-                  上传按钮
+                  <!-- 上传按钮 -->
                   <van-button
                     v-if="condition.status === 'manual' && condition.attachment"
                     type="primary"
@@ -92,7 +86,7 @@
                     上传
                   </van-button>
 
-                  附件名称
+                  <!-- 附件名称 -->
                   <span v-if="condition.attachment" class="attachment-name" @click="previewFile(condition.attachment)">
                     {{ condition.attachment.name }}
                   </span>
@@ -103,7 +97,7 @@
               <span class="condition-number" @click="addConditionToFormula(index + 1)" :class="{ clickable: ifModify }">
                 条件{{ index + 1 }}
               </span>
-            </template> -->
+            </template>
           </van-cell>
         </van-cell-group>
       </div>
@@ -176,8 +170,11 @@
 </template>
 
 <script>
+import accessConditionBase from '../../mixins/accessConditionBase'
+
 export default {
   name: 'AccessConditionFormula',
+  mixins: [accessConditionBase],
   props: {
     data: {
       type: Object,
@@ -186,12 +183,6 @@ export default {
     ifModify: {
       type: Boolean,
       default: false
-    },
-    // 页面类型：1： 代申请选择科目后显示纯查看
-    pageType: {
-      type: Number,
-      default: 1,
-      require: true
     }
   },
   data() {
@@ -244,6 +235,11 @@ export default {
       return '暂无组合公式'
     },
 
+    // 满足条件用绿色标识，不满足条件用红色标识
+    formulaTextPlus() {
+      return this.generateFormulaWithStatus()
+    },
+
     // 获取所有条件列表
     conditionsList() {
       console.log(
@@ -272,6 +268,55 @@ export default {
     }
   },
   methods: {
+    // 格式化条件状态显示
+    formatConditionStatus(text, condition) {
+      if (!condition) return text
+      const color = condition.status === 'success' ? '#10b981' : '#dc2626'
+      return `<span style="color: ${color}">${text}</span>`
+    },
+
+    // 生成带状态标记的公式文本
+    generateFormulaWithStatus() {
+      if (!this.data.conditionalExpression) {
+        return '暂无组合公式'
+      }
+
+      const expression = this.data.conditionalExpression
+      let result = ''
+      let currentNumber = ''
+      let conditionsMap = {}
+
+      // 创建条件索引映射
+      this.conditionsList.forEach((condition, index) => {
+        conditionsMap[index + 1] = condition
+      })
+
+      for (let i = 0; i < expression.length; i++) {
+        const char = expression[i]
+
+        if (char === '|' || char === '&' || char === '(' || char === ')') {
+          // 处理累积的数字
+          if (currentNumber) {
+            const condition = conditionsMap[parseInt(currentNumber)]
+            result += this.formatConditionStatus(`条件${currentNumber}`, condition)
+            currentNumber = ''
+          }
+
+          // 添加操作符
+          result += char === '|' ? ' 或 ' : char === '&' ? ' 且 ' : char
+        } else if (/\d/.test(char)) {
+          currentNumber += char
+        }
+      }
+
+      // 处理最后的数字
+      if (currentNumber) {
+        const condition = conditionsMap[parseInt(currentNumber)]
+        result += this.formatConditionStatus(`条件${currentNumber}`, condition)
+      }
+
+      return result
+    },
     // 初始化组合公式列表
     initCombinationList(data) {
       if (!data.conditionalExpression) {
@@ -535,25 +580,14 @@ export default {
 
 <style lang="less" scoped>
 .access-condition-formula {
-  /* .section-title {
-    display: flex;
-    align-items: center;
-    margin-bottom: 12px;
-
-    .title-bar {
-      width: 4px;
-      height: 18px;
-      background: #3986ff;
-      margin-right: 8px;
-      border-radius: 2px;
-    }
-
-    .title-text {
-      font-size: 16px;
-      font-weight: 500;
-      color: #5a709b;
-    }
-  } */
+  .divider {
+    margin-left: 10px;
+    width: 90px;
+    height: 7px;
+    background: url('../../theme/images/icon-divider.png') 100% 100% no-repeat transparent;
+    background-size: contain;
+    margin-bottom: 6px;
+  }
 
   .formula-section {
     margin-bottom: 6px;
@@ -562,6 +596,11 @@ export default {
       font-size: 12px;
       font-weight: 500;
       line-height: 18px;
+    }
+    .formula-content-plus {
+      font-size: 14px;
+      line-height: 20px;
+      font-weight: 500;
     }
   }
 
@@ -574,6 +613,7 @@ export default {
         font-size: 12px;
         font-weight: 400;
         line-height: 18px;
+        display: flex;
       }
 
       ::v-deep .van-cell {

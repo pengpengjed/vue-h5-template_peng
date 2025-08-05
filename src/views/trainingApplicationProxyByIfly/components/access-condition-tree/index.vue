@@ -16,6 +16,7 @@
         :node-data="group"
         :level="0"
         :if-modify="ifModify"
+        :pageType="pageType"
         @show-detail="handleShowDetail"
         @condition-change="handleConditionChange"
         @confirm-satisfaction="handleConfirmSatisfaction"
@@ -36,13 +37,13 @@
         </div>
         <div class="detail-content" v-if="currentGlobalCondition">
           <van-cell-group>
-            <van-cell title="条件名称" :value="currentGlobalCondition.conditionLabel?.labelName" />
+            <van-cell title="条件名称" :value="currentGlobalCondition.conditionLabel.labelName" />
             <van-cell title="条件内容" :value="currentGlobalCondition.conditionContent" />
             <van-cell title="操作符" :value="getOperatorText(currentGlobalCondition.businessOperator)" />
             <van-cell title="比较值" :value="currentGlobalCondition.businessValue" />
-            <van-cell title="单位" :value="currentGlobalCondition.conditionLabel?.unit || '无'" />
-            <van-cell title="标签代码" :value="currentGlobalCondition.conditionLabel?.labelCode || '无'" />
-            <van-cell title="关联标签" :value="currentGlobalCondition.conditionLabel?.relatedLabel || '无'" />
+            <van-cell title="单位" :value="currentGlobalCondition.conditionLabel.unit || '无'" />
+            <van-cell title="标签代码" :value="currentGlobalCondition.conditionLabel.labelCode || '无'" />
+            <van-cell title="关联标签" :value="currentGlobalCondition.conditionLabel.relatedLabel || '无'" />
             <van-cell title="备注" :value="currentGlobalCondition.remark || '无'" />
           </van-cell-group>
         </div>
@@ -53,9 +54,11 @@
 
 <script>
 import TreeNode from '../tree-node/index.vue'
+import accessConditionBase from '../../mixins/accessConditionBase'
 
 export default {
   name: 'AccessConditionTree',
+  mixins: [accessConditionBase],
   components: {
     TreeNode
   },
@@ -295,6 +298,8 @@ export default {
 }
 .access-condition-tree {
   overflow: auto;
+  height: 100%;
+  width: 100%;
   .root-relation {
     display: flex;
     align-items: center;

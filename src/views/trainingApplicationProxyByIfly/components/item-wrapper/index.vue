@@ -1,7 +1,8 @@
 <template>
   <div class="item-wrapper-container">
-    <div class="item-wrapper item-wrapper-warp" v-if="isContentInBox">
-      <div class="item-wrapper-title">
+    <!-- <slot name="item-wrapper-top-header"/> -->
+    <div class="item-wrapper item-wrapper-warp" :style="{ background: bgConfig }" v-if="isContentInBox">
+      <div class="item-wrapper-title" v-if="!(title === '')">
         <span class="item-wrapper-title-text">
           {{ title }}
         </span>
@@ -23,7 +24,7 @@
 import ItemTitle from '../item-title/index.vue'
 export default {
   name: 'itemWrapper',
-  props: ['title', 'isContentInBox'],
+  props: ['title', 'isContentInBox', 'bgConfig'],
   components: { ItemTitle },
   data() {
     return {}
@@ -36,7 +37,6 @@ export default {
 
 <style lang="less">
 .item-wrapper-container {
-  position: relative;
   margin-bottom: 10px;
   &:last-child {
     margin-bottom: unset;

@@ -1,0 +1,79 @@
+:root {
+  --nav-width: 120px;
+  /* 默认宽度*/
+  --bar-height: 46px;
+}
+
+.pad {
+  .app-more-popup,.app-module-popup,.app-server-popup {
+    width: 50% !important;
+  }
+  .app-more-popup,.app-module-popup,.app-server-popup .van-popup--center{
+    transform: translate3d(-50%, -50%, 0) !important;
+  }
+  
+  .cs-system-notice-popup {
+    width: 40%;
+  }
+  .cs-popup{
+    .cs-popup__header{
+      background-color: #638DFD;
+    }
+  }
+  .van-popup--bottom {
+    width: calc(100% - var(--nav-width));
+    right: 0;
+    left: unset;
+  }
+  .van-popup--center{
+    max-width: 80%;
+    transform: translate3d(calc(-50% + var(--nav-width) / 2), -50%, 0);
+  }
+  .van-popup--top {
+    top: var(--bar-height);
+    width: calc(100% - var(--nav-width));
+    right: 0;
+    left: unset;
+  }
+ 
+  
+  .van-dialog {
+    max-width: 96%;
+    border-radius: 5px;
+
+    .van-dialog__header {
+      padding: 10px;
+      text-align: left;
+      background-color: #638DFD;
+      font-weight: normal;
+      font-size: 14px;
+      color: #fff;
+    }
+
+    .van-dialog__content {
+      font-size: 14px;
+      line-height: 22px;
+      color: #000;
+    }
+
+    .van-button {
+      font-size: 14px;
+    }
+
+    .van-dialog__confirm {
+      color: #638DFD;
+    }
+
+    .van-dialog__message--has-title {
+      padding: 20px;
+      color: #000;
+    }
+  }
+  // pad端接口报错弹窗 标题
+  .system-error-dialog {
+    .van-dialog__header {
+      padding: 45px 0 0 30px !important;
+      color: unset !important;
+    }
+  }
+}
