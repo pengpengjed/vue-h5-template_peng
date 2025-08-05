@@ -22,7 +22,8 @@ import {
   Form,
   Picker,
   Row,
-  Col
+  Col,
+  Uploader
 } from 'vant'
 
 Vue.use(Button)
@@ -45,3 +46,4 @@ Vue.use(Form)
 Vue.use(Picker)
 Vue.use(Row)
 Vue.use(Col)
+Vue.use(Uploader)

@@ -27,79 +27,87 @@
             {{ `条件${index + 1}：` }}{{ condition.conditionContent }}
           </div>
         </template>
-        <van-cell-group v-else>
-          <van-cell
-            v-for="(condition, index) in conditionsList"
-            :key="condition.id || index"
-            :title="`条件${index + 1}`"
-            :label="condition.conditionContent"
-            :value="getConditionValue(condition)"
-            :class="{ 'selected-condition': condition.selectFlag }"
-          >
-            <!-- <template #label></template> -->
-            <template #right-icon>
-              <div class="condition-actions">
-                <!-- 校验状态图标 -->
-                <van-icon
-                  :name="getConditionIcon(condition)"
-                  :class="getConditionIconClass(condition)"
-                  @click="showConditionDetail(condition)"
-                />
-
-                <!-- 编辑模式下的复选框 -->
-                <van-checkbox
-                  v-if="ifModify"
-                  v-model="condition.selectFlag"
-                  @change="handleConditionSelect(condition, $event)"
-                  :disabled="!ifModify"
-                />
-
-                <!-- 操作按钮 -->
-                <div class="action-buttons" v-if="!ifModify">
-                  <!-- 确认满足按钮 -->
-                  <van-button
-                    v-if="condition.status === 'error'"
-                    type="primary"
-                    size="mini"
-                    @click="confirmSatisfaction(condition)"
-                  >
-                    确认满足
-                  </van-button>
-
-                  <!-- 取消确认按钮 -->
-                  <van-button
-                    v-if="condition.status === 'manual'"
-                    type="default"
-                    size="mini"
-                    @click="cancelConfirmation(condition)"
-                  >
-                    取消确认
-                  </van-button>
-
-                  <!-- 上传按钮 -->
-                  <van-button
-                    v-if="condition.status === 'manual' && condition.attachment"
-                    type="primary"
-                    size="mini"
-                    @click="uploadAttachment(condition)"
-                  >
-                    上传
-                  </van-button>
-
-                  <!-- 附件名称 -->
-                  <span v-if="condition.attachment" class="attachment-name" @click="previewFile(condition.attachment)">
-                    {{ condition.attachment.name }}
+        <div class="conditions-list" v-else>
+          <template v-for="(condition, index) in conditionsList">
+            <div
+              class="condition-item-wrapper"
+              :class="getConditionWrapperClass(condition)"
+              :key="condition.id || index"
+            >
+              <!-- 第一行：条件序号 + 图标 + 条件内容 -->
+              <div class="condition-header">
+                <div class="condition-number-container" :class="getConditionNumberClass(condition)">
+                  <span class="condition-number" @click="ifModify && addConditionToFormula(index + 1)">
+                    条件{{ index + 1 }}
                   </span>
+                  <img
+                    :src="getConditionIcon(condition)"
+                    :class="getConditionIconClass(condition)"
+                    @click="handleIconClick(condition)"
+                    class="condition-status-icon"
+                    alt="状态图标"
+                  />
+                  <!-- 编辑模式下的复选框 -->
+                  <van-checkbox
+                    v-if="ifModify"
+                    v-model="condition.selectFlag"
+                    @change="handleConditionSelect(condition, $event)"
+                    class="condition-checkbox"
+                  />
+                </div>
+                <div class="condition-content">
+                  {{ condition.conditionContent }}
                 </div>
               </div>
-            </template>
-            <template #title v-if="ifModify">
-              <span class="condition-number" @click="addConditionToFormula(index + 1)" :class="{ clickable: ifModify }">
-                条件{{ index + 1 }}
-              </span>
-            </template>
-          </van-cell>
-        </van-cell-group>
+
+              <!-- 第二行：操作按钮 -->
+              <div class="condition-actions" v-if="!ifModify && hasActionButtons(condition)">
+                <!-- 确认满足按钮 -->
+                <van-button
+                  v-if="condition.status === 'error'"
+                  type="info"
+                  size="mini"
+                  @click="confirmSatisfaction(condition)"
+                >
+                  确认满足
+                </van-button>
+
+                <!-- 取消确认按钮 -->
+                <van-button
+                  v-if="condition.status === 'manual'"
+                  type="info"
+                  plain
+                  size="mini"
+                  @click="cancelConfirmation(condition)"
+                >
+                  取消确认
+                </van-button>
+
+                <!-- 上传按钮 -->
+                <van-button
+                  v-if="condition.status === 'manual' && condition.hasAttachment"
+                  type="info"
+                  size="mini"
+                  @click="uploadAttachment(condition)"
+                >
+                  上传
+                </van-button>
+              </div>
+
+              <!-- 第三行：附件信息 -->
+              <div
+                class="condition-attachment"
+                v-if="condition.status === 'manual' && condition.attachment && condition.attachment.name"
+              >
+                <div class="attachment-info" @click="previewFile(condition.attachment)">
+                  <img :src="require('../../theme/images/icon-file.svg')" class="file-icon" alt="文件图标" />
+                  <span class="attachment-name">{{ condition.attachment.name }}</span>
+                </div>
+                <van-button type="info" size="mini" @click="uploadAttachment(condition)"> 重新上传 </van-button>
+              </div>
+            </div>
+          </template>
+        </div>
       </div>
     </div>
 
@@ -166,15 +174,53 @@
         </div>
       </div>
     </van-popup>
+
+    <!-- 确认满足弹窗 -->
+    <van-dialog
+      v-model="showConfirmDialog"
+      title="确认满足条件"
+      show-cancel-button
+      cancel-button-text="取消"
+      :show-confirm-button="false"
+      :close-on-click-overlay="false"
+    >
+      <div class="confirm-content">
+        <p>系统无法校验该准入条件，需要人工确认该条件满足。</p>
+        <p>请选择确认方式：</p>
+        <div class="confirm-buttons">
+          <van-button type="default" size="normal" @click="handleConfirmWithoutUpload" class="confirm-btn">
+            不上传
+          </van-button>
+          <van-button type="primary" size="normal" @click="handleConfirmWithUpload" class="confirm-btn">
+            上传
+          </van-button>
+        </div>
+      </div>
+      <template #cancel>
+        <van-button @click="showConfirmDialog = false">取消</van-button>
+      </template>
+    </van-dialog>
+
+    <!-- 文件上传弹窗 -->
+    <cs-file-upload-popup
+      v-model="showUploadDialog"
+      :accept-exts="acceptedFileTypes"
+      :limit-size="10"
+      @read-file="onFileSelected"
+    />
   </div>
 </template>
 
 <script>
 import accessConditionBase from '../../mixins/accessConditionBase'
+import csFileUploadPopup from '@/components/csFileUploadPopup.vue'
 
 export default {
   name: 'AccessConditionFormula',
   mixins: [accessConditionBase],
+  components: {
+    csFileUploadPopup
+  },
   props: {
     data: {
       type: Object,
@@ -191,6 +237,10 @@ export default {
       currentCondition: null,
       combinationList: [],
       selectedFormulaIndex: null,
+      showConfirmDialog: false,
+      showUploadDialog: false,
+      pendingCondition: null,
+      acceptedFileTypes: ['pdf', 'doc', 'docx', 'xls', 'xlsx', 'png', 'jpg', 'jpeg', 'bmp'],
       operatorList: [
         {
           label: '(',
@@ -402,14 +452,6 @@ export default {
       })
     },
 
-    // 获取条件显示值
-    getConditionValue(condition) {
-      const operator = condition.businessOperatorName || this.getOperatorText(condition.businessOperator)
-      const value = condition.businessValue1
-      const unit = condition.businessUnitName || ''
-      return `${operator} ${value}${unit}`
-    },
-
     // 获取操作符文本
     getOperatorText(operator) {
       const operatorMap = {
@@ -535,39 +577,139 @@ export default {
 
     // 获取条件图标
     getConditionIcon(condition) {
-      if (condition.status === 'error') {
-        return 'close-circle'
+      if (condition.status === 'success') {
+        return require('../../theme/images/icon-pass.png')
+      } else if (condition.status === 'error') {
+        return require('../../theme/images/icon-fail.png')
       } else if (condition.status === 'manual') {
-        return 'info-o'
+        return require('../../theme/images/icon-question.png')
       } else {
-        return 'success'
+        // 默认根据某些业务逻辑判断
+        return require('../../theme/images/icon-fail.png')
       }
     },
 
     // 获取条件图标类名
     getConditionIconClass(condition) {
-      if (condition.status === 'error') {
+      if (condition.status === 'success') {
+        return 'icon-success'
+      } else if (condition.status === 'error') {
         return 'icon-error'
       } else if (condition.status === 'manual') {
         return 'icon-manual'
       } else {
-        return 'icon-success'
+        return 'icon-error'
+      }
+    },
+
+    // 获取条件单元格类名
+    getConditionCellClass(condition) {
+      if (condition.status === 'success') {
+        return 'condition-success'
+      } else if (condition.status === 'error') {
+        return 'condition-error'
+      } else if (condition.status === 'manual') {
+        return 'condition-manual'
+      } else {
+        return 'condition-error'
+      }
+    },
+
+    // 获取条件包装器类名
+    getConditionWrapperClass(condition) {
+      return {
+        'selected-condition': condition.selectFlag
+      }
+    },
+
+    // 获取条件序号容器类名
+    getConditionNumberClass(condition) {
+      if (condition.status === 'success') {
+        return 'condition-number-success'
+      } else if (condition.status === 'error') {
+        return 'condition-number-error'
+      } else if (condition.status === 'manual') {
+        return 'condition-number-manual'
+      } else {
+        return 'condition-number-error'
+      }
+    },
+
+    // 判断是否有操作按钮
+    hasActionButtons(condition) {
+      return (
+        condition.status === 'error' ||
+        condition.status === 'manual' ||
+        (condition.status === 'manual' && condition.hasAttachment)
+      )
+    },
+
+    // 处理图标点击
+    handleIconClick(condition) {
+      if (condition.status === 'manual') {
+        // 显示toast提示
+        this.$toast('系统无法校验该准入条件，人工确认满足')
+      } else {
+        // 显示条件详情
+        this.showConditionDetail(condition)
       }
     },
 
     // 确认条件满足
     confirmSatisfaction(condition) {
-      this.$emit('confirm-satisfaction', condition)
+      this.pendingCondition = condition
+      this.showConfirmDialog = true
+    },
+
+    // 处理不上传确认
+    handleConfirmWithoutUpload() {
+      if (this.pendingCondition) {
+        this.pendingCondition.status = 'manual'
+        this.pendingCondition.hasAttachment = false
+        this.pendingCondition.attachment = null
+        this.$emit('confirm-satisfaction', this.pendingCondition, false)
+      }
+      this.showConfirmDialog = false
+      this.pendingCondition = null
+    },
+
+    // 处理上传确认
+    handleConfirmWithUpload() {
+      if (this.pendingCondition) {
+        this.pendingCondition.status = 'manual'
+        this.pendingCondition.hasAttachment = true
+        this.showUploadDialog = true
+      }
+      this.showConfirmDialog = false
     },
 
     // 取消条件确认
     cancelConfirmation(condition) {
+      condition.status = 'error'
+      condition.hasAttachment = false
+      condition.attachment = null
       this.$emit('cancel-confirmation', condition)
     },
 
     // 上传附件
     uploadAttachment(condition) {
-      this.$emit('upload-attachment', condition)
+      this.pendingCondition = condition
+      this.showUploadDialog = true
+    },
+
+    // 文件选择回调
+    onFileSelected(fileData) {
+      if (this.pendingCondition) {
+        this.pendingCondition.attachment = {
+          name: fileData.name,
+          file: fileData.file,
+          url: fileData.url,
+          path: fileData.path
+        }
+        this.$emit('upload-attachment', this.pendingCondition, fileData)
+      }
+      this.showUploadDialog = false
+      this.pendingCondition = null
     },
 
     // 预览文件
@@ -616,74 +758,132 @@ export default {
         display: flex;
       }
 
-      ::v-deep .van-cell {
-        margin-bottom: 8px;
-        background-color: #ffffff;
-        border-radius: 6px;
-        border: 1px solid #e8e8e8;
+      .conditions-list {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
 
-        &.selected-condition {
-          background-color: #e7f6ff;
-          border-color: #3986ff;
-        }
+        .condition-item-wrapper {
+          background-color: #ffffff;
+          border-radius: 6px;
+          border: 1px solid #e8e8e8;
+          padding: 12px;
+          margin-bottom: 8px;
 
-        .condition-actions {
-          display: flex;
-          align-items: center;
-          gap: 8px;
-        }
-
-        .action-buttons {
-          display: flex;
-          gap: 8px;
-          flex-wrap: wrap;
-        }
-
-        .attachment-name {
-          color: #3986ff;
-          cursor: pointer;
-          font-size: 13px;
-          text-decoration: underline;
-
-          &:hover {
-            color: #2968c8;
+          &.selected-condition {
+            background-color: #e7f6ff;
+            border-color: #3986ff;
           }
-        }
 
-        .van-cell__title {
-          font-weight: 500;
-          color: #333;
-          font-size: 14px;
+          .condition-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 8px;
 
-          .condition-number {
-            &.clickable {
-              cursor: pointer;
-              color: #3986ff;
-              text-decoration: underline;
+            .condition-number-container {
+              position: relative;
+              min-width: 60px;
+              padding: 6px 16px;
+              border-radius: 2px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
 
-              &:hover {
-                color: #2968c8;
+              .condition-number {
+                font-size: 12px;
+                font-weight: 500;
+                color: #fff;
+                line-height: 1;
+              }
+
+              .condition-status-icon {
+                position: absolute;
+                top: -2px;
+                right: -2px;
+                width: 16px;
+                height: 16px;
+                cursor: pointer;
+              }
+
+              .condition-checkbox {
+                margin-left: 8px;
+              }
+
+              &.condition-number-success {
+                background-color: #10b981;
+                border: 1px solid #94dcce;
+              }
+
+              &.condition-number-error {
+                background-color: #dc2626;
+                border: 1px solid #f0c6bb;
+              }
+
+              &.condition-number-manual {
+                background-color: #f59e0b;
+                border: 1px solid #f0dcbb;
               }
             }
+
+            .condition-content {
+              flex: 1;
+              font-size: 12px;
+              color: #444444;
+              line-height: 1.5;
+              padding-top: 6px;
+            }
           }
-        }
 
-        .van-cell__label {
-          color: #666;
-          font-size: 13px;
-          margin-top: 4px;
-        }
+          .condition-actions {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 8px;
 
-        .van-cell__value {
-          color: #3986ff;
-          font-weight: 500;
-          font-size: 13px;
-        }
+            ::v-deep .van-button {
+              padding: 2px 12px;
+              font-size: 10px;
+              line-height: 15px;
+            }
+          }
 
-        .van-icon {
-          color: #3986ff;
-          cursor: pointer;
-          font-size: 16px;
+          .condition-attachment {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+
+            .attachment-info {
+              display: flex;
+              align-items: center;
+              gap: 4px;
+              background: #ddeeff;
+              padding: 6px 12px;
+              border-radius: 4px;
+              cursor: pointer;
+              flex: 1;
+
+              .file-icon {
+                width: 15px;
+                height: 15px;
+              }
+
+              .attachment-name {
+                font-size: 12px;
+                color: #3986ff;
+                text-decoration: underline;
+
+                &:hover {
+                  color: #2968c8;
+                }
+              }
+            }
+
+            ::v-deep .van-button {
+              padding: 2px 12px;
+              font-size: 10px;
+              line-height: 15px;
+            }
+          }
         }
       }
     }
@@ -804,6 +1004,35 @@ export default {
           color: #333;
           font-weight: 500;
         }
+      }
+    }
+  }
+
+  // 确认满足弹窗样式
+  .confirm-content {
+    padding: 16px;
+    text-align: center;
+
+    p {
+      margin: 0 0 16px 0;
+      color: #333;
+      font-size: 14px;
+      line-height: 1.5;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    .confirm-buttons {
+      margin-top: 20px;
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+
+      .confirm-btn {
+        flex: 1;
+        max-width: 100px;
       }
     }
   }
