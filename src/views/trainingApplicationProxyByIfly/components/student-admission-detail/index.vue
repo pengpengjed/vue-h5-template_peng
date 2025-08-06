@@ -1,16 +1,16 @@
 <template>
   <div class="student-admission-detail">
-    <div class="item-wrapper-top-header" v-show="false">
+    <div class="item-wrapper-top-header">
       <span class="item-wrapper-top-header-text">
         {{ `${studentInfo.studentName} (${studentInfo.employeeId})` }}
       </span>
       <div class="switch-stu" @click="showStudentSelectorHandle" />
     </div>
-    <ItemWrapper v-show="false" class="item-wrapper-to-top" :title="''" :isContentInBox="true">
+    <ItemWrapper class="item-wrapper-to-top" :title="''" :isContentInBox="true">
       <!-- 基本信息 -->
       <CsForm :colConfig="studentInfoColConfig" :formData="studentInfo" wrapperClass="student-info-form" />
     </ItemWrapper>
-    <ItemWrapper v-show="false" title="准入条件" :isContentInBox="true">
+    <ItemWrapper title="准入条件" :isContentInBox="true">
       <AccessConditionText v-model="accessConditionContent" label="" placeholder="" :editable="false" />
     </ItemWrapper>
     <!-- 电子化准入条件 -->

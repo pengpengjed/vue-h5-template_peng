@@ -2,36 +2,43 @@
   <div class="applied-list">
     <!-- 搜索框 -->
     <div class="search-section">
-      <van-search
+      <VanSearch
         v-model="searchKeyword"
+        show-action
         placeholder="请输入员工号/姓名/科目/机型进行搜索"
+        ref="VanSearchRef"
+        left-icon=" "
         @search="handleSearch"
         @clear="handleClear"
-        show-action
-        action-text="搜索"
-      />
+      >
+        <template #action>
+          <van-icon name="search" color="#3788FE" size="20" @click="handleSearch" />
+        </template>
+      </VanSearch>
     </div>
 
     <!-- 列表 -->
-    <cs-paging-list
-      ref="pagingList"
-      :load="loadData"
-      :page-size="20"
-      :local-pagination="true"
-      :store-key="'training-application-applied-list'"
-      @load-success="handleLoadSuccess"
-    >
-      <template #default="{ data }">
-        <application-list-item
-          v-for="item in data"
-          :key="item.id"
-          :item="item"
-          @item-click="handleItemClick"
-          @withdraw="handleWithdraw"
-          @reapply="handleReapply"
-        />
-      </template>
-    </cs-paging-list>
+    <div class="list-section">
+      <cs-paging-list
+        ref="pagingList"
+        :load="loadData"
+        :page-size="20"
+        :local-pagination="true"
+        :store-key="'training-application-applied-list'"
+        @load-success="handleLoadSuccess"
+      >
+        <template #default="{ data }">
+          <application-list-item
+            v-for="item in data"
+            :key="item.id"
+            :item="item"
+            @item-click="handleItemClick"
+            @withdraw="handleWithdraw"
+            @reapply="handleReapply"
+          />
+        </template>
+      </cs-paging-list>
+    </div>
 
     <!-- 撤回弹框 -->
     <withdraw-dialog
@@ -42,28 +49,30 @@
     />
 
     <!-- 详情弹框 -->
-    <application-detail-dialog v-model="showDetailDialog" :application-data="currentApplication" />
+    <!-- <application-detail-dialog v-model="showDetailDialog" :application-data="currentApplication" /> -->
   </div>
 </template>
 
 <script>
 import ApplicationListItem from './application-list-item.vue'
 import WithdrawDialog from './withdraw-dialog.vue'
-import ApplicationDetailDialog from './application-detail-dialog.vue'
+// import ApplicationDetailDialog from "./application-detail-dialog.vue";
 import appliedListData from '../mockData/appliedListData.json'
+import CsPagingList from '@/components/csPagingList.vue'
 
 export default {
   name: 'AppliedList',
   components: {
     ApplicationListItem,
     WithdrawDialog,
-    ApplicationDetailDialog
+    CsPagingList
+    // ApplicationDetailDialog
   },
   data() {
     return {
       searchKeyword: '',
       showWithdrawDialog: false,
-      showDetailDialog: false,
+      // showDetailDialog: false,
       currentApplication: {},
       allData: appliedListData.list
     }
@@ -115,7 +124,14 @@ export default {
     handleItemClick(item) {
       console.log('点击列表项:', item)
       this.currentApplication = item
-      this.showDetailDialog = true
+      this.$router.push({
+        path: '/trainingApplicationProxyByIfly/applicationDetail',
+        query: {
+          applicationData: JSON.stringify(this.currentApplication),
+          currentApplication: JSON.stringify(this.currentApplication) // 添加这一行保持兼容
+        }
+      })
+      // this.showDetailDialog = true;
     },
 
     handleWithdraw(item) {
@@ -175,18 +191,38 @@ export default {
 <style lang="less" scoped>
 .applied-list {
   // height: 100%;
+  flex: 1;
   display: flex;
   flex-direction: column;
 
   .search-section {
-    flex-shrink: 0;
-    background: #fff;
-    border-bottom: 1px solid #f0f0f0;
+    ::v-deep.van-search {
+      margin: 0;
+      background: #fff !important;
+      border: 1px solid #31b2fe;
+      .van-field__left-icon {
+        margin-right: 14px;
+      }
+      .van-search__content {
+        background: inherit;
+        padding-left: 6px;
+      }
+      .van-field__body {
+        height: 100%;
+      }
+      .van-search__action {
+        background-color: transparent;
+      }
+    }
   }
 
-  .cs-paging-list {
+  .list-section {
+    position: relative;
     flex: 1;
-    // overflow: hidden;
+    .cs-paging-list {
+      flex: 1;
+      // overflow: hidden;
+    }
   }
 }
 </style>

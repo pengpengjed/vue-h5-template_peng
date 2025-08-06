@@ -1,13 +1,13 @@
 <template>
   <!-- 标签栏 -->
-  <TabsWrapper>
+  <TabsWrapper :active="active">
     <template #applying>
       <!-- 表单 -->
-      <ItemWrapper v-show="false" title="申请科目">
+      <ItemWrapper title="申请科目">
         <TrainApplyForm ref="TrainApplyFormRef" @submit="formSubmit" @change="fieldChange"></TrainApplyForm>
       </ItemWrapper>
       <!-- 准入条件 -->
-      <ItemWrapper v-show="false" title="准入条件" :isContentInBox="true">
+      <ItemWrapper title="准入条件" :isContentInBox="true">
         <AccessConditionText v-model="accessConditionContent" label="" placeholder="" :editable="false" />
       </ItemWrapper>
       <!-- 电子准入条件 -->
@@ -56,14 +56,14 @@
       </ItemWrapper>
 
       <!-- 说明 -->
-      <ItemWrapper v-show="false" title="说明">
+      <ItemWrapper title="说明">
         <div class="textarea-wrapper">
           <van-field type="textarea" label="" placeholder="请输入说明内容" v-model="desc" />
         </div>
       </ItemWrapper>
 
       <!-- 附件 -->
-      <ItemWrapper v-show="false" title="附件" class="upload-wrapper">
+      <ItemWrapper title="附件" class="upload-wrapper">
         <van-field label="" class="van-cell-vertical attachment-cell" name="fileList" :value="fileList">
           <template #input>
             <CsFileUpload
@@ -95,11 +95,11 @@
       <applied-list @edit-application="handleEditApplication" />
     </template>
   </TabsWrapper>
-  <!-- <template #footer>
-    <div class="button-bar">
-      <van-button type="info" native-type="button" @click="onSubmit">提交</van-button>
-    </div>
-  </template> -->
+  <!-- <template #footer v-if="active === 0">
+      <div class="button-bar">
+        <van-button type="info" native-type="button" @click="onSubmit">提交</van-button>
+      </div>
+    </template> -->
 </template>
 
 <script>
@@ -128,7 +128,7 @@ export default {
   },
   data() {
     return {
-      active: 0,
+      active: 1,
       accessConditionContent: `5.5.1 语言能力水平
 有效的 ICAO 英语语言能力四级或以上签注。
 5.5.2 执照

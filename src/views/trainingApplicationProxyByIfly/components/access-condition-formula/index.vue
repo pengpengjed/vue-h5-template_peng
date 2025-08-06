@@ -29,81 +29,74 @@
         </template>
         <div class="conditions-list" v-else>
           <template v-for="(condition, index) in conditionsList">
-            <div
-              class="condition-item-wrapper"
-              :class="getConditionWrapperClass(condition)"
-              :key="condition.id || index"
-            >
-              <!-- 第一行：条件序号 + 图标 + 条件内容 -->
-              <div class="condition-header">
-                <div class="condition-number-container" :class="getConditionNumberClass(condition)">
-                  <span class="condition-number" @click="ifModify && addConditionToFormula(index + 1)">
-                    条件{{ index + 1 }}
-                  </span>
-                  <img
-                    :src="getConditionIcon(condition)"
-                    :class="getConditionIconClass(condition)"
-                    @click="handleIconClick(condition)"
-                    class="condition-status-icon"
-                    alt="状态图标"
-                  />
-                  <!-- 编辑模式下的复选框 -->
-                  <van-checkbox
-                    v-if="ifModify"
-                    v-model="condition.selectFlag"
-                    @change="handleConditionSelect(condition, $event)"
-                    class="condition-checkbox"
-                  />
-                </div>
-                <div class="condition-content">
-                  {{ condition.conditionContent }}
-                </div>
-              </div>
-
-              <!-- 第二行：操作按钮 -->
-              <div class="condition-actions" v-if="!ifModify && hasActionButtons(condition)">
-                <!-- 确认满足按钮 -->
-                <van-button
-                  v-if="condition.status === 'error'"
-                  type="info"
-                  size="mini"
-                  @click="confirmSatisfaction(condition)"
-                >
-                  确认满足
-                </van-button>
-
-                <!-- 取消确认按钮 -->
-                <van-button
-                  v-if="condition.status === 'manual'"
-                  type="info"
-                  plain
-                  size="mini"
-                  @click="cancelConfirmation(condition)"
-                >
-                  取消确认
-                </van-button>
-
-                <!-- 上传按钮 -->
-                <van-button
-                  v-if="condition.status === 'manual' && condition.hasAttachment"
-                  type="info"
-                  size="mini"
-                  @click="uploadAttachment(condition)"
-                >
-                  上传
-                </van-button>
-              </div>
-
-              <!-- 第三行：附件信息 -->
+            <!-- 第一列：条件序号 -->
+            <div class="condition-item-wrapper" :key="condition.id || index">
               <div
-                class="condition-attachment"
-                v-if="condition.status === 'manual' && condition.attachment && condition.attachment.name"
+                class="condition-number-container"
+                :key="condition.id || index"
+                :class="getConditionNumberClass(condition)"
               >
-                <div class="attachment-info" @click="previewFile(condition.attachment)">
-                  <img :src="require('../../theme/images/icon-file.svg')" class="file-icon" alt="文件图标" />
-                  <span class="attachment-name">{{ condition.attachment.name }}</span>
+                <span class="condition-number" @click="ifModify && addConditionToFormula(index + 1)">
+                  条件{{ index + 1 }}
+                </span>
+                <img
+                  :src="getConditionIcon(condition)"
+                  :class="getConditionIconClass(condition)"
+                  @click="handleIconClick(condition)"
+                  class="condition-status-icon"
+                  alt="状态图标"
+                />
+              </div>
+              <div class="condition-item-content">
+                <!-- 第一行 + 图标 + 条件内容 -->
+                <div class="condition-header">
+                  <div class="condition-content">
+                    {{ condition.conditionContent }}
+                  </div>
                 </div>
-                <van-button type="info" size="mini" @click="uploadAttachment(condition)"> 重新上传 </van-button>
+
+                <!-- 第二行：操作按钮 -->
+                <div class="condition-actions" v-if="!ifModify && hasActionButtons(condition)">
+                  <!-- 确认满足按钮 -->
+                  <van-button
+                    v-if="condition.status === 'error'"
+                    type="info"
+                    size="mini"
+                    @click="confirmSatisfaction(condition)"
+                  >
+                    确认满足
+                  </van-button>
+
+                  <!-- 取消确认按钮 -->
+                  <van-button
+                    v-if="condition.status === 'manual'"
+                    type="info"
+                    plain
+                    size="mini"
+                    @click="cancelConfirmation(condition)"
+                  >
+                    取消确认
+                  </van-button>
+
+                  <!-- 上传按钮 -->
+                  <!-- <van-button
+                    v-if="condition.hasAttachment"
+                    type="info"
+                    size="mini"
+                    @click="uploadAttachment(condition)"
+                  >
+                    上传
+                  </van-button> -->
+                </div>
+
+                <!-- 第三行：附件信息 -->
+                <div class="condition-attachment" v-if="condition.attachment && condition.attachment.name">
+                  <div class="attachment-info" @click="previewFile(condition.attachment)">
+                    <img :src="require('../../theme/images/icon-file.svg')" class="file-icon" alt="文件图标" />
+                    <span class="attachment-name">{{ condition.attachment.name }}</span>
+                  </div>
+                  <van-button type="info" size="mini" @click="uploadAttachment(condition)"> 重新上传 </van-button>
+                </div>
               </div>
             </div>
           </template>
@@ -178,27 +171,19 @@
     <!-- 确认满足弹窗 -->
     <van-dialog
       v-model="showConfirmDialog"
-      title="确认满足条件"
+      title="确认满足"
       show-cancel-button
-      cancel-button-text="取消"
-      :show-confirm-button="false"
+      cancel-button-text="不上传"
       :close-on-click-overlay="false"
+      cancelButtonColor="#666"
+      confirm-button-color="#3788FE"
+      @confirm="handleConfirmWithUpload"
+      @cancel="handleConfirmWithoutUpload"
     >
       <div class="confirm-content">
-        <p>系统无法校验该准入条件，需要人工确认该条件满足。</p>
-        <p>请选择确认方式：</p>
-        <div class="confirm-buttons">
-          <van-button type="default" size="normal" @click="handleConfirmWithoutUpload" class="confirm-btn">
-            不上传
-          </van-button>
-          <van-button type="primary" size="normal" @click="handleConfirmWithUpload" class="confirm-btn">
-            上传
-          </van-button>
-        </div>
+        <p><van-icon :name="require('../../theme/images/icon-tishi.png')" size="20" /></p>
+        <p>是否上传佐证材料？</p>
       </div>
-      <template #cancel>
-        <van-button @click="showConfirmDialog = false">取消</van-button>
-      </template>
     </van-dialog>
 
     <!-- 文件上传弹窗 -->
@@ -667,7 +652,7 @@ export default {
         this.pendingCondition.status = 'manual'
         this.pendingCondition.hasAttachment = false
         this.pendingCondition.attachment = null
-        this.$emit('confirm-satisfaction', this.pendingCondition, false)
+        // this.$emit("confirm-satisfaction", this.pendingCondition, false);
       }
       this.showConfirmDialog = false
       this.pendingCondition = null
@@ -677,7 +662,6 @@ export default {
     handleConfirmWithUpload() {
       if (this.pendingCondition) {
         this.pendingCondition.status = 'manual'
-        this.pendingCondition.hasAttachment = true
         this.showUploadDialog = true
       }
       this.showConfirmDialog = false
@@ -700,13 +684,14 @@ export default {
     // 文件选择回调
     onFileSelected(fileData) {
       if (this.pendingCondition) {
-        this.pendingCondition.attachment = {
+        this.$set(this.pendingCondition, 'attachment', {
           name: fileData.name,
           file: fileData.file,
           url: fileData.url,
           path: fileData.path
-        }
-        this.$emit('upload-attachment', this.pendingCondition, fileData)
+        })
+        this.$set(this.pendingCondition, 'hasAttachment', true)
+        // this.$emit("upload-attachment", this.pendingCondition, fileData);
       }
       this.showUploadDialog = false
       this.pendingCondition = null
@@ -761,77 +746,82 @@ export default {
       .conditions-list {
         display: flex;
         flex-direction: column;
-        gap: 8px;
-
+        // gap: 8px;
         .condition-item-wrapper {
-          background-color: #ffffff;
-          border-radius: 6px;
-          border: 1px solid #e8e8e8;
-          padding: 12px;
-          margin-bottom: 8px;
+          ::v-deep {
+            .van-button {
+              padding: 2px 15px;
+            }
+          }
+          background-color: inherit;
+          border-top: 1px solid #e1e5ee;
+          padding: 5px 7px;
+          display: flex;
+          gap: 10px;
 
-          &.selected-condition {
+          /* &.selected-condition {
             background-color: #e7f6ff;
             border-color: #3986ff;
+          } */
+
+          .condition-number-container {
+            height: 20px;
+            position: relative;
+            min-width: 60px;
+            border-radius: 2px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            .condition-number {
+              padding: 0 21px 2px 7px;
+              font-size: 12px;
+              font-weight: 500;
+              line-height: 18px;
+              color: #444444;
+            }
+
+            .condition-status-icon {
+              position: absolute;
+              top: -1px;
+              right: -1px;
+              width: 16px;
+              height: 16px;
+              cursor: pointer;
+            }
+
+            /* .condition-checkbox {
+                margin-left: 8px;
+              } */
+
+            &.condition-number-success {
+              background-color: #ffffff;
+              border: 1px solid #94dcce;
+            }
+
+            &.condition-number-error {
+              background-color: #fff7f7;
+              border: 1px solid #f0c6bb;
+            }
+
+            &.condition-number-manual {
+              background-color: #fffcf7;
+              border: 1px solid #f0dcbb;
+            }
           }
 
           .condition-header {
             display: flex;
             align-items: flex-start;
-            gap: 12px;
-            margin-bottom: 8px;
-
-            .condition-number-container {
-              position: relative;
-              min-width: 60px;
-              padding: 6px 16px;
-              border-radius: 2px;
-              display: flex;
-              align-items: center;
-              justify-content: center;
-
-              .condition-number {
-                font-size: 12px;
-                font-weight: 500;
-                color: #fff;
-                line-height: 1;
-              }
-
-              .condition-status-icon {
-                position: absolute;
-                top: -2px;
-                right: -2px;
-                width: 16px;
-                height: 16px;
-                cursor: pointer;
-              }
-
-              .condition-checkbox {
-                margin-left: 8px;
-              }
-
-              &.condition-number-success {
-                background-color: #10b981;
-                border: 1px solid #94dcce;
-              }
-
-              &.condition-number-error {
-                background-color: #dc2626;
-                border: 1px solid #f0c6bb;
-              }
-
-              &.condition-number-manual {
-                background-color: #f59e0b;
-                border: 1px solid #f0dcbb;
-              }
-            }
+            gap: 10px;
+            margin-bottom: 6px;
 
             .condition-content {
               flex: 1;
               font-size: 12px;
-              color: #444444;
-              line-height: 1.5;
-              padding-top: 6px;
+              color: #333333;
+              line-height: 18px;
+              font-weight: 400;
             }
           }
 

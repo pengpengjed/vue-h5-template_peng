@@ -259,7 +259,7 @@ export default {
       currentSelectingPerson: null, // 当前选择训练的人员
 
       // 学员详情弹窗
-      showDetail: true,
+      showDetail: false,
       currentStudent: {}
     }
   },
@@ -581,7 +581,7 @@ export default {
 }
 </script>
 
-<style lang="less">
+<style lang="less" scoped>
 .add-personnel-dialog {
   height: 100%;
   display: flex;

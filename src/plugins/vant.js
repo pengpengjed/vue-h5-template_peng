@@ -23,7 +23,9 @@ import {
   Picker,
   Row,
   Col,
-  Uploader
+  Uploader,
+  Search,
+  PullRefresh,
 } from 'vant'
 
 Vue.use(Button)
@@ -47,3 +49,6 @@ Vue.use(Picker)
 Vue.use(Row)
 Vue.use(Col)
 Vue.use(Uploader)
+Vue.use(Search)
+Vue.use(PullRefresh)
+Vue.use(List)

@@ -7,7 +7,7 @@
     <div class="tab-content-wrapper" v-if="active === 0">
       <slot name="applying" />
     </div>
-    <div class="tab-content-wrapper" v-else>
+    <div class="tab-content-wrapper-applied" v-else>
       <slot name="hasApplied" />
     </div>
   </div>
@@ -33,7 +33,11 @@ export default {
 
 <style lang="less" scoped>
 .tab-content-wrapper-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
   padding: 0px 10px;
+  overflow: hidden;
   ::v-deep .van-tabs {
     .van-tabs__wrap {
       height: 65px;
@@ -72,11 +76,21 @@ export default {
     } */
   }
   .tab-content-wrapper {
+    flex: 1;
+    position: relative;
     background-color: #fff;
     border-top: 10px solid #5897ff;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     padding: 10px;
+    overflow: auto;
+  }
+
+  .tab-content-wrapper-applied {
+    flex: 1;
+    position: relative;
+    background-color: transparent;
+    display: flex;
   }
 }
 // 标签栏

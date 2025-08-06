@@ -2,8 +2,20 @@
   <div class="application-list-item" @click="handleItemClick">
     <div class="item-header">
       <div class="employee-info">
-        <span class="name">{{ item.employeeName }}({{ item.employeeId }})</span>
-        <span class="type">{{ item.type }}</span>
+        <div class="status-tag" :class="getStatusClass(item.statusCode)" />
+        <span class="name">{{ item.employeeName }}（{{ item.employeeId }}）</span>
+      </div>
+
+      <div v-if="item.canWithdraw" class="action-buttons">
+        <van-button style="padding: 2px 20px" type="danger" plain round size="small" @click.stop="handleWithdraw">
+          撤回
+        </van-button>
+      </div>
+
+      <div v-if="item.canReapply" class="action-buttons">
+        <van-button style="padding: 2px 10px" type="danger" plain round size="small" @click.stop="handleReapply">
+          重新发起
+        </van-button>
       </div>
       <div class="arrow">
         <van-icon name="arrow" />
@@ -11,6 +23,13 @@
     </div>
 
     <div class="item-content">
+      <div class="tag-bar">
+        <span class="type">{{ item.type }}</span>
+        <span class="type">{{ item.trainingBase }}</span>
+        <span class="type">{{ item.trainingAircraftModel }}</span>
+        <span class="type">{{ item.division }}</span>
+      </div>
+
       <div class="info-row">
         <span class="label">提纲：</span>
         <span class="value">{{ item.outline }}</span>
@@ -31,7 +50,7 @@
         <span class="value">{{ item.inspectionQualification }}</span>
       </div>
 
-      <div class="info-row">
+      <!-- <div class="info-row">
         <span class="label">训练机型：</span>
         <span class="value">{{ item.trainingAircraftModel }}</span>
       </div>
@@ -44,21 +63,7 @@
       <div class="info-row">
         <span class="label">分部：</span>
         <span class="value">{{ item.division }}</span>
-      </div>
-    </div>
-
-    <div class="item-footer">
-      <div class="status-tag" :class="getStatusClass(item.statusCode)">
-        {{ item.status }}
-      </div>
-
-      <div v-if="item.canWithdraw" class="action-buttons">
-        <van-button type="danger" size="small" @click.stop="handleWithdraw"> 撤回 </van-button>
-      </div>
-
-      <div v-if="item.canReapply" class="action-buttons">
-        <van-button type="danger" size="small" @click.stop="handleReapply"> 重新发起 </van-button>
-      </div>
+      </div> -->
     </div>
   </div>
 </template>
@@ -103,7 +108,7 @@ export default {
 .application-list-item {
   background: #fff;
   border-radius: 8px;
-  margin: 8px 16px;
+  margin: 10px 0;
   padding: 16px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 
@@ -111,7 +116,9 @@ export default {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 12px;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ecedee;
 
     .employee-info {
       display: flex;
@@ -120,87 +127,82 @@ export default {
 
       .name {
         font-size: 16px;
-        font-weight: 500;
+        font-weight: 400;
         color: #333;
+        line-height: 22px;
       }
 
-      .type {
-        background: #e8f4fd;
-        color: #1890ff;
-        padding: 2px 8px;
-        border-radius: 4px;
-        font-size: 12px;
+      .status-tag {
+        height: 25px;
+        // margin-right: 10px;
+
+        &.status-completed {
+          width: 62px;
+          background: url('../../theme/images/apply-successed.png') no-repeat 100% 100% transparent;
+          background-size: contain;
+        }
+
+        &.status-pending {
+          width: 52px;
+          background: url('../../theme/images/apply-wait.png') no-repeat 100% 100% transparent;
+          background-size: contain;
+        }
+
+        &.status-approving {
+          width: 52px;
+          background: url('../../theme/images/applying.png') no-repeat 100% 100% transparent;
+          background-size: contain;
+        }
+
+        &.status-rejected {
+          width: 72px;
+          background: url('../../theme/images/apply-fail.png') no-repeat 100% 100% transparent;
+          background-size: contain;
+        }
+
+        &.status-withdrawn {
+          background: #f5f5f5;
+          color: #999;
+        }
       }
     }
 
     .arrow {
-      color: #ccc;
+      color: #969799;
     }
   }
 
   .item-content {
+    .tag-bar {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 10px;
+      .type {
+        background: #f7fcff;
+        border: 1px solid #c2e9ff;
+        color: #00304d;
+        padding: 1px 8px;
+        border-radius: 4px;
+        font-size: 13px;
+        font-weight: 400;
+        line-height: 18px;
+      }
+    }
     .info-row {
       display: flex;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
       font-size: 14px;
       line-height: 1.4;
 
       .label {
         color: #666;
-        min-width: 70px;
+        // min-width: 70px;
         flex-shrink: 0;
       }
 
       .value {
         color: #333;
         flex: 1;
-      }
-    }
-  }
-
-  .item-footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 12px;
-    padding-top: 12px;
-    border-top: 1px solid #f0f0f0;
-
-    .status-tag {
-      padding: 4px 12px;
-      border-radius: 12px;
-      font-size: 12px;
-      font-weight: 500;
-
-      &.status-completed {
-        background: #f6ffed;
-        color: #52c41a;
-      }
-
-      &.status-pending {
-        background: #fff7e6;
-        color: #fa8c16;
-      }
-
-      &.status-approving {
-        background: #e6f7ff;
-        color: #1890ff;
-      }
-
-      &.status-rejected {
-        background: #fff2f0;
-        color: #ff4d4f;
-      }
-
-      &.status-withdrawn {
-        background: #f5f5f5;
-        color: #999;
-      }
-    }
-
-    .action-buttons {
-      .van-button {
-        margin-left: 8px;
       }
     }
   }

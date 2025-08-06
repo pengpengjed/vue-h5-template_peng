@@ -143,7 +143,7 @@ export default {
   mounted() {
     if (this.immediateCheck) {
       if (this.storeKey) {
-        const storageData = this.$sessionStorage.getItem(this.storeKey)
+        const storageData = JSON.parse(window.sessionStorage.getItem(this.storeKey))
         if (storageData) {
           this.pageIndex = storageData.pageIndex
           this.dataList = storageData.dataList
@@ -158,7 +158,7 @@ export default {
     }
     // 自动滚动到上次的位置
     if (this.storeKey) {
-      const scrollTop = this.$sessionStorage.getItem(`${this.storeKey}_SCROLLTOP`)
+      const scrollTop = window.sessionStorage.getItem(`${this.storeKey}_SCROLLTOP`)
       if (scrollTop) {
         this.$nextTick(() => {
           this.$refs.list.scrollTop = scrollTop
@@ -241,11 +241,14 @@ export default {
               this.finished = !this.pagination || data.length < pageSize
               // 缓存数据
               if (this.storeKey) {
-                this.$sessionStorage.setItem(this.storeKey, {
-                  pageIndex: this.pageIndex,
-                  dataList: this.dataList,
-                  finished: this.finished
-                })
+                window.sessionStorage.setItem(
+                  this.storeKey,
+                  JSON.stringify({
+                    pageIndex: this.pageIndex,
+                    dataList: this.dataList,
+                    finished: this.finished
+                  })
+                )
               }
               this.pageIndex++
               this.error = false
@@ -312,11 +315,14 @@ export default {
             this.finished = total === this.dataList.length ? true : !this.pagination || result.length < pageSize
             // 缓存数据
             if (this.storeKey) {
-              this.$sessionStorage.setItem(this.storeKey, {
-                pageIndex: this.pageIndex,
-                dataList: this.dataList,
-                finished: this.finished
-              })
+              window.sessionStorage.setItem(
+                this.storeKey,
+                JSON.stringify({
+                  pageIndex: this.pageIndex,
+                  dataList: this.dataList,
+                  finished: this.finished
+                })
+              )
             }
             this.pageIndex++
             this.error = false
@@ -372,15 +378,15 @@ export default {
       const scrollTop = el.scrollTop
       this.scrollTop = scrollTop
       if (this.storeKey) {
-        this.$sessionStorage.setItem(`${this.storeKey}_SCROLLTOP`, scrollTop)
+        window.sessionStorage.setItem(`${this.storeKey}_SCROLLTOP`, scrollTop)
       }
       // 传递事件
       this.$emit('scroll', e)
     },
     clearCache() {
       if (this.storeKey) {
-        this.$sessionStorage.removeItem(this.storeKey)
-        this.$sessionStorage.removeItem(`${this.storeKey}_SCROLLTOP`)
+        window.sessionStorage.removeItem(this.storeKey)
+        window.sessionStorage.removeItem(`${this.storeKey}_SCROLLTOP`)
       }
     },
     // 获取数据列表

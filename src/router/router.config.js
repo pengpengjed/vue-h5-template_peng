@@ -29,6 +29,12 @@ export const constantRouterMap = [
         name: 'trainingApplicationProxyByIfly',
         component: () => import('@/views/trainingApplicationProxyByIfly/views/index.vue'),
         meta: { title: '训练申请', keepAlive: false }
+      },
+      {
+        path: '/trainingApplicationProxyByIfly/applicationDetail',
+        name: 'ApplicationDetail',
+        component: () => import('@/views/trainingApplicationProxyByIfly/views/components/application-detail.vue'),
+        meta: { title: '申请详情', keepAlive: false }
       }
     ]
   }

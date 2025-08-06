@@ -1,12 +1,6 @@
 <template>
-  <van-popup v-model="visible" position="bottom" :style="{ height: '90%' }" round closeable @close="handleClose">
-    <div class="application-detail-dialog">
-      <!-- 头部 -->
-      <div class="popup-header">
-        <h3>申请详情</h3>
-        <van-icon name="cross" @click="handleClose" />
-      </div>
-
+  <div title="申请详情">
+    <div class="application-detail">
       <!-- 内容区域 -->
       <div class="popup-content">
         <!-- 学员基本信息 -->
@@ -112,12 +106,9 @@
 
           <!-- 校验结果 -->
           <div class="validation-result">
-            <van-tag
-              :type="detailData.electronicAdmissionConditions.data.result === '通过' ? 'success' : 'danger'"
-              size="medium"
-            >
+            <!-- <van-tag :type="detailData.electronicAdmissionConditions.data.result === '通过' ? 'success' : 'danger'" size="medium">
               {{ detailData.electronicAdmissionConditions.data.result }}
-            </van-tag>
+            </van-tag> -->
           </div>
 
           <!-- 准入条件管理器 -->
@@ -227,7 +218,7 @@
         </div>
       </div>
     </van-popup>
-  </van-popup>
+  </div>
 </template>
 
 <script>
@@ -236,7 +227,7 @@ import AccessConditionManager from '../../components/access-condition-manager/in
 import TrainingRecords from './training-records.vue'
 
 export default {
-  name: 'ApplicationDetailDialog',
+  name: 'ApplicationDetail',
   components: {
     AccessConditionText,
     AccessConditionManager,
@@ -246,14 +237,15 @@ export default {
     value: {
       type: Boolean,
       default: false
-    },
-    applicationData: {
+    }
+    /* applicationData: {
       type: Object,
       default: () => ({})
-    }
+    } */
   },
   data() {
     return {
+      currentApplication: {},
       showHistoryPopup: false,
       showTrainingRecords: false,
       detailData: {
@@ -282,6 +274,14 @@ export default {
         this.loadDetailData()
       }
     }
+  },
+  created() {
+    console.log('this.$route.query.applicationData', this.$route.query.applicationData)
+    // 优先使用 applicationData，如果没有则使用 currentApplication
+    const appData = this.$route.query.applicationData || this.$route.query.currentApplication
+    this.currentApplication = JSON.parse(appData)
+    console.log('this.currentApplication', this.currentApplication)
+    this.loadDetailData()
   },
   methods: {
     async loadDetailData() {
@@ -362,30 +362,10 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.application-detail-dialog {
+.application-detail {
   height: 100%;
   display: flex;
   flex-direction: column;
-
-  .popup-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 16px;
-    border-bottom: 1px solid #ebedf0;
-
-    h3 {
-      margin: 0;
-      font-size: 18px;
-      font-weight: 600;
-    }
-
-    .van-icon {
-      font-size: 20px;
-      color: #969799;
-      cursor: pointer;
-    }
-  }
 
   .popup-content {
     flex: 1;
