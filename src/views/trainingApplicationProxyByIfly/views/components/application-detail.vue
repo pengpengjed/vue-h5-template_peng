@@ -2,91 +2,115 @@
   <div title="申请详情">
     <div class="application-detail">
       <!-- 内容区域 -->
-      <div class="popup-content">
-        <!-- 学员基本信息 -->
-        <div class="section">
-          <div class="section-title">
-            <div class="title-bar"></div>
-            <span class="title-text">学员基本信息</span>
-          </div>
-          <van-cell-group>
-            <van-cell title="姓名" :value="detailData.studentBasicInfo.name" />
-            <van-cell title="员工号" :value="detailData.studentBasicInfo.employeeId" />
-            <van-cell title="技术等级" :value="detailData.studentBasicInfo.technicalLevel" />
-            <van-cell title="分部" :value="detailData.studentBasicInfo.division" />
-            <van-cell title="注册基地" :value="detailData.studentBasicInfo.registrationBase" />
-            <van-cell title="运行基地" :value="detailData.studentBasicInfo.operatingBase" />
-            <van-cell title="训练基地" :value="detailData.studentBasicInfo.trainingBase" />
-            <van-cell title="状态" :value="detailData.studentBasicInfo.status">
-              <template #value>
-                <van-tag :type="getStatusType(detailData.studentBasicInfo.status)">
-                  {{ detailData.studentBasicInfo.status }}
-                </van-tag>
-              </template>
-            </van-cell>
-          </van-cell-group>
+      <div class="application-content">
+        <div class="item-wrapper-top-header">
+          <span class="item-wrapper-top-header-text">
+            {{ `${detailData.studentBasicInfo.name} (${detailData.studentBasicInfo.employeeId})` }}
+          </span>
         </div>
+        <ItemWrapper class="item-wrapper-to-top" :title="''" :isContentInBox="true">
+          <!-- 基本信息 -->
+          <CsForm
+            :colConfig="studentInfoColConfig"
+            :formData="detailData.studentBasicInfo"
+            wrapperClass="student-info-form"
+          />
+        </ItemWrapper>
 
-        <!-- 申请详情 -->
-        <div class="section">
-          <div class="section-title">
-            <div class="title-bar"></div>
-            <span class="title-text">申请详情</span>
-          </div>
-          <van-cell-group>
-            <van-cell title="训练机型" :value="detailData.applicationDetails.trainingAircraftModel" />
-            <van-cell title="分类" :value="detailData.applicationDetails.category" />
-            <van-cell title="提纲" :value="detailData.applicationDetails.outline" />
-            <van-cell title="阶段" :value="detailData.applicationDetails.stage" />
-            <van-cell title="科目" :value="detailData.applicationDetails.subject" />
-            <van-cell title="说明" :value="detailData.applicationDetails.description" />
-            <van-cell title="申请时间" :value="detailData.applicationDetails.applicationTime" />
-            <van-cell title="流水号" :value="detailData.applicationDetails.serialNumber" />
-            <van-cell title="训练大纲版本" :value="detailData.applicationDetails.trainingOutlineVersion" />
-            <van-cell title="手册版本" :value="detailData.applicationDetails.manualVersion" />
-          </van-cell-group>
+        <ItemWrapper class="item-wrapper-application-info" title="申请信息">
+          <!-- 申请详情 -->
+          <div class="section application-form">
+            <div class="form-field">
+              <van-cell title="申请人" :value="detailData.applicationDetails.applicant" />
+            </div>
+            <div class="form-field">
+              <van-cell title="训练机型" :value="detailData.applicationDetails.trainingAircraftModel" />
+            </div>
+            <div class="form-field">
+              <van-cell title="分类" :value="detailData.applicationDetails.category" />
+            </div>
+            <div class="form-field">
+              <van-cell title="提纲" :value="detailData.applicationDetails.outline" />
+            </div>
+            <div class="form-field">
+              <van-cell title="阶段" :value="detailData.applicationDetails.stage" />
+            </div>
+            <div class="form-field">
+              <van-cell title="科目" :value="detailData.applicationDetails.subject" />
+            </div>
+            <div class="form-field">
+              <van-cell title="说明" :value="detailData.applicationDetails.description" />
+            </div>
+            <div class="form-field">
+              <van-cell title="申请时间" :value="detailData.applicationDetails.applicationTime" />
+            </div>
+            <div class="form-field">
+              <van-cell title="流水号" :value="detailData.applicationDetails.serialNumber" />
+            </div>
+            <div class="form-field">
+              <van-cell title="训练大纲版本" :value="detailData.applicationDetails.trainingOutlineVersion" />
+            </div>
+            <div class="form-field">
+              <van-cell title="手册版本" :value="detailData.applicationDetails.manualVersion" />
+            </div>
+            <div class="form-field">
+              <van-cell title="状态" :value="detailData.studentBasicInfo.status">
+                <template #value>
+                  <van-tag :type="getStatusType(detailData.studentBasicInfo.status)">
+                    {{ detailData.studentBasicInfo.status }}
+                  </van-tag>
+                </template>
+              </van-cell>
+            </div>
 
-          <!-- 附件 -->
-          <div
-            class="attachments-section"
-            v-if="detailData.applicationDetails.attachments && detailData.applicationDetails.attachments.length > 0"
-          >
-            <div class="attachments-title">附件</div>
-            <div class="attachments-list">
-              <div
-                v-for="attachment in detailData.applicationDetails.attachments"
-                :key="attachment.id"
-                class="attachment-item"
-                @click="previewAttachment(attachment)"
-              >
-                <van-icon name="description" />
-                <span class="attachment-name">{{ attachment.name }}</span>
-                <span class="attachment-size">{{ attachment.size }}</span>
+            <!-- 附件 -->
+            <div
+              class="attachments-section"
+              v-if="detailData.applicationDetails.attachments && detailData.applicationDetails.attachments.length > 0"
+            >
+              <div class="attachments-title">附件</div>
+              <div class="attachments-list">
+                <div
+                  v-for="attachment in detailData.applicationDetails.attachments"
+                  :key="attachment.id"
+                  class="form-field"
+                >
+                  <van-cell
+                    :title="attachment.name"
+                    :value="attachment.size"
+                    is-link
+                    @click="previewAttachment(attachment)"
+                  >
+                    <template #icon>
+                      <img src="../../theme/images/icon-file.svg" class="file-icon" alt="文件图标" />
+                    </template>
+                  </van-cell>
+                </div>
+              </div>
+            </div>
+
+            <!-- 关联已完成训练 -->
+            <div
+              class="associated-training-section"
+              v-if="
+                detailData.applicationDetails.associatedCompletedTraining &&
+                detailData.applicationDetails.associatedCompletedTraining.length > 0
+              "
+            >
+              <div class="associated-training-title">关联已完成训练</div>
+              <div class="associated-training-list">
+                <div
+                  v-for="(training, index) in detailData.applicationDetails.associatedCompletedTraining"
+                  :key="index"
+                  class="training-item"
+                >
+                  <span class="training-subject">{{ training.subjectName }}</span>
+                  <span class="training-date">{{ training.trainingDate }}</span>
+                </div>
               </div>
             </div>
           </div>
-
-          <!-- 关联已完成训练 -->
-          <div
-            class="associated-training-section"
-            v-if="
-              detailData.applicationDetails.associatedCompletedTraining &&
-              detailData.applicationDetails.associatedCompletedTraining.length > 0
-            "
-          >
-            <div class="associated-training-title">关联已完成训练</div>
-            <div class="associated-training-list">
-              <div
-                v-for="(training, index) in detailData.applicationDetails.associatedCompletedTraining"
-                :key="index"
-                class="training-item"
-              >
-                <span class="training-subject">{{ training.subjectName }}</span>
-                <span class="training-date">{{ training.trainingDate }}</span>
-              </div>
-            </div>
-          </div>
-        </div>
+        </ItemWrapper>
 
         <!-- 准入条件 -->
         <div class="section">
@@ -225,13 +249,17 @@
 import AccessConditionText from '../../components/access-condition-text/index.vue'
 import AccessConditionManager from '../../components/access-condition-manager/index.vue'
 import TrainingRecords from './training-records.vue'
+import ItemWrapper from '../../components/item-wrapper/index.vue'
+import CsForm from '@/components/csForm.vue'
 
 export default {
   name: 'ApplicationDetail',
   components: {
     AccessConditionText,
     AccessConditionManager,
-    TrainingRecords
+    TrainingRecords,
+    ItemWrapper,
+    CsForm
   },
   props: {
     value: {
@@ -245,6 +273,13 @@ export default {
   },
   data() {
     return {
+      studentInfoColConfig: [
+        { label: '技术等级：', value: 'technicalLevel', span: 24 },
+        { label: '分部：', value: 'division', span: 24, formatter: val => val || '无' },
+        { label: '注册基地：', value: 'registrationBase', span: 24 },
+        { label: '运行基地：', value: 'operatingBase', span: 24 },
+        { label: '训练基地：', value: 'trainingBase', span: 24 }
+      ],
       currentApplication: {},
       showHistoryPopup: false,
       showTrainingRecords: false,
@@ -367,10 +402,49 @@ export default {
   display: flex;
   flex-direction: column;
 
-  .popup-content {
+  .application-content {
     flex: 1;
     overflow-y: auto;
-    padding: 16px;
+    padding: 10px;
+
+    .item-wrapper-top-header {
+      width: 100%;
+      height: 57px;
+      background: url('../../theme/images/access-condition-dialog-header.png') 100% 100% no-repeat transparent;
+      background-size: contain;
+      padding: 11px 0px 0px 17px;
+      box-sizing: border-box;
+      position: relative;
+
+      &-text {
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 22px;
+        color: #fff;
+      }
+    }
+    .item-wrapper-to-top {
+      position: relative;
+      top: -17px;
+      margin-bottom: unset;
+      background-color: #fff;
+      ::v-deep {
+        .item-wrapper-warp {
+          padding-top: 5px;
+          border-top-left-radius: 15px;
+          border-top-right-radius: 15px;
+        }
+      }
+    }
+
+    .item-wrapper-application-info {
+      position: relative;
+      top: -10px;
+      margin-bottom: unset;
+      background-color: #fff;
+      border-radius: 15px;
+      padding: 10px;
+    }
 
     .section {
       margin-bottom: 24px;
@@ -392,6 +466,68 @@ export default {
           font-size: 16px;
           font-weight: 600;
           color: #323233;
+        }
+      }
+
+      &.application-form {
+        .form-field {
+          margin-bottom: 10px;
+
+          &:last-child {
+            margin-bottom: unset;
+          }
+
+          ::v-deep {
+            .van-cell {
+              box-sizing: border-box;
+              border: 1px solid #e1e5ee;
+              border-radius: 10px;
+              padding: 10px 15px;
+
+              &::after {
+                display: none;
+              }
+
+              .van-cell__title {
+                font-size: 14px;
+                color: #323233;
+                font-weight: 500;
+              }
+
+              .van-cell__value {
+                text-align: right;
+                font-size: 14px;
+                color: #646566;
+              }
+
+              .file-icon {
+                width: 16px;
+                height: 16px;
+                margin-right: 8px;
+              }
+            }
+          }
+        }
+
+        .attachments-section {
+          margin-top: 0;
+
+          .attachments-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #323233;
+            margin-bottom: 8px;
+          }
+
+          .attachments-list {
+            .form-field {
+              margin-bottom: 10px;
+
+              &:last-child {
+                margin-bottom: unset;
+              }
+            }
+          }
         }
       }
     }

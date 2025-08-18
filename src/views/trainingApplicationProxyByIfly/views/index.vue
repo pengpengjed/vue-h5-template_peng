@@ -128,7 +128,7 @@ export default {
   },
   data() {
     return {
-      active: 1,
+      active: 0,
       accessConditionContent: `5.5.1 语言能力水平
 有效的 ICAO 英语语言能力四级或以上签注。
 5.5.2 执照
