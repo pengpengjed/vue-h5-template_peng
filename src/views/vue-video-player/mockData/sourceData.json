@@ -1,0 +1,210 @@
+[
+  {
+    "video": {
+      "id": 1697,
+      "videoId": 957,
+      "icaoCd": "ZGGG",
+      "videoType": "2",
+      "videoName": "1640104_videoUrl.mp4",
+      "videoMd5": "e6d9fb6db61d34dbcda60a0e6f0e64e",
+      "videoUrl": "YUhSMGNITTZMeTh4TUM0M09TNHhOamN1T0RFNk9EQTRNQzlQVTFNdFUwMVRRMVJsYzNRdmRtbGtaVzh2WVdadmNuTXZXa2RIUnk5bE5tUTVabUkyWkdJMk1XUXpOR1JpWTJSaE5qQmhNR1UyWmpCbE5qUmxMekUyTkRBeE1EUmZkbWxrWlc5VmNtd3ViWEEw",
+      "videoChangeTime": "2025-04-18 16:25:22",
+      "ftpPath": "upload/smsc/radar/video/afors/ZGGG/e6d9fb6db61d34dbcda60a0e6f0e64e/",
+      "syncFlag": 1,
+      "syncTime": "2025-06-23 19:56:24",
+      "updaterId": "system",
+      "updaterName": "system",
+      "updateTime": "2025-06-23 19:56:24",
+      "creatorId": "system",
+      "creatorName": "system",
+      "createTime": "2025-06-23 19:55:43",
+      "tagDelete": 0
+    },
+    "crewAndVideoWatchInfoList": [
+      {
+        "id": null,
+        "rirdVideoInfoId": null,
+        "videoId": 957,
+        "videoName": "1640104_videoUrl.mp4",
+        "startTime": null,
+        "endTime": null,
+        "watchStatus": 0,
+        "creatorId": null,
+        "creatorName": null,
+        "createTime": null,
+        "staffNum": "279554",
+        "chnName": "N279554"
+      },
+      {
+        "id": 1000006,
+        "rirdVideoInfoId": 1697,
+        "videoId": 957,
+        "videoName": "1640104_videoUrl.mp4",
+        "startTime": "2025-08-17 11:39:05",
+        "endTime": "2025-08-17 11:39:32",
+        "watchStatus": 1,
+        "creatorId": "275107",
+        "creatorName": "N275107",
+        "createTime": "2025-07-23 11:39:32",
+        "staffNum": "275107",
+        "chnName": "N275107"
+      }
+    ]
+  },
+  {
+    "video": {
+      "id": 1698,
+      "videoId": 958,
+      "icaoCd": "ZGGG",
+      "videoType": "2",
+      "videoName": "1640105_videoUrl.mp4",
+      "videoMd5": "e6d9fb6db61d34dbcda60a0e6f0e64e",
+      "videoUrl": "YUhSMGNITTZMeTh4TUM0M09TNHhOamN1T0RFNk9EQTRNQzlQVTFNdFUwMVRRMVJsYzNRdmRtbGtaVzh2WVdadmNuTXZXa2RIUnk5bE5tUTVabUkyWkdJMk1XUXpOR1JpWTJSaE5qQmhNR1UyWmpCbE5qUmxMekUyTkRBeE1EVmZkbWxrWlc5VmNtd3ViWEEw",
+      "videoChangeTime": "2025-04-18 16:25:31",
+      "ftpPath": "upload/smsc/radar/video/afors/ZGGG/e6d9fb6db61d34dbcda60a0e6f0e64e/",
+      "syncFlag": 1,
+      "syncTime": "2025-06-23 19:57:00",
+      "updaterId": "system",
+      "updaterName": "system",
+      "updateTime": "2025-06-23 19:57:00",
+      "creatorId": "system",
+      "creatorName": "system",
+      "createTime": "2025-06-23 19:55:43",
+      "tagDelete": 0
+    },
+    "crewAndVideoWatchInfoList": [
+      {
+        "id": null,
+        "rirdVideoInfoId": null,
+        "videoId": 958,
+        "videoName": "1640105_videoUrl.mp4",
+        "startTime": null,
+        "endTime": null,
+        "watchStatus": 0,
+        "creatorId": null,
+        "creatorName": null,
+        "createTime": null,
+        "staffNum": "279554",
+        "chnName": "N279554"
+      },
+      {
+        "id": 1000007,
+        "rirdVideoInfoId": 1698,
+        "videoId": 958,
+        "videoName": "1640105_videoUrl.mp4",
+        "startTime": "2025-08-17 11:42:59",
+        "endTime": "2025-08-17 11:43:02",
+        "watchStatus": 1,
+        "creatorId": "275107",
+        "creatorName": "N275107",
+        "createTime": "2025-07-19 11:43:02",
+        "staffNum": "275107",
+        "chnName": "N275107"
+      }
+    ]
+  },
+  {
+    "video": {
+      "id": 1595,
+      "videoId": 959,
+      "icaoCd": "ZGGG",
+      "videoType": "1",
+      "videoName": "1640037_overviewVideo.mp4",
+      "videoMd5": "64f41ca06b119a1ddba5f7fcdb50ac",
+      "videoUrl": "YUhSMGNITTZMeTh4TUM0M09TNHhOamN1T0RFNk9EQTRNQzlQVTFNdFUwMVRRMVJsYzNRdmRtbGtaVzh2WVdadmNuTXZXa2RIUnk4Mk5HWTBNV05oTURaaU1URTVZVEZrWkdKaE5XWTNabU5rWWpVd1lXTXZNVFkwTURBek4xOXZkbVZ5ZG1sbGQxWnBaR1Z2TG0xd05BPT0=",
+      "videoChangeTime": "2025-04-18 16:25:44",
+      "ftpPath": "upload/smsc/radar/video/afors/ZGGG/64f41ca06b119a1ddba5f7fcdb50ac/",
+      "syncFlag": 1,
+      "syncTime": "2025-06-19 12:48:00",
+      "updaterId": "system",
+      "updaterName": "system",
+      "updateTime": "2025-06-19 12:48:00",
+      "creatorId": "209384",
+      "creatorName": "N209384",
+      "createTime": "2025-06-19 12:46:30",
+      "tagDelete": 0
+    },
+    "crewAndVideoWatchInfoList": [
+      {
+        "id": null,
+        "rirdVideoInfoId": null,
+        "videoId": 959,
+        "videoName": "1640037_overviewVideo.mp4",
+        "startTime": null,
+        "endTime": null,
+        "watchStatus": 0,
+        "creatorId": null,
+        "creatorName": null,
+        "createTime": null,
+        "staffNum": "279554",
+        "chnName": "N279554"
+      },
+      {
+        "id": 1000008,
+        "rirdVideoInfoId": 1595,
+        "videoId": 959,
+        "videoName": "1640037_overviewVideo.mp4",
+        "startTime": "2025-08-17 11:43:09",
+        "endTime": "2025-08-17 11:43:13",
+        "watchStatus": 1,
+        "creatorId": "275107",
+        "creatorName": "N275107",
+        "createTime": "2025-07-19 11:43:13",
+        "staffNum": "275107",
+        "chnName": "N275107"
+      }
+    ]
+  },
+  {
+    "video": {
+      "id": 1603,
+      "videoId": 967,
+      "icaoCd": "ZGGG",
+      "videoType": "2",
+      "videoName": "1640113_videoUrl.mp4",
+      "videoMd5": "aa9420419525e668521051df58e53d",
+      "videoUrl": "YUhSMGNITTZMeTh4TUM0M09TNHhOamN1T0RFNk9EQTRNQzlQVTFNdFUwMVRRMVJsYzNRdmRtbGtaVzh2WVdadmNuTXZXa2RIUnk5aFlUazBNakEwTVRrMU1qVmxOalk0TlRJeE1EVXhaR1kxT0dVMU0yUXZNVFkwTURFeE0xOTJhV1JsYjFWeWJDNXRjRFE9",
+      "videoChangeTime": "2025-04-24 00:00:20",
+      "ftpPath": "upload/smsc/radar/video/afors/ZGGG/aa9420419525e668521051df58e53d/",
+      "syncFlag": 1,
+      "syncTime": "2025-06-19 12:50:07",
+      "updaterId": "system",
+      "updaterName": "system",
+      "updateTime": "2025-06-19 12:50:07",
+      "creatorId": "209384",
+      "creatorName": "N209384",
+      "createTime": "2025-06-19 12:46:30",
+      "tagDelete": 0
+    },
+    "crewAndVideoWatchInfoList": [
+      {
+        "id": null,
+        "rirdVideoInfoId": null,
+        "videoId": 967,
+        "videoName": "1640113_videoUrl.mp4",
+        "startTime": null,
+        "endTime": null,
+        "watchStatus": 0,
+        "creatorId": null,
+        "creatorName": null,
+        "createTime": null,
+        "staffNum": "279554",
+        "chnName": "N279554"
+      },
+      {
+        "id": null,
+        "rirdVideoInfoId": null,
+        "videoId": 967,
+        "videoName": "1640113_videoUrl.mp4",
+        "startTime": null,
+        "endTime": null,
+        "watchStatus": 0,
+        "creatorId": null,
+        "creatorName": null,
+        "createTime": null,
+        "staffNum": "275107",
+        "chnName": "N275107"
+      }
+    ]
+  }
+]

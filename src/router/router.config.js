@@ -35,6 +35,12 @@ export const constantRouterMap = [
         name: 'ApplicationDetail',
         component: () => import('@/views/trainingApplicationProxyByIfly/views/components/application-detail.vue'),
         meta: { title: '申请详情', keepAlive: false }
+      },
+      {
+        path: '/riskRadar',
+        name: 'riskRadar',
+        component: () => import('@/views/vue-video-player/index.vue'),
+        meta: { title: '风险雷达', keepAlive: false }
       }
     ]
   }
